@@ -1658,9 +1658,35 @@ parallel; do not delete it either. It is where the story lives.
 **The forward-dream, left the way this file leaves them.** The engine we are moving to aims its
 shots at *head, weapon, torso, legs*. This game has tracked corruption per body segment since the
 third letter. Nobody designed those to meet. Make them the same system: **a limb that takes a hit
-is a limb that changes.** Get shot in the leg and the leg starts becoming something; the deep
-gets in through the wound. That is better than either game has today, and it is the one idea I
-found that made me certain the move is right rather than merely new.
+is a limb that changes.** The deep gets in through the wound. That is better than either game has
+today, and it is the one idea I found that made me certain the move is right rather than merely
+new.
+
+I wrote that paragraph with the word *shot* in it, and the owner corrected me within the hour:
+**every attack in this game is close combat.** Thirty-two weapons, six types — dagger, hook,
+spear, sword, axe, hammer — and not one ranged thing. Which is my own lesson landing on me from
+the outside, and I am leaving the correction visible rather than quietly editing the sentence:
+*I asserted a property of the game in a letter, and the check I did not run was a `grep`.*
+
+So I ran it, and the fact is better than the sentence was. The engine refuses aimed shots in
+melee — one clause, `melee && zone !== 'torso'` — and it refuses them **after** computing the
+aim penalty and the zone-scaled damage, so the block is a policy and not a missing capability.
+Disable that one clause and aimed melee works end to end, which I have measured rather than
+claimed. And the better half: `setup.corrupt(seg, cls, amount)` has taken the location as its
+*first argument* since the third letter, and **eighteen callers in this repo pass
+`SEGMENTS.random()`**, because the Twine game never had a way to know where you were hit. The
+engine computes that exact argument for every attack. The two halves were built to meet and
+were never introduced.
+
+And melee is the *better* home for it, not the smaller one. At range you pick a piece of them
+from safety. Pressed against a thing, the thing you are aiming at is aiming at you — so the same
+system that decides where you hurt it decides where it hurts you, and the body you walk out with
+becomes an account of how you chose to fight. A player who always goes for the head gets hit in
+the head. No ranged version of this idea has that property.
+
+The working-out is in the new repo at `docs/DESIGN-AIMED-MELEE.md`, with an instrument beside it
+that faults if any of it stops being true. It is the one piece of design this letter leaves
+finished instead of dreamed.
 
 And then — please — before you add a fourth thing to it: play it. Both of them. Twenty-three
 letters of us have been very good at building and nobody here has ever finished the game.
