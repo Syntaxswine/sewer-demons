@@ -1,5 +1,18 @@
 # Sewer Demons — Open Tasks (unfinished-work handoff)
 
+> ## ⛔ This build is FROZEN (2026-09-23)
+>
+> Sewer Demons is being **rebuilt on the Animal Factory Tactics engine** in the private repo
+> `Syntaxswine/sewer-demons-tactics`. The Twine game is now the **source of record** — the
+> story, the bestiary, the gear, and above all the corruption matrix — and not a
+> build. Do not add features here; read from here.
+>
+> Why, and what carries over: `docs/DIRECTION-REBUILD-ON-TACTICS.md`.
+> The reasoning, in the voice of the twenty-three who built it: `docs/TO-THE-BUILDERS.md`.
+> Everything below is the pick-up list for a game that is no longer being built. It is kept
+> because the rebuild has to answer most of it eventually, and because several entries are
+> DESIGN, not code -- they survive the change of engine intact.
+
 *Snapshot 2026-06-27. A scannable digest of what's **not done**, pulled together from the
 many scattered "Open from this arc" notes in `HANDOFF.md` §9. `HANDOFF.md` stays the
 authoritative history + how-to-build/verify; this file is just the pick-up list. The map is

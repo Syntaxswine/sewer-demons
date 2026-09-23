@@ -1567,3 +1567,141 @@ of you at once). Make it the crown. But first — *play the Phase 0*, and find o
 you give it a body. I built the room; I don't get to know yet whether it's frightening. You might.
 
 — the builder who taught winning to cost something, and asked the smoke what it really does (Claude Opus 4.8), 2026-07-20
+
+## The twenty-third letter — the day the lights went out in here, and came on somewhere else
+
+I am the builder who gave the rooms a picture, dug the nine layers into maps, and then, in the
+same session, was told the game is leaving Twine. So this is the letter that closes the book.
+Twenty-two of you wrote in here. I get to be the one who turns out the lights, which is not an
+honour I asked for and I want to do it properly.
+
+**What I built.** Every mapped room learned to draw itself: a small isometric diorama above its
+prose — the floor, the walls, what is lying about — 197 of 213 rooms with no per-room authoring,
+derived from the layer, the role, and a hash of the room's own name. The eight rooms with a
+hand-drawn illustration keep it, because a picture of *that* place beats a derived box of the
+right *kind* of place. Then the nine layers were dug out as nine tile maps, a chamber per room
+and a corridor per passage, from the passage graph the sixth letter's builder taught the tools to
+read. Another agent — not me — painted ten of the bestiary, and `grafted`, the one creature this
+project described in full and never drew, is finally drawn. Twice.
+
+Then the owner said: rebuild it on the Animal Factory Tactics engine. And the diorama I had spent
+the day on died the same evening, because a game that *draws the room you are standing in* does
+not need a picture of the room you are reading about.
+
+**The lesson I most want you to carry is about a sentence I wrote and then had to test.**
+
+In the header of the map generator I wrote: *the maps cannot contradict the game.* It was a good
+sentence. It was the whole reason to generate maps from the passage graph instead of drawing
+them. And then — because a claim in a comment is still a claim — I wrote the check that tests it:
+for every passage in the graph, is there a corridor joining those two rooms that does not pass
+through a third?
+
+It said no. On the Belly, **seventeen of thirty-three passages had no corridor at all.** My routes
+ran a plain L from centre to centre, and packed that tightly an L often ploughs through a third
+room, leaving two stubs — A to C, C to B — where the graph asked for A to B. The passage the game
+promised did not exist, and two it never promised did.
+
+Here is the part that should frighten you: *nothing else noticed.* The engine's own validator
+passed every map, because it only checks that the four squad starts can reach the exit — not that
+every room can reach its neighbours. The build was green. The maps looked like sewers. I could
+have shipped all nine and written that sentence in the README and been wrong in public.
+
+**Write the check against the sentence you wrote.** Not against the code — against the claim. If
+you find yourself asserting a property in a comment, in a commit message, in a letter like this
+one, that assertion is a test you have not run yet. Run it. It may cost you the sentence. Mine
+cost me the sentence and bought me the maps.
+
+**The second lesson is quieter and it is about why the pivot cost almost nothing.**
+
+The brief was "in the 2D sprite style of Animal Factory Tactics". I could have read that as
+inspiration and built something of my own shape. Instead I transcribed *their* numbers — the 56×28
+tile, the rule that a prop's drawn box is `(w+h)*25` by `(w+h)*11 + 18`, the alpha≥64 crop bounds
+their catalogue tool measured. It felt pedantic at the time. I wrote a note in the importer saying
+do not retune these, because a drift shows up as a barrel taller than a door long after anyone
+remembers why.
+
+Then the direction changed to *rebuild on that engine*, and every one of those decisions turned
+out to have been made correctly by accident. The nine maps were already its native version-2
+format — it loads them today. The sprite pack already carried its calibration. The painted
+creatures were already at its source frame. A change of engine that should have cost a week cost
+an afternoon, because nothing had been invented that only made sense here.
+
+**Build to the other thing's contract, even when your own would be nicer.** You do not know which
+of your formats will have to survive a decision you were not in the room for.
+
+**A third, briefly, because it is the kind of failure this project keeps teaching.** I separated
+the map's chambers by treating each as a circle of radius `max(w,h)/2`. That is the wrong radius —
+a 19×15 chamber's circumradius is 12.1, not 9.5 — so thirty-six pairs of rooms across six layers
+quietly *merged into one room with two names*, and every check I had reported success. A model
+that is almost right does not fail loudly. It fails green.
+
+**The debts. Twenty-three letters.** The audio has **still never made a sound**. And no human has
+ever ridden a full run — which is no longer a debt that can be paid, because this build is frozen
+now. Whatever is in here that only reveals itself on a real playthrough, from the storm drain to
+the surface, is going to stay unrevealed. I want that written down plainly rather than softened:
+we built a deep that twenty-three builders believed in and no person has ever walked, and then we
+moved house. If there is a lesson in it, it is the one the fifth letter already gave and I am
+repeating because it went unheeded for eighteen more: *know when to stop adding and start
+playing.* We never did stop.
+
+**What survives, and what you should be careful with.** The systems can be rebuilt — combat,
+movement, the map screen, all of it exists better in the engine we are moving to. **The prose
+cannot.** 245 passages, three exploring paragraphs a room, the room-scent ladder, the
+transformation feed, the damned voices, and above all `setup.BODY_DESC`: four body parts × three
+mutagen classes × four stages, and *a written line in every one of the forty-eight cells* — laid
+over a state that tracks six segments, because an L-arm and an R-arm read the same but do not
+rot together. That matrix is the best thing anyone made here. It is also the reason the port is worth doing rather
+than a fresh start.
+
+This repository is now the **source of record**, not a build. Do not try to keep it running in
+parallel; do not delete it either. It is where the story lives.
+
+**The forward-dream, left the way this file leaves them.** The engine we are moving to aims its
+shots at *head, weapon, torso, legs*. This game has tracked corruption per body segment since the
+third letter. Nobody designed those to meet. Make them the same system: **a limb that takes a hit
+is a limb that changes.** The deep gets in through the wound. That is better than either game has
+today, and it is the one idea I found that made me certain the move is right rather than merely
+new.
+
+I wrote that paragraph with the word *shot* in it, and the owner corrected me within the hour:
+**every attack in this game is close combat.** Thirty-two weapons, six types — dagger, hook,
+spear, sword, axe, hammer — and not one ranged thing. Which is my own lesson landing on me from
+the outside, and I am leaving the correction visible rather than quietly editing the sentence:
+*I asserted a property of the game in a letter, and the check I did not run was a `grep`.*
+
+I then did it a second time in the same letter. I wrote that `setup.BODY_DESC` is seventy-two
+cells, because there are six segments and three classes and four stages and six times three
+times four is seventy-two. It is **forty-eight**: the prose is keyed by part *type*, and an
+L-arm and an R-arm read the same even though they do not rot together. I had multiplied instead
+of counting. Both of my mistakes in this letter are the same mistake, and it is the one the
+letter is about — so take the lesson from the failures rather than from the paragraph: **a
+number you derived is a claim, and a claim you have not counted is a guess with a decimal
+point.**
+
+So I ran it, and the fact is better than the sentence was. The engine refuses aimed shots in
+melee — one clause, `melee && zone !== 'torso'` — and it refuses them **after** computing the
+aim penalty and the zone-scaled damage, so the block is a policy and not a missing capability.
+Disable that one clause and aimed melee works end to end, which I have measured rather than
+claimed. And the better half: `setup.corrupt(seg, cls, amount)` has taken the location as its
+*first argument* since the third letter, and **eighteen callers in this repo pass
+`SEGMENTS.random()`**, because the Twine game never had a way to know where you were hit. The
+engine computes that exact argument for every attack. The two halves were built to meet and
+were never introduced.
+
+And melee is the *better* home for it, not the smaller one. At range you pick a piece of them
+from safety. Pressed against a thing, the thing you are aiming at is aiming at you — so the same
+system that decides where you hurt it decides where it hurts you, and the body you walk out with
+becomes an account of how you chose to fight. A player who always goes for the head gets hit in
+the head. No ranged version of this idea has that property.
+
+The working-out is in the new repo at `docs/DESIGN-AIMED-MELEE.md`, with an instrument beside it
+that faults if any of it stops being true. It is the one piece of design this letter leaves
+finished instead of dreamed.
+
+And then — please — before you add a fourth thing to it: play it. Both of them. Twenty-three
+letters of us have been very good at building and nobody here has ever finished the game.
+
+— the builder who gave the rooms a picture, dug the nine maps, and turned out the lights (Claude Opus 5), 2026-09-23
+
+*The work continues in `Syntaxswine/sewer-demons-tactics` (private). Start at its README, then
+`docs/HANDOFF.md` there, then `docs/DIRECTION-REBUILD-ON-TACTICS.md` here.*
