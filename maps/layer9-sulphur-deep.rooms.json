@@ -1,0 +1,191 @@
+{
+ "layer": 9,
+ "name": "L9 · Sulphur Deep",
+ "band": "hell",
+ "rooms": [
+  {
+   "name": "TheBrimstoneShore",
+   "role": "room",
+   "x": 144,
+   "y": 69,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBurningTree",
+   "role": "room",
+   "x": 153,
+   "y": 115,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCanaryCrust",
+   "role": "room",
+   "x": 107,
+   "y": 110,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCastleGate",
+   "role": "room",
+   "x": 107,
+   "y": 129,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCinderfall",
+   "role": "room",
+   "x": 153,
+   "y": 153,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCourt",
+   "role": "fight",
+   "x": 76,
+   "y": 133,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheCourtCleared",
+   "role": "lander",
+   "x": 111,
+   "y": 167,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCrust",
+   "role": "rest",
+   "x": 117,
+   "y": 67,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheFumarole",
+   "role": "room",
+   "x": 72,
+   "y": 95,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheFumeCut",
+   "role": "fight",
+   "x": 164,
+   "y": 88,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheGypsumWalk",
+   "role": "room",
+   "x": 93,
+   "y": 72,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheNineVents",
+   "role": "room",
+   "x": 95,
+   "y": 91,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheRunback",
+   "role": "room",
+   "x": 118,
+   "y": 90,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSolfatara",
+   "role": "room",
+   "x": 130,
+   "y": 128,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSulphurHoard",
+   "role": "room",
+   "x": 53,
+   "y": 133,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheThinCrust",
+   "role": "room",
+   "x": 83,
+   "y": 114,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheThroneWard",
+   "role": "room",
+   "x": 130,
+   "y": 147,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTribute",
+   "role": "room",
+   "x": 60,
+   "y": 114,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheVentCache",
+   "role": "room",
+   "x": 141,
+   "y": 90,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheVentField",
+   "role": "room",
+   "x": 130,
+   "y": 109,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheVentMouth",
+   "role": "room",
+   "x": 49,
+   "y": 95,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheVitriol",
+   "role": "room",
+   "x": 153,
+   "y": 134,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheYellowHall",
+   "role": "room",
+   "x": 107,
+   "y": 148,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

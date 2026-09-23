@@ -19,6 +19,10 @@ if (-not $?) { Write-Error "map-data embed failed"; exit 1 }
 $tweego = Join-Path $root ".tools\tweego.exe"
 $srcDir = Join-Path $root "src"
 $env:TWEEGO_PATH = Join-Path $root ".tools\storyformats"
+# dist/ is git-ignored, so a fresh clone (or a new worktree) has none and tweego will
+# not create the parent directory for its own output.
+$distDir = Join-Path $root "dist"
+if (-not (Test-Path $distDir)) { New-Item -ItemType Directory -Path $distDir -Force | Out-Null }
 & $tweego -o (Join-Path $root "dist\index.html")        $srcDir
 if (-not $?) { Write-Error "tweego compile failed (index.html)"; exit 1 }
 & $tweego -o (Join-Path $root "dist\sewer-demons.html") $srcDir
@@ -35,6 +39,19 @@ if (-not $?) { Write-Error "link check failed (a <<goto>> points at a missing pa
 if (-not $?) { Write-Error "reachability check failed (a room is disconnected - see the UNREACHABLE list)"; exit 1 }
 # (Diagnostic, not gated: `node tools/passage-graph.mjs --oneway` lists one-way edges —
 #  run it after a rewire to spot a break cut in only one direction.)
+
+# 1d) sprite scenes — fail the build if a hand-authored SCENE_ROOM override names a room
+#     that is not a passage, or a prop/wall/ground that is not in the sprite pack. Both
+#     fail SILENTLY at runtime (an empty corner of a picture nobody inspects), so they
+#     have to be caught here. Exits 1 on a fault.
+& node (Join-Path $root "tools\scene-probe.mjs")
+if (-not $?) { Write-Error "scene probe failed (a diorama override points at nothing - see the FAULT list)"; exit 1 }
+
+# 1e) sprite pack — verify the committed sprites still match the Animal Factory Tactics
+#     art they were baked from. SKIPS cleanly (exit 0) when that checkout is absent, so a
+#     fresh clone without the private art repo can still build and play.
+& python (Join-Path $root "tools\prepare-sprites.py") --check
+if (-not $?) { Write-Error "sprite pack is stale - rerun tools/prepare-sprites.py"; exit 1 }
 
 # 2) sync art into dist (so img/enemy/<id>.png resolves when serving dist/)
 $srcImg = Join-Path $root "img"

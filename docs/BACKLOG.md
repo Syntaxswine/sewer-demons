@@ -4,7 +4,8 @@
 many scattered "Open from this arc" notes in `HANDOFF.md` §9. `HANDOFF.md` stays the
 authoritative history + how-to-build/verify; this file is just the pick-up list. The map is
 **structurally complete** (all 9 layers, 236 passages) — everything below is enrichment, not
-structure. **LOCAL-ONLY repo: commit, never push.***
+structure. **The repo went PUBLIC on 2026-09-22 (`Syntaxswine/sewer-demons`): branch and
+open a PR; the pre-public history stays on the local `archive-local-history` branch.***
 
 > **See also `REVIEW-RPG-CANON.md` (2026-07-01):** a 32-item verified review of gaps vs the
 > classic RPG canon — deliberately **non-overlapping** with this file, and the live per-finding
@@ -100,6 +101,15 @@ structure. **LOCAL-ONLY repo: commit, never push.***
   quiet contrast to the wheel-tout) — could earn a `<<roomart>>` portrait and a name.
 
 ## Creatures · art · NPCs (dreamed or half-built)
+
+- **★ CHARACTER SPRITES — the open art job (2026-09-22).** Rooms now draw themselves as
+  isometric sprite dioramas; the things standing in them do not exist. Full work order in
+  [`../art/CHARACTER-SPRITES.md`](../art/CHARACTER-SPRITES.md): the player **paper-doll**
+  (one image per body segment per mutagen class per stage — 24 minimum, 78 complete), the
+  14-creature bestiary at idle/attack/down, and **four creatures with no art of any kind**
+  (`grafted` — fully described in `BESTIARY-ART.md` and never drawn — plus `shadowperson`,
+  `smokewisp`, and `shortweight`, which needs six faces). Pipeline and renderer are done;
+  every item is a drop-in.
 
 - **Re-theme the named demons** (Whisperer / Tallow / Understudy) against the research bestiary
   (Šulak / Akaname the filth-licker / Kanbari-nyūdō). Still first-draft text — *the most visible

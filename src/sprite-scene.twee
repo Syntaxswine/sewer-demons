@@ -1,0 +1,447 @@
+:: SpriteScene [script]
+/* ---- THE ROOM DIORAMA — an isometric sprite scene above a room's prose.
+
+   Sewer Demons is a prose game, so this is deliberately not a viewport you steer.
+   It is a small painted box at the top of the passage that says what KIND of place
+   this is before you read a word of it: what the floor is, what the walls are made
+   of, what is lying about. The prose still does the work; the picture sets the key.
+
+   The art, the projection and the placement rules are all Animal Factory Tactics'
+   (see art/SPRITES.md). Its tile is 56x28 — a 2:1 isometric diamond — and its props
+   are drawn to a box of (w+h)*25 by (w+h)*11 + 18, which is what keeps a barrel and
+   a doorway the same world. tools/prepare-sprites.py bakes those numbers into
+   setup.spriteData; this file only reads them. Do not retune a scale here: that
+   would put the two halves of one system out of step, and the drift would be
+   invisible until a barrel stood taller than a door.
+
+   Scenes are DERIVED, not authored. 245 rooms is too many to dress by hand and a
+   half-dressed map reads worse than an undressed one, so every room gets a scene
+   from three things it already publishes — its layer (the material palette), its
+   role (what a room for fighting has lying in it that a room for resting does not),
+   and a hash of its own name (the variation). setup.SCENE_ROOM overrides the rooms
+   that have earned a specific look.
+
+   Lives in this raw-JS script-block rather than the StoryInit run-block for the same
+   reason setup.mapView does: TwineScript desugaring mangles operator-words inside
+   string literals, and this file is full of them.
+   ---- */
+
+/* ---- projection ---------------------------------------------------------------
+   Tile coordinates are integers at tile CENTRES; a tile covers the corner square
+   (x-0.5, y-0.5)..(x+0.5, y+0.5). Walls sit on corner lines, which is why the edge
+   routine below is handed half-coordinates. */
+setup.SCENE_TW = 28;   /* half a tile wide  */
+setup.SCENE_TH = 14;   /* half a tile tall  */
+
+setup.sceneProject = function (x, y) {
+    return { x: (x - y) * setup.SCENE_TW, y: (x + y) * setup.SCENE_TH };
+};
+
+/* ---- a per-room random that does NOT touch the game's own ---------------------
+   State.random() drives loot, encounters and corruption. Drawing a picture must
+   never consume a number from it, or every roll downstream of the first room you
+   look at shifts. So: a string hash seeds a private 32-bit generator, and the same
+   room name always dresses itself the same way, in this life and the next. */
+setup.sceneRng = function (seed) {
+    var h = 2166136261;
+    for (var i = 0; i < seed.length; i++) {
+        h ^= seed.charCodeAt(i);
+        h = (h * 16777619) >>> 0;
+    }
+    return function () {
+        h ^= h << 13; h >>>= 0;
+        h ^= h >>> 17;
+        h ^= h << 5;  h >>>= 0;
+        return h / 4294967296;
+    };
+};
+
+/* ---- material palette by layer ------------------------------------------------
+   What the floor and the walls are made of, layer by layer. The sewer bands are
+   built things (poured concrete, Victorian brick); the carnival is hell's own
+   shanty-town, so it is sheet metal over glazed tile; the deep is ash and gravel. */
+setup.SCENE_LAYER = {
+    1: { ground: "ground-asphalt",  wall: "wall-brick"      },  /* storm drains — the street is the ceiling */
+    2: { ground: "ground-concrete", wall: "wall-concrete"   },  /* trunk mains — the works proper */
+    3: { ground: "ground-dirt",     wall: "wall-brick"      },  /* old drains — cut-and-cover, older hands */
+    4: { ground: "river-water",     wall: "wall-brick"      },  /* drowned galleries — standing water */
+    5: { ground: "ground-concrete", wall: "wall-concrete"   },  /* hellmouth — the threshold, still built */
+    6: { ground: "ground-tiles",    wall: "wall-corrugated" },  /* the Shambles — a carnival in sheet metal */
+    7: { ground: "ground-dirt",     wall: "wall-brick"      },  /* the Belly — it is not masonry any more */
+    8: { ground: "ground-concrete", wall: "wall-corrugated" },  /* rendering works — a factory floor */
+    9: { ground: "ground-gravel",   wall: "wall-concrete"   }   /* sulphur deep — ash and crust */
+};
+
+/* ---- the grade -----------------------------------------------------------------
+   The imported art was painted for a daylit tactical map: a farm at noon. Dropped
+   into this game untouched it reads as a clean warehouse, which is the one thing a
+   sewer is not. So every scene gets a wash keyed to its BAND -- the same three-way
+   split the map already uses (setup.mapMeta.band).
+
+   It is applied with "source-atop", which tints only pixels that were actually drawn
+   and leaves the empty corners alone. A plain multiply over the whole rect would
+   paint the transparent background too and give every scene a hard rectangular edge,
+   which is exactly what the vignette is there to avoid. */
+setup.SCENE_GRADE = {
+    sewer:   "rgba(60, 102, 74, 0.34)",    /* cold, wet, algal — a working sewer */
+    between: "rgba(62, 80, 118, 0.34)",    /* colder and bluer — drowned, and further from the sun */
+    hell:    "rgba(152, 72, 42, 0.34)",    /* rust and firelight */
+    meta:    "rgba(60, 102, 74, 0.28)"
+};
+/* Each wash is a SATURATED MID-TONE, not a dark one, and that is the whole trick.
+   source-atop blends toward the wash colour, so the result carries the wash's
+   luminance as well as its hue: the first two passes used near-black greens and rusts,
+   which coloured the scene correctly and dragged it to a smear at the same time
+   (measured mean luma fell from 111 to 76, and a room of jail bars became unreadable).
+   These sit at roughly the luminance of the art itself, so they shift the KEY without
+   touching the exposure, and the vignette and the page's black surround are left to
+   carry the dark. Check with the luma numbers, not by eye -- a dark page makes
+   everything on it look fine. */
+
+/* what tends to be lying about, by what the room is FOR */
+setup.SCENE_ROLE_PROPS = {
+    room:   ["crate-wood", "barrel-single", "pallet", "barrels-cluster", "crate-steel", "spare-parts"],
+    rest:   ["crate-wood", "table-wood", "barrel-single", "first-aid-kit", "supply-chest-closed", "toolbox-closed"],
+    fight:  ["sandbags", "crate-stack", "barrels-cluster", "pallet", "spare-parts"],
+    lander: ["sandbags", "crate-stack", "barrel-single", "spare-parts"],
+    ending: ["barrel-single", "crate-stack"]
+};
+
+/* ---- rooms that have earned a specific look -----------------------------------
+   Anything named here replaces or extends the derived scene. Keep this list short
+   and meaningful: a room belongs here when the prose has already promised the
+   player something they should be able to SEE. */
+setup.SCENE_ROOM = {
+    TheSurgery:       { props: ["medical-surgical-table", "instrument-trolley", "medicine-cabinet"] },
+    TheFleshcutter:   { props: ["medical-exam-table", "instrument-trolley"] },
+    TheWard:          { props: ["hospital-bed", "iv-stand", "bedside-monitor"] },
+    TheHolding:       { wall: "jail-bars", props: ["pallet", "crate-wood"] },
+    TheCageAct:       { wall: "jail-bars", props: ["crate-stack"] },
+    TheBirthingDens:  { wall: "jail-bars", props: ["pallet", "crate-wood"] },
+    TheBreeder:       { wall: "jail-bars", props: ["pallet"] },
+    TheSty:           { wall: "jail-bars", props: ["pallet", "barrel-single"] },
+    TheStyCleared:    { wall: "jail-bars", props: ["pallet", "barrel-single"] },
+    /* shadowed today by a hand-drawn roomart, and kept on purpose: if that
+       illustration is ever replaced the derived scene should still be the right one.
+       tools/scene-probe.mjs reports it as SHADOWED rather than as a fault. */
+    TheBathhouse:     { ground: "ground-tiles", props: ["scrub-sink", "crate-wood"] },
+    TheDrumStore:     { props: ["barrels-cluster", "barrel-single", "crate-stack", "pallet"] },
+    TheGaugeHouse:    { props: ["workbench-vise", "lab-control-console", "toolbox-open"] },
+    ThePumpRoom:      { props: ["workbench-metal", "lab-control-console", "barrel-single"] },
+    TheValvePuzzle:   { props: ["lab-control-console", "workbench-metal"] },
+    TheVentControl:   { props: ["lab-control-console", "toolbox-closed"] },
+    Maintenance:      { props: ["workbench-metal", "toolbox-open", "spare-parts", "wire-cutters"] },
+    TheSmithStall:    { props: ["workbench-vise", "crate-steel", "barrel-single"] },
+    TheButchersStall: { props: ["table-steel", "crate-wood"] },
+    TheStillborn:     { props: ["wheeled-stretcher", "iv-stand"] },
+    TheColdStore:     { props: ["crate-steel", "crate-stack", "barrels-cluster"] },
+    TheLostAndFound:  { props: ["crate-wood", "wooden-crate-open", "supply-chest-open", "crate-stack"] },
+    TheStill:         { props: ["barrels-cluster", "barrel-single", "table-wood"] },
+    TheLarder:        { props: ["crate-wood", "supply-chest-closed", "table-wood"] }
+};
+
+/* ---- the sprite cache ---------------------------------------------------------
+   Images load asynchronously and a passage renders once, so every scene registers
+   a redraw for when its art arrives. */
+setup.sceneImages = {};
+
+/* An image is only safe to draw when BOTH flags are up. naturalWidth goes non-zero as
+   soon as the header parses, which is BEFORE the pixels have decoded; drawImage in that
+   window silently draws nothing and returns normally. Guarding on naturalWidth alone
+   baked a permanently blank floor tile into the cache the first time a redraw fired
+   while the ground texture was mid-decode -- walls and props only escaped it by winning
+   the race. Ask for complete as well, always. */
+setup.sceneReady = function (img) { return !!(img && img.complete && img.naturalWidth); };
+
+setup.sceneImage = function (file, onLoad) {
+    var cache = setup.sceneImages;
+    if (!cache[file]) {
+        var img = new Image();
+        img.dataset.ready = "";
+        img.addEventListener("load", function () { img.dataset.ready = "1"; });
+        img.src = "img/sprite/" + file;
+        cache[file] = img;
+    }
+    var im = cache[file];
+    if (onLoad && !im.dataset.ready) { im.addEventListener("load", onLoad, { once: true }); }
+    return im;
+};
+
+/* the ground texture is a square that has to lie down on a diamond. Skew it once
+   into an offscreen canvas at 2x and let drawImage do the downsample — the same
+   trick Tactics uses, and it is the difference between a crisp floor and a stairstep. */
+setup.SCENE_GROUND_SS = 4;   /* supersample: build the diamond at 4x the tile and let
+                                drawImage downsample it. At 1x the floor stairsteps
+                                along every diamond edge; at 4x it does not, and the
+                                cost is one 224x112 canvas per material, once. */
+setup.sceneGroundCache = {};
+setup.sceneGroundTile = function (id, img) {
+    var cache = setup.sceneGroundCache;
+    if (!cache[id] && setup.sceneReady(img)) {
+        var k = setup.SCENE_GROUND_SS, w = setup.SCENE_TW * 2 * k, h = setup.SCENE_TH * 2 * k;
+        var c = document.createElement("canvas");
+        c.width = w; c.height = h;
+        var g = c.getContext("2d");
+        /* skew the square texture onto the diamond: its four corners land on the
+           diamond's four corners, which is what makes a flat tile lie down */
+        g.setTransform(w / 2 / img.naturalWidth, h / 2 / img.naturalHeight,
+                       -w / 2 / img.naturalWidth, h / 2 / img.naturalHeight, w / 2, 0);
+        g.drawImage(img, 0, 0);
+        cache[id] = c;
+    }
+    return cache[id];
+};
+
+/* ---- derive a scene from a room name ------------------------------------------ */
+setup.sceneFor = function (name) {
+    var layer = setup.depthOf ? setup.depthOf[name] : null;
+    if (!layer || !setup.SCENE_LAYER[layer]) { return null; }
+
+    /* the room's role, straight off the baked map graph */
+    var role = "room", G = setup.mapGraph && setup.mapGraph[String(layer)];
+    if (G) {
+        for (var i = 0; i < G.rooms.length; i++) {
+            if (G.rooms[i][0] === name) { role = G.rooms[i][1]; break; }
+        }
+    }
+
+    var rng = setup.sceneRng(name);
+    var mat = setup.SCENE_LAYER[layer];
+    var over = setup.SCENE_ROOM[name] || {};
+    var spec = {
+        w: 4 + Math.floor(rng() * 3),          /* 4..6 tiles across */
+        h: 3 + Math.floor(rng() * 2),          /* 3..4 tiles deep   */
+        ground: over.ground || mat.ground,
+        wall: over.wall || mat.wall,
+        band: (setup.mapMeta && setup.mapMeta.band[String(layer)]) || "sewer",
+        role: role,
+        props: []
+    };
+
+    /* Place props on the BACK half only. The front row is where a reader's eye
+       lands and where an actor will stand once there is character art, so it stays
+       clear — a prop there would have to be occluded by a figure that does not
+       exist yet, and the empty foreground reads as floor rather than as a gap. */
+    var pool = (over.props || setup.SCENE_ROLE_PROPS[role] || setup.SCENE_ROLE_PROPS.room).slice();
+    var slots = [];
+    for (var y = 0; y < Math.max(1, spec.h - 1); y++) {
+        for (var x = 0; x < spec.w; x++) { slots.push([x, y]); }
+    }
+    /* Fisher-Yates on the private generator */
+    for (var s = slots.length - 1; s > 0; s--) {
+        var j = Math.floor(rng() * (s + 1));
+        var t = slots[s]; slots[s] = slots[j]; slots[j] = t;
+    }
+
+    /* scale with the floor, not a flat count: two crates that furnish a 4x3 leave a
+       6x4 looking swept. Roughly one prop per eight tiles, plus a coin-flip. */
+    var want = over.props ? pool.length : 2 + Math.floor((spec.w * spec.h) / 8) + Math.floor(rng() * 2);
+    var taken = {};
+    for (var p = 0; p < pool.length && spec.props.length < want; p++) {
+        var id = over.props ? pool[p] : pool[Math.floor(rng() * pool.length)];
+        var def = setup.spriteData.props[id];
+        if (!def) { continue; }
+        var fw = def.footprint[0], fh = def.footprint[1];
+        for (var k = 0; k < slots.length; k++) {
+            var sx = slots[k][0], sy = slots[k][1], free = true;
+            if (sx + fw > spec.w || sy + fh > spec.h) { continue; }
+            for (var cx = sx; cx < sx + fw && free; cx++) {
+                for (var cy = sy; cy < sy + fh && free; cy++) {
+                    if (taken[cx + "," + cy]) { free = false; }
+                }
+            }
+            if (!free) { continue; }
+            for (var mx = sx; mx < sx + fw; mx++) {
+                for (var my = sy; my < sy + fh; my++) { taken[mx + "," + my] = 1; }
+            }
+            spec.props.push({ id: id, x: sx, y: sy });
+            break;
+        }
+    }
+    return spec;
+};
+
+/* ---- draw ---------------------------------------------------------------------
+   Painter's order: floor, then the two back walls, then everything standing up in
+   depth order (x+y ascending), so a nearer barrel covers a further one. */
+setup.SCENE_HEAD = 80;      /* headroom above the floor: a 72px wall plus a little overhang */
+setup.SCENE_TARGET_H = 300; /* how tall the picture sits on the page, in CSS pixels.
+
+   Zoom is derived from THIS and not passed in, because an isometric floor is
+   inherently half as tall as it is wide: fixing the width instead would make a
+   column-wide scene 280px of floor before a single wall went up, and a big room
+   would tower over a small one for no reason the player could read. Pinning the
+   HEIGHT makes every room the same weight on the page -- a plate of a consistent
+   size, the way the hand-drawn room illustrations already are -- and lets the width
+   say how big the room is. */
+
+setup.spriteScene = function (host, spec) {
+    if (!host || !spec || !setup.spriteData) { return; }
+    var TW = setup.SCENE_TW, TH = setup.SCENE_TH, D = setup.spriteData;
+    var HEAD = setup.SCENE_HEAD;
+    var w = spec.w, h = spec.h;
+    var zoom = setup.SCENE_TARGET_H / ((w + h) * TH + HEAD);
+    var cw = (w + h) * TW * zoom;
+    var ch = setup.SCENE_TARGET_H;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    var canvas = host.querySelector("canvas");
+    if (!canvas) { canvas = document.createElement("canvas"); host.appendChild(canvas); }
+    canvas.width = Math.round(cw * dpr);
+    canvas.height = Math.round(ch * dpr);
+    /* draw 1:1 in CSS pixels (dpr only raises the backing store), so nothing is
+       resampled a second time by the browser */
+    canvas.style.width = Math.round(cw) + "px";
+    canvas.style.height = Math.round(ch) + "px";
+
+    var ctx = canvas.getContext("2d");
+    var redraw = function () { setup.spriteScene(host, spec); };
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.save();
+    ctx.translate(h * TW * zoom, (TH + HEAD) * zoom);
+
+    var proj = function (x, y) {
+        var p = setup.sceneProject(x, y);
+        return { x: p.x * zoom, y: p.y * zoom };
+    };
+
+    /* floor */
+    var gdef = D.grounds[spec.ground];
+    if (gdef) {
+        var gimg = setup.sceneImage(gdef.file, redraw);
+        var tile = setup.sceneGroundTile(spec.ground, gimg);
+        if (tile) {
+            for (var gy = 0; gy < h; gy++) {
+                for (var gx = 0; gx < w; gx++) {
+                    var q = proj(gx, gy);
+                    ctx.drawImage(tile, q.x - TW * zoom, q.y - TH * zoom, TW * 2 * zoom, TH * 2 * zoom);
+                }
+            }
+        }
+    }
+
+    /* the two far walls, along the corner lines y = -0.5 and x = -0.5 */
+    var edef = D.edges[spec.wall];
+    if (edef) {
+        var eimg = setup.sceneImage(edef.file, redraw);
+        if (setup.sceneReady(eimg)) {
+            for (var ex = 0; ex < w; ex++) { setup.sceneEdge(ctx, edef, eimg, proj, ex - 0.5, -0.5, ex + 0.5, -0.5, zoom); }
+            for (var ey = h - 1; ey >= 0; ey--) { setup.sceneEdge(ctx, edef, eimg, proj, -0.5, ey + 0.5, -0.5, ey - 0.5, zoom); }
+        }
+    }
+
+    /* everything standing on the floor, far to near */
+    var standing = spec.props.map(function (p) {
+        var def = D.props[p.id];
+        return def ? { p: p, def: def, depth: p.x + p.y + (def.footprint[0] + def.footprint[1]) / 2 } : null;
+    }).filter(Boolean);
+    standing.sort(function (a, b) { return a.depth - b.depth; });
+    standing.forEach(function (it) { setup.sceneProp(ctx, it.def, setup.sceneImage(it.def.file, redraw), proj, it.p, zoom); });
+
+    ctx.restore();
+
+    /* the band wash, over everything that got drawn and nothing that did not */
+    var grade = setup.SCENE_GRADE[spec.band] || setup.SCENE_GRADE.sewer;
+    ctx.globalCompositeOperation = "source-atop";
+    ctx.fillStyle = grade;
+    ctx.fillRect(0, 0, cw, ch);
+    ctx.globalCompositeOperation = "source-over";
+};
+
+/* a prop: scaled into the box Tactics calibrated for its footprint, stood on the
+   bottom-centre of its tile group */
+setup.sceneProp = function (ctx, def, img, proj, p, zoom) {
+    if (!setup.sceneReady(img)) { return; }
+    var fw = def.footprint[0], fh = def.footprint[1];
+    var q = proj(p.x + (fw - 1) / 2, p.y + (fh - 1) / 2);
+    var scale = Math.min(def.box[0] * zoom / img.naturalWidth, def.box[1] * zoom / img.naturalHeight);
+    var dw = img.naturalWidth * scale, dh = img.naturalHeight * scale;
+    ctx.save();
+    ctx.translate(q.x, q.y + (fw + fh) * 5 * zoom);
+    ctx.drawImage(img, -dw / 2, -dh, dw, dh);
+    ctx.restore();
+};
+
+/* an edge piece: sheared so its baked baseline lands on the tile edge running from
+   corner (ax,ay) to corner (bx,by). The quad in the manifest is the art's own ground
+   line plus how tall it stands there, so the same routine hangs a wall, a railing,
+   a door and a run of jail bars without knowing which it has. */
+setup.sceneEdge = function (ctx, def, img, proj, ax, ay, bx, by, zoom) {
+    var a = proj(ax, ay), b = proj(bx, by);
+    var x0 = def.baseline[0], y0 = def.baseline[1], x1 = def.baseline[2], y1 = def.baseline[3];
+    var srcH = def.baseline[4];
+    var d = (def.height * zoom) / srcH;
+    var sx = (b.x - a.x) / (x1 - x0);
+    var sy = ((b.y - a.y) - d * (y1 - y0)) / (x1 - x0);
+    ctx.save();
+    ctx.transform(sx, sy, 0, d, a.x - sx * x0, a.y - sy * x0 - d * y0);
+    ctx.drawImage(img, 0, 0);
+    ctx.restore();
+};
+
+
+/* ---- wiring ------------------------------------------------------------------
+   Every mapped room gets its diorama without a single passage being edited: a
+   :passagedisplay handler renders any <<scene>> container that was written by hand,
+   and otherwise prepends one itself.
+
+   Two rooms are skipped on purpose. One that already carries a <<roomart>> keeps it —
+   a drawn illustration of THAT place beats a derived box of the right KIND of place,
+   and stacking both would say the same thing twice at different quality. One that is
+   not in setup.depthOf is not a room at all (a menu, a combat screen, an ending), and
+   sceneFor returns null for it.
+
+   The toggle is not decoration. This is a prose horror game and a picture over every
+   room changes how it is read; a player who wants the dark back should be able to
+   have it. Settings persist across lives on their own. */
+Setting.addToggle("sceneArt", {
+    label: "Room pictures — an isometric sketch of each place, above its description.",
+    default: true
+});
+
+setup.sceneRenderAll = function (root) {
+    var host = root || document;
+    var boxes = host.querySelectorAll(".room-scene[data-scene]");
+    for (var i = 0; i < boxes.length; i++) {
+        if (boxes[i].dataset.drawn) { continue; }
+        var spec = setup.sceneFor(boxes[i].dataset.scene);
+        if (spec) { boxes[i].dataset.drawn = "1"; setup.spriteScene(boxes[i], spec); }
+        else { boxes[i].style.display = "none"; }
+    }
+};
+
+$(document).on(":passagedisplay", function (ev) {
+    var el = ev.content || document.querySelector("#passages .passage");
+    if (!el) { return; }
+    var name = (ev.passage && ev.passage.title) || passage();
+
+    if (settings.sceneArt === false) {
+        el.querySelectorAll(".room-scene").forEach(function (b) { b.style.display = "none"; });
+        return;
+    }
+    if (!el.querySelector(".room-scene") && !el.querySelector(".room-illus") && setup.sceneFor(name)) {
+        var box = document.createElement("div");
+        box.className = "room-scene";
+        box.dataset.scene = name;
+        el.insertBefore(box, el.firstChild);
+    }
+    setup.sceneRenderAll(el);
+});
+
+
+:: SceneWidgets [widget]
+/* The "scene" widget — place a room's diorama explicitly, when the automatic one is
+   in the wrong spot or you want another room's picture (a look-through, a vision, a
+   map preview). Call it as: scene, or scene "TheFatberg". Put it at the very top of a
+   passage, above any nobr, exactly like the roomart widget. Writing one suppresses
+   the automatic insert for that passage.
+
+   NOTE the macro names above are written WITHOUT their angle brackets. This passage is
+   wikified at init, and a C-style comment does not stop that: a literal container tag
+   in here (nobr, silently, script) opens a block that never closes and swallows the
+   widget definitions below it, which hangs the engine on "Loading..." with no error.
+   Same trap as the one commit a83dab1 hardened the script-block against. */
+<<widget "scene">>\
+<div class="room-scene" @data-scene="_args.length ? _args[0] : passage()"></div>\
+<</widget>>

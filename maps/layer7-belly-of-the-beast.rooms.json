@@ -1,0 +1,231 @@
+{
+ "layer": 7,
+ "name": "L7 · Belly of the Beast",
+ "band": "hell",
+ "rooms": [
+  {
+   "name": "TheAbscess",
+   "role": "room",
+   "x": 134,
+   "y": 120,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBirthingDens",
+   "role": "room",
+   "x": 118,
+   "y": 162,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBoneLoom",
+   "role": "fight",
+   "x": 158,
+   "y": 95,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheBoneLoomCleared",
+   "role": "lander",
+   "x": 157,
+   "y": 122,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBreeder",
+   "role": "room",
+   "x": 180,
+   "y": 141,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheChute",
+   "role": "room",
+   "x": 83,
+   "y": 83,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCloaca",
+   "role": "room",
+   "x": 135,
+   "y": 101,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheFleshcutter",
+   "role": "room",
+   "x": 109,
+   "y": 97,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGapCleared",
+   "role": "lander",
+   "x": 65,
+   "y": 140,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGapCrossing",
+   "role": "fight",
+   "x": 141,
+   "y": 160,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheGullet",
+   "role": "room",
+   "x": 88,
+   "y": 143,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGutway",
+   "role": "room",
+   "x": 134,
+   "y": 139,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheHolding",
+   "role": "room",
+   "x": 95,
+   "y": 162,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheLatrine",
+   "role": "room",
+   "x": 80,
+   "y": 121,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheMeatRow",
+   "role": "room",
+   "x": 106,
+   "y": 78,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheMolt",
+   "role": "room",
+   "x": 72,
+   "y": 162,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheNavel",
+   "role": "room",
+   "x": 57,
+   "y": 102,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheOrganTrove",
+   "role": "room",
+   "x": 88,
+   "y": 59,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "ThePrivyShrine",
+   "role": "room",
+   "x": 57,
+   "y": 121,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSphincter",
+   "role": "room",
+   "x": 80,
+   "y": 102,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheStillborn",
+   "role": "rest",
+   "x": 129,
+   "y": 74,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheSty",
+   "role": "fight",
+   "x": 103,
+   "y": 116,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheStyCleared",
+   "role": "lander",
+   "x": 111,
+   "y": 143,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSurgery",
+   "role": "room",
+   "x": 60,
+   "y": 83,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTallyBoy",
+   "role": "room",
+   "x": 111,
+   "y": 55,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheToothWell",
+   "role": "room",
+   "x": 134,
+   "y": 55,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheVilli",
+   "role": "room",
+   "x": 157,
+   "y": 141,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheWeepingWall",
+   "role": "room",
+   "x": 156,
+   "y": 76,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

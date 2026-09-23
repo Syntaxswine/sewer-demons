@@ -1,5 +1,13 @@
 # Bestiary — art direction
 
+> **Status (2026-09-22):** ten of the fourteen creatures now have a portrait; `grafted`
+> is described below and has never been drawn. This file remains the **design of record**
+> — what each creature IS. For the *sprite* work (poses, world heights, the four creatures
+> with no art of any kind, and the player paper-doll) see
+> [`../art/CHARACTER-SPRITES.md`](../art/CHARACTER-SPRITES.md). Six creatures added since
+> this file was written have no entry here: `kappa`, `pig_pressgang`, `glut`,
+> `shortweight`, `shadowperson`, `smokewisp`.
+
 Visual descriptions for the eight combat creatures, for the portrait set
 (`img/enemy/<id>.png`). Pulled from the in-game encounter prose so the art matches the
 writing. **Style note (to stay cohesive with the first two portraits):** antique

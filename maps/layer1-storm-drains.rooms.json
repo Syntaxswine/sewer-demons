@@ -1,0 +1,191 @@
+{
+ "layer": 1,
+ "name": "L1 · Storm Drains",
+ "band": "sewer",
+ "rooms": [
+  {
+   "name": "ExitShaft",
+   "role": "room",
+   "x": 157,
+   "y": 140,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "Maintenance",
+   "role": "room",
+   "x": 146,
+   "y": 159,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "Outfall",
+   "role": "room",
+   "x": 123,
+   "y": 159,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheAreaGrate",
+   "role": "room",
+   "x": 100,
+   "y": 154,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCatchbasin",
+   "role": "room",
+   "x": 134,
+   "y": 140,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCulvertRun",
+   "role": "room",
+   "x": 69,
+   "y": 97,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCurdworks",
+   "role": "room",
+   "x": 76,
+   "y": 154,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheFoamfall",
+   "role": "room",
+   "x": 142,
+   "y": 83,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGalleryOfGrates",
+   "role": "room",
+   "x": 111,
+   "y": 134,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGaugeHouse",
+   "role": "rest",
+   "x": 115,
+   "y": 92,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheGulley",
+   "role": "room",
+   "x": 98,
+   "y": 115,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheJunctionVault",
+   "role": "room",
+   "x": 111,
+   "y": 73,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheLarder",
+   "role": "room",
+   "x": 65,
+   "y": 135,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheRainShaft",
+   "role": "room",
+   "x": 92,
+   "y": 96,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheRatDrift",
+   "role": "fight",
+   "x": 57,
+   "y": 70,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheRatDriftCleared",
+   "role": "lander",
+   "x": 75,
+   "y": 116,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheRiverMouth",
+   "role": "room",
+   "x": 157,
+   "y": 64,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheStormFront",
+   "role": "room",
+   "x": 144,
+   "y": 121,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheStrainer",
+   "role": "room",
+   "x": 134,
+   "y": 64,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheStreetCatch",
+   "role": "room",
+   "x": 121,
+   "y": 115,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheStreetStair",
+   "role": "room",
+   "x": 88,
+   "y": 135,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSubwayBreach",
+   "role": "room",
+   "x": 88,
+   "y": 77,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTideFlap",
+   "role": "room",
+   "x": 144,
+   "y": 102,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

@@ -1,0 +1,191 @@
+{
+ "layer": 3,
+ "name": "L3 · Old Drains",
+ "band": "sewer",
+ "rooms": [
+  {
+   "name": "TheBoneWeir",
+   "role": "fight",
+   "x": 116,
+   "y": 131,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheBoneWeirCleared",
+   "role": "lander",
+   "x": 124,
+   "y": 111,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBrokenSiphon",
+   "role": "room",
+   "x": 170,
+   "y": 138,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheChokedArch",
+   "role": "room",
+   "x": 98,
+   "y": 112,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCisternOverflow",
+   "role": "room",
+   "x": 147,
+   "y": 137,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCorkscrew",
+   "role": "room",
+   "x": 47,
+   "y": 116,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCounterweight",
+   "role": "room",
+   "x": 115,
+   "y": 159,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCrawl",
+   "role": "fight",
+   "x": 138,
+   "y": 159,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheCrawlCleared",
+   "role": "lander",
+   "x": 93,
+   "y": 131,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheDeadLetterDrain",
+   "role": "room",
+   "x": 92,
+   "y": 150,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheDripstone",
+   "role": "room",
+   "x": 55,
+   "y": 97,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGreatSink",
+   "role": "room",
+   "x": 101,
+   "y": 93,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheInscription",
+   "role": "room",
+   "x": 78,
+   "y": 93,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheLimeVault",
+   "role": "rest",
+   "x": 65,
+   "y": 135,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheOlderStair",
+   "role": "room",
+   "x": 74,
+   "y": 74,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheOldOutfall",
+   "role": "room",
+   "x": 147,
+   "y": 118,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheRootCellar",
+   "role": "room",
+   "x": 70,
+   "y": 116,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSumpGalleries",
+   "role": "fight",
+   "x": 120,
+   "y": 65,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheSumpGalleriesCleared",
+   "role": "lander",
+   "x": 151,
+   "y": 80,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTanneryDrain",
+   "role": "room",
+   "x": 97,
+   "y": 74,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheVotiveDrain",
+   "role": "room",
+   "x": 124,
+   "y": 92,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheWarmSilt",
+   "role": "room",
+   "x": 147,
+   "y": 99,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheWeepingGrate",
+   "role": "room",
+   "x": 170,
+   "y": 99,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

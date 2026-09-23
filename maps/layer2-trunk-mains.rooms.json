@@ -1,0 +1,207 @@
+{
+ "layer": 2,
+ "name": "L2 · Trunk Mains",
+ "band": "sewer",
+ "rooms": [
+  {
+   "name": "Confluence",
+   "role": "room",
+   "x": 130,
+   "y": 126,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "GritChamber",
+   "role": "fight",
+   "x": 165,
+   "y": 80,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "GritChamberCleared",
+   "role": "lander",
+   "x": 142,
+   "y": 88,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "Gut",
+   "role": "room",
+   "x": 84,
+   "y": 160,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBackflow",
+   "role": "room",
+   "x": 158,
+   "y": 145,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBlackValve",
+   "role": "room",
+   "x": 111,
+   "y": 170,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCleanPool",
+   "role": "fight",
+   "x": 76,
+   "y": 133,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheCleanPoolWon",
+   "role": "room",
+   "x": 30,
+   "y": 123,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheDrumStore",
+   "role": "room",
+   "x": 53,
+   "y": 125,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheFatberg",
+   "role": "room",
+   "x": 107,
+   "y": 132,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGritTrap",
+   "role": "room",
+   "x": 88,
+   "y": 85,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheLostConduit",
+   "role": "room",
+   "x": 134,
+   "y": 59,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheManholeBase",
+   "role": "room",
+   "x": 88,
+   "y": 66,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "ThePumpRoom",
+   "role": "rest",
+   "x": 131,
+   "y": 145,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheRatKing",
+   "role": "fight",
+   "x": 56,
+   "y": 97,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheRatKingCleared",
+   "role": "lander",
+   "x": 33,
+   "y": 103,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheRatRun",
+   "role": "fight",
+   "x": 87,
+   "y": 105,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheRisers",
+   "role": "room",
+   "x": 107,
+   "y": 151,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheScreeningHall",
+   "role": "fight",
+   "x": 111,
+   "y": 78,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheScreeningHallCleared",
+   "role": "lander",
+   "x": 111,
+   "y": 59,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSiphon",
+   "role": "room",
+   "x": 118,
+   "y": 107,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSluice",
+   "role": "room",
+   "x": 141,
+   "y": 107,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheStallRow",
+   "role": "room",
+   "x": 164,
+   "y": 107,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheValvePuzzle",
+   "role": "room",
+   "x": 176,
+   "y": 126,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheWeir",
+   "role": "room",
+   "x": 153,
+   "y": 126,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

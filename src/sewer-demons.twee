@@ -134,6 +134,19 @@ a.link-internal:hover { color: #cfe0b8; }
 .room-illus { margin: 0 0 1.1em; text-align: center; }
 .room-illus-img { max-width: 100%; max-height: 24em; border: 1px solid #262d24; border-radius: 3px; display: inline-block; }
 
+/* ---- room diorama (the sprite scene; see src/sprite-scene.twee) ----
+   A lamp-lit patch of a much larger dark, which is what the prose has been saying all
+   along — so the corners fall off rather than meeting a hard frame. Keep the vignette
+   LIGHT: the imported art is painted for a daylit tactical map and is already dark
+   against this page, and a heavy overlay turns the whole plate to mud (it did, first
+   try). The canvas sizes itself in JS and is centred here, never stretched — scaling
+   it in CSS would resample art that was just drawn at exactly the right size. */
+.room-scene { position: relative; margin: 0 0 1.05em; line-height: 0; text-align: center; }
+.room-scene canvas { display: inline-block; max-width: 100%; border: 1px solid #262d24; border-radius: 3px;
+                     background: radial-gradient(ellipse 72% 80% at 50% 74%, #20261c 0%, #141810 58%, #0c0f0a 100%); }
+.room-scene::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+                     background: radial-gradient(ellipse 82% 90% at 50% 72%, rgba(0,0,0,0) 62%, rgba(8,10,7,0.34) 100%); }
+
 /* ---- combat screen (owner 2026-06-05): name, portrait, hp bars side by side, button row ---- */
 .combat-screen { margin: 0.2em 0 0.4em; }
 .combatants { display: flex; flex-wrap: wrap; gap: 0.7em; align-items: flex-start; margin-bottom: 0.7em; }
