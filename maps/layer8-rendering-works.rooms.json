@@ -1,0 +1,199 @@
+{
+ "layer": 8,
+ "name": "L8 · Rendering Works",
+ "band": "hell",
+ "rooms": [
+  {
+   "name": "TheBoilHouse",
+   "role": "room",
+   "x": 103,
+   "y": 131,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCandleWorks",
+   "role": "room",
+   "x": 153,
+   "y": 77,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheColdStore",
+   "role": "room",
+   "x": 141,
+   "y": 154,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheConveyorFork",
+   "role": "fight",
+   "x": 164,
+   "y": 153,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheCooling",
+   "role": "rest",
+   "x": 126,
+   "y": 73,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheForemansWalk",
+   "role": "room",
+   "x": 126,
+   "y": 116,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGreaseTrap",
+   "role": "room",
+   "x": 149,
+   "y": 134,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheHooks",
+   "role": "room",
+   "x": 57,
+   "y": 114,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheIntake",
+   "role": "room",
+   "x": 118,
+   "y": 154,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheKillingFloor",
+   "role": "room",
+   "x": 103,
+   "y": 112,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheLine",
+   "role": "room",
+   "x": 80,
+   "y": 111,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheManway",
+   "role": "room",
+   "x": 95,
+   "y": 150,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "ThePits",
+   "role": "fight",
+   "x": 72,
+   "y": 84,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "ThePitsCleared",
+   "role": "lander",
+   "x": 80,
+   "y": 65,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheRenderLock",
+   "role": "room",
+   "x": 103,
+   "y": 93,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheRunoff",
+   "role": "room",
+   "x": 126,
+   "y": 135,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSoapVat",
+   "role": "room",
+   "x": 149,
+   "y": 115,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTallowFalls",
+   "role": "room",
+   "x": 72,
+   "y": 149,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTallowHeart",
+   "role": "room",
+   "x": 103,
+   "y": 74,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTallowStore",
+   "role": "room",
+   "x": 127,
+   "y": 54,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTally",
+   "role": "room",
+   "x": 126,
+   "y": 97,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheVat",
+   "role": "room",
+   "x": 80,
+   "y": 130,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheVentControl",
+   "role": "room",
+   "x": 149,
+   "y": 96,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheWard",
+   "role": "room",
+   "x": 49,
+   "y": 133,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

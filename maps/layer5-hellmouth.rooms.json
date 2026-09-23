@@ -1,0 +1,39 @@
+{
+ "layer": 5,
+ "name": "L5 · Hellmouth",
+ "band": "between",
+ "rooms": [
+  {
+   "name": "Hellmouth",
+   "role": "room",
+   "x": 111,
+   "y": 102,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheArrivals",
+   "role": "rest",
+   "x": 109,
+   "y": 121,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheIndenture",
+   "role": "room",
+   "x": 111,
+   "y": 144,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheThroat",
+   "role": "room",
+   "x": 111,
+   "y": 83,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

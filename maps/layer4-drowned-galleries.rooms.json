@@ -1,0 +1,215 @@
+{
+ "layer": 4,
+ "name": "L4 · Drowned Galleries",
+ "band": "between",
+ "rooms": [
+  {
+   "name": "Cistern",
+   "role": "room",
+   "x": 153,
+   "y": 155,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "DeepHub",
+   "role": "room",
+   "x": 131,
+   "y": 136,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "DrownedHall",
+   "role": "room",
+   "x": 130,
+   "y": 155,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "Gallery",
+   "role": "room",
+   "x": 131,
+   "y": 117,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheArchive",
+   "role": "room",
+   "x": 85,
+   "y": 110,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBathhouse",
+   "role": "rest",
+   "x": 103,
+   "y": 159,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheBathhouseCleared",
+   "role": "lander",
+   "x": 80,
+   "y": 167,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBellChamber",
+   "role": "room",
+   "x": 80,
+   "y": 148,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCatacomb",
+   "role": "room",
+   "x": 131,
+   "y": 98,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheColonnade",
+   "role": "room",
+   "x": 107,
+   "y": 140,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheDeepWell",
+   "role": "fight",
+   "x": 47,
+   "y": 88,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheDeepWellCleared",
+   "role": "lander",
+   "x": 105,
+   "y": 60,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheDrownedChoir",
+   "role": "fight",
+   "x": 174,
+   "y": 83,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheDrownedChoirCleared",
+   "role": "lander",
+   "x": 151,
+   "y": 79,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheReflectingHall",
+   "role": "room",
+   "x": 108,
+   "y": 102,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheReflection",
+   "role": "room",
+   "x": 57,
+   "y": 134,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheReliquary",
+   "role": "room",
+   "x": 78,
+   "y": 72,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSiltKings",
+   "role": "room",
+   "x": 84,
+   "y": 129,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSluiceFork",
+   "role": "fight",
+   "x": 154,
+   "y": 110,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheStillFont",
+   "role": "room",
+   "x": 108,
+   "y": 121,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSumpVault",
+   "role": "room",
+   "x": 176,
+   "y": 137,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSunkenChapel",
+   "role": "room",
+   "x": 78,
+   "y": 91,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheSunkenStair",
+   "role": "room",
+   "x": 128,
+   "y": 79,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTombIsland",
+   "role": "rest",
+   "x": 101,
+   "y": 79,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheUndertow",
+   "role": "room",
+   "x": 128,
+   "y": 60,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheWeepingArch",
+   "role": "room",
+   "x": 61,
+   "y": 115,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

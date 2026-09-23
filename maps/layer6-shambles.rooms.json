@@ -1,0 +1,239 @@
+{
+ "layer": 6,
+ "name": "L6 · Shambles",
+ "band": "between",
+ "rooms": [
+  {
+   "name": "HellMarket",
+   "role": "rest",
+   "x": 140,
+   "y": 94,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "HellTavern",
+   "role": "fight",
+   "x": 111,
+   "y": 136,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheBackAlleys",
+   "role": "room",
+   "x": 134,
+   "y": 117,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheBigTop",
+   "role": "room",
+   "x": 144,
+   "y": 137,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheButchersStall",
+   "role": "room",
+   "x": 88,
+   "y": 138,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCageAct",
+   "role": "room",
+   "x": 142,
+   "y": 156,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheCarousel",
+   "role": "room",
+   "x": 56,
+   "y": 122,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheConfectioner",
+   "role": "room",
+   "x": 117,
+   "y": 163,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheFlyOnTheWall",
+   "role": "room",
+   "x": 93,
+   "y": 176,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheFortuneTeller",
+   "role": "room",
+   "x": 65,
+   "y": 142,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheFreakShow",
+   "role": "room",
+   "x": 165,
+   "y": 156,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGaff",
+   "role": "room",
+   "x": 88,
+   "y": 157,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGames",
+   "role": "room",
+   "x": 94,
+   "y": 92,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGutterBones",
+   "role": "room",
+   "x": 71,
+   "y": 73,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheGuttering",
+   "role": "fight",
+   "x": 140,
+   "y": 44,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheGutteringCleared",
+   "role": "lander",
+   "x": 117,
+   "y": 76,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheHallOfMirrors",
+   "role": "room",
+   "x": 48,
+   "y": 84,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheLostAndFound",
+   "role": "room",
+   "x": 117,
+   "y": 57,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheMenagerie",
+   "role": "fight",
+   "x": 79,
+   "y": 111,
+   "w": 27,
+   "h": 23
+  },
+  {
+   "name": "TheMenagerieCleared",
+   "role": "lander",
+   "x": 71,
+   "y": 92,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheMidway",
+   "role": "room",
+   "x": 110,
+   "y": 114,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "ThePuppetShow",
+   "role": "room",
+   "x": 48,
+   "y": 103,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheQuietBooth",
+   "role": "rest",
+   "x": 140,
+   "y": 71,
+   "w": 23,
+   "h": 19
+  },
+  {
+   "name": "TheSmithStall",
+   "role": "room",
+   "x": 167,
+   "y": 99,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheStage",
+   "role": "room",
+   "x": 116,
+   "y": 182,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheStill",
+   "role": "room",
+   "x": 117,
+   "y": 95,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTill",
+   "role": "room",
+   "x": 167,
+   "y": 80,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheTrinketStall",
+   "role": "room",
+   "x": 157,
+   "y": 118,
+   "w": 19,
+   "h": 15
+  },
+  {
+   "name": "TheWheel",
+   "role": "room",
+   "x": 94,
+   "y": 73,
+   "w": 19,
+   "h": 15
+  }
+ ]
+}

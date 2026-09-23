@@ -14,6 +14,12 @@ the 16 with a hand-drawn illustration keep it. See [`art/SPRITES.md`](art/SPRITE
 for the art contract and the provenance, and [`art/CHARACTER-SPRITES.md`](art/CHARACTER-SPRITES.md)
 for the open art job -- there are no character sprites yet, and the game is built to want them.
 
+Each of the nine layers is also dug out as **one tile map** in the same game's editor
+format -- a chamber per room, a corridor per passage, generated from the room graph so it
+cannot drift from the real passages. See [`maps/README.md`](maps/README.md), and
+[`maps/preview/all-layers.png`](maps/preview/all-layers.png) for all nine at a glance.
+Nothing in the game reads them yet.
+
 **Agents / new contributors: start with [`docs/HANDOFF.md`](docs/HANDOFF.md)** —
 it has the toolchain, the SugarCube gotchas, every system, and the backlog.
 
@@ -31,6 +37,7 @@ src/sprite-scene.twee        The room diorama: renderer + the tables it derives 
 src/sprite-data.twee         GENERATED sprite manifest (tools/prepare-sprites.py)
 src/map-data.twee            GENERATED room graph (tools/passage-graph.mjs)
 img/sprite/                  The sprite pack: grounds, props, wall/door edges
+maps/                        One tile map per layer, dug from the room graph
 img/enemy/ img/room/         Hand-drawn combat portraits and room illustrations
 art/SPRITES.md               The sprite contract, provenance, and what is still missing
 audio/                       .mp3 tracks (see audio/README.md; none committed yet)
