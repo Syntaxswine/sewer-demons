@@ -14,3 +14,7 @@ desktop.ini
 *~
 .vscode/
 .idea/
+
+# Python bytecode from tools/
+__pycache__/
+*.pyc

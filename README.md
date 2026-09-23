@@ -7,6 +7,13 @@ The hook is a **state-driven soundtrack**: instead of a baked playlist, the
 music re-evaluates game state at every track boundary, so anything you've done
 (crossed a corruption threshold, met a demon) reshapes what plays next.
 
+Rooms are drawn as small **isometric sprite dioramas** above their prose -- the floor,
+the walls and what is lying about, in the materials of the layer you are on and washed
+to its band. 197 of the 213 mapped rooms get one without a line of per-room authoring;
+the 16 with a hand-drawn illustration keep it. See [`art/SPRITES.md`](art/SPRITES.md)
+for the art contract, the provenance, and what still needs drawing -- there are no
+character sprites yet, and the game is built to want them.
+
 **Agents / new contributors: start with [`docs/HANDOFF.md`](docs/HANDOFF.md)** —
 it has the toolchain, the SugarCube gotchas, every system, and the backlog.
 
@@ -20,11 +27,23 @@ See also [`docs/GAME-SPEC.md`](docs/GAME-SPEC.md) (original brief),
 src/sewer-demons.twee        Core: systems, intro, hellmouth, combat, endings
 src/layer2-trunk-mains.twee  L2 Trunk Mains (one .twee per layer going forward)
 src/layer3-old-drains.twee   L3 The Old Drains (the hinge layer)
+src/sprite-scene.twee        The room diorama: renderer + the tables it derives from
+src/sprite-data.twee         GENERATED sprite manifest (tools/prepare-sprites.py)
+src/map-data.twee            GENERATED room graph (tools/passage-graph.mjs)
+img/sprite/                  The sprite pack: grounds, props, wall/door edges
+img/enemy/ img/room/         Hand-drawn combat portraits and room illustrations
+art/SPRITES.md               The sprite contract, provenance, and what is still missing
 audio/                       .mp3 tracks (see audio/README.md; none committed yet)
 dist/                        Compiled HTML output (git-ignored)
 .tools/                      Vendored Tweego + SugarCube format (git-ignored)
 docs/                        SPEC, HANDOFF, MAP-ARCHITECTURE, RESEARCH
 ```
+
+## History
+
+This repo starts at a single squashed commit. The game was built local-only over 190
+commits between 2026-06-03 and 2026-09-22; when it was opened to the public the owner
+chose a fresh history, so that archive stays on a local branch and was never pushed.
 
 ## Build & run
 
