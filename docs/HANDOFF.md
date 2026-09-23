@@ -1,5 +1,17 @@
 # Sewer Demons — Agent Handoff
 
+> ## ⛔ This build is FROZEN (2026-09-23)
+>
+> Sewer Demons is being **rebuilt on the Animal Factory Tactics engine** in the private repo
+> `Syntaxswine/sewer-demons-tactics`. The Twine game is now the **source of record** — the
+> story, the bestiary, the gear, and above all the 72-cell corruption matrix — and not a
+> build. Do not add features here; read from here.
+>
+> Why, and what carries over: `docs/DIRECTION-REBUILD-ON-TACTICS.md`.
+> The reasoning, in the voice of the twenty-three who built it: `docs/TO-THE-BUILDERS.md`.
+> Everything below describes the Twine game as it stood on the day it was frozen, and stays
+> accurate for that purpose.
+
 Everything another agent needs to pick up this project. Last updated 2026-07-20
 (the transformation feed + voice-pass, systemic regard, and the smell-horror pass — olfactory regard + the
 nose-blind milestone; then the room-scent layer — the THIRD olfactory system, your eroding disgust at the
