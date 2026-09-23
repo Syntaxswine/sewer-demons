@@ -1,0 +1,27 @@
+{
+  "width": 384,
+  "height": 640,
+  "order": [
+    "legR",
+    "legL",
+    "armR",
+    "armL",
+    "torso",
+    "head"
+  ],
+  "variants": [
+    "filth-tainted",
+    "filth-turned",
+    "filth-turning",
+    "human",
+    "pig-tainted",
+    "pig-turned",
+    "pig-turning",
+    "rat-tainted",
+    "rat-turned",
+    "rat-turning"
+  ],
+  "leftRight": "Anatomical: armR/legR appear on the left of the portrait.",
+  "sources": "../../art/player-state/source",
+  "overlap": "Opaque underlap; feathered torso and neck."
+}

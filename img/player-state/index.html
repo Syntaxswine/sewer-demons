@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sewer Demons — Player body</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#171c18;color:#e1dccb;font:16px system-ui;padding:28px}h1,h2{font-family:Georgia,serif;font-weight:normal}h1{margin:0 0 8px}p{color:#b2b8a8;max-width:65ch}button,select{background:#303c30;border:1px solid #68745d;border-radius:4px;color:#f1ebdf;padding:8px;font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible{outline:2px solid #ffe0a3;outline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.workspace{display:grid;grid-template-columns:minmax(200px,340px) minmax(260px,420px);gap:24px}.body{position:relative;aspect-ratio:384/640;background:#30362f;border-radius:8px;isolation:isolate}.body img{position:absolute;inset:0;width:100%;height:100%}.fields{display:grid;gap:10px;align-content:start}.fields label{display:grid;grid-template-columns:100px 1fr;align-items:center;gap:8px}.examples{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:16px}.example h3{font-size:14px;font-weight:normal}.example .body{max-width:220px}.light .body{background:#ddd5c1}.checker .body{background-color:#353c34;background-image:conic-gradient(#ffffff0b 25%,transparent 0 50%,#ffffff0b 0 75%,transparent 0);background-size:20px 20px}a{color:#c8dba4}@media(max-width:620px){body{padding:16px}.workspace{grid-template-columns:1fr}.workspace>.body{width:210px;margin:auto}.fields label{grid-template-columns:90px 1fr}}
+</style>
+<h1>Your changing body</h1><p>A static portrait assembled from six overlapping sections. Choose a different state for each part, or inspect the complete stages below.</p>
+<nav aria-label="Portrait presets"><button data-preset="human">Human</button><button data-preset="rat-turned">Rat</button><button data-preset="pig-turned">Pig</button><button data-preset="filth-turned">Filth</button><button id="mixed">Mixed body</button><button id="background">Change background</button></nav>
+<div class="workspace"><div class="body" id="portrait" role="img" aria-label="Human player"></div><div class="fields" id="fields"></div></div>
+<p>Left and right refer to the player's body. Below 50% corruption, the game keeps the human artwork; the text readout distinguishes the earlier tingling stage.</p>
+<h2>Complete stages</h2><div class="examples" id="examples"></div>
+<p><a href="../sprites/index.html">Creature sprite gallery</a></p>
+<script>
+const order=['legR','legL','armR','armL','torso','head'];
+const labels={head:'Head',torso:'Torso',armL:'Left arm',armR:'Right arm',legL:'Left leg',legR:'Right leg'};
+const variants=['human',...['rat','pig','filth'].flatMap(c=>['tainted','turning','turned'].map(s=>c+'-'+s))];
+const pretty=v=>v==='human'?'Human':v.replace('-', ' · ');
+function render(node,state){node.replaceChildren(...order.map(seg=>{const im=new Image();im.src=state[seg]+'-'+seg+'.png';im.alt='';im.width=384;im.height=640;im.dataset.seg=seg;return im}));node.setAttribute('aria-label',Object.keys(labels).map(s=>labels[s]+': '+pretty(state[s])).join('; '))}
+const controls={};
+for(const [seg,label]of Object.entries(labels)){const row=document.createElement('label');row.append(document.createTextNode(label));const select=document.createElement('select');select.id='state-'+seg;for(const v of variants){const o=document.createElement('option');o.value=v;o.textContent=pretty(v);select.append(o)}select.onchange=update;controls[seg]=select;row.append(select);document.querySelector('#fields').append(row)}
+function update(){render(document.querySelector('#portrait'),Object.fromEntries(Object.entries(controls).map(([s,c])=>[s,c.value])))}
+function preset(v){for(const c of Object.values(controls))c.value=v;update()}
+document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>preset(b.dataset.preset));
+document.querySelector('#mixed').onclick=()=>{const mix={head:'rat-turned',torso:'pig-turning',armR:'filth-turned',armL:'rat-tainted',legR:'human',legL:'pig-turned'};for(const [s,v]of Object.entries(mix))controls[s].value=v;update()};
+let bg=0;document.querySelector('#background').onclick=()=>document.body.className=['','light','checker'][++bg%3];
+for(const v of variants){const card=document.createElement('article');card.className='example';const body=document.createElement('div');body.className='body';body.setAttribute('role','img');render(body,Object.fromEntries(order.map(s=>[s,v])));const h=document.createElement('h3');h.textContent=pretty(v);card.append(body,h);document.querySelector('#examples').append(card)}update();
+</script></html>

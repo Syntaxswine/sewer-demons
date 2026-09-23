@@ -1204,6 +1204,7 @@ setup.soothe = function (amount) {
 setup.recomputeBody = function () {
     State.variables.corruption = setup.totalCorruption();
     setup.recomputePlayer();
+    if (setup.queueBodyPortraitRefresh) { setup.queueBodyPortraitRefresh(); }
 };
 
 /* self-heal/migration: builds the body if a save predates it, seeding each segment
@@ -4334,6 +4335,7 @@ setup.mapView = function (container, layerKey) {
 
 
 :: StoryCaption
+<<nobr>>
 /* Visible corruption meter (boss: visible). Corruption reads as filth on the
    body. Plus a compact kit readout (coins / vigor / gear). */
 <<set _c to Math.clamp($corruption, 0, 100)>>
@@ -4358,6 +4360,7 @@ setup.mapView = function (container, layerKey) {
 <<if $body>>
 <div class="bodymap">
   <div class="bm-label">Body</div>
+  <<playerbodyportrait>>
   <<for _seg range setup.SEGMENTS>>
     <<set _stage to setup.segStage(_seg)>>
     <<set _tot to setup.segTotal(_seg)>>
@@ -4399,6 +4402,8 @@ setup.mapView = function (container, layerKey) {
 </div>
 <</if>>
 
+
+<</nobr>>
 
 :: PassageHeader
 /* Generic succumbing to corruption — GLOBAL loss, fires anywhere the meter

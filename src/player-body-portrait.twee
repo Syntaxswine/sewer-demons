@@ -1,0 +1,58 @@
+:: Player Body Portrait Logic [script]
+/* Static painted sections. All state comes from the existing body model.
+   Anatomical right appears on the viewer's left; never mirror independent limbs. */
+setup.PLAYER_BODY_ORDER = ["legR", "legL", "armR", "armL", "torso", "head"];
+setup.PLAYER_BODY_LABELS = { head: "Head", torso: "Torso", armL: "Left arm", armR: "Right arm", legL: "Left leg", legR: "Right leg" };
+setup.playerBodyVariant = function (seg) {
+    var stage = setup.segStage(seg);
+    if (stage === "human" || stage === "tingle") { return "human"; }
+    var form = State.variables.form || {};
+    var cls = stage === "turned" ? form[seg] : setup.segClass(seg);
+    if (["rat", "pig", "filth"].indexOf(cls) < 0 || ["tainted", "turning", "turned"].indexOf(stage) < 0) { return "human"; }
+    return cls + "-" + stage;
+};
+setup.playerBodyLayers = function () {
+    return setup.PLAYER_BODY_ORDER.map(function (seg) {
+        var variant = setup.playerBodyVariant(seg);
+        return { seg: seg, variant: variant, src: "img/player-state/" + variant + "-" + seg + ".png" };
+    });
+};
+setup.playerBodySummary = function () {
+    return "Your body. " + setup.SEGMENTS.map(function (seg) {
+        var stage = setup.segStage(seg), variant = setup.playerBodyVariant(seg);
+        var description = variant === "human" ? (stage === "tingle" ? "human appearance, tingling" : "human appearance") : variant.replace("-", ", ");
+        return setup.PLAYER_BODY_LABELS[seg] + ": " + description + ", " + setup.segTotal(seg) + "% corruption";
+    }).join(". ") + ".";
+};
+/* Inline bargains/work/washing can change the body without a passage transition.
+   Defer one refresh until the current action (including overflow) has finished.
+   The signature check prevents a redundant sidebar render after navigation. */
+setup.queueBodyPortraitRefresh = function () {
+    if (setup._bodyPortraitRefreshPending) { return; }
+    setup._bodyPortraitRefreshPending = true;
+    Promise.resolve().then(function () {
+        setup._bodyPortraitRefreshPending = false;
+        var figure = document.querySelector("#story-caption .player-body-portrait");
+        if (figure && State.variables.body && figure.getAttribute("aria-label") !== setup.playerBodySummary()) {
+            UI.update();
+        }
+    });
+};
+
+:: Player Body Portrait Styles [stylesheet]
+.player-body-portrait { margin: .5em auto .8em; }
+.player-body-stack { position: relative; width: 210px; max-width: 100%; aspect-ratio: 384 / 640; margin: 0 auto; isolation: isolate; }
+.player-body-stack > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.player-body-portrait figcaption { color: #89927e; font-size: .75em; text-align: center; margin-top: .2em; }
+
+:: Player Body Portrait Widget [widget]
+<<widget "playerbodyportrait">><<nobr>>
+<figure class="player-body-portrait" role="img" @aria-label="setup.playerBodySummary()">
+  <div class="player-body-stack" aria-hidden="true">
+    <<for _bodyLayer range setup.playerBodyLayers()>>
+      <img @src="_bodyLayer.src" @data-body-seg="_bodyLayer.seg" @data-body-variant="_bodyLayer.variant" width="384" height="640" alt="" draggable="false">
+    <</for>>
+  </div>
+  <figcaption>Body state</figcaption>
+</figure>
+<</nobr>><</widget>>
