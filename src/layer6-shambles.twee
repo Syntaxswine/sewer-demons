@@ -1,0 +1,1625 @@
+/* =====================================================================
+   LAYER 6 — THE SHAMBLES
+   The "in-between" band: hell's edge, the carnival hell-town the player
+   spawns into (via the Hellmouth) and shops/gears up in. Register: CARNIVAL —
+   garish, festive, sinister FUN; the seductive almost-normalcy that is its own
+   trap (you could almost forget where you are, which is exactly what the place
+   is for). The toxic blurs into the supernatural here. The Cronenberg body-
+   horror still tints the attractions (the freak-show, the butcher, the ribcage
+   entertainer) — but the dominant note is the fairground, not the abattoir.
+
+   Hub = TheMidway. Enter from L5 (TheThroat stairs → TheMidway). Descend to L7 (the wet
+   stair behind HellMarket's stalls → TheGullet). Market ↔ tavern linked by back
+   alleys (per the bible). Depths in setup.depthOf (= 6).
+   ===================================================================== */
+
+
+/* ---------- HUB ---------- */
+
+:: TheMidway [carnival]
+<<nobr>>
+Past the last tooth of the mouth the Shambles open into a midway — a long crooked
+fairground of a street under a sky of low living smoke lit carnival-bright from
+below, strung with bunting that is not quite bunting and lined with stalls and
+shows and games and the constant warm roar of a crowd having, against everything,
+a wonderful time. Barkers call. Bells ring. Somewhere a calliope plays a tune you
+half-know, slightly wrong. It is, and this is the whole horror of it, *fun* — a
+real, pulling, festive fun — and the having of it costs exactly as much as you let
+it, which down here is everything.
+<</nobr>>
+
+<<if $corruption gte 70>>
+You have stopped feeling watched and started feeling *welcome*, and you move down
+the midway with the easy gait of a regular, nodding to barkers, and the worst of it
+is how good it feels to be somewhere that's glad you came.
+<</if>>
+
+<<linkreplace "Stop a while. Let the fun just... have you.">>
+<<corrupt "torso" "pig" 5>>
+You stop walking and let the midway close over you like warm water — the noise, the lights, the
+laughing crowd so glad you came — and for a long lovely lost stretch you are not trying to leave
+at all, just //here//, just having a wonderful time, and when you surface a little of the place has
+settled into you and did not want to surface with you.
+<</linkreplace>>
+
+<<link "A market of stalls, where they sell the way out">><<goto "HellMarket">><</link>>
+<<link "A loud warm tavern, off the midway">><<goto "HellTavern">><</link>>
+<<link "The big top, at the midway's heart">><<goto "TheBigTop">><</link>>
+<<link "A row of games and barkers">><<goto "TheGames">><</link>>
+<<link "A butcher's stall, doing brisk trade">><<goto "TheButchersStall">><</link>>
+<<link "A quiet shuttered booth, off to one side">><<goto "TheQuietBooth">><</link>>
+<<link "Back up the stairs, to the back of the throat">><<goto "TheThroat">><</link>>
+
+
+/* ---------- THE MARKET + TAVERN (moved from core; the gear + the descent) ---------- */
+
+:: HellMarket [carnival]
+<<nobr>>
+The market is a riot of stalls under a low ceiling of living smoke. Things with
+too many joints haggle over things you don't have names for; a butcher's stall
+sells cuts you recognize and wish you didn't; somewhere a choir of children that
+are not children is singing a jingle for somebody's brand of lamp oil. Down here
+they trade in coins, mostly — little cold discs stamped with a face that follows
+you. But the best stock has a different price, and the merchants are always,
+always happy to take it.
+<</nobr>>
+
+A merchant the shape of a folded coat leans across its counter. //First time?//
+it says. //You've the look of someone who wants to leave. Everyone who wants to
+leave needs rope. Funny how that works.//
+
+<<if setup.has("rope")>>
+You already have the coil of rope looped over your shoulder.
+<<else>>
+<<if $coins gte 5>>
+<<link "Buy the coil of rope (5 coins)">><<set $coins to $coins - 5>><<acquire "rope">><<goto "HellMarket">><</link>>
+<</if>>
+<<set _tlbl to "Buy the rope with a piece of yourself instead (" + setup.tollTag("torso", "pig", 20) + ")">><<link _tlbl>><<corrupt "torso" "pig" 20>><<acquire "rope">><<goto "HellMarket">><</link>>
+<<if $coins lt 5>>//Short on coin?// the merchant smiles. //I'll always take the other thing. It's a foolish trade. I do love a foolish trade.//<</if>>
+<</if>>
+
+<<if not setup.has("hook")>>
+<<if $coins gte 8>>
+<<link "Buy a rusted gaff — a weapon (8 coins)">><<set $coins to $coins - 8>><<acquire "hook">><<goto "HellMarket">><</link>>
+<<else>>(A rusted gaff hangs on a hook: 8 coins.)<</if>>
+<</if>>
+
+<<if not setup.has("leathers")>>
+<<if $coins gte 8>>
+<<link "Buy tanned leathers — armor (8 coins)">><<set $coins to $coins - 8>><<acquire "leathers">><<goto "HellMarket">><</link>>
+<<else>>(A suit of tanned leathers, of indeterminate origin: 8 coins.)<</if>>
+<</if>>
+
+<<if not setup.has("knife")>>
+<<set _tlbl to "Take the flensing knife — it costs only something of you (" + setup.tollTag("torso", "pig", 30) + ")">><<link _tlbl>><<corrupt "torso" "pig" 30>><<acquire "knife">><<goto "HellMarket">><</link>>
+<</if>>
+
+/* grave-moss salve — a stackable combat consumable (Items button). Direct push, not
+   <<acquire>>, so you can carry more than one. */
+<<if $coins gte 4>>
+<<link "Buy a wad of grave-moss salve — heals you mid-fight (4 coins)">><<set $coins to $coins - 4>><<run $inventory.push("salve")>><<goto "HellMarket">><</link>>
+<<else>>(A wad of pale grave-moss salve, for your hurts in a fight: 4 coins.)<</if>>
+
+/* per-hazard pass-clean tools — for the dirty shortcuts down below (waders/gas-mask). */
+<<if not setup.has("waders")>>
+<<if $coins gte 10>><<link "Buy rubber waders — for wading the foul ways (10 coins)">><<set $coins to $coins - 10>><<acquire "waders">><<goto "HellMarket">><</link>>
+<<else>>(Chest-high rubber waders, perished but whole: 10 coins.)<</if>>
+<</if>>
+<<if not setup.has("gasmask")>>
+<<if $coins gte 12>><<link "Buy an oilskin hood — for the bad-air ways (12 coins)">><<set $coins to $coins - 12>><<acquire "gasmask">><<goto "HellMarket">><</link>>
+<<else>>(A hooded oilskin with glass eyes, for foul air: 12 coins.)<</if>>
+<</if>>
+
+A little further on, two larger stalls do steadier trade: a smith's, hung with
+edged and blunt iron, and a trinket-monger's table glittering with rings and charms.
+
+<<link "Browse the smith's stall — weapons and armour">><<goto "TheSmithStall">><</link>>
+<<link "Pick over the trinket-monger's table — rings, charms, boots">><<goto "TheTrinketStall">><</link>>
+
+<<link "Slip down a back alley to the tavern">><<goto "TheBackAlleys">><</link>>
+<<link "Down a wet stair behind the stalls, deeper — into the belly">><<goto "TheGullet">><</link>>
+<<link "Out to the midway">><<goto "TheMidway">><</link>>
+
+
+:: TheSmithStall [carnival]
+/* Data-driven gear shop (DIRECTION-EQUIPMENT). Renders setup.MARKET_WEAPONS / MARKET_ARMOR.
+   Items show via itemDisplayName (cursed bargains read as a suspiciously cheap high tier — the
+   tell), brief via itemBrief ("?" until identified). setup.buy handles coin + pack; plain gear
+   auto-equips into an empty slot, anything with hidden props waits for the Equipment screen. */
+<<nobr>>
+The smith's stall is a furnace of orange light and ringing iron, hung wall to wall and
+post to post with edged and blunt things on hooks, so many of them that the heat off the
+forge sets the whole armoury swaying and clinking like a wind-chime made of weapons. The
+smith is a wide thing with too many arms, each working a different piece, and it does not
+look up. //Steel keeps its promises,// it says, to no one. //Most of what's down here
+doesn't. Buy accordingly.//
+<</nobr>>
+
+Up close the stock sorts itself: the honest iron, plain and fair-priced and dull with
+use — and, scattered among it, a few pieces too fine and too cheap, a sword that should
+cost a fortune marked at the price of a knife, gleaming where the others are grey. Coin
+only, at this stall; no soul-trades, no foolish bargains, the smith having no use for the
+other currency. Some of the stock is a great deal cheaper than it looks, and the smith
+does not explain why.
+
+It is the most workmanlike corner of the whole fair — no barker, no patter, no jingle,
+just the hammer falling and falling on iron — and that plainness is its own small mercy
+after the midway's roar, until you remember that a smith down here forges for a clientele,
+and the clientele is the carnival, and you are wondering, now, what the too-cheap blades
+were last used to do.
+
+<div class="shop">
+<div class="shop-head">Weapons</div>
+<<for _e range setup.MARKET_WEAPONS>>
+<<capture _e>>
+<<set _blbl to "Buy " + setup.itemDisplayName(_e.id) + " (" + _e.price + " coins)">>
+<div class="shop-row">
+<<if setup.has(_e.id)>><span class="shop-have"><<= setup.itemDisplayName(_e.id)>> — owned</span>
+<<elseif $coins gte _e.price>><<link _blbl>><<run setup.buy(_e.id, _e.price)>><<goto "TheSmithStall">><</link>> <span class="es-brief">(<<= setup.itemBrief(_e.id)>>)</span>
+<<else>><span class="shop-cant"><<= setup.itemDisplayName(_e.id)>> — <<= _e.price>> coins</span> <span class="es-brief">(<<= setup.itemBrief(_e.id)>>)</span><</if>>
+</div>
+<</capture>>
+<</for>>
+<div class="shop-head">Armour</div>
+<<for _e range setup.MARKET_ARMOR>>
+<<capture _e>>
+<<set _blbl to "Buy " + setup.itemDisplayName(_e.id) + " (" + _e.price + " coins)">>
+<div class="shop-row">
+<<if setup.has(_e.id)>><span class="shop-have"><<= setup.itemDisplayName(_e.id)>> — owned</span>
+<<elseif $coins gte _e.price>><<link _blbl>><<run setup.buy(_e.id, _e.price)>><<goto "TheSmithStall">><</link>> <span class="es-brief">(<<= setup.itemBrief(_e.id)>>)</span>
+<<else>><span class="shop-cant"><<= setup.itemDisplayName(_e.id)>> — <<= _e.price>> coins</span> <span class="es-brief">(<<= setup.itemBrief(_e.id)>>)</span><</if>>
+</div>
+<</capture>>
+<</for>>
+</div>
+
+<div class="shop-coins">You have <<= $coins>> coin<<if $coins neq 1>>s<</if>>.</div>
+<<link "Back to the market">><<goto "HellMarket">><</link>>
+
+
+:: TheTrinketStall [carnival]
+/* Accessories (setup.MARKET_TRINKETS) + an appraiser (setup.appraise) that identifies one
+   unidentified pack item for coin. Cheap cursed bargains are masked the same as drops. */
+<<if setup.isSimple()>>
+<<nobr>>
+The table is covered in shiny things. Rings and chains and bright little bits, all of them
+catching the light and throwing it back pretty. You like them. You can tell you like them by the
+way your hand has come up on its own, reaching, before you told it to.
+
+The seller has a lot of rings on a lot of fingers and the idea of a smile, and it watches your
+face do the thing your face is doing, and the smile spreads. //Ohh,// it says, slow and warm, the
+way you would talk to a child stopped at a sweet-shop window. //You //like// the shiny ones.
+'Course you do. Pretty things for —// a little pause, kindly — //well. 'Course you do. Try one
+on.// It does not trouble, with you, to hide that some of the shiny things bite. There would be no
+point: you could not follow the warning, and a warning you cannot follow is only more noise.
+<</nobr>>
+
+On its stool beside the table the one-eyed appraiser watches this, and lets a long breath out
+through its eye, and does not say the thing it is plainly thinking — that there is no use selling
+the truth of a thing to a soul who could neither count the coin to buy it nor keep the answer
+once it was given.
+<<else>>
+<<nobr>>
+The trinket-monger's table glitters in the smoke-light like a tide-pool of small bright
+wrongness — rings and charms and chains and brooches and boots laid out on stained velvet,
+every piece catching the carnival glow and throwing it back a colour it has no business
+being. The monger has no face to speak of, only a great many rings on a great many fingers,
+and a smile somewhere in the idea of it. //Try them on,// it purrs. //You can always try
+them on. Taking them off again — well. That's a different stall.//
+<</nobr>>
+
+Lean in over the velvet and the glitter resolves into a hundred small histories: a ring worn
+thin to a thread, a charm with somebody's initial half-rubbed off, boots scuffed by feet that
+are not here to wear them now. Some of the pieces are plainly what they look like. Some are
+priced too sweetly to be, the bargain sitting on the velvet like bait — and there is no telling
+which from which by looking, which is, of course, the entire point of the table.
+
+That is what the one-eyed appraiser is for, set up beside the table on a stool of its own, ready
+to take a coin or six and tell you what a thing //truly// is — the only honest service in the
+Shambles, and the monger lets it stand right there at its elbow, smiling its idea of a smile,
+because a mark who learns the curse before buying is a mark who still, so very often, buys it
+anyway.
+<</if>>
+
+<div class="shop">
+<div class="shop-head">Charms & accessories</div>
+<<for _e range setup.MARKET_TRINKETS>>
+<<capture _e>>
+<<set _blbl to "Buy " + setup.itemDisplayName(_e.id) + " (" + _e.price + " coins)">>
+<div class="shop-row">
+<<if setup.has(_e.id)>><span class="shop-have"><<= setup.itemDisplayName(_e.id)>> — owned</span>
+<<elseif $coins gte _e.price>><<link _blbl>><<run setup.buy(_e.id, _e.price)>><<goto "TheTrinketStall">><</link>> <span class="es-brief">(<<= setup.itemBrief(_e.id)>>)</span>
+<<else>><span class="shop-cant"><<= setup.itemDisplayName(_e.id)>> — <<= _e.price>> coins</span> <span class="es-brief">(<<= setup.itemBrief(_e.id)>>)</span><</if>>
+</div>
+<</capture>>
+<</for>>
+</div>
+
+<<set _un to setup.unidentifiedItems()>>
+<<if _un.length>>
+<div class="shop">
+<div class="shop-head">The appraiser (<<= setup.APPRAISE_COST>> coins each)</div>
+<<for _id range _un>>
+<<capture _id>>
+<<set _albl to "Appraise " + setup.itemDisplayName(_id)>>
+<div class="shop-row">
+<<if $coins gte setup.APPRAISE_COST>><<link _albl>><<run setup.appraise(_id)>><<goto "TheTrinketStall">><</link>>
+<<else>><span class="shop-cant"><<= setup.itemDisplayName(_id)>> — needs <<= setup.APPRAISE_COST>> coins</span><</if>>
+</div>
+<</capture>>
+<</for>>
+</div>
+<</if>>
+
+<div class="shop-coins">You have <<= $coins>> coin<<if $coins neq 1>>s<</if>>.</div>
+<<link "Manage your gear">><<set $gearReturn to "TheTrinketStall">><<goto "Equipment">><</link>>
+<<link "Back to the market">><<goto "HellMarket">><</link>>
+
+
+:: HellTavern [carnival]
+<<roomart "HellmouthInnOutside">>
+The Hellmouth Inn keeps no walls worth the name — a long open-air bar thrown up under
+a leaning roof at the very lip of a fire-arch, where a thread of the mouth's own flame
+pours out across the cobbles and never once goes cold. Demons hunch along the rail on
+low stools, easy as men after a shift; a castle's black teeth stand against the burning
+sky behind them. Over the door hangs the sign.
+<<roomart "HellmouthInnLogo">>
+A burning mouth ringed with faces — the grinning and the damned crowded shoulder to
+shoulder around the same hole — and under it, in a hand that tried for cheerful, **the
+Hellmouth Inn**. Up close it is loud and warm and almost — almost — like one above:
+a fire, a bar, patrons hunched over cups, an entertainer in the corner doing something
+with its own ribcage that draws scattered applause. You could almost forget where you
+are, which is of course exactly what the place is for. A barkeep slides you a cup you do
+not drink — a big soft-spoken fellow in a stained apron you find you'd sooner not look at
+head-on, something wrong about his eyes, or about how many of them seem to be on you at once.
+
+<<linkreplace "Drink the cup the barkeep slid you, just this once">>
+<<corrupt "torso" "pig" 6>>
+You drink. It is warm and it is good and it tastes of the tavern itself, of somewhere-you-belong,
+and it goes down easy and stays down, and a little of the room takes up quiet residence in you,
+glad to be home.
+<</linkreplace>>
+
+Behind the free cup the barkeep slides every soul that stops here, the taps pour something the
+house actually charges for — a cloudy, low, evil-smelling measure the regulars call //sewer-brew//,
+drawn (they say) off a still somewhere down in the wet, where the deep cooks its own water into
+something a body will pay to swallow. It is not for belonging. It is for the nerve it puts in a gut
+that hasn't any, and the way it makes the floor stop tilting for a while; and the men hunched over it
+have the look of men who came in for the one and are three years into the barrel.
+<<if $coins gte setup.SEWERBREW_PRICE>>
+<<linkreplace "Buy a measure of sewer-brew (3 coins)">>
+<<set $coins to $coins - setup.SEWERBREW_PRICE>><<set _b to setup.drinkBrew()>><<nobr>>
+You put your coin down on the wet wood and drink the thing off. It is vile, and it is warm, and it goes
+off in your chest like a small brown sun — and for the length of that warmth the nerve comes back into
+you and the room holds level and you understand exactly why a man would sell his back for the next one.
+Then something oily and patient takes the moment's measure of you in return, and settles in where the
+nerve had been.
+//(+<<= _b.heal>> vigor<<if _b.mana gt 0>>, +<<= _b.mana>> mana<</if>>; <<= _b.bite>> filth worked into your gut, and the want of it set a notch deeper)//
+<</nobr>><</linkreplace>>
+<<else>>
+//(a measure costs <<= setup.SEWERBREW_PRICE>> coin, and your purse is too light for even the one — this time.)//
+<</if>>
+
+The barkeep doesn't move on to the next patron. He stays in front of you, polishing a glass
+that is already clean, all that wrong attention angled your way, plainly willing — plainly
+//wanting// — to talk.
+<<link "Look at him straight, and have a word">><<goto "TheFlyOnTheWall">><</link>>
+
+The barkeep tips his head at the taps and the crowded room, and the offer is plain
+enough without a mouth to make it: there is always a turn to be had behind the bar. How hard you
+work it — and how much of yourself you let the room have — is your own affair, and the coin scales,
+the way coin always does, with what you're willing to spend to earn it.
+
+<<linkreplace "Keep your head down — pour, serve, say little">>
+<<set _seg to setup.SEGMENTS.random()>><<set _amt to random(2, 4)>><<corrupt _seg "pig" _amt>>
+<<set _pay to random(3, 5)>><<set _got to setup.gainCoins(_pay)>>
+You work the quiet end of the bar with your eyes down, pulling the warm cup and sliding it on
+without catching a single gaze, and the shift passes over you light — <<if _got gt 0>><<= _got>> coin<<if _got neq 1>>s<</if>><<else>>coin that curdles to rubbish in your grip before you can pocket it<</if>>
+and only a little of the room soaking in where you weren't watching. Honest work, near enough; the
+//near enough// is the part that costs.
+<</linkreplace>>
+
+<<linkreplace "Work the difficult ones — the regulars nobody else will serve">>
+<<set _seg to setup.SEGMENTS.random()>><<set _amt to random(4, 7)>><<corrupt _seg "pig" _amt>>
+<<set _pay to random(7, 11)>><<set _got to setup.gainCoins(_pay)>>
+There are customers the other hands leave alone — the ones that want the cup poured a particular
+wrong way, that lean in too close and ask you things, that tip well precisely because they know
+what the closeness costs you. You serve them, and you are good at it, and you come away
+<<if _got gt 0>><<= _got>> coin<<if _got neq 1>>s<</if>> richer<<else>>with a fist of coin that rots to rubbish before you can spend it<</if>> and wearing more of the room than you'd like, the
+belonging gone a little deeper in for every regular you learned to keep happy.
+<</linkreplace>>
+
+<<linkreplace "Drink with the patrons — stop serving them and start being one">>
+<<set _amt to random(9, 14)>><<corrupt "torso" "pig" _amt>>
+<<set _pay to random(12, 18)>><<set _got to setup.gainCoins(_pay)>>
+You come round the bar and sit down on the wrong side of it and drink with them, cup for cup, and
+it is the easiest and warmest thing you have done since the sack came down — and the worst, because
+they //love// you for it, fold you into the round like you were always theirs, and tip like family,
+because for an hour you were. You pocket <<if _got gt 0>><<= _got>> coin<<if _got neq 1>>s<</if>><<else>>a fistful that curdles to rubbish in your pocket<</if>> and a great warm
+slug of the tavern besides, and when you stand the floor is a half-step further off than it was, and
+you are a half-step further in.
+<</linkreplace>>
+
+<<if setup.contestOffered()>>
+Down the rail a big bloated thing with the still's own reek baked into its apron has been watching you
+drink, and now it slaps the wet wood and shows you a grin with too many teeth in it and pushes a full
+measure across to sit beside yours. It doesn't need a mouth to make the wager plain: cup for cup, you and
+it, and the coin of every soul at the rail riding on whoever's still sitting up at the end. They think
+they know how this goes — the mark never holds his drink. They are already laughing, already counting it.
+<<link "Take the wager — match it cup for cup for coin">><<goto "TheDrinkingContest">><</link>>
+<</if>>
+
+In the back, where the floor is sticky and the light is bad, a demon rat the size
+of a dog is worrying at a heap of scraps, and a circle of patrons is laying bets.
+//Coin for anyone who'll put the vermin down,// the barkeep says, without a mouth.
+//They breed in the walls. We're none of us fond of them.//
+
+<<scentof "rat">>
+<<link "Take the fight — put down the rat for coin">>
+  <<run setup.startFight("rat", "HellTavern")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Slip down a back alley to the market">><<goto "TheBackAlleys">><</link>>
+<<link "Out to the midway">><<goto "TheMidway">><</link>>
+
+
+/* ---------- THE FLY ON THE WALL (the barkeep, up close — info broker) ---------- */
+
+:: TheFlyOnTheWall [carnival]
+<<roomart "flybartender">>
+<<if setup.isSimple()>>
+You look straight at the barkeep and the barkeep is a fly — a big one, all eyes — and your
+mouth comes open looking at it and does not, quite, close again.
+
+//Oh,// he says, and it arrives behind your ears, and it is gentle, and the gentleness is the
+worst thing in the room. //Oh, friend. Right down to the floor, you've gone.// He sets his glass
+aside slow, the way a man moves slow near a thing that spooks easy. //Keep your coin. There's no
+trade to be had with what's left of you, and I haven't the heart to take it for nothing.//
+
+He leans on his folded hands and talks small, because small is the size of what you can hold now.
+//The big mouth. That you were carried in by. The marks cut over it.// He waits, after each piece,
+to watch it land. //They are //words.// You could //learn// them. Go and stand under them — that's
+all — go and stand under the words.// Something that is almost sorrow crosses a few hundred facets
+at once, because he can see, even as he says it, that it has already gone out of you like water
+through a grate. //...Aye. Never mind, friend. Drink your drink. The drink's the part that stays.//
+
+<<link "Drink the drink, and go">><<goto "HellTavern">><</link>>
+<<else>>
+You let yourself look straight at the barkeep at last, and the barkeep looks back with
+everything he has. The face you'd been not-looking-at is a fly's: two great wet domes of
+eye, each one a thousand smaller eyes, every facet holding its own little copy of you and
+the fire and the room. He sets down the glass he is forever polishing, folds two delicate
+hands on the marble, and when he speaks it is without a mouth — a sound that arrives behind
+your ears rather than in them.
+
+//I am the fly on the wall,// he says, not unkindly. //Every wall. I have sat on all of
+them, in this place and the deeper ones, and a fly sees a great deal that reckons itself
+unwatched.// He sets the clean glass down in front of you and folds two delicate hands, in
+no hurry at all. //But I am a barkeep before I am an oracle, friend, and a barkeep talks to
+a man who's bought something and left a little for the help. Stand us a round; leave a coin
+on the bar for the fly. Then we're friends — and friends talk.//
+
+<<if $flyTipped>>
+You have stood him his round and left a coin under the saucer, and it has bought you the
+full warm weight of his attention: he leans in on his folded hands, friendly now, and waits
+for the question.
+
+<<if not $heardOfGrimoire>>
+<<linkreplace "Ask what's worth knowing down the stall row">>
+<<set $heardOfGrimoire to true>>
+//The privy,// he says, and a ripple of amusement crosses a few hundred facets at once.
+//The shut stall, the one nobody is ever in — the one with the pink light coming up out of
+the hole like a sunrise pointed the wrong way. There's a book in there. //Was// a book. It's
+bog-roll now, but the words are still good words, the kind a person could //learn// from, if
+a person could catch the stall open and could read what's printed on it. Two of the regulars
+were on about it not an hour past, right where you're sitting.//
+<</linkreplace>>
+<</if>>
+
+<<if not $heardOfWord>>
+<<linkreplace "Ask about the mouth you were carried in through">>
+<<set $heardOfWord to true>>
+//The arch,// he says. //All those names cut into the stone over the throat. Everyone takes
+them for a tally — the roll of every poor soul the mouth has ever swallowed. And it //is//
+that. But a list is a thing that was //written//, friend, and a thing that was written can be
+//read//, and reading it the right way is the oldest trick there is down here. The daylight
+never taught you a word like that one. The dark will, if you go back and stand under it like
+you mean to.//
+<</linkreplace>>
+<</if>>
+
+<<linkreplace "Ask what he sees when he looks at you">>
+A thousand small copies of you turn the question over at once.
+<<if setup.isDim()>>
+//I see there's less of you home than there was,// he says, gentle as anything, and means it
+kindly, which is the worse for it. //No judgement in it — but you came in for the talking,
+friend, and the talking's mostly wasted on you now; it goes in and finds no one to keep it.
+That's the cruel little mercy of going simple: you won't fret the loss, because fretting's the
+first thing to go. Drink your drink. The drink still lands.//
+<<else>>
+//I see how much of the room you've got on you already,// he says, gentle as anything. //It's
+no judgement — we've all got the room on us; that's what a room like this is //for//. I only
+mean: you came in to be served, and you're halfway to being a regular, and you never felt the
+turn. Nobody ever does. That is the one good use of a fly on the wall — to tell you the wall is
+nearer than it looks.//
+<</if>>
+<</linkreplace>>
+
+<<else>>
+
+<<if $coins gte 2>>
+He waits, all those eyes patient and pleasant, until you do the small expected thing.
+<<link "Buy a round, and tuck a coin under his saucer for the fly">>
+<<set $coins to $coins - 2>><<set $flyTipped to true>><<corrupt "torso" "pig" 2>>
+<<goto "TheFlyOnTheWall">>
+<</link>>
+<<else>>
+He waits, pleasant and patient, until it becomes plain you have nothing on you to spend —
+and then, not unkindly, he turns back to polishing his glass. A fly keeps his walls for
+paying friends; come back with a coin or two in your pocket and he will talk.
+<</if>>
+
+<</if>>
+
+<<link "Thank him, and turn back to the bar">><<goto "HellTavern">><</link>>
+<</if>>
+
+
+/* ---------- THE DRINKING CONTEST (the sewer-brew con — owner 2026-07-20) ----------
+   An EASY con check with an INVERTED payoff: win and you drank a whole contest to do it (purse
+   + the big dose, brew rules you fastest); lose and you only had the one measure (no coin, a
+   smaller forfeit). The better you hold your drink, the harder you are hooked — the coin is the
+   bait. setup.drinkingContest() does the check + both doses (setup.drinkBrew) + the purse. EV
+   verified a sucker's game, not a coin faucet (docs/COMBAT.md "The drinking contest"). */
+
+:: TheDrinkingContest [carnival]
+<<set _c to setup.drinkingContest()>>
+<<if _c.won>>
+You match it. You match it cup for cup and then a cup past that, and somewhere in the back half of the
+barrel the rail stops laughing and starts watching, and then starts betting the other way — and the big
+bloated thing in the apron slides slowly sideways off its stool and does not get up, and you are, barely,
+swaying, the fire-arch smeared to one long orange streak across your eye, the last one sitting. The rail
+pays out. Hands you have never met clap your back. You won.
+
+//But you drank a whole contest to win it.// You come away <<if _c.prize gt 0>><<= _c.prize>> coin<<if _c.prize neq 1>>s<</if>> the richer<<else>>clutching a fist of winnings that curdles to rubbish before it can warm your palm<</if>> — and carrying the barrel out with you. The nerve of it first, and then the sick brown weight under the nerve, and the taste that will not leave, and the //want//, now, gone in one night from a notch to a hook set deep.
+<<nobr>>
+//(+<<= _c.heal>> vigor<<if _c.mana gt 0>>, +<<= _c.mana>> mana<</if>>; <<= _c.bite>> filth worked deep into your gut, and the brew's hold set hard<<if setup.dominantAddiction() is "brew">> — it is the loudest thing in you now<<else>> — though the cheese still calls the louder<</if>>)//
+<</nobr>>
+<<else>>
+You match it for a cup, and a second, and then the floor comes up at an angle floors are not meant to,
+and the room folds itself in half, and the last thing you are sure of is that wet grin across the rail
+not slowing down by so much as a swallow. When the tilt finally lets go of you the wager is long lost,
+the rail has pocketed its coin and its laughter both, and the bloated thing is gone off to find an easier
+mark. You had the one measure — well, two — and you have nothing to show for them but the sour start of a
+thirst you did not walk in with.
+<<nobr>>
+//(no coin — you lost. +<<= _c.heal>> vigor<<if _c.mana gt 0>>, +<<= _c.mana>> mana<</if>>; <<= _c.bite>> filth into your gut, and the want of it set a notch deeper)//
+<</nobr>>
+<</if>>
+
+<<link "Peel yourself off the rail and go back to the bar">><<goto "HellTavern">><</link>>
+
+
+/* ---------- THE BACK ALLEYS (market <-> tavern, per the bible) ---------- */
+
+:: TheBackAlleys [carnival]
+Behind the lit stalls the Shambles show their working: a warren of back alleys
+where the carnival keeps what it doesn't put on display — the crates and the slop
+and the off-duty barkers smoking something that glows, the seams and stitches of the
+fairground, the place the fun is assembled and the place it is, afterward, swept up.
+The alleys link the market and the tavern the short way, away from the midway's
+press, and they are quieter, and the quiet is worse, because out here you can hear
+the carnival the way you hear a slaughterhouse from the car park: as a sound a happy
+place should not, underneath, be making.
+
+<<linkreplace "Share the off-duty barkers' glowing smoke">><<nobr>>
+<<set _r to setup.drawSmoke()>>
+You take the offered draw because it would be rude not to, and the off-duty barkers grin and make room,
+colleagues already. The glow is cool going down, pale and slow, nothing like a fire — a marsh-light you can
+breathe — and it does not go to your head so much as to your //edges//, which soften. The ache eases. The
+part of you that was minding all this eases too, and does not entirely come back, gone out thin with the
+smoke to hang in the room with everyone else's, so that for a moment you cannot say where you stop and the
+shift begins, and it is a warm and colleague-ly feeling and you do not mind it, which is the thing you
+should have minded.
+//(the glow eases you and diffuses you: +<<= _r.heal>> vigor, <<= _r.total>> of you spread thin across <<= _r.n>> parts — no limb turns, you just go a little less //one thing//)//
+<</nobr>><</linkreplace>>
+
+<<if not $alleyHand>>
+One of the off-duty barkers tips his glowing smoke at you, friendly, colleague to colleague, and seems
+to want a word more than to share a light.
+<<linkreplace "Hear out the off-duty barker">><<nobr>><<set $alleyHand to true>>
+//Don't mind us — this is just where they build it, and where they sweep it up after. Every fair's got
+a back of house, and this is ours.// He draws on the glow without looking at it. //I came down a mark,
+same as you. Owed a night's keep, so I took a night barking a stall. Just the one. You only ever take
+the one.// A shrug, easy, professional. //Now I'm on the rota. Couldn't tell you which half of what I
+say is still me and which half's the patter — stopped being able to tell, is the thing. You stop
+minding, and then you stop being the one who'd have minded.// He nods toward the wet stair behind the
+market, where the off-cuts go. //Down's where it all ends up, anyhow. No hurry.//
+<</nobr>><</linkreplace>>
+<<else>>
+He's back at the smoke, working a knot out of the next stall's patter; he gives you a colleague's nod
+and nothing more — the shift doesn't talk twice.
+<</if>>
+
+<<link "Through to the market">><<goto "HellMarket">><</link>>
+<<link "Through to the tavern">><<goto "HellTavern">><</link>>
+<<link "Past a confectioner's cart">><<goto "TheConfectioner">><</link>>
+<<link "Down the wet stair, where the off-cuts go">><<goto "TheStill">><</link>>
+
+
+/* ---------- THE STILL (the filth JOB — owner 2026-07-20) ----------
+   The distillery that makes the sewer-brew (the tavern's bought filth drink). Pairs the filth
+   FOOD with its LABOR — grueling, poorly paid in coin, and paying its wages in the DRINK
+   (payment-in-kind: work the vice's source, get hooked on the vice). setup.stillShift(mode) does
+   the corruption/coin/ration; the in-kind wage feeds the brew addiction (dominance → withdrawal).
+   Seeded by the TheBackAlleys alley-hand's "down's where it all ends up". */
+
+:: TheStill [carnival]
+Down the wet stair the noise of the fair thins to nothing and a different sound takes over: a slow
+tarry //drip//, and under it a low animal seethe, like a pot forgetting it was ever water. This is
+where the sewer is cooked. Vast bellied vats sweat along the walls, fed by pipes that come straight up
+out of the muck, and the deep's own filth turns over in them slow and brown and, God help you, //ripe//
+— and somewhere in the heat a thin bright thread of it is running off a coil into a jar, clear as guilt,
+which is the brew the taps upstairs pour warm to men who came in for the one. The stillmen work it
+half-sunk and unhurried, big bloated things gone the colour of what they tend, and the reek is a
+physical weight, and it is not, quite, entirely awful, and the //not-quite// is the part that costs.
+
+<<if not $stillmanHeard>>
+One of the stillmen straightens off a vat and considers you with the patience of a thing that has
+watched a great many marks come down this stair.
+<<linkreplace "Hear the stillman out">><<nobr>><<set $stillmanHeard to true>>
+//Work's honest enough,// it says, and its voice comes up bubbling. //Hard, and wet, and it don't pay
+much — coin's for them upstairs, the market and the wheel; down here we're where the money //isn't//.//
+It tips the running jar, fond. //But we never run short of the //one// thing. So we pay a man in what we
+//make//. Take your night's keep in the drink and you'll not go without — that's the offer, and it's a
+fair one, and//— it shows you a wet grey grin —//every last one of us took it. You start taking your wage
+in the barrel, and one day you look up and you're the barrel, and you don't mind, because the barrel
+doesn't.//
+<</nobr>><</linkreplace>>
+<<else>>
+The stillman gives you the nod of a thing you work beside now, and turns back to the coil; the shift
+doesn't say it twice.
+<</if>>
+
+There is work here for anyone with a strong enough stomach and few enough choices. What you take for it
+is your own affair.
+
+<<linkreplace "Carry water to the mash — light work, keep your head up out of the reek">><<nobr>>
+<<set _s to setup.stillShift("light")>>
+You haul and pour and keep your face turned from the worst of it, and it is honest and it is nothing, and
+you come away <<if _s.coin gt 0>><<= _s.coin>> coin<<if _s.coin neq 1>>s<</if>> the better<<else>>with a coin that curdles to rubbish before you can pocket it<</if>> and only a little of the wet soaked into you where you weren't watching.
+//(<<= _s.filth>> filth worked into you; <<if _s.coin gt 0>>+<<= _s.coin>> coin<<else>>no coin kept<</if>>)//
+<</nobr>><</linkreplace>>
+
+<<linkreplace "Work the fumes — draw the spirit off the mash, down in the heat">><<nobr>>
+<<set _s to setup.stillShift("hard")>>
+You go down into the heat where the coil runs and you breathe what comes off the mash for hours, and it
+gets into you the way weather gets into a wall, and you come up <<if _s.coin gt 0>><<= _s.coin>> coin<<if _s.coin neq 1>>s<</if>> the better<<else>>with a fist of coin that rots to rubbish before you can spend it<</if>> and wearing more of the still than you walked in with.
+//(<<= _s.filth>> filth worked deep into you; <<if _s.coin gt 0>>+<<= _s.coin>> coin<<else>>no coin kept<</if>>)//
+<</nobr>><</linkreplace>>
+
+<<linkreplace "Take your wage in the drink — coin's for them upstairs">><<nobr>>
+<<set _s to setup.stillShift("inkind")>>
+You work the shift and take your keep the way the stillmen do — in the jar, straight off the coil, still
+warm from the mash. It goes down evil and easy and puts the nerve back in you, and it is the //best//
+part of the day and you understand, drinking it, exactly why not one of them ever left. You pocket
+<<if _s.coin gt 0>>a single coin besides<<else>>no coin — there wasn't any, there never is<</if>>, and carry the rest of your wage out inside you.
+//(the work: <<= _s.filth>> filth into you. the wage: +<<= _s.ration.heal>> vigor<<if _s.ration.mana gt 0>>, +<<= _s.ration.mana>> mana<</if>>; <<= _s.ration.bite>> filth into your gut, and the brew's hook set <<if setup.dominantAddiction() is "brew">>hard — it is the loudest thing in you now<<else>>deeper<</if>>)//
+<</nobr>><</linkreplace>>
+
+<<link "Back up the wet stair to the alleys">><<goto "TheBackAlleys">><</link>>
+<<link "Follow the fumes the other way, where the air goes to gather">><<goto "TheGuttering">><</link>>
+
+
+/* ---------- THE GUTTERING (the smoke creatures' den — owner 2026-07-20; Phase 0 of the FOURTH class,
+   docs/HANDOFF-SMOKE-CREATURES.md) ----------
+   Past the still, the dead-end where the cooked-off vapour and the fair's swept-up smoke and the
+   marsh-light off the muck all pool and thicken — the "off-cuts of the air". Here the aggregate stands
+   up: the SHADOW-PERSON (a person-shape of smoke, soot, and flies, speaking as WE) trailing SMOKE-WISPS
+   (ignis fatuus, the glow that says this-way). Their combat signature is IDENTITY DAMAGE (idmg) — they
+   barely tear flesh but every touch takes a little of what you ARE; the chorus move takes from several
+   segments at once (a miniature of the un-built Phase-3 plurality horror). Built class FILTH for now.
+   Payoff-tie: this is also a faucet for the smoke VICE (draw the glow here). You cannot KILL smoke, only
+   SCATTER it — the cleared lander says so (it thins for now; the haze, and the vice, remain). Grounded:
+   ignis fatuus = luminous swamp-gas off decomposition (cool/pale, mechanism genuinely disputed — no NPC
+   "explains" it); the "we" = siphonophore/colonial-organism biology (many zooids, one animal). */
+
+:: TheGuttering [carnival]
+<<roomart "guttering">>
+Past the still the passage does not end so much as //thin//. The cooked-off vapour from the vats and the
+swept-up smoke of the fair and something colder that rises straight off the muck all come here to pool,
+because air has its low places same as water, and this is one. It hangs waist-deep and slow, and here and
+there a pale light moves in it — not a fire, nothing so warm; a cold marsh-glow, the kind that sits over a
+bog or a fresh grave, that drifts off when you look at it and is somewhere else when you look back.
+
+You have been thinking of the smoke as //weather//. It is not weather. Where it pools thickest it has
+gathered itself up on end, and it is standing, and it is shaped — near enough a person, held in an outline
+out of habit, coming apart a little at every edge and drawing itself back. It notices you. When it speaks it
+speaks with more than one voice, none of them quite in time, and what it says is //we//.
+
+<<if $gutteringCleared>>
+The shape you scattered has not reformed — not here, not yet — but the haze it was has not gone anywhere
+either; it hangs where it always hangs, waiting for enough of itself. A pale wisp or two still drift the low
+air, incurious now. You can breathe it, if the glow is what you have come to want. Nothing here will stop
+you.
+
+<<if setup.craving() is "smoke">>
+<<linkreplace "Draw a long pull of the pooled glow">><<nobr>>
+<<set _r to setup.drawSmoke()>>
+You breathe it deep, here at the source, and the ache eases and the fear eases and a little more of you goes
+out with the exhale to hang in the room with the rest, and does not come back, and you do not mind, which is
+how you know it is working.
+//(+<<= _r.heal>> vigor; <<= _r.total>> of you diffused thin across <<= _r.n>> parts — no limb turns, you just go vaguer)//
+<</nobr>><</linkreplace>>
+<</if>>
+
+<<link "Back to the still">><<goto "TheStill">><</link>>
+<<else>>
+<<linkreplace "Draw a pull of the glow it offers — colleague to colleague">><<nobr>>
+<<set _r to setup.drawSmoke()>>
+It is not all threat. It moves the pale light toward you the way the barkers pass their smoke, //share-and-share//,
+and you take it because it would be rude not to, and the ache eases, and the part of you that was afraid eases,
+and thins, and joins the rest of it hanging in the air. //We//, it says, pleased, as if you have agreed to
+something.
+//(+<<= _r.heal>> vigor; <<= _r.total>> of you spread thin across <<= _r.n>> parts)//
+<</nobr>><</linkreplace>>
+
+The shape waits, patient as weather, for you to stop being one thing. You can put it off — scatter it, and buy
+yourself the walk back up the stair still singular — or you can turn and go while you are still the one turning.
+
+<<link "Scatter it — swing through the shape before it draws you in">>
+<<run setup.startFight(["shadowperson", "smokewisp", "smokewisp"], "TheGutteringCleared")>>
+<<goto "Combat">>
+<</link>>
+<<link "Back to the still while you are still the one deciding">><<goto "TheStill">><</link>>
+<</if>>
+
+:: TheGutteringCleared [carnival]
+<<set $gutteringCleared to true>>
+<<nobr>>
+You swing, and there is a sick half-second where there is nothing to swing //at// — it has come apart around
+the blow — and then your club (or your fist, or the flat of whatever you carry) finds the density at the
+core of it, the soot and the wet and the drone of flies that was holding the person-shape together, and
+//scatters// it. The outline blows out like breath on a cold morning. The voices go out of the air one at a
+time, unhurried even now, and the last of them is still saying //we// as it thins to nothing.
+<</nobr>>
+
+<<set _t to setup.scatterToll()>>
+But you cannot put smoke anywhere except the air, and the air is the air you are breathing. Scattering it,
+you scatter it //into// you — a lungful of the person it was, warm and greasy and going down without asking —
+and standing there getting your breath in the settling haze you take a little of it in with every gasp, and a
+little of you goes vague to make the room.
+//(you breathe it scattering: <<= _t.total>> of it worked thin into <<= _t.n>> parts of you — the toll of winning; you cannot fight smoke without breathing it)//
+
+You have not killed it. You know that, standing in the settling haze — you cannot kill smoke, you can only
+give it back to the room, and the room is patient. But it will not stand up again today, and today is what
+you have.
+
+<<link "Go on, before it remembers how to be a person">><<goto "TheStill">><</link>>
+
+
+/* ---------- THE BIG TOP + ATTRACTIONS ---------- */
+
+:: TheBigTop [carnival]
+The big top stands at the heart of the midway — a tent the size of a cathedral, its
+canvas the grey-pink of something tanned rather than woven, swelling and subsiding
+gently as though the whole tent breathes. From the foot of it you have to tip your head
+back to find the top, where the great centre-pole vanishes up into smoke, and the whole
+vast skin of it pulses, slow and warm, in and out, in and out, the way a thing pulses
+that is alive and at rest and very large.
+
+Step under the flap and the dark inside is total for a moment and then resolves wrong:
+there is a ring, and a roar, and a crowd you can't quite see — you feel them more than
+find them, a tiered weight of attention banked up into the dark on every side, delighting
+at a spectacle in the centre you also can't quite make out, only its edges, only the way
+the light bends around whatever is performing there. The breathing you took for the tent's
+is the crowd's, you understand, all of them, in and out together.
+
+And over it all rolls a ringmaster's voice, the most dangerous voice in the Shambles, the
+words that have undone everyone who came this far before you — //step inside, step inside,
+you've come so far, you've earned a little wonder.// And you have come far. And you are so
+tired. And a little wonder sounds, just now, like exactly the thing.
+
+<<linkreplace "Step inside. Watch a little of the show.">>
+<<corrupt "head" "pig" 4>>
+You step in, just to watch, just for a minute — and the ring and the roar and the crowd you can't
+quite see take that minute and several after it, and when you make yourself leave you are humming
+the calliope's wrong tune under your breath, and you cannot make yourself stop.
+<</linkreplace>>
+
+<<link "Backstage, where the acts wait">><<goto "TheStage">><</link>>
+<<link "A sideshow tent — see the wonders within">><<goto "TheFreakShow">><</link>>
+<<link "Back to the midway">><<goto "TheMidway">><</link>>
+
+
+:: TheStage [carnival]
+Backstage of the big top is a warm crowded dark behind the canvas, lit by the bleed of the
+ring-lights through the cloth and smelling of greasepaint and sweat and something
+underneath the greasepaint that the greasepaint is there to cover. This is where the acts
+wait their turn, and the air is thick with the particular backstage hum of performers
+between calls — limbering, muttering lines, helping each other into costume.
+
+As your eyes adjust the performers come clear one by one, and each one is a small horror
+worn easy: the entertainer from the tavern flexing its ribcage open and shut in warm-up,
+a contortionist folding itself through a ring smaller than its skull, a troupe of the
+boneless stretching in a heap. And all of them are companionable, professional, *kind* to
+you — an unmistakable warmth among performers toward a newcomer they've taken for one of
+their own. They make room. They ask which act is yours.
+
+The assumption is the trap, gentle as all the Shambles' traps: that you are here to
+perform, that you have a wonder in you, that you came down to join the show and simply
+haven't picked your trick yet. Nobody asks how you got backstage. Nobody asks for a name.
+They have simply decided you belong, and the awful pull of it is how badly, after the
+long way down, a part of you would like to prove them right.
+
+<<linkreplace "Try a turn — just to see if you've a wonder in you">>
+<<corrupt "head" "pig" 4>>
+You try a little something — a pose, a trick you didn't know you had — and the performers applaud
+warmly and a part of you preens at it, pleased, //belonging//, and that part does not entirely sit
+back down when the moment passes.
+<</linkreplace>>
+
+<<link "A barker waves you toward an empty cage — a paid turn as an oddity">><<goto "TheCageAct">><</link>>
+<<link "Deeper backstage, to the gaff">><<goto "TheGaff">><</link>>
+<<link "Back into the big top">><<goto "TheBigTop">><</link>>
+
+
+:: TheGaff [carnival]
+The gaff — carnival cant for the secret of a trick — is the room behind the room,
+where the Shambles keep how it's done: the rigged wheels with their hidden brakes,
+the two-way mirrors, the cold-reading scripts, the jars of what the freak-show's
+wonders are grown from, the whole apparatus of a fairground that runs, like every
+fairground, on knowing exactly what a tired and hopeful mark wants and selling it to
+them at a markup. It should be reassuring, seeing the strings. It isn't. The strings
+go somewhere, and you follow one with your eye, and it goes into the dark overhead and
+does not, anywhere you can see, come down.
+
+<<linkreplace "Follow the string up into the dark, as far as your eye will go">>
+<<corrupt "head" "pig" 4>>
+You follow the string up past the rigging into the dark where it never comes down, and the dark
+notices you noticing and looks back, with an attention almost fond, and you feel yourself filed
+somewhere, catalogued, //expected// — and you bring your eyes down fast, and they bring a little of
+the dark down with them.
+<</linkreplace>>
+
+<<if not $knowsTheGaff>>
+A grease-handed mechanic tends the rigging back here, and clocks you as someone who has seen the
+strings — and offers, one professional to a promising amateur, to let you in on the trade properly: a
+worker's eye, a knack for never being the mark again. The apparatus only trusts what it has made part
+of itself, it says. It would cost you a real piece of you. But you would never be played again.
+<<link "Let it show you the working — become staff, near enough">>
+<<set $knowsTheGaff to true>><<corrupt "armR" "pig" 25>>
+<<goto "TheButchersStall">>
+<</link>>
+<<link "Keep your hands your own, and walk out a mark">>
+<<soothe 6>>
+<<goto "TheStage">>
+<</link>>
+<<else>>
+The mechanic gives you the nod it gives the staff now — you're one of the working, near enough, and the
+games will never quite fully take you for a mark again. It goes back to the rigging.
+
+<<link "Out to the butcher's stall">><<goto "TheButchersStall">><</link>>
+<<link "Back to the stage">><<goto "TheStage">><</link>>
+<</if>>
+
+
+/* ---------- GAMES + CACHES ---------- */
+
+:: TheGames [carnival]
+A row of games runs down one side of the midway, stall after lit stall, each one a barker
+and a counter and a feat — ring the bell, hook the duck, guess which cup the soul is under
+— and the whole row is a wall of noise and colour and invitation, the barkers' calls
+overlapping into one long pleading sales-roar, *try it, try it, only a coin, anyone can
+win.*
+
+Walk the row and the feats sort themselves into the kind you can already feel are crooked:
+the bell rigged too high, the ducks weighted, the cups quicker than any hand watching them.
+They are all rigged, of course — that is the honest part of the carnival, the part that
+plays fair about cheating. And hung overhead, swaying on their hooks above every stall, are
+the prizes: gaudy, worthless, plush nothings in colours that don't occur, dangling just out
+of reach.
+
+And the trap is not the rigging — you can see the rigging — the trap is that you //want//
+one. Some garish stuffed thing up there has caught your eye and will not let it go, and you
+stand at the counter knowing exactly how the game is cheated and find, with a small cold
+alarm, that you would still genuinely like to win it, that you are already reaching for a
+coin to lose.
+
+<<if setup.isDim()>>
+A tout starts in on you — the lucky-one patter, the steered eye, the whole warm rigged routine — and you
+watch his mouth make its shapes and do not follow where they are going, and he sees that you do not, and
+the pitch dies in him halfway. He looks you over, recalculating, and jerks a thumb down the row at the
+duck-pond and the ring-toss, the slow bright games they keep for children and the very drunk. //Those are
+more your speed, friend,// he says, not unkindly. //No shame in it.// There is a little shame in it. You
+are too far down, now, to be the one who collects it.
+<<elseif not $wheelToutHeard>>
+A barker between shows clocks you and starts talking like you're already partners — a tout, by the shine
+of him, working the row for the wheel turning at its end.
+<<linkreplace "Let the tout talk you toward the wheel">><<nobr>><<set $wheelToutHeard to true>>
+//You've the look of a lucky one — I can always tell.// He steers your eye to the great wheel at the
+row's end. //That wheel //pays,// friend, don't let the long faces fool you. I watched a man clear forty
+on a single spin not an hour past and walk out of here a prince. Go on — put a coin down while the
+luck's standing this close to you.// He does not mention the brake the barker's hand never leaves; he
+does not mention what the //other// kind of bet — the one where you've no coin and stake //yourself// —
+takes off a man when it loses. His own pockets, you notice, don't jingle. And he does not, himself, go
+and spin it.
+<</nobr>><</linkreplace>>
+<<else>>
+The tout's still working the row, still sure your luck's in, still steering every fresh face toward the
+wheel he never plays. His pockets are as empty as when you met him.
+<</if>>
+
+<<link "A wheel of fortune, spinning slow">><<goto "TheWheel">><</link>>
+<<link "A menagerie of caged attractions">><<goto "TheMenagerie">><</link>>
+<<link "Off at the row's edge, a man throwing bones into the gutter">><<goto "TheGutterBones">><</link>>
+<<link "Back to the midway">><<goto "TheMidway">><</link>>
+
+
+:: TheWheel [carnival]
+/* NOTE (builder): mechanics are in setup.spinWheel / setup.WHEEL (sewer-demons.twee);
+   this prose is serviceable but PLACEHOLDER — owner intends to write the wheel-option
+   copy. Outcomes: jackpot (big coins), win, push, lose, nick (pig corruption), and the
+   curse / "asking for trouble" self-bet. Keep the kinds; rewrite the flavour freely. */
+A great wheel of fortune turns slow at the row's end, its rim painted in prizes and
+penalties, a barker's hand resting on the brake you are not supposed to notice.
+//Round you go,// it says, //small stake, big return, everyone's a winner who plays
+long enough.// It pays out just often enough to keep you turning it — that is the whole
+trick, and knowing the trick has never once been enough to stop anybody.
+
+<<if $wheelPlayed>>You know the wheel now, and the wheel knows you, and neither piece of
+knowing has ever helped a soul step back from the felt.<</if>>
+
+You have <span class="k-coins"><<= $coins>> coin<<if $coins neq 1>>s<</if>></span>.
+
+<<if $coins gte setup.WHEEL_STAKE>>
+<<linkreplace "Stake four coins and spin the wheel">>
+<<set $coins to $coins - setup.WHEEL_STAKE>><<set $wheelPlayed to true>>
+<<set _r to setup.spinWheel("coin")>>
+<<switch _r.kind>>
+<<case "jackpot">>The rim comes down on the painted sunburst at the very top — the prize
+nobody believes is real until it is — and the barker counts out <<= _r.coins>> coins onto
+the felt with a face that has gone, very slightly, sick.<<if _r.got lte 0>> You sweep them up and they curdle to rubbish in your fist — the curse on you eats the whole improbable win, and the barker's sick look eases into something like relief.<</if>> //Beginner's luck,// it manages.
+//Quit while you're ahead, eh?// You should. You already know you won't.
+<<case "win">>The wheel clicks down on a prize, and the barker pays <<= _r.coins>> coins
+with a showman's flourish and a look that says //come back.//<<if _r.got lte 0>> The coins rot to rubbish in your palm as you gather them; the curse leaves you the flourish and nothing else.<</if>> You won. That is how it starts.
+<<case "push">>The wheel clicks down on a blank and the barker rakes your stake off the
+felt without quite meeting your eye. //Ooh. Go again? Win it back?// You lost the bet, and
+nothing more — which is exactly how it keeps you spending the next one.
+<<case "lose">>The wheel clicks down on a penalty, and the barker takes its due — not just
+the coin it rakes off the felt, but the other thing, a small bright sliver of you palmed off
+the rim as smoothly as a card. Where its shadow crossed you, something under the skin shifts,
+and answers, and a little of you is the wheel's now.
+<<case "curse">>The wheel clicks down on a mark you have no word for, and the barker leans in
+quick and breathes something into your open mouth — a small wet syllable that settles under
+your tongue and //stays//. <<if _r.alreadyCursed>>It nestles in beside the one already there,
+and the two of them get comfortable.<<else>>//That one's on the house,// it grins. From now
+on, every so often, your mouth will not say the thing you meant to say.<</if>>
+<</switch>>
+<</linkreplace>>
+<<else>>
+//(You haven't the four coins the wheel asks to play it straight.)//
+<</if>>
+
+<<linkreplace "Put yourself on the wheel instead — the barker calls it 'asking for trouble'">>
+<<set $wheelPlayed to true>><<set _r to setup.spinWheel("trouble")>>
+<<switch _r.kind>>
+<<case "jackpot">>You stake the only thing you brought down here that's worth anything, and
+the wheel — against every law of a rigged thing — comes down on the sunburst. <<= _r.coins>>
+coins. The barker pays it like a man paying a ransom, fast and without joy, and the whole row
+goes quiet watching, because the house is not supposed to lose the big one and everyone saw it.<<if _r.got lte 0>> Then the coins curdle to rubbish in your hands in front of all of them, the curse taking back what the house lost, and the row lets out a low ugly laugh.<</if>>
+<<case "win">>The wheel throws you a bone — <<= _r.coins>> coins, a consolation that feels, for
+one bright second, like getting away with something. You did not get away with anything.<<if _r.got lte 0>> The coins prove it, going to rubbish in your fist before you've closed it.<</if>>
+<<case "lose">>The wheel takes a small bite — it never wanted your coin — just a little of you,
+palmed off the rim as smoothly as a card. Where its shadow crossed you, something under the skin
+answers, and goes over to the wheel's side of the felt.
+<<case "transform">>The wheel takes a deep bite, and it is not coin it takes. Where the rim's shadow
+falls across you the flesh answers it, eagerly, the way the whole carnival has been waiting for
+you to let it — and a real part of you goes over to the wheel's side of the felt for good.
+<<case "curse">>The wheel comes down on the sign with no name, and the barker breathes the small
+wet word into your mouth. <<if _r.alreadyCursed>>It settles in beside its twin.<<else>>From now
+on your mouth does not always say what you mean — and that, the barker's grin says, was always
+the real game.<</if>>
+<</switch>>
+<</linkreplace>>
+
+<<link "On, to a lost-and-found">><<goto "TheLostAndFound">><</link>>
+<<link "Back to the games">><<goto "TheGames">><</link>>
+
+
+:: TheGutterBones [carnival]
+/* NOTE (builder): mechanics are setup.castBones / setup.BONES_TABLE (sewer-demons.twee).
+   The chalked board below IS the published table — keep its numbers in sync with BONES_TABLE
+   and the coin line with setup.BONES_PRICE (10). INT moves via $statMods; the witless floor
+   is setup.WITLESS_INT (3). owner spec 2026-06-27. */
+<<if $bonesThrown is 0>>
+At the very edge of the row, past the last stall's light, a man is crouched over the
+gutter-grate where all the carnival's runoff goes down. Not a stall. No canvas, no prizes,
+no patter — just him, and a chalked square of kerb, and a cup of bones he tips and tips into
+the muck.
+
+The bones are old and yellow and have too many sides — knuckles off something that had
+knuckles to spare. On the kerb beside them a price is chalked up plain as a butcher's board:
+what each face takes, what each face gives. He does not look up at you. He does not call you
+lucky. That is the new thing here, the thing the wheel's barker never managed — there is no
+pitch, because the bones do not need one. The odds are posted. Read them and crouch down, or
+don't.
+
+And you read them, and understand them completely, and feel the same small cold pull you felt
+under the dangling prizes — because the bones are honest about being a robbery, and being
+robbed in the open is somehow worse, and because what they want is not in your pocket. They
+want the thing that did the reading. Somewhere a careful part of you is already working the
+sum. A louder part has crouched down without asking it.
+<<else>>
+You stay crouched at the kerb. The bone-man waits, patient as the grate.
+
+<<if setup.isDim()>>
+He looks at you now. He did not before — there was nothing in it for him then — but he looks at you now the way a man looks at a thing he has already won: mildly, briefly, without much interest, and goes back to tipping his cup.
+<</if>>
+
+<<if $bonesLast>>
+<<if $bonesLast.coins gt 0>>
+The bones come up on the eight. The bone-man counts ten coins out of his cup into your hand —
+the first time he's looked at you — and something almost like a smile crosses him, and is gone.
+<<if $bonesLast.got gt 0>>You won. You can feel, already, how much you would like to win again.<<else>>Then the coins curdle to rubbish in your palm — the curse on you eats them where you stand — and the bone-man's almost-smile widens, because a win you cannot keep is the best kind, for him.<</if>>
+<<elseif $bonesLast.dint is -3>>
+The bones come up on the one. The bone-man chalks a long mark on the kerb and three things go
+out of you at once — you feel them go, like names you'll never get back — and the gutter takes
+them down with the rest of the runoff. The world is, very slightly, simpler than it was. You do
+not entirely notice. That is how you know it worked.
+<<elseif $bonesLast.dint is -1>>
+The bones come up low. The bone-man chalks a short mark, and a single small thing slides out of
+you and down the grate — a word, a way you had of seeing — gone so quietly you have to take its
+absence on faith. He tips the cup again. He has all night.
+<<elseif $bonesLast.dint is 1>>
+The bones come up kind. Something settles back into you, cool and clarifying, a little of
+yourself returned — and having it back feels so good, so much like winning, that you have
+already forgotten it was yours to begin with. Go again. You'll be ahead in no time.
+<<elseif $bonesLast.dint is 3>>
+The bones come up on the twelve. Three bright pieces of mind drop back into you at once and for
+a moment you are sharper than you have been since they took you — sharp enough to see exactly
+what this is, and sharp enough, therefore, to feel precisely how badly you want to throw again.
+<<else>>
+The bones come up in the middle. The bone-man chalks nothing, takes nothing, gives nothing,
+tips the cup again. The gutter's patience is the whole machine: it does not need to win this
+throw. It only needs you crouched here for the next one.
+<</if>>
+<</if>>
+<</if>>
+
+Chalked on the wet kerb, in a hand that has written it many times:
+//one// — the bones take three of your wits.
+//two to five// — they take one.
+//six, seven// — they let you be.
+//eight// — ten coins, and the bone-man almost smiles.
+//nine to eleven// — they give one back.
+//twelve// — they give three.
+
+<<if not $bonesAppraised>>
+<<linkreplace "Stop, and do the arithmetic before you throw">><<nobr>><<set $bonesAppraised to true>>
+<<if setup.statCheck("int", 11)>>
+You make yourself stand and count it properly. The taking-faces outnumber the giving-faces by
+one — four that cost you against three that pay you back — so over enough throws the gutter
+wins your mind a sliver at a time, slow and sure, and the lone coin-face is only bait to keep
+you crouched while it does. Ten coins a wit, and the gutter always collects. You could walk now,
+clear-eyed — and that clear-eyedness is the most expensive thing you still own down here.
+<<else>>
+You try to hold the faces in your head and they slide. There's a coin on the eight — you keep
+landing on that, the coin — and the rest is just marks in chalk, and the marks say
+give-and-take, give-and-take, and it looks, the more you stare, like a game a careful man could
+come out of ahead. It looks like that. It is not like that.
+<</if>>
+<</nobr>><</linkreplace>>
+<</if>>
+
+Your wits stand at <<= $scores.int>>.
+<<if $scores.int lt setup.WITLESS_INT>>
+You are at the bottom of yourself now. The bones cannot take three wits you no longer have — so
+the next time they come up asking for three, they will reach past the wits that aren't there and
+take the rest of you instead. You can throw, if you like. You can always throw. The gutter is
+patient either way.
+<<elseif $scores.int lte (setup.WITLESS_INT + 3)>>
+There is not much of you left to throw. You can feel how little — a thinness behind the eyes, a
+word you reached for just now and didn't find. A few more bad casts and there will be nothing
+left here the bones can be paid in but you.
+<</if>>
+
+<<link "Crouch down and throw the bones">>
+<<set $bonesLast to setup.castBones()>>
+<<if $bonesLast.witless>><<goto "EndingWitless">><<else>><<goto "TheGutterBones">><</if>>
+<</link>>
+<<link "Stand up, keep what wits you have, and go back to the games">><<goto "TheGames">><</link>>
+
+
+:: EndingWitless [ending]
+<<run setup.recordRun("witless")>>
+The bones come up on the one — three wits the gutter wants, the way you knew they might and threw
+anyway, and you have not three left in you to give it. So it reaches past the wits that aren't
+there and takes the rest: the last of the thing that did the worrying goes down the grate with the
+runoff, and you feel the gutter take it, the final sliver, the part that was keeping count.
+
+The bone-man looks up. He looks up at last, because there is nothing left in your face to pitch
+to, and he chalks one short mark on the kerb to score you — a mark like all the others, a mark
+you watch him make and cannot read. You crouch there a while longer, because crouching is what
+you are doing. After a while you are not waiting for anything. After a while someone steps over
+you to throw, and you do not look up, and the cup tips, and the bones go into the gutter, and
+that sound is enough. That sound is plenty.
+
+//You threw your mind into the gutter a sliver at a time, and the gutter kept it, and what's
+left of you keeps the bone-man company at the edge of the lights. The carnival has a place for
+the witless, too. It is the gutter.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>
+
+
+:: TheLostAndFound [carnival]
+A lost-and-found booth, piled to its roof with everything the carnival's visitors put
+down and didn't pick back up — coats and bags and shoes and spectacles and, in a jar
+on the counter, the small valuables, the rings and watches and coin, kept honestly for
+owners who, the booth's keeper says with a sympathetic tilt, do so rarely come back to
+claim them. You may help yourself, it says. Finders keepers. It's not as if, it does
+not say, the losers are using them.
+
+<<if $lostFoundLooted>>
+You've taken the loose coin from the jar. The coats and the shoes you leave, and try
+not to size them, and do, a little, despite yourself.
+<<else>>
+In the jar on the counter sits the small unclaimed change, the rings and watches and
+coin of owners who do so rarely come back — yours for the taking, the keeper says,
+finders keepers, whenever the thought of it brings you back to the booth.
+<</if>>
+
+<<if not $keeperTalked>>
+The keeper minds the booth with a patient, sympathetic air, and because it has inventoried everyone
+who ever passed through the Shambles and set something down, it has — it will tell you, if you ask —
+the one story it owns of a thing that came back to claim, and walked back out.
+<<linkreplace "Ask the keeper if anyone ever comes back to claim">><<nobr>><<set $keeperTalked to true>>
+//Once,// it says, pleased to be asked. //Only the once. Came in carrying //fire// — a branch off the
+one tree that burns away down at the bottom of everything and is never the less for it, the tree the
+diggers won't go near. He'd broken a piece off and brought it //up,// and it burned in his fist the
+whole way and never went out and never burned him.// The keeper tilts its head. //And up top, where the
+fat sits across the pipes and seals the way out — he set the fire to it, and the fat //went,// and so
+did he. Out and gone. The only one.// A sympathetic little sigh. //Left his coil of rope, mind. They
+always leave something.//
+<</nobr>><</linkreplace>>
+<<else>>
+The keeper has told you the one good story it has, and goes back to sorting the coats nobody will
+claim — sizing them, gently, against the day you might.
+<</if>>
+
+<<link "On, to a vendor's till">><<goto "TheTill">><</link>>
+<<link "Back to the wheel">><<goto "TheWheel">><</link>>
+
+
+:: TheTill [carnival]
+A vendor has stepped away from its stall — the cotton-candy spinner, or the thing that
+sells the candy that is not cotton — and left the till sitting open, a square of dull
+gleam in the carnival glare, the one careless thing in a place that careless-seems on
+purpose. The spinning-drum still turns, abandoned, winding sugar into the air over an
+empty counter.
+
+Come up to it and the drawer is full: the day's takings just lying there, the cold coin
+of a hundred small carnival pleasures bought and half-regretted, stacked loose and uncounted
+where any passing hand could close on it. The vendor is nowhere. The next stall's barker has
+his back turned. The crowd flows past without a single face angling your way.
+
+Nobody is watching. Nobody, in the Shambles, ever seems to be watching — and standing here
+over the open drawer with the easy coin an arm's-length off, you have learned by now that
+*nobody watching* is not at all the same thing, down here, as not being seen.
+
+<<if $tillLooted>>
+You've lifted the loose coin from the open till. You did not, you notice, feel watched
+doing it, and that absence is the most watched you have felt all day.
+<<else>>
+The drawer sits open and unminded, the day's takings just lying there — the cold coin of
+a hundred small carnival pleasures bought and half-regretted, there for the lifting if you
+come back while the vendor's still stepped away.
+<</if>>
+
+<<link "To a shuttered quiet booth">><<goto "TheQuietBooth">><</link>>
+<<link "Back to the lost-and-found">><<goto "TheLostAndFound">><</link>>
+
+
+/* ---------- REST ---------- */
+
+:: TheQuietBooth [carnival]
+At the midway's edge there is a booth that has closed — shutters down, lamp dark, the
+barker gone wherever barkers go, a pocket of stillness in the carnival's roar. You
+duck into its awning-shadow and the noise drops to a muffled surf, and for the first
+time since the teeth you are not being sold to, not being shown a wonder, not being
+invited to step inside or spin again or join the show. Just a person in a doorway,
+out of the lights, while the fair goes on without them.
+
+In the shade you can finally see the carnival sidelong instead of head-on, and from here
+the lit row looks smaller, tireder, the bunting frayed, the colours cheaper — a thing run
+by exhausted hands for exhausted reasons, the way every fair looks from behind. The booth
+at your back is just boards and dust and an old chalked price-list nobody will read tonight.
+Nothing here wants anything from you. It is so quiet you can hear your own breath.
+
+You sit on the booth's step and breathe, and the carnival's pull eases its hand off
+you, finger by finger, and you remember that the fun was never free and never yours and
+never the point. The rest steadies you. It is the most valuable thing in the Shambles
+precisely because it is the one thing nobody here is trying to sell.
+<<if $hp lt $maxhp>><<run setup.passTime(setup.REST_TIME)>><</if>><<set $hp to $maxhp>>
+
+<<link "Back out into the midway">><<goto "TheMidway">><</link>>
+
+
+/* ---------- SNARES (bad ends) ---------- */
+
+:: TheFreakShow [carnival]
+The sideshow tent is smaller and closer than the big top, lit a deep warm red that closes
+around you like a held breath, and the ringmaster's voice draws you through the flap —
+//the wonders, the marvels, the human curiosities, step inside, you've earned it.// The
+red light and the low ceiling and the velvet make of the whole tent one long throat, and
+you go down it the way you go down everything in the Shambles: because it is easier than
+not.
+
+Along the throat, on their little stages, behind their little ropes, are the exhibits — and
+walking the row you see what each one is. Every wonder is a person remade into a marvel, a
+body edited into an attraction, and every one of them is *content*: each one waves to the
+crowd with whatever it has left to wave, each one settled, each one having found — the
+placards explain, in a cheerful hand — a kind of peace in being looked at instead of
+hunted. They are not in pain. That is the worst thing about them. They look //relieved.//
+
+And there is an empty stage at the end of the row. There is a placard on it, blank, waiting
+for a name. There is, you understand too slowly, room for one more wonder — the row was
+built with the gap in it, has been holding the gap open this whole time — and you have come
+so far, and you are so tired of being a mark and not a marvel.
+
+<<link "Step onto the empty stage. Become a wonder.">><<goto "EndingExhibit">><</link>>
+<<link "Get out of the sideshow. Back into the lights.">>
+  <<soothe 5>>
+  <<goto "TheBigTop">>
+<</link>>
+
+
+:: TheHallOfMirrors [carnival]
+A hall of mirrors stands at the end of the attractions, and you go in because everyone
+goes in, and the door swings shut on the carnival behind you and there is only glass: walls
+of it, corridors of it, a cold silver maze that throws your own dim shape back at you from
+every angle at once and gives you no way to tell which dark gap is a turn and which is just
+another version of you, waiting.
+
+You work deeper in with your hands out, and the glass does to you what carnival glass does
+— makes you tall, makes you small, makes you wide and warped and wrong, a hundred ruined
+yous sliding along beside you as you go. It is the oldest trick in any fair and you know it
+for one, and still the multiplying does its slow work on the nerves: somewhere in here is
+the way out, and somewhere in here are only more of you, and you are losing track of which
+reflection is the real you doing the walking.
+
+<<if setup.isDim()>>
+And then you find the one that has stopped copying. It holds still when you move; it smiles when
+you don't; it beckons, and pours warmth at you through the silver, and mouths something slow and
+coaxing — an offer, shaped careful and tempting against the glass. You watch it make the offer
+and you do not understand the offer. There is no thread in you for it to pull on; the bargain
+needs a mind to land in and finds the house empty. The smile curdles. It mouths the thing again,
+slower, as though slowness were the trouble, and you scratch yourself and look at the ceiling,
+and at last it gives you up in plain disgust — flicks something small and bright out through the
+silver at you, the way you'd toss a coin to be rid of a beggar, and turns its back to wait for a
+sharper mark.
+<<set _flick to 5 + random(0, 4)>><<set _got to setup.gainCoins(_flick)>>
+You gather what it flicked off the cold floor<<if _got gt 0>> — <<= _got>> coins<<else>>, though the coins curdle to rubbish in your fist<</if>>, and blunder on out, no lighter than you
+came in — which, in this hall, where everyone leaves a little of themselves grinning in the
+glass, is the same as walking out a winner.
+
+<<link "Out the far door, none the wiser, none the lighter">>
+  <<goto "ThePuppetShow">>
+<</link>>
+<<else>>
+And then you find the one that has stopped copying. It holds still when you move. It smiles
+when you don't. It is, you realize, the version of you the Shambles would prefer — relaxed,
+unhurried, *staying* — and it beckons from the glass with enormous warmth, offering to swap,
+to let you be the easy reflected one for a while and it the tired one doing the walking.
+
+<<linkreplace "Press your hand to the glass. Trade places, just for a rest.">>
+<<corrupt "head" "pig" 24>>
+You press your palm to the cold glass and the reflection presses back, and something
+passes through the silver the wrong way — and you keep your side of the mirror, you keep
+walking, you keep being the tired one, but lighter now by exactly the weight the
+reflection took, a portion of you left grinning in the glass for the next mark to meet,
+wearing your face, having your rest.
+<</linkreplace>>
+
+<<link "Find the way out of the mirrors">>
+  <<soothe 4>>
+  <<goto "ThePuppetShow">>
+<</link>>
+<</if>>
+
+
+/* ---------- COMBAT ---------- */
+
+:: TheMenagerie [carnival]
+The menagerie is the carnival's zoo: a long aisle of cages under a sagging canopy, the
+captured and the bred and the merely enormous pacing their bars, two-headed things and
+boneless things and things that are only a wet shifting in the straw — paced lively for
+the crowd by barkers who jab them through the bars with poles when their misery threatens
+to bore. The smell is the one thing here the barkers can't paint over: cage-stink,
+dung and fear and old straw.
+
+Walk the aisle and the inmates track you, every captive head turning to follow the one
+visitor who is not, yet, on the wrong side of a bar — and partway down the row you see why
+the others have gone tense. One cage stands open. Its bar is sprung, its straw scattered out
+across the aisle, its door swinging on a slow creak, and whatever was in it is no longer in
+it.
+
+It is loose among the cages: a rat-man, one of the upright kind from the deep belly, hauled
+up here to be an exhibit and plainly unimpressed by the career change. It is between you and
+the way you came, and it has stopped its pacing, and it has fixed on you — the nearest soft
+thing in the whole menagerie that isn't behind bars.
+
+<<if $menagerieCleared>>
+The escaped exhibit lies where you put it down, and a barker is already dragging it back
+toward its cage by the heels, grumbling, to be a wonder again whether it wants to or not.
+The menagerie pages on, lively, behind its bars.
+
+<<link "On, to the carousel">><<goto "TheCarousel">><</link>>
+<<link "Back to the games">><<goto "TheGames">><</link>>
+<<else>>
+<<scentof "ratman">>
+<<link "Put the loose exhibit down before it reaches you">>
+  <<run setup.startFight("ratman", "TheMenagerieCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Back to the games, away from the loose cage">><<goto "TheGames">><</link>>
+<</if>>
+
+
+:: TheMenagerieCleared [carnival]
+/* lands here after the menagerie fight; sets the flag, then folds onward */
+<<set $menagerieCleared to true>>
+You put the rat-man down among the cages, and the caged things go briefly, horribly
+quiet — a recognition passing along the bars — and then the barkers resume their patter
+and the crowd its delight, the brief violence folded back into the show as just another
+act, applauded, already forgotten.
+
+<<link "On, to the carousel">><<goto "TheCarousel">><</link>>
+<<link "Back to the games">><<goto "TheGames">><</link>>
+
+
+/* ---------- PASSAGE / ATMOSPHERE FILLER ---------- */
+
+:: TheButchersStall [carnival]
+The butcher's stall does the briskest trade on the midway, and you smell it before you
+reach it — not rot, but the clean cold copper of a good butcher's, blood and sawdust and
+chilled meat — a long counter of cuts under hanging lamps, a queue of cheerful customers,
+and behind it the butcher itself: a wide red cheerful thing in a clean apron, working the
+crowd in the singsong of butchers everywhere. //Lovely bit of cheek,// it calls, //lovely
+bit of heart, who's for a nice piece of somebody.//
+
+Come up to the glass and the cuts are laid out the honest way, the named way, the way a
+real butcher names a real animal — cheek and heart and shin and shoulder, labelled in a
+neat chalked hand, the marbling good, the colour right. It is only on the second look, the
+look you take a beat too long, that the names settle in properly and you understand that
+they are the names //you// have, that the animal being named, cut and chalked and wrapped,
+is the one you see in mirrors.
+
+The crowd buys happily. The butcher wraps each cut in paper with a wink and a word of
+cooking advice, *low and slow, mind, or you'll toughen it.* And it is the most ordinary
+stall in the whole Shambles — no glamour, no barker's lie, no rigged wheel, just an honest
+tradesman doing honest trade — which is to say it is the worst.
+
+<<if $coins gte 2>>
+<<linkreplace "Buy a nice piece of somebody, and eat it (2 coins)">>
+<<set $coins to $coins - 2>><<set _h to random(3, 6)>><<set $hp to Math.min($maxhp, $hp + _h)>><<set _amt to random(5, 9)>><<corrupt "torso" "pig" _amt>>
+The butcher wraps it warm and you eat it there at the counter, because you are starving and it is —
+God help you — //good//, rich and familiar and exactly the thing, and it settles the shaking and
+fills the hollow in you (<<= _h>> vigor) and leaves behind, under that, what the carnival feeds
+everyone: a little more of the pig, rubbed in from the inside, glad to be eaten home.
+<</linkreplace>>
+<<else>>//(A nice piece of somebody runs 2 coins. You're short.)//<</if>>
+
+<<link "Past, toward a confectioner">><<goto "TheConfectioner">><</link>>
+<<link "Back to the midway">><<goto "TheMidway">><</link>>
+
+
+:: TheConfectioner [carnival]
+A confectioner's cart stands in the alley-mouth, all spun sugar and bright paper twists and
+a little brass bell, the cheeriest small thing you have seen since the teeth — and therefore
+the one you are most afraid of, because you cannot place a single thing it sells. The sweets
+are heaped in colours that don't occur, pulled and folded and dusted, glistening under a
+striped awning, and the smell coming off the cart is sweet enough to ache.
+
+Closer, the trade reveals itself: the cart's whole custom is the children that are not
+children, who throng it sticky-handed and delighted, coins clutched in fists, faces upturned,
+and the confectioner serving them tirelessly, twist after twist, with the bottomless patience
+of someone who has all the time there is. None of the grown things buy here. Only the small
+ones. Only the ones easiest to please.
+
+//Try a little something,// the confectioner says, catching you looking, and holds out a
+twist of something that smells of nothing you have ever smelled and everything you have ever
+wanted. //First one's always free.// A pause, a paper-dry little smile. //That's how we get
+you.// It laughs, to show it's a joke. It is not entirely a joke.
+
+<<linkreplace "Take the free sample — first one's free">>
+<<set _h to random(2, 5)>><<set $hp to Math.min($maxhp, $hp + _h)>><<set _amt to random(4, 8)>><<corrupt "torso" "pig" _amt>>
+You take the twist of impossible colour and eat it, and it is the best thing you have ever tasted —
+it tastes of being a child and being safe and being home — and it does you good (<<= _h>> vigor) the
+way a thing this sweet shouldn't, and under the sweetness, settling in for the long stay, is the
+carnival itself, taken willingly, first one free and the rest already paid for.
+<</linkreplace>>
+
+<<link "Through to the back alleys">><<goto "TheBackAlleys">><</link>>
+<<link "Back to the butcher's stall">><<goto "TheButchersStall">><</link>>
+
+
+:: TheCarousel [carnival]
+A carousel turns slow at the heart of the games, and its mounts are not horses — they
+are the menagerie's overstock, the grown and the bred and the broken-to-saddle, fixed to
+their poles and going round and round to the calliope's slightly-wrong waltz, and the
+children that are not children ride them shrieking with a joy that is, unbearably, real.
+It is beautiful, in the carnival's way. The mounts' eyes follow you as they pass, round
+and round, patient, and one of them — a long pale thing with too many knees — is, you're
+fairly sure, watching for whether you'll get on.
+
+<<linkreplace "Get on. Ride it round, just the once.">>
+<<corrupt "legL" "pig" 5>>
+You climb onto the long pale mount with too many knees and it carries you round to the wrong waltz,
+and it is wonderful, it is genuinely wonderful, the lights wheeling and the not-children shrieking
+joy — and when you climb down your legs have learned the going-round of it, the patient saddle-broke
+sway, and a little of the mount has climbed up into you, to take your place when you tire of standing.
+<</linkreplace>>
+
+<<if not $wranglerKnown>>
+A stooped operator works the carousel's brake, catches your eye, and is glad of someone to talk shop
+to — proud of the ride, chatty, and entirely willing to explain how a thing becomes a mount.
+<<linkreplace "Ask the operator where the mounts come from">><<nobr>><<set $wranglerKnown to true>>
+//These? Menagerie overstock, every one. You break 'em to the saddle slow — a turn at a time, round and
+round, till the going-round's all they know and they stop fighting the pole.// It pats the long pale
+mount as it passes. //Funny thing: the line between a rider and a mount is just //how many turns you
+take.// Ride enough and your legs learn the waltz, and one morning you don't get off — you get //fixed
+on,// and the next fresh face is riding //you.// No cruelty in it. Just turns.// It winks. //You've a
+sway starting already, if you don't mind me saying.//
+<</nobr>><</linkreplace>>
+<<else>>
+The operator gives you a nod and a //back for another turn?// — and notes, not unkindly, the sway you
+carry now, the carousel's wrong waltz already settling into the way you stand.
+<</if>>
+
+<<link "On, to a fortune-teller's tent">><<goto "TheFortuneTeller">><</link>>
+<<link "Back to the menagerie">><<goto "TheMenagerie">><</link>>
+
+
+:: TheFortuneTeller [carnival]
+The fortune-teller's tent is hung with the usual velvet and stars, the cloth heavy enough
+to swallow the midway's noise to a hush the moment the flap falls behind you, and the teller
+inside is the usual shrouded shape over the usual clouded glass, a beckoning hand and a low
+//sit, sit, give me your hand.// Everything about it is the cheap stock-in-trade of every
+fairground seer you have ever walked past and not believed.
+
+<<if setup.isDim()>>
+<<if $fortuneClue>>
+The shrouded shape turns your way and finds you, still, beyond its reach — the one mark it cannot
+frighten — and there is nothing more it can do for a mind like yours. It gave you the one true thing
+that would fit, and it fit, and that is the whole of its trade with you. //Mind the fat,// it says, the
+candle gutters, and the seance is over.
+<<else>>
+You give it your hand, and it reads your past back to you — the night by the drain, the sack coming
+down, the long way down after — surgically, the way it reads everyone. And then it turns your palm to
+the candle to tell you the rest, the part that has not happened yet, and the patter drops out of its
+voice, and gently, exactly, it begins to tell you how this ends.
+
+And it slides off you like water off oilcloth. You hear the words. You cannot make them into a shape.
+A future is a thing you hold in the mind and turn over, and there is less and less of your mind to turn
+it in, so the worst news a soul could be handed simply will not go in — it beads on the surface of you
+and runs off and is gone. The teller stops. The shroud turns your way, and for the first time the
+terrible gentleness is for *itself*: it has met the one mark it cannot frighten, and that frightens
+*it*, a little, in whatever it keeps where a heart would go.
+
+Then it does the thing it does for no one with the wit left to be wounded by knowing. It leans close
+and gives you, in place of the doom, the one true thing small enough to stick — shaped plain and slow
+to fit what is left of you. //The way up is sealed over with fat,// it says, //and fat takes a fire.
+Carry one up. That much you can hold.// And you can. It is small enough. It stays.
+<<set $fortuneClue to true>>
+<</if>>
+<<else>>
+You give it your hand because that is what the tent is for, expecting the patter — the tall
+dark warnings, the soft flattering nothings — and instead it tells you your fortune *right*.
+Not vaguely right; not flatteringly right. Specifically, surgically right: about the night
+by the drain and the sack coming down and the long way down after, about the bargains and
+the marks, about things you have told no one because there has been no one to tell, named
+back to you in order.
+
+Then it turns your palm to the candlelight, and goes quiet, and the patter drops out of its
+voice entirely. And it tells you the rest — the part that hasn't happened yet — in a voice
+gone suddenly, terribly gentle, the way you'd gentle your voice for someone you had bad news
+for. You take your hand back fast. Not fast enough. Not nearly fast enough to un-hear how
+this is likely to end.
+
+<<linkreplace "Turn your palm back. Ask to hear the rest.">>
+<<corrupt "head" "pig" 4>>
+You give it your hand again and it tells you the rest, all of it, the exact shape of how this ends,
+and the knowing goes into you and cannot be un-known — and the worst of it is the small relief that
+comes with it, the relief of a thing decided, a part of you glad to stop fighting a finish it can
+finally see.
+<</linkreplace>>
+<</if>>
+
+<<link "On, to a puppet show">><<goto "ThePuppetShow">><</link>>
+<<link "Back to the carousel">><<goto "TheCarousel">><</link>>
+
+
+:: ThePuppetShow [carnival]
+A puppet booth plays to a rapt ring of the not-children, who sit cross-legged and upturned
+in the lamplight, still as a held breath: a little stage, a little curtain, a little
+painted proscenium, and behind it the clatter and squeak of the puppets working through the
+old story — the one every culture has, in some form, the one about the foolish traveller and
+the clever devil and the bargain and the price.
+
+Find a place at the back of the ring and watch a while, and the unease creeps up slowly: the
+puppets are good. Are very good. Are too good. Their small wooden faces are too expressive by
+half, catching the lamplight and turning it into something that looks, for whole beats at a
+time, like feeling; their jointed hands are too sure; and there are no strings you can find,
+search the dark over the booth as you might, no hands you can place.
+
+And when the devil-puppet turns at the climax to address the audience directly, to deliver
+the moral, it does not look at the ring of rapt not-children. It looks, unmistakably and only,
+at //you// — finds you at the back without a moment's searching, holds your eye, and winks a
+small wooden wink. The not-children laugh and clap, delighted, and do not seem to see that the
+show has, for one beat, been entirely about the one real person in the crowd.
+
+<<linkreplace "Stay for the next show. And the next.">>
+<<corrupt "head" "pig" 4>>
+You stay, because the puppets are so good, and the devil-puppet plays the next show and the next to
+you and only you, winking you deeper in, and somewhere in the third or fourth telling you stop being
+the foolish traveller watching the story and start being a small wooden thing //in// it, jointed and
+sure and grinning, and you have to make your wooden hands let go of the rail to leave.
+<</linkreplace>>
+
+<<link "Into a hall of mirrors">><<goto "TheHallOfMirrors">><</link>>
+<<link "Back to the fortune-teller">><<goto "TheFortuneTeller">><</link>>
+
+
+/* ---------- LAYER-6 BAD END ---------- */
+
+:: EndingExhibit [ending]
+<<run setup.recordRun("taken")>>
+You step up onto the empty stage, because you are so tired of being the mark and the prey
+and the thing the carnival is for, and because the wonders on their little stages look so
+*restful*, so done with running, and because the ringmaster's voice says //there it is,
+there's our new wonder// with a warmth that, after everything, undoes you.
+
+The crowd you could never quite see turns to look, and seeing is the trick, seeing is the
+whole apparatus: under the lights, looked at, applauded, you feel the editing begin — gentle,
+expert, the body remade by attention into a marvel worth the ticket — and it does not hurt,
+and the placard fills in with a name that is almost yours, and you wave to the crowd with
+whatever you have left to wave, and find, the placards promised and the placards were right,
+a kind of peace in being looked at instead of hunted.
+
+//You stepped into the lights and became a wonder. The Shambles always has room for one more.
+You will be looked at forever, and never again hunted, and that is the deal, and you took it.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>
+
+
+/* ---------- THE CAGE ACT (willing exploitation: coin for oddity; the barker's 'help' is the trap) ---------- */
+
+:: TheCageAct [carnival]
+<<if $pressedReturn>>
+They march you up the menagerie row and a barker-overseer points you at an empty cage without a word
+of its usual patter — this isn't a sale, it's a shift. //One turn,// it conveys, with a jerk of the
+head. //Then you're nobody's problem but your own again.// No contract, no binding; just the work,
+and the deep's small cut of you for doing it.
+
+<<linkreplace "Do the turn they marched you here for">>
+<<set _ps to setup.doPressedShift()>>
+You climb in and give them their oddity — lurch, gibber, the whole sad show — and the part wears a
+little more <<= _ps.cls>> into you before the crowd thins and the overseer waves you off. Pressed
+work never pays a coin; it only takes its degree of you. Then they turn you loose.
+
+<<link "Back to it">><<set _to to $pressedReturn>><<set $pressedReturn to "">><<goto _to>><</link>>
+<</linkreplace>>
+<<else>>
+A barker — striped and enormous and warm as a bath — has clocked you for exactly what you are and
+steers you, all fellowship and easy confidence, toward an empty cage at the back of the menagerie
+row. //Here's the thing, friend,// it says. //Crowd loves an oddity, and you've got the look.//
+
+<<if $corruption gte 70>>
+It looks you over the way a butcher looks at a good carcass — frank, appreciative, unhurried.
+//Half a wonder already, you are,// it says, almost tender. //Wasted out there walking around like a
+paying customer. Get in where you belong. Give 'em a turn. Pocket the coin.//
+<<elseif $corruption gte 35>>
+//More than half-there, that look,// it says, taking you in. //The deep's well into you now — anyone
+can see it; you'll barely need the paint. Get in, give 'em a turn, pocket the coin.//
+<<else>>
+//Half-there already,// it says, //a smudge of the deep still on you, new as you are. Get in, give
+'em a turn, pocket the coin.//
+<</if>>
+
+//No tricks. Well —// it grins //— one trick. Looking the part. And I can help you with that.//
+
+<<if $workOwed and $workStation == "cage">>
+But there is no //talking you into// it tonight, and you both know it. You are signed to this
+cage; the binding brought you back here the moment the world put you down, the way it always
+will, and the barker is less a tempter now than an overseer with a warm voice. The menagerie
+row's gate will not open for you — you can feel the curse holding it, patient and absolute —
+until you have given them their turn. A shift is owed. The deep keeps its books.
+
+<<linkreplace "Climb in and work off the shift you owe">>
+<<set _s to setup.doShift()>><<set _pay to (setup.wearing("motley") ? random(6, 10) : random(3, 6))>><<set _got to setup.gainCoins(_pay)>>
+<<if $corruption gte 70>>
+You climb in and do not so much perform as //stand there//, and it is enough, because there is
+so little acting left to do — you ARE most of what they came to see. The crowd shudders happily
+and throws coin; the barker has stopped coaching you, because there is nothing left to coach.
+<<elseif $corruption gte 35>>
+You climb in and find you don't have to ham it the way you did the first time. The lurch comes on
+its own now; the gibber sits easier in your throat than your own voice has lately. The crowd loves
+it, and the line between working the part and being it gets harder to find than it was last shift.
+<<else>>
+You climb in and give them their oddity — you lurch and gibber and //play// the thing they came to
+see — and the crowd loves it and throws coin, and the part wears its groove a little deeper into you.
+<</if>>
+You came out <<if _got gt 0>><<= _got>> coin<<if _got neq 1>>s<</if>> richer<<else>>with a fistful of coin that curdles to rubbish before you can spend it<</if>>, and the debt, for this return, is
+paid; you feel the curse on the gate ease, and the row opens to you again — until the next time the
+world knocks you down and the binding reels you back in.
+<<if _s and _s.leather>>
+
+And there is this. You have put in your shifts now, and the deep keeps its books both ways: the
+barker fetches you a suit of tanned leathers from a hook in the back — //work gear//, it would say,
+if it said anything — and waves off your surprise. They are real armour, broken-in and yours.
+//(You've worked the cage <<= _s.shifts>> times — free leather armour issued.)//
+<</if>>
+
+<<link "Climb out of the cage, back to the stage">><<goto "TheStage">><</link>>
+<<link "Out to the big top">><<goto "TheBigTop">><</link>>
+<</linkreplace>>
+<<else>>
+<<if setup.wearing("motley")>>
+You are wearing the motley — the patched, parti-coloured fool's suit the barker fits its oddities
+in. It is warmer than it was, and harder to find the edge of.
+<<elseif setup.has("motley")>>
+<<linkreplace "Put the motley back on">>
+<<run setup.equip("motley")>>
+You pull the patched motley back on, and it settles against you like it never came off — because in
+the ways that matter, the barker would say, it didn't.
+<</linkreplace>>
+<<else>>
+<<linkreplace "Let the barker fit you for the part — take the motley">>
+<<corrupt "torso" "pig" 14>><<run setup.equip("motley")>>
+The barker dresses you with its own huge gentle hands — a motley off a hook, the patched
+parti-coloured suit they put on fools and fairground freaks, pieced from a hundred acts that wore it
+before you and still warm from the last — and it does not so much go //on// as go //in//, the cloth
+settling against you and then under you, and when the barker turns the cage's little mirror to you,
+you look — genuinely, convincingly — //odd//. //There he is,// it beams. //Now you'll pull a proper crowd.//
+<</linkreplace>>
+<</if>>
+
+A turn in the cage is always there for the taking. How much of a show you make of it — and how much
+of the part you let take root — is your own to decide; the crowd pays for what it's given, and it
+gives most for the costume.
+
+<<linkreplace "Give them a quick caper — a lurch, a gibber, enough to shake a coin loose">>
+<<set _seg to setup.SEGMENTS.random()>><<set _amt to random(2, 4)>><<corrupt _seg "pig" _amt>>
+<<set _pay to random(3, 5)>><<set _got to setup.gainCoins(_pay)>>
+You give them the cheap version — a lurch, a gibber, the bare minimum that reads as oddity — and a
+thin crowd throws a thin scatter of coin, <<if _got gt 0>><<= _got>> of it,<<else>>which rots to rubbish the moment you scoop it up,<</if>> and only a little of the part sets its
+hook. Barely working; barely worth it. //Barely// is the trap the place is built on.
+<</linkreplace>>
+
+<<if setup.wearing("motley")>>
+<<linkreplace "Work the crowd in the motley — really sell the oddity, pull a proper house">>
+<<set _seg to setup.SEGMENTS.random()>><<set _amt to random(6, 10)>><<corrupt _seg "pig" _amt>>
+<<set _pay to random(9, 14)>><<set _got to setup.gainCoins(_pay)>>
+<<if $corruption gte 60>>
+In the motley you barely perform at all — you simply //are// it, and the cage is only a frame around a
+thing the crowd already half-recognises. They press to the bars and shudder and rain coin<<if _got gt 0>>, <<= _got>>
+of it,<<else>> — but it curdles to rubbish in your hands,<</if>> and the barker has stopped coaching you between turns, because there is nothing left in you to
+coach. The costume is warmer every time, and harder to find the edge of, and one of these turns there
+will be no edge left to find.
+<<else>>
+You work it properly this time, the way the costume lets you — the full lurching gibbering show, the
+crowd pressed to the bars and loving it, coin coming down like weather. <<if _got gt 0>>You pocket <<= _got>>, the
+easiest money in hell,<<else>>You pocket what comes down, but it curdles to rubbish before you can spend it,<</if>> and the part wears its groove that much deeper for the selling of it; the
+motley goes a little further in, glad, as ever, of the room.
+<</if>>
+<</linkreplace>>
+<<else>>
+Without the motley the crowd only ever gets the cheap version — a proper house wants the costume on
+you, and the costume, you are beginning to grasp, wants rather more of you than the cloth.
+<</if>>
+
+<<link "Climb out of the cage, back to the stage">><<goto "TheStage">><</link>>
+<<link "Out to the big top">><<goto "TheBigTop">><</link>>
+<</if>>
+<</if>>

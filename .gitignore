@@ -1,0 +1,16 @@
+# Compiled output
+dist/
+
+# Tweego / storyformats (install locally, don't vendor)
+storyformats/
+.storyformats/
+.tools/
+
+# OS / editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/

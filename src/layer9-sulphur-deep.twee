@@ -1,0 +1,809 @@
+/* =====================================================================
+   LAYER 9 — THE SULPHUR DEEP
+   The bottom of everything. A sulphur castle raised by nine hydrothermal
+   vents, bright canary-yellow Frasch/Louisiana-sulphur crust, the throne-ward
+   of hell — and it is FULL OF PIG DEMONS, the kidnapper's kind, ruled by their
+   lord. Register: infernal grandeur + the chemical/poison band come full circle
+   (the brimstone is both spiritual and literal; the top of the descent was
+   poison, and here at the bottom poison and damnation are the same thing).
+   Holds SIGIL-FRAGMENT 3 — collecting it completes the Unbinding Sigil, and the
+   Hellmouth then offers the unbound exit (EndingUnbound).
+
+   Hub = TheVentField. Enter from L8 (TheRunoff → TheBrimstoneShore); ascend via
+   TheRunback. No layer below — this is the floor of hell. Depths = 9.
+   ===================================================================== */
+
+
+/* ---------- ENTRY ---------- */
+
+:: TheBrimstoneShore [hell]
+<<corrupt "head" "pig" 3>>
+The runoff carries you down the last drop and spits you onto a shore at the bottom of
+everything — and the bottom of everything is *yellow*. Not the red of the furnaces, not
+the organ-pink of the belly, but a vast bright canary yellow, the yellow of a warning, of
+a quarantine flag, of sulphur: a crust of it underfoot, sublimed and re-deposited and built
+up over an age into dunes and crags and the far, impossible bulk of a castle, all of it the
+same uniform poison-bright yellow, lit from within and below by the nine vents whose heat
+made it. The air is thick enough to lean on and every breath is a small chemical injury.
+
+This is the throne-ward of hell, the deepest place there is, and the smell of it — under the
+brimstone, the old familiar smell — is wet pork. Their smell. This is where the pig-things
+come from, and where their lord keeps the bottom of the world.
+
+The runoff that brought you down here goes on past your feet and soaks away into the yellow
+without a sound, the way everything down here arrives and stays. There is no current onward,
+no slope to follow, only the crust crunching underfoot like burnt sugar and that far castle
+sitting in the haze with the patience of a thing that knows you have nowhere else the descent
+could possibly take you. You have, you understand, finally hit bottom. The only way that is
+not down from here is the way you came, and that way is closed behind you, fallen with the
+water.
+
+<<link "Onto the field of vents">><<goto "TheVentField">><</link>>
+
+
+/* ---------- HUB ---------- */
+
+:: TheVentField [hell]
+<<nobr>>
+Nine vents roar in a rough ring across the yellow plain — nine throats into the actual
+fundament, each jetting a column of superheated sulphur-stink and shimmering heat-haze up
+into the dark, and it is their nine breaths, blown across an age, that raised the castle:
+the sulphur sublimes off the vents and re-freezes wherever it cools, so the whole canary
+fortress is not built but *grown*, vent-breath turned to yellow stone, a Frasch-bright crag
+of brimstone the size of a cathedral with the lord of the pigs somewhere at the heart of it.
+
+Out from the ring the plain spreads in every direction, and as your eyes settle to the
+heat-shimmer you start to read it — the safe shelves where the crust has gone cold and pale,
+the bright thin reaches where it has not, and past them only fume and colour and the
+far dark the haze swallows, every quarter of it a different shade of the same
+poison. The roar of the nine fills it all, a sound so total it becomes a kind of silence, the
+held breath of the bottom of the world going in and out, in and out.
+
+Wherever you turn, the castle is the thing your eye comes back to. It does not loom so much as
+*wait*, squatting in the haze at the heart of the ring with its gate of standing fire, and the
+longer you stand here the more the whole yellow plain feels like a courtyard laid out before
+it — every road, every shelf, every cold seam in the crust, eventually bending in toward that
+one door and the thing that keeps the bottom behind it.
+<</nobr>>
+
+<<if setup.hasSigil()>>
+The two fragments you carry pull, hard, toward the castle — toward the third — and toward
+each other, eager to be whole, hateful to all this yellow grandeur.
+<</if>>
+
+<<link "Toward the nine vents, at the ring's heart">><<goto "TheNineVents">><</link>>
+<<link "Toward the castle gate, a curtain of sulphur-fire">><<goto "TheCastleGate">><</link>>
+<<link "Across a field of fuming sulphur">><<goto "TheSolfatara">><</link>>
+<<link "A stable shelf of cold yellow crust">><<goto "TheCrust">><</link>>
+<<link "A fume-cut between two vents, a tribute-niche glittering past it">><<goto "TheFumeCut">><</link>>
+<<link "Out on the crust, a lone tree, burning">><<goto "TheBurningTree">><</link>>
+<<link "Back up the runback, toward the rendering">><<goto "TheRunback">><</link>>
+
+
+/* ---------- ASCENT ---------- */
+
+:: TheRunback [hell]
+The runback is the only way up from the bottom — a stepped climb beside the falling runoff,
+up out of the yellow into the furnace-red of the Works above, the chemical sear of the
+brimstone giving way by degrees to the merely-hot stink of rendering, which after the Deep
+counts as a cleaner air.
+
+The steps are not cut but worn, scooped hollows in the crust where the runoff has chewed its
+channel and where, you realize, other feet went up ahead of yours — not many, and not lately,
+but some, scuffing the same shallow holds, leaning the same way into the same long grade. The
+water falls beside you the whole climb, throwing a fine sulphur mist that beads cold on the
+back of your neck and tastes, faintly, of the place you are leaving.
+
+Climbing it you understand that you are doing the thing nothing down here does: leaving the
+bottom under your own power, against the grain of a place where everything, always, only ever
+goes down. Each step puts a little more red into the dark above and a little more distance
+under the yellow behind, and the muscles of it ache in a way that is almost good, because ache
+means effort, and effort means you have not yet lain down and let the crust decide.
+
+<<link "Up, into the rendering works">><<goto "TheKillingFloor">><</link>>
+<<link "Back down to the field of vents">><<goto "TheVentField">><</link>>
+
+
+/* ---------- THE BURNING TREE (fire source: the branch that gates the L2 Fatberg) ---------- */
+
+:: TheBurningTree [hell]
+Out past the vents, alone on a shelf of bare yellow crust, there is a tree.
+
+It should not be here — nothing grows in the Deep, nothing green has ever grown anywhere in
+hell — and it is not green: it is black, and bare, and burning, every branch and twig of it
+sheathed in a steady sulphur-blue flame that does not flicker and does not spread and does not,
+you understand as you stand and watch, *consume*. The tree does not blacken further. The fire
+does not gutter. It has been burning, exactly this way, since before the castle, and it will be
+burning when the castle is dust — a fire that lasts, which is the one thing the bottom of hell
+has that the long climb back up could ever want.
+
+<<if setup.has("brand")>>
+You have already taken your branch. It burns in your fist, steady and weightless and cold to
+hold, and lights your way without warming it.
+<<else>>
+<<linkreplace "Break off a branch">>
+<<acquire "brand">>
+You set your hand to the lowest limb and it comes away easy, with a sound like a held breath
+let go, and the break does not gutter — the branch burns on in your fist exactly as it burned
+on the tree, steady sulphur-blue, weightless, cold to hold and hot enough, you suspect, to melt
+through anything that ever clogged a drain. The tree seals the wound with a creak and burns on,
+undiminished, the way it has, you somehow know, for every soul that ever needed a fire to climb by.
+<</linkreplace>>
+<</if>>
+
+<<link "Back to the field of vents">><<goto "TheVentField">><</link>>
+
+
+/* ---------- GATE (guards the throne / fragment 3) ---------- */
+
+:: TheCastleGate [hell]
+The way into the castle is a gate of standing fire — a curtain of burning sulphur drawn
+across the only breach in the yellow walls, blue-hearted and roaring, throwing a heat that
+crisps the hairs of your arm from a body's length back. To walk through it as you are is to
+burn. But the crust is treacherous everywhere here, thin in places over the vents' heat, and
+somewhere in the field there is a way the crust runs thick and safe right up under the fire,
+a cold bridge through the hot gate, if you know where the vents have laid it.
+
+<<if $crustBridge>>
+You found it at the vents — the cold seam, the thick crust-tongue that runs in under the
+flame where a vent's draught holds the fire up off the ground. You go in low and fast along
+it, through the roaring blue, into the castle, and come up the far side singed and whole.
+
+<<link "Into the castle, toward the throne">><<goto "TheThroneWard">><</link>>
+<<else>>
+You can't cross the fire safely without the crust-seam, and you haven't found it. Or you can
+simply walk through the standing flame and let it take its price of you — burn through and
+arrive in the castle cooked and lessened but *there*.
+
+<<set _tlbl to "Walk through the sulphur-fire (" + setup.tollTag("torso", "pig", 26) + ")">><<link _tlbl>>
+  <<corrupt "torso" "pig" 26>>
+  <<goto "TheThroneWard">>
+<</link>>
+<<link "Go find the crust-bridge among the vents">><<goto "TheNineVents">><</link>>
+<</if>>
+<<link "A great yellow hall, along the wall">><<goto "TheYellowHall">><</link>>
+<<link "Back to the field of vents">><<goto "TheVentField">><</link>>
+
+
+/* ---------- THE THRONE / FRAGMENT 3 / the lord's offer ---------- */
+
+:: TheThroneWard [hell]
+The throne-ward is the heart of the yellow castle, and on a throne grown of vent-breath and
+crowned in canary crystal sits the lord of the pigs — vast past the scale of the boar that
+took you, vast as the act of taking itself, a sow-and-boar-and-neither thing of such
+enormous and patient appetite that the whole farm of hell, the belly and the works and the
+surface harvest, is simply its larder. It does not rise. It has no need. It only turns on you
+a regard as old and incurious as weather, and into the bone of its own armrest, half-grown
+over, is set the third fragment — the last third of the Sigil, kept here at the bottom like a
+splinter the whole body of hell has tried for an age to wall off.
+
+//Little harvest,// the lord says, in a voice you feel in the sulphur-crust under your feet.
+//You came all the way down. So few do. Take the cold mark if you like — it was never ours,
+it only itches — or stay, and be more than harvest. I am old. I could use an heir who knows
+the way to the surface, where the farm grows thickest.//
+
+<<if $sigil.includes("sigil_deep")>>
+The socket in the armrest is empty, the proud yellow crystal already creeping to close it.
+You have all three. The lord watches you hold them, and does not stop you, and that — you
+understand, backing away — is the most frightening thing it could possibly do.
+<<else>>
+<<link "Cut the third fragment from the lord's own throne">>
+  <<set $sigil.push("sigil_deep")>>
+  <<corrupt "armR" "pig" 5>>
+  <<goto "TheThroneWard">>
+<</link>>
+<<link "Take the other offer. Stay. Be the lord's heir.">><<goto "EndingHeir">><</link>>
+<</if>>
+
+<<if $sigil.includes("sigil_deep")>>
+<<if setup.hasSigil()>>
+Three. The Sigil is whole, and pulls toward the long way up and out — toward the front door
+of hell, the mouth, where a whole mark could make the teeth stand aside.
+
+<</if>>
+<</if>>
+<<link "Back out through the castle gate">><<goto "TheCastleGate">><</link>>
+
+
+/* ---------- REST ---------- */
+
+:: TheCrust [hell]
+A shelf of old crust, far enough from the vents that it has gone cold — a pale yellow
+table of sublimed sulphur, set hard as sandstone, cool to the touch, still. The vents'
+roar is a distance off here, and the air is merely bad rather than actively wounding, and
+the crust holds your weight without the sickening give it has everywhere nearer the heat.
+
+Close to, the shelf is not bare. The cold has let things gather that the heat
+elsewhere drives off: a drift of yellow dust in the lee of a crust-ridge, the old scuffs of
+others who found this same island and rested on it, a smoothness worn into the stone where
+bodies have sat exactly here, doing exactly this. You are not the first to wash up on the one
+cold rock and shake. The proof of it is pressed into the floor under you.
+
+It is the closest thing to safe ground at the bottom of the world: a cold yellow island in
+the brimstone, where for a little while nothing is trying to render or breed or burn or eat
+you, and you can sit, and shake, and remember that you came down here on purpose, for a
+reason, and that the reason was *up*.
+
+<<if $hp lt $maxhp>><<run setup.passTime(setup.REST_TIME)>><</if>><<set $hp to $maxhp>>
+
+<<link "Across a walk of yellow gypsum">><<goto "TheGypsumWalk">><</link>>
+<<link "Back to the field of vents">><<goto "TheVentField">><</link>>
+
+
+/* ---------- CACHES ---------- */
+
+:: TheSulphurHoard [hell]
+The castle keeps a hoard, the way the deep things all keep hoards, and the lord's is
+sulphur made jewel: native crystals grown clear and golden in the vents' slow heat, the one
+beautiful thing the poison makes, racked and heaped and glittering.
+
+Closer, the scale of it opens out — not a chest of treasure but a chamber of it, crystals the
+size of teeth and crystals the size of doors, faceted and lamp-yellow and lit from inside by
+nothing, throwing back the vent-glow in ten thousand small fires. They have grown into and over
+each other the way the whole castle grew, slow and patient and never once disturbed, and the
+floor crunches with the shards of the ones that grew too heavy and fell. Nothing here was placed.
+It accreted, the way wealth accretes, by simply never spending.
+
+And salted through it, because down here everything is salted through with it, the cold coin of
+the farm's long trade — dull metal among the golden glitter, the only thing in the room a hand
+from the world above would know how to use, and the only thing in the room nobody down here ever
+wants.
+
+<<if $sulphurHoardLooted>>
+You've been back for the coin and left the crystal. It is beautiful, and it is sulphur, and you
+have learned to leave the beautiful things of hell exactly where they lie.
+<<else>>
+The cold coin of the farm's long trade is salted through the hoard, bright among the canary-
+yellow jewels of crusted sulphur — nobody guarding what nobody down here can spend, for whoever's
+moved to come back and take it.
+<</if>>
+
+<<link "Toward the court of the pigs">><<goto "TheCourt">><</link>>
+<<link "Back to the yellow hall">><<goto "TheYellowHall">><</link>>
+
+
+:: TheVentMouth [hell]
+At the lip of one of the nine vents the heat comes up at you like a wall, a column of yellow
+breath roaring out of a throat you cannot see the bottom of, and you stand at the edge of it
+the way you would stand at the edge of a cliff — leaning back, eyes streaming, the air itself
+shoving.
+
+The lip is rimmed in a slow lacework of crust the vent has built of its own exhalations, fluted
+and frilled and growing as you watch, and packed into that rind, half-cemented, is the trade's
+leavings — coin and trinket and the small metal sins of the damned, blown clear of the throat
+by the vent's breath and re-settled in a crust-rimmed apron around its mouth. The metal has gone
+the colours that metal goes in fire, blued and strawed and blackened, the value cooked out of it
+and only the shape left.
+
+It is too hot to have been gathered, which is why it is still here; and it is cooling now at the
+edges, where the apron meets the colder crust, where a quick hand could chance it before the
+vent's next breath drove the heat back out.
+
+<<if $ventMouthLooted>>
+You've taken what the vent gave up and your fingertips have the blisters to show for it. The
+vent breathes on, indifferent, having barely noticed lending you its leavings.
+<<else>>
+Coin and trinket and the small metal sins of the damned lie cooling in the crust-rimmed apron
+round the vent's mouth — too hot to have been gathered, cool enough now at the edges that a
+quick hand could chance it, if a quick hand came back this way for it.
+<</if>>
+
+<<link "Back among the nine vents">><<goto "TheNineVents">><</link>>
+<<link "Toward a single great fumarole">><<goto "TheFumarole">><</link>>
+
+
+:: TheTribute [hell]
+A tribute-heap before the way to the court — what the belly and the works send down to the
+lord, the bottom's cut of everything harvested above, piled here at the threshold the way
+offerings are piled at the foot of an altar nobody has seen but everybody feeds.
+
+Walking up on it, you read the heap. Coin in drifts, yes — but coin is the least of it, the
+small change at the edges. The mass of it is the chosen portions: the tributes of meat and
+marrow, the cuts and the organs and the marbled best of the whole farm's killing, laid out
+in rows that someone tends, that someone keeps in order, going slowly yellow at the rind where
+the brimstone has begun to claim even this. It does not rot. Nothing down here is permitted
+the dignity of rotting. It only crusts, and waits, and is added to.
+
+This is what the whole machine of hell ultimately feeds — every drain and furnace and harvest
+above ending here, in a heap at a doorway, the bottom's standing portion of everything that
+ever went down. And nobody has counted it in a long age. The lord does not count. The lord
+only, eventually, eats.
+
+<<if $tributeLooted>>
+You've taken your cut from the tribute-heap already. The rest you leave for the lord, which will
+not miss what you took, which has, after all, the entire harvest of the world coming.
+<<else>>
+Coin lies in drifts among the offerings, and nobody's counted the tribute in a long age — a
+little less of it would never be missed, by whoever's nerve is up for lifting from under the
+lord's very nose when the thought of it walks them back here.
+<</if>>
+
+<<link "On, to the court of the pigs">><<goto "TheCourt">><</link>>
+<<link "Back to the sulphur-hoard">><<goto "TheSulphurHoard">><</link>>
+
+
+/* ---------- SNARE (thin crust) ---------- */
+
+:: TheThinCrust [hell]
+The yellow plain looks solid and is not. Out here, away from the cold shelf, the crust runs
+thin over the vents' heat — a skin of sublimed sulphur over a drop into superheated nothing,
+and it tells you nothing of where it's safe and where it's a held breath from giving way.
+
+You feel it before you can name it: a softness underfoot that the thick crust never had, a
+faint warmth coming up through the soles, here and there a flex underfoot, the give of a thin
+lid over heat — the crust reminding you it is a skin, and not a floor. Somewhere under the bright even skin the vents are breathing,
+and the only line between you and them is this — a hand's-width of frozen breath that held the
+last weight to cross it and may or may not hold yours. The honest dread of it is correct and
+survivable.
+
+The danger is the other thing. Out in the middle of the thin yellow, where the heat comes up
+through the crust like warmth through a blanket, there is a soft seductive temptation to simply
+lie down on the warm bright skin of the world and rest, to stop holding your weight so carefully
+off it, to let the warmth take you the way warmth takes you when you are this tired — and let the
+crust decide.
+
+<<link "Lie down on the warm bright crust.">><<goto "EndingSublimed">><</link>>
+<<link "Pick your way back to thicker ground.">>
+  <<soothe 5>>
+  <<goto "TheCanaryCrust">>
+<</link>>
+
+
+/* ---------- COMBAT (the pig court) ---------- */
+
+:: TheCourt [hell]
+The court of the pigs is a wallowing hall of the lord's get — boars and sows of the first
+rank, the overseers of the harvest, lounging in the brimstone heat the way courtiers lounge,
+sprawled across crust-couches of yellow stone in a fug of pork and sulphur thick enough to
+chew.
+
+These are not the working pigs of the floors above. The change has run further in them, the
+boar-shape gone fat and lordly and unhurried, tusks scrolled and yellowed with age, small eyes
+set in folds of brimstone-glazed fat that follow you across the hall without the bodies
+bothering to move. They have nowhere to be and nothing to do but oversee, and overseeing, just
+now, means watching the thing that walked in. They take an interest in you that the working
+pigs above never did, because down here you are not staff and not error but *trespass*, a
+harvest-thing walking the throne-ward as if it had business there.
+
+The interest sharpens. A stillness goes through the wallow, the lazy courtier-sprawl tightening
+into something that has decided. One of the great boars heaves up to deal with the insult of you.
+
+<<if $courtCleared>>
+The boar you put down lies where the court drew back from it, and the rest watch you with a
+wary, recalculating stillness — a harvest-thing that kills a courtier is a new sum they do
+not have a column for. The way on, deeper into the castle, is open.
+
+<<link "On, toward the yellow hall">><<goto "TheYellowHall">><</link>>
+<<link "Back toward the tribute-heap">><<goto "TheTribute">><</link>>
+<<else>>
+<<scentof "pigdemon">>
+<<link "Meet the court boar — settle it the way you settled the sty">>
+  <<run setup.startFight("pigdemon", "TheCourtCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Withdraw from the court, while it merely watches">><<goto "TheTribute">><</link>>
+<</if>>
+
+
+:: TheCourtCleared [hell]
+/* lands here after the court pig-demon fight; sets the flag, then folds onward */
+<<set $courtCleared to true>>
+The court-boar goes down with a squealing crash that the whole yellow castle hears, and for a
+moment the brimstone hall is silent, the courtiers utterly still, recalculating. You have
+killed the lord's own get in the lord's own house. It changes nothing about the long way out
+and everything about how you will walk it.
+
+<<link "On, toward the yellow hall">><<goto "TheYellowHall">><</link>>
+<<link "Back toward the tribute-heap">><<goto "TheTribute">><</link>>
+
+
+/* ---------- PASSAGE / ATMOSPHERE FILLER ---------- */
+
+:: TheNineVents [hell]
+Up close the nine vents are not nine holes but nine *mouths*, each roaring its column of
+yellow heat, each rimmed in the slow lacework of crust its own breath builds, and walking
+among them is walking through the lungs of the bottom of the world — deafening, blinding,
+the heat-haze bending everything, the ground thrumming.
+
+In the thick of them you lose your bearings entirely. The columns of breath bend the air so
+that the castle swims and doubles and the far walls run like wet paint; the roar comes from
+everywhere and nowhere; the crust under you trembles with the force of nine throats venting the
+fundament, and there is a long bad moment where you cannot tell which way you came in or which
+of the nine you are standing nearest. This is where the unwary blunder onto the thin places and
+go down without a sound the roar would carry.
+
+But the vents also lay the only safe roads in the Deep. Where two columns lean their draughts
+together, the heat cancels in the gap between them and the crust there freezes thick and cold
+and load-bearing — a pale seam running true through all that bending haze, a road a careful eye
+can trace if it knows to look for cold instead of safety, for the place the fire leaves alone.
+
+<<if not $crustBridge>>
+<<linkreplace "Read the vents; trace the cold seam toward the castle gate">>
+<<set $crustBridge to true>>
+You watch the nine breaths long enough to learn their crossing, and there it is: a thick cold
+tongue of crust running in under the very gate of fire, held safe by a vent's up-draught. You
+have the bridge through the burning gate now, if you want it.
+<</linkreplace>>
+<<else>>
+You have already traced the cold seam to the gate. The vents roar on, indifferent to having
+shown you the one safe road across their own field.
+<</if>>
+
+<<link "Toward a single great fumarole">><<goto "TheFumarole">><</link>>
+<<link "To the lip of a venting throat">><<goto "TheVentMouth">><</link>>
+<<link "Back to the field's edge">><<goto "TheVentField">><</link>>
+
+
+:: TheYellowHall [hell]
+A hall of the castle, and the castle is all one substance: floor and wall and vault and the
+very furniture grown of the same canary sulphur, sublimed and re-frozen into a brimstone
+baroque of dripping crystal columns and crust-curtains and chandeliers of native gold-yellow
+crystal that have never held a flame and never needed to, lit as everything down here is lit,
+from within, from below, from the vents' eternal yellow burning.
+
+Walking it, you see there is no seam anywhere — no join between floor and wall, no place where
+one thing was set against another, because nothing here was set, nothing was built, it all simply
+*grew*, the way frost grows on a pane overnight, flowing up out of the floor into the columns and
+out along the vaults and down again in long frozen drips that never fell. Your footsteps wake no
+echo the crust does not swallow. The chandeliers turn their slow facets in the up-glow and shed a
+light that is not light so much as the absence of a darkness, even and shadowless and the colour
+of warning.
+
+It is beautiful the way a disease is beautiful under glass: intricate, patient, and made entirely
+of the thing that will kill you.
+
+<<link "Toward the throne-ward and its gate of fire">><<goto "TheCastleGate">><</link>>
+<<link "A glittering hoard, off the hall">><<goto "TheSulphurHoard">><</link>>
+<<link "Toward the court of the pigs">><<goto "TheCourt">><</link>>
+
+
+:: TheSolfatara [hell]
+A solfatara — a field where the ground itself fumes, ten thousand small mouths exhaling
+sulphur, the crust between them painted in the impossible mineral colours the chemistry
+throws: canary and ochre and a poisoned green and the white of pure sublimate, a garden of
+brimstone laid out as far as the haze allows, beautiful and lethal and absolutely silent
+under the distant roar of the great vents.
+
+Picking through it, you learn to read the ground by colour. The canary is fresh sublimate, the
+ochre is older and crustier, the poisoned green marks where a copper sweat has bled up through,
+the chalk-white is the pure stuff laid down thickest — and each one fumes its own faint reek,
+so that crossing the field is crossing through bands of differently-flavoured poison, the nose
+sorting them out long after it should have given up and gone numb. Nothing grows here. Everything
+is mineral. The only motion is the slow exhalation of the ten thousand mouths, and the only thing
+that moves on purpose is you.
+
+It is the chemical bottom the poisoned top of the whole descent was always draining toward, and
+standing in it you feel the circle close: the foam on the storm-drains and the burning here are
+the same substance, the same wrong, met at last at both ends.
+
+<<if not $colourmanTalked>>
+A man kneels in the colours, working them with his hands — grinding, sorting, the way a tradesman works
+a material he knows in his bones — and looks up, unbothered, glad of someone to talk shop to in a place
+where nothing grows and no one stays to chat.
+<<linkreplace "Ask the man on his knees in the colours what he's at">><<nobr>><<set $colourmanTalked to true>>
+//Orpiment, this one — king's-yellow, we called it; ground it for the gilders.// He rubs a thumb across
+the crust, fond. //Lovely colour. Killed three of us I could name, and it never once //looked// like it
+would. Realgar there, the red. The green's a copper thing. Forty year I ground the lot, bare-handed,
+because the mask fogged and the foreman paid by the batch.// He shrugs. //You'll have stopped smelling
+the brimstone by now. No? You will. That's the trade — first the colour gets in your nose, then it
+//is// your nose, and the day you can't smell the poison is the day the poison can't tell you from
+itself. I work better since. Hands don't shake, when there's nothing left in you to be afraid of.//
+<</nobr>><<corrupt "head" "pig" 2>><</linkreplace>>
+<<else>>
+He's back at the colours and won't be drawn off them; he said his piece about the yellow, and there's a
+whole floor of it wants minding.
+<</if>>
+
+<<link "Toward pools of standing vitriol">><<goto "TheVitriol">><</link>>
+<<link "Across a stretch of canary crust">><<goto "TheCanaryCrust">><</link>>
+<<link "Back to the field of vents">><<goto "TheVentField">><</link>>
+
+
+:: TheFumarole [hell]
+A single fumarole stands apart from the nine — a lesser vent, but old, its throat built up
+over an age into a tall fluted chimney of yellow crust, exhaling a steady soft column you
+could almost mistake for something gentle.
+
+Up close it is the loveliest thing in the Deep, and the most modest: a slim yellow spire
+twice your height, fluted like a cathedral pillar, its crust grown so fine and translucent
+that the up-glow shines through it the colour of weak tea, and from its crown a column of
+breath that does not roar but *sighs*, rising soft and straight into the dark. After the nine
+great mouths it feels almost domestic, almost like a hearth, almost like something built for
+company.
+
+You warm yourself at the edge of its breath, because you are cold in your bones in a way the
+heat does not reach, and the warmth is real and the breath is poison and you have, by now, made
+your peace with wanting things that are both.
+
+<<if not $hasWarmHide>>
+Another soul is already here at the fumarole's edge, warming itself — but it has been here longer, and
+the heat has grown //into// it: a glazed crust of yellow over its chest where the breath has played the
+longest. It shifts to make room, companionable, and offers to show you how to take the warmth for keeps —
+a hide that holds the vent's heat, so the bone-cold of the Deep never finds you again.
+<<link "Let the breath grow its warmth into you, for keeps">>
+<<set $hasWarmHide to true>><<corrupt "torso" "pig" 18>>
+<<goto "TheVentMouth">>
+<</link>>
+<<link "Step back from the breath — keep your own cold">>
+<<soothe 5>>
+<<goto "TheNineVents">>
+<</link>>
+<<else>>
+The Warmer has nothing left to teach you — the warmth is grown into you now, a glaze of it over your
+chest, and the cold of the Deep keeps its distance the way it keeps its distance from the Warmer. It
+nods you on, and goes back to its breath.
+
+<<link "To the lip of a venting throat">><<goto "TheVentMouth">><</link>>
+<<link "Back among the nine vents">><<goto "TheNineVents">><</link>>
+<</if>>
+
+
+:: TheVitriol [hell]
+Pools of standing vitriol pock the low ground — sulphuric water collected clear and green and
+faintly steaming in basins of its own etching, the runoff of the vents condensed to acid, so
+pure and still and inviting-looking that the crust around each pool is white with the bones
+of things that mistook it for water.
+
+The bones tell the whole story if you read them, and you cannot help reading them: they ring
+each pool in a tidemark, the small and the large, the four-legged and the two-, all of them
+gone to clean white lime where the acid finished what the thirst began, all of them reaching
+the same direction, toward the same green stillness, in the same last attitude of a thing
+lowering its face to drink. The pools steam on, untroubled, every one of them as clear and
+flat and lovely as the first cool water you ever wanted.
+
+You are thirsty. You have been thirsty for what feels like a geological age. You look at the
+clear green pools and the white bone rims and you do not drink, and the not-drinking is one
+more small victory in a place that grants no large ones.
+
+<<if not $vitriolTalked>>
+A man crouches at the rim of the nearest pool, white to the elbows with the lime-bones of others who
+drank — thirst-mad, and yet not drinking; he cannot stop watching the clear green water, and he has, it
+turns out, learned the one thing worth learning down here by the simple method of having survived it.
+<<linkreplace "Ask the rimmed man how he is still here">><<nobr>><<set $vitriolTalked to true>>
+//Didn't drink,// he croaks. //That's the whole trick of staying, down here — not drinking.// He works
+his cracked mouth. //You'll be for the castle. Everyone's for the castle. And you'll have seen the gate
+— that curtain of sulphur-fire — and reckoned there's nothing for it but to burn through and pay in your
+own skin.// He shakes his head, slow. //There's another road. The vents lay //cold// ones — where two of
+their breaths lean together, the crust runs cold and bears weight, a bridge the fire never crosses. Go
+read the crust at the nine throats //before// you pay the gate. I didn't, the once it mattered. Look at
+the once it mattered.//
+<</nobr>><</linkreplace>>
+<<else>>
+The bone-rimmer has gone back to not-drinking, white hands folded at the green water's edge; he told you
+the road, and will not be drawn out of his thirst again.
+<</if>>
+
+<<link "Toward a cinderfall">><<goto "TheCinderfall">><</link>>
+<<link "Back across the fuming field">><<goto "TheSolfatara">><</link>>
+
+
+:: TheGypsumWalk [hell]
+A walk of gypsum runs from the cold shelf out toward the castle — the softer mineral the
+vents also throw, pale and satiny and almost soothing underfoot after the brittle treachery
+of the sulphur crust, laid in long drifts like dirty snow.
+
+It gives underfoot the way snow gives, a soft crunch and a little yielding, and after a hundred
+yards of it your shoulders come down off your ears for the first time since you reached the
+bottom. The drifts are heaped and rounded and faintly luminous, the satiny grey-white of old
+plaster, and the breath of the vents barely reaches here, so that the air is merely stale rather
+than wounding, and the roar is far enough off to be almost a hush. You could believe, for a few
+steps, that you were somewhere that meant you no harm.
+
+It is the one stretch of the Deep that does not actively threaten you, and so of course you do
+not trust it, and walk it with your eyes down and your nerves up, waiting for the trick, which
+is that there is no trick, which is its own kind of unnerving in a place where everything else
+is one.
+
+<<if not $gypsumKnown>>
+A mild, slow thing kneels in the gypsum drifts, eating the soft pale mineral by the handful, content as
+nothing else in the Deep is content — the one soul here that found the harmless stretch and simply
+stopped.
+<<linkreplace "Ask the eater why he stopped">><<nobr>><<set $gypsumKnown to true>>
+//Why'd I stop?// He considers it, mouth working the chalk. //Why'd I keep //going?// There's the gate,
+the castle, the lord, the long climb — and there's //this:// a whole drift of it, soft and quiet, asking
+nothing.// He scoops another handful. //That's the thing nobody tells you about the bottom — it doesn't
+need a //gate// to keep you. Most don't. It just feeds your wanting till the wanting's all that's left,
+and then a man'll stop anywhere there's enough to want at hand. I'm the lord's larder, same as everyone;
+I'm just the part that's stopped minding being kept. Warm crust. Soft snow. The next handful. You'll see
+how reasonable it gets.//
+<</nobr>><<corrupt "head" "pig" 4>><</linkreplace>>
+<<else>>
+The eater has shuffled a yard down the drift, mouth still working the pale mineral, and does not notice
+you came back; the next handful is the whole of his horizon now, and it is enough.
+<</if>>
+
+<<link "Across a stretch of canary crust">><<goto "TheCanaryCrust">><</link>>
+<<link "Back to the cold shelf">><<goto "TheCrust">><</link>>
+
+
+:: TheCanaryCrust [hell]
+A wide stretch of the brightest crust, pure sublimate, a canary-yellow so saturated it seems
+to glow of its own accord, beautiful and uniform and stretching off into the haze toward the
+castle's bulk. It is the picture-postcard of the Deep, the view the whole bottom of hell would
+put on a flag if hell flew flags.
+
+But you have learned, by now, what the brightness means. Out here there are no ridges, no
+seams, no cold pale shelves to read — just the one perfect even sheet of yellow, unbroken to
+the haze, which is exactly the look of crust that has frozen thinnest over the deepest heat,
+nothing churning it, nothing thickening it, only the breath below holding it taut as the skin
+on cooling milk. The warmth comes up through it soft and constant, the same warmth, you know,
+that the thin places have, the same warmth the lying-down places have.
+
+It is the thinnest and most treacherous ground there is — the bright even crust over the worst
+of the heat — and a part of you that has been down here too long looks at all that warm bright
+yellow and thinks how nice it would be to just lie down.
+
+<<link "Out across the thin bright crust">><<goto "TheThinCrust">><</link>>
+<<link "Back along the gypsum walk">><<goto "TheGypsumWalk">><</link>>
+<<link "Across the fuming field">><<goto "TheSolfatara">><</link>>
+
+
+:: TheCinderfall [hell]
+<<roomart "digger">>
+The far edge of the Deep, where the yellow gives out against a wall of old cinder — the slag
+and clinker of the vents' oldest workings, heaped and fused into a black cliff that is, after
+all the canary brightness, almost restful to the eye. There is no way on here. The Deep ends
+against this black wall the way the world ends against the Deep: abruptly, without ceremony,
+a thing simply stopping because there is nothing past it. You have reached, you realize,
+standing at the cinder-wall, the actual bottom. There is no further down. The only direction
+left, from the lowest place there is, is the long way back up.
+
+And there is someone here, at the bottom, working — because of course there is; there is no place
+so low that the deep has not found labour for it. Against the black cinder-wall a figure is
+shovelling the old slag, lifting it and turning it and setting it down a yard from where it was,
+with a flat-bladed shovel and the unhurried completeness of a body that has done a thing so long
+that the doing is the whole of what's left of it. He is green, and soft, and broad in the face,
+with the wet patient eyes of something amphibian — a man grown //down// into a frog the way a rat
+grows up into a rat-man — and he wears a dented tin hat against nothing, and a labourer's apron
+gone stiff and grey, and he does not stop when you come crunching across the cinders, because feet
+coming and going stopped being news to him a very long time ago.
+
+<<if not $diggerTalked>>
+He hasn't looked up. You could leave him to it. Or you could do the thing nobody down here does
+for anybody, and stop, and speak to him.
+<<linkreplace "Stop, and speak to the old digger">>
+He straightens — it costs him something — and looks at you, and there is no fear in the look and no
+hope in it either, only a flat tired recognition: one labourer clocking another.
+
+//You signed too, then,// he says. Not a question. //Everybody signs. You swear blind you won't,
+right up to the part where you do.// He works his wide mouth at the cinder-air. //I dug trenches up
+top, in the war. Then I died in one — went over and came down, and there wasn't even a join in it,
+just trench and then trench. Been digging ever since. Somewhere along the way I stopped being able
+to tell which trench is which, or that there was ever meant to be a difference.//
+
+He looks at you a beat too long. //Have we…? No. No.// He shakes the dented hat. //Everyone looks
+the same down here, after a while.//
+
+And then he does the one kindness he has left to do: he leans on the shovel and tips the hat out
+across the whole black bottom of the Deep, toward the single moving light a long way off — the one
+warm thing in all that yellow and dark.
+
+//Watch out for that tree over there,// he says. //The fire on it never goes out, and it'll burn
+through anything. And I mean //anything// — clog, gate, wall, the bottom of a kettle, the back of
+your own hand if you're fool enough to test it.// He sets the shovel to the slag again. //If you've
+still got somewhere you're set on getting //to,// and something's gone and got in the way of it —
+well. Now you know where there's a fire that won't be stopped.//
+<<set $diggerTalked to true>>
+<</linkreplace>>
+<<else>>
+The old digger has gone back into the rhythm of the shovel and will not be drawn out of it again;
+he said his piece, and tipped his hat at the far burning tree, and that was the whole of what he
+had to give. The slag-wall takes the sound of the shovel and gives nothing back.
+<</if>>
+
+<<link "Back toward the standing vitriol">><<goto "TheVitriol">><</link>>
+
+
+/* ---------- CLEAN-VS-DIRTY FORK: the fume-cut (gas-mask) — owner 2026-06-07 ----------
+   Two ways to the tribute-niche: the GUARDED high cold-crust ledge (a pig-demon holds it — fight OR
+   pay) or the DISCREET low fume-cut straight across the vent-breath (clean with the oilskin hood,
+   else the bad air burns its way into you). New optional pocket; loops back to the vent-field. */
+
+:: TheFumeCut [hell]
+<<nobr>>
+Between two of the roaring vents a cut runs low across the crust, a trough scoured where the two
+breaths cross and scour, and the air down in it shimmers and warps like the air over a hot road.
+Past it, on the far side, something glitters.
+
+It resolves as you study it: a tribute-niche, a pocket in the crust where sulphur has grown a
+yellow rind over offerings the pig-things left their lord — coin and worse, never collected,
+glinting through the rind in the up-glow, cold and untouched a body's-length and one bad breath
+away. There are two ways to it, and you can see them both from here. The high way around is a
+cold-crust ledge, safe from the fumes; but a pig-demon lounges on it, picking its tusks, and the
+only way past it is past it. The low way is the cut itself — straight through where the two vents
+breathe across each other, a wall of shimmering chemical air you could walk if you didn't mind
+what one lungful of it does.
+<</nobr>>
+
+<<if $ventCacheLooted>>
+You've taken the niche already; the pig-demon has wandered off, the fume-cut breathes on, empty.
+<<link "Across to the tribute-niche">><<goto "TheVentCache">><</link>>
+<<else>>
+//The price of each way is plain from here: the pig-demon wants a real fight, or ''24 coins'' to let you by; and the fume-cut would burn ''about 18 pig'' of bad air into your head<<if setup.has("gasmask")>> — but the hood takes that for you<</if>>.//
+
+<<scentof "pigdemon">>
+<<link "The guarded way — put the pig-demon down and take the high ledge">>
+  <<run setup.startFight("pigdemon", "TheVentCache")>><<goto "Combat">>
+<</link>>
+<<if $coins gte 24>>
+<<link "The guarded way — buy the pig-demon's leave (24 coins), cross high and clean">>
+  <<set $coins to $coins - 24>><<goto "TheVentCache">>
+<</link>>
+<<else>>(The pig-demon will move for 24 coins; you are short.)<</if>>
+<<if setup.has("gasmask")>>
+<<link "The discreet way — walk the fume-cut (the hood takes the bad air)">>
+  <<goto "TheVentCache">>
+<</link>>
+<<else>>
+<<set _tlbl to "The discreet way — walk the fume-cut bare-faced (" + setup.tollTag("head", "pig", 18) + ")">><<link _tlbl>>
+  <<corrupt "head" "pig" 18>>
+  <<goto "TheVentCache">>
+<</link>>
+<</if>>
+<</if>>
+<<link "Back to the field of vents">><<goto "TheVentField">><</link>>
+
+
+:: TheVentCache [hell]
+<<nobr>>
+The niche is a pocket of cold air in all that heat, a still little hollow the cross-draught of
+the two vents has somehow walled off from itself, quiet after the shimmer and scour of the cut.
+
+The offerings are still in it. Sulphur has grown a yellow rind over everything, fusing the heap
+into one lumpen golden mass, but the shapes underneath are clear enough — the round of a coin,
+the curve of something that was a cup, the small hard outlines of things carried down and set
+here and never thought of again. Nobody living has come to claim them in a long time. The rind
+is unbroken, and the cold air smells of nothing but old metal and the faint sweet poison of the
+crust itself.
+<</nobr>>
+
+<<if not $ventCacheLooted>>
+<<set $ventCacheLooted to true>>
+<<set _g to setup.gainCoins(random(14, 22))>>
+You crack the rind and take <<= _g>> coin<<if _g neq 1>>s<</if>> from the hoard.
+<<else>>
+The niche is bare now, just yellow rind and cold air.
+<</if>>
+
+<<link "Back to the field of vents">><<goto "TheVentField">><</link>>
+
+
+/* ---------- LAYER-9 BAD ENDS ---------- */
+
+:: EndingSublimed [ending]
+<<run setup.recordRun("died")>>
+You lie down on the warm bright crust, because you are so tired, and the warmth comes up
+through the thin yellow skin of the world soft as a blanket from a fire, and for one whole
+breath it is the most comfortable you have been since the night by the drain. Then the crust,
+which was only ever a held breath over the heat, lets the breath go.
+
+It does not hurt the way you brace for. The heat takes you faster than nerves can report it —
+you do not so much burn as *cease*, sublimed like the sulphur itself, a body gone straight to
+yellow vapour and carried up one of the nine roaring throats into the dark, scattered across
+the bottom of hell as one more breath of brimstone, indistinguishable now from the place that
+took you.
+
+//You lay down on the warm bright skin of the world, and the world breathed you in. The Deep
+is made of everything that lay down. Now it is made of a little more.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>
+
+
+:: EndingHeir [ending]
+<<run setup.recordRun("sovereign")>>
+You take the other offer. You are so close to the bottom of yourself by now that the lord's
+patience feels less like a trap than like being finally, correctly *seen* — and when a thing
+as old as appetite offers to make you more than harvest, the part of you the descent has been
+quietly rendering all this way says yes before the rest of you can vote.
+
+The lord does not move to crown you. There is no crown. There is only the slow turning-over
+of the farm's deed, the understanding settling into you like sulphur into crust: that you will
+go up — it *wants* you to go up, that is the whole point of an heir who knows the way — and you
+will walk the surface where the harvest grows thickest, and you will send it down, the
+solitary and the undefended, the way the boar sent you down, because the farm is old and
+hungry and now, in part, it is yours.
+
+//You stayed, and were made more than harvest. The lord of the pigs has an heir who knows the
+road to the surface — and the surface does not yet know it has a new and patient farmer.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>

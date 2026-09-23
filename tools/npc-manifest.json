@@ -1,0 +1,56 @@
+[
+  { "layer": 1, "room": "TheJunctionVault", "flag": "inspectorTalked",   "name": "the Last Inspector",       "kind": "clue" },
+  { "layer": 1, "room": "TheSubwayBreach",  "flag": "breachKnown",       "name": "the Commuter",             "kind": "flavor" },
+  { "layer": 1, "room": "TheStreetStair",   "flag": null, "token": "graft_hand", "name": "the Pryer",        "kind": "corrupt" },
+  { "layer": 1, "room": "TheRiverMouth",    "flag": "barHolderHeard",    "name": "the Bar-Holder",           "kind": "philosophical" },
+  { "layer": 1, "room": "TheTideFlap",      "flag": "timerHeard",        "name": "the Timer",                "kind": "trickster" },
+
+  { "layer": 2, "room": "TheManholeBase",   "flag": "voiceHeard",        "name": "the Voice Above",          "kind": "flavor" },
+  { "layer": 2, "room": "TheSluice",        "flag": "feltNoticed",       "name": "the Felt",                 "kind": "flavor" },
+  { "layer": 2, "room": "TheDrumStore",     "flag": "tarmanDealt",       "name": "the Tarman",               "kind": "corrupt" },
+  { "layer": 2, "room": "TheGritTrap",      "flag": "sifterTalked",      "name": "the Sifter",               "kind": "philosophical" },
+  { "layer": 2, "room": "TheWeir",          "flag": "gaugerTalked",      "name": "the Gauger",               "kind": "blue-collar" },
+  { "layer": 2, "room": "TheLostConduit",   "flag": "optimistTalked",    "name": "the Optimist",             "kind": "trickster" },
+
+  { "layer": 3, "room": "TheBrokenSiphon",  "flag": "sitterTalked",      "name": "the Sitter",               "kind": "clue" },
+  { "layer": 3, "room": "TheInscription",   "flag": "readerKnown",       "name": "the Reader",               "kind": "flavor" },
+  { "layer": 3, "room": "TheTanneryDrain",  "flag": "tannerCured",       "name": "the Tanner",               "kind": "corrupt" },
+  { "layer": 3, "room": "TheOldOutfall",    "flag": "outfallVoiceHeard", "name": "the One On The Far Side",  "kind": "trickster" },
+  { "layer": 3, "room": "TheDripstone",     "flag": "dripstoneHeard",    "name": "the Listener",             "kind": "philosophical" },
+
+  { "layer": 4, "room": "TheArchive",       "flag": "scrivenerTold",     "name": "the Scrivener",            "kind": "clue" },
+  { "layer": 4, "room": "TheSiltKings",     "flag": "kingSpoke",         "name": "the Last King",            "kind": "clue" },
+  { "layer": 4, "room": "TheTombIsland",    "flag": "tombDeadKnown",     "name": "the Newly-Laid",           "kind": "flavor" },
+  { "layer": 4, "room": "TheSunkenChapel",  "flag": "communicantHeard",  "name": "the Communicant",          "kind": "philosophical" },
+  { "layer": 4, "room": "TheWeepingArch",   "flag": "sluicemanHeard",    "name": "the Sluiceman",            "kind": "blue-collar" },
+  { "layer": 4, "room": "TheColonnade",     "flag": "pilgrimHeard",      "name": "the Pilgrim",              "kind": "trickster" },
+
+  { "layer": 5, "room": "TheThroat",        "flag": "throatVoiceHeard",  "name": "the Swallowed",            "kind": "clue" },
+  { "layer": 5, "room": "Hellmouth",        "flag": "beadleHeard",       "name": "the Beadle of the Lip",    "kind": "flavor" },
+
+  { "layer": 6, "room": "TheLostAndFound",  "flag": "keeperTalked",      "name": "the Keeper",               "kind": "clue" },
+  { "layer": 6, "room": "TheCarousel",      "flag": "wranglerKnown",     "name": "the Wrangler",             "kind": "flavor" },
+  { "layer": 6, "room": "TheGaff",          "flag": "knowsTheGaff",      "name": "the Mechanic",             "kind": "corrupt" },
+  { "layer": 6, "room": "TheBackAlleys",    "flag": "alleyHand",         "name": "the Off-Duty Barker",      "kind": "blue-collar" },
+  { "layer": 6, "room": "TheGames",         "flag": "wheelToutHeard",    "name": "the Tout (wheel shill)",   "kind": "trickster" },
+
+  { "layer": 7, "room": "TheToothWell",     "flag": "toothCounterTalked","name": "the Tooth-Counter",        "kind": "clue" },
+  { "layer": 7, "room": "TheWeepingWall",   "flag": "wallHeard",         "name": "the gland-face",           "kind": "flavor" },
+  { "layer": 7, "room": "TheLatrine",       "flag": "sulakHeard",        "name": "the Sulak",                "kind": "flavor" },
+  { "layer": 7, "room": "TheTallyBoy",      "flag": "meatRowTipped",     "name": "the Tally-Boy",            "kind": "clue", "new": true, "note": "NEW passage off TheMeatRow" },
+  { "layer": 7, "room": "TheGutway",        "flag": "lampTalked",        "name": "the Lamplighter",          "kind": "blue-collar" },
+  { "layer": 7, "room": "TheOrganTrove",    "flag": "donorHeard",        "name": "the Donor",                "kind": "philosophical" },
+  { "layer": 7, "room": "TheAbscess",       "flag": "splinterHeard",     "name": "the Splinter",             "kind": "trickster" },
+
+  { "layer": 8, "room": "TheForemansWalk",  "flag": "tallykeepPaid",     "name": "the Tallykeep",            "kind": "broker" },
+  { "layer": 8, "room": "TheGreaseTrap",    "flag": "remainderKnown",    "name": "the Remainder",            "kind": "flavor" },
+  { "layer": 8, "room": "TheHooks",         "flag": "hooksSpoke",        "name": "the Unrendered",           "kind": "clue" },
+  { "layer": 8, "room": "TheCandleWorks",   "flag": "dipperTalked",      "name": "the Dipper",               "kind": "blue-collar" },
+  { "layer": 8, "room": "TheSoapVat",       "flag": "soaperTalked",      "name": "the Lather-Man",           "kind": "trickster" },
+  { "layer": 8, "room": "TheLine",          "flag": "lineWalkerHeard",   "name": "the Patient One",          "kind": "philosophical" },
+
+  { "layer": 9, "room": "TheVitriol",       "flag": "vitriolTalked",     "name": "the Bone-Rimmer",          "kind": "clue" },
+  { "layer": 9, "room": "TheGypsumWalk",    "flag": "gypsumKnown",       "name": "the Gypsum-Eater",         "kind": "flavor" },
+  { "layer": 9, "room": "TheFumarole",      "flag": "hasWarmHide",       "name": "the Warmer",               "kind": "corrupt" },
+  { "layer": 9, "room": "TheSolfatara",     "flag": "colourmanTalked",   "name": "the Colourman",            "kind": "blue-collar" }
+]

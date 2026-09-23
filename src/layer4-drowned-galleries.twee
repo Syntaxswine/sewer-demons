@@ -1,0 +1,1010 @@
+/* =====================================================================
+   LAYER 4 — THE DROWNED GALLERIES
+   The "between" band: the surreal nadir of the mortal-sewer descent, below
+   the old drains. Everything here is FLOODED — mirror-still black water,
+   pillared halls, the half-beat-late reflection, the drowned dead. This is
+   where "the dirt drains down to feed" the demons (TheCatacomb). Register:
+   not poison anymore, not yet infernal — drowned, patient, kept.
+
+   Hub = DeepHub. Enter from L3 (DrownedHall ← TheOlderStair). Holds two named
+   demon bargains: the Whisperer (Cistern) and the Understudy (Gallery). The
+   way deeper (TheSunkenStair) foreshadows the true hell-deep below but is not
+   yet open — provisional: the drowned galleries are the secret bottom route
+   into hell, built when L7-9 land. Depths registered in setup.depthOf (= 4).
+   ===================================================================== */
+
+
+/* ---------- ASCENT (to L3) + HUB ---------- */
+
+:: DrownedHall [deep]
+<<corrupt "torso" "filth" 3>>
+The stair down is older than the sewer above it — undressed stone, the treads
+worn into shallow bowls by feet that weren't yours. It lets you out into a
+flooded hall the brickwork upstairs gave no reason to expect: pillared, vaulted,
+far too large, the black water standing dead still and throwing back the dark
+like a polished floor.
+
+No machines here, no rats. The smell has changed too — under the sewage,
+something older and colder, the breath of a place sealed a very long time. Your
+reflection in the standing water holds steady when you move and lags a half-beat
+behind when you stop, and you decide not to look at it again.
+
+<<if $sealed>>
+The stair you came down by is not behind you anymore — only weeping wall where it
+was, and the longer you look the less certain you become that it was ever a stair.
+To press your hands to that wall and search it in earnest — to go looking for a way
+the place has so patiently convinced you never existed — would not be searching. It
+would be the moment you stop being someone who is leaving. There would be no coming
+back from it; it is, you understand, an ending.
+<<elseif $deepTurns gte setup.SEAL_WARN>>
+The stair behind you is harder to keep in mind than it should be.
+<</if>>
+
+<<link "Wade deeper, toward the pillared dark">><<goto "DeepHub">><</link>>
+<<if $sealed>>
+<<link "Search the wall in earnest — stop being someone who is leaving (an ending)">><<goto "EndingResident">><</link>>
+<<else>>
+<<link "Back up the old stair, into the drains">><<goto "TheOlderStair">><</link>>
+<</if>>
+
+
+:: DeepHub [deep]
+<<corrupt "torso" "filth" 2>>
+<<nobr>>
+The water shallows onto a kind of plaza — a meeting of ways like the confluence
+far above, but wrong in the manner of a face with all the right features in
+slightly the wrong places. Lamps burn in wall-niches with a low wet light,
+though nothing here should burn, and the flames don't flicker in the moving air.
+<</nobr>>
+
+<<if $sealed>>
+You turn to find the stair you came down by, and it isn't there — only weeping
+wall where it was, and the longer you look the more certain you become that there
+was never a stair at all, that you have always been here. The lamps seem a little
+warmer for the thought.
+<<elseif $deepTurns gte setup.SEAL_WARN>>
+You can feel the place settling around you like silt over something dropped in
+still water. Every minute here, the way back up gets harder to picture. You
+should go *now*, while going is still a thing you want.
+<<else>>
+You should not stay here long. The place wants you to stay, and the wanting is
+patient, and it is the patience that should scare you.
+<</if>>
+
+<<link "A drowned gallery, lined with niches">><<goto "TheCatacomb">><</link>>
+<<link "Toward a cistern, where a voice is waiting">><<goto "Cistern">><</link>>
+<<link "A mirror-still hall, barring the deeper galleries">><<goto "TheReflectingHall">><</link>>
+<<link "A flooded colonnade, off the west of the plaza">><<goto "TheColonnade">><</link>>
+<<link "A side-sluice, where a relief-vault is said to hold dry stores">><<goto "TheSluiceFork">><</link>>
+<<link "A tiled passage off the plaza, warm with steam and the wrong-here smell of clean water">><<goto "TheBathhouse">><</link>>
+<<if $sealed>>
+To go searching the wall for the way up now would be to find, with your hands flat on the cold wet
+stone, that there is no way up and there is no wall-seam and there never was — and the place is so
+warm with the having of you that the finding would feel less like despair than like lying down. It
+would be the last thing you do down here as yourself.
+<<link "Search for the way up in earnest — and let the place keep you (an ending)">><<goto "EndingResident">><</link>>
+<<else>>
+<<link "Search the wall for the way back up">><<goto "DrownedHall">><</link>>
+<</if>>
+
+
+/* ---------- THE BATHHOUSE — the drowned sewer-sentō + the kappa (owner 2026-06-18) ----------
+   A bathhouse run by kappa, where the hospitality IS the drowning. Bested two ways: the BOW
+   (folklore — a kappa must bow back, which spills the water-dish that is its strength; gated by
+   composure, i.e. corruption < BOW_CORRUPTION_MAX — the deep in you locks simple courtesy) or by
+   FORCE (startFight → TheBathhouseCleared). Either way the spilled dish — the only clean water in
+   hell — cleanses you (setup.soothe). $kappaBested gates the encounter; $kappaBowed varies the
+   cleared prose. */
+
+:: TheBathhouse [deep]
+<<roomart "bathhouse">>
+<<nobr>>
+The steam-warm passage opens into a room that should not be down here, and is: a bathhouse. A real
+one — a sewer //sentō//, sunk into the drowned dark and kept, somehow, in working order. Duckboard
+underfoot, worn smooth by generations of bare wet feet. A wall of little wooden lockers for the things
+a guest takes off at the door. Low stools and hand-buckets at a washing-wall. And the baths: deep
+sunken tubs of standing black water, tiled in cracked blue, steaming gently — and the steam carries,
+wrongly, impossibly, the clean mineral smell of an actual hot spring, of the upper world, of //being
+clean//, so strong after everything the drains have worked into your skin that your knees go soft with
+the wanting of it.
+<</nobr>>
+
+<<if $kappaBested>>
+<<if $kappaBowed>>
+The attendant kneels where it folded, bowed empty, the spilled dish a dark wet star on the blue tile,
+and it will not look up at you — a kappa that has lost its water keeps the form of courtesy even in
+ruin. The other attendants have withdrawn to the corners and will not meet your eye. The baths steam
+on, ownerless, and the clean smell is only a smell now, no longer a hook.
+<<else>>
+The attendant lies where you put it down on the wet tile, its dish cracked and run dry. The other
+attendants have withdrawn to the far corners and will not come near you. The baths steam on,
+ownerless.
+<</if>>
+
+<<if not $bathhouseLooted>>
+Behind the attendant's station is its hoard — the magpie keep of a thing that has worked a bathhouse
+for an age and held onto what guests left behind, and what it could not bear to part with.
+<<linkreplace "Go through the attendant's hoard">><<nobr>>
+<<set $bathhouseLooted to true>>
+<<set _c to random(9, 16)>><<run setup.gainCoins(_c)>>
+<<set $hp to $maxhp>>
+A drift of cold coin — <<= _c>> of it, yours now. A few cucumbers, improbably fresh, and you eat one,
+because a kappa's cucumbers are the real thing and your body has forgotten the taste of a real thing,
+and it is so plainly, absurdly good that something in you almost breaks. And the bowed attendant, when
+you crouch by it, does the last courteous thing left to it: a kappa is a bonesetter in the old stories,
+a healer when it is beaten and made to be, and it lays its webbed cold hands on your hurts and puts them
+right, the way a host tends a guest, having no water left now to drown you with.
+//(+<<= _c>> coins, a real cucumber, and your hurts set right — vigor full)//
+<</nobr>><</linkreplace>>
+<<else>>
+You've been through the hoard. The cucumbers are eaten, the coin is yours, and the bowed attendant has
+nothing left to give but the shape of a bow.
+<</if>>
+
+<<link "Back out to the plaza">><<goto "DeepHub">><</link>>
+
+<<else>>
+And the attendants. They are small — child-sized, hunched — green-grey and webbed and beaked, with a
+shallow stone dish set into the crown of each skull, brimful of clear water that catches the lamplight
+when they tip their heads. //Kappa.// They move among the tubs with the noiseless practiced courtesy of
+staff who have worked one house a very long time, and when they see you one comes at once, and bows —
+low, correct, unhurried — and gestures, with every appearance of kindness, at the nearest steaming tub.
+
+You have spent enough of yourself down here to know what bath it means: the long one, the one you don't
+come back up from. A kappa attends a guest //into// the water, and draws something out of them under it,
+and keeps it. The clean smell is the bait — the cleanest, cruelest bait the deep has used on you yet.
+But the law of the house runs both ways, and you remember it: a guest who bows is bowed to, and a kappa,
+bowing, spills its dish.
+
+To bow back invokes the law the attendant cannot refuse — it //must// return the bow, and returning it
+tips the dish off its crown, and a kappa without its water is undone, all its drowning strength poured
+out on the tile. The catch is yours: a bow like that wants a body that still bends like a person's, a
+spine the deep hasn't set into something else.
+<<linkreplace "Bow to the attendant, low and proper, as a guest should">><<nobr>>
+<<if setup.composedEnoughToBow()>>
+<<set $kappaBested to true>><<set $kappaBowed to true>><<run setup.soothe(setup.DISH_CLEANSE)>>
+You bow — and it is a //real// bow, the body still remembering how, the back still willing — and the
+attendant's courtesy is a reflex far older than its hunger: it bows back, lower than you. The dish on
+its crown tips, and the clear water in it — real water, sky-water, rain that fell on the upper world
+and was carried down here a thimble at a time and hoarded against exactly this — pours out across the
+blue tile and over your bare feet, and the attendant folds in on itself with a small wet sound of pure
+dismay, all its strength gone out with the water. Where the clean rain runs over you, some of the deep
+washes off.
+//(the spilled dish-water washes some of the deep off you — corruption eased)//
+
+<<link "Step past the bowed attendant, into the quiet of the baths">><<goto "TheBathhouse">><</link>>
+<<else>>
+You go to bow — and you cannot. Not properly. The thing the deep has been making of you will not bend
+that way; what comes out of your body is a lurch, a crook-backed parody of a bow, and the attendant
+reads it instantly for what it is — not a guest but another of the deep's half-made things putting on
+airs — and the kindness goes out of its beaked face all at once. Its dish does not spill. It comes for
+you across the wet tile with no courtesy left in it at all.
+<<link "Then there's nothing for it but the hard way">><<run setup.startFight("kappa", "TheBathhouseCleared")>><<goto "Combat">><</link>>
+<</if>>
+<</nobr>><</linkreplace>>
+
+Or refuse the ritual outright — keep your guard up, your clothes on, and put the attendant down before
+it can work you anywhere near the water. A kappa out of its element is a small thing; a kappa in its
+own bathhouse, on its own wet tile, with its dish full on its head, is not the small thing it looks.
+<<scentof "kappa">>
+<<link "Refuse the bath — put the attendant down by force">><<run setup.startFight("kappa", "TheBathhouseCleared")>><<goto "Combat">><</link>>
+
+<<link "Keep your guard up and back out to the plaza, unattended">><<goto "DeepHub">><</link>>
+<</if>>
+
+
+:: TheBathhouseCleared [deep]
+<<set $kappaBested to true>>
+<<run setup.soothe(setup.DISH_CLEANSE)>>
+You put the attendant down on the wet tile, and as it falls the dish cracks off its crown and the water
+in it — real water, sky-water, rain that fell on the upper world and was hoarded down here a thimble at
+a time — runs out across the blue tile and over your hands, and where the clean rain touches you, some
+of the deep washes off.
+//(the spilled dish-water washes some of the deep off you — corruption eased)//
+
+<<link "Into the quiet of the steaming baths">><<goto "TheBathhouse">><</link>>
+
+
+/* ---------- GATE ---------- */
+
+:: TheReflectingHall [deep]
+The hall beyond the plaza is the largest yet, and the most still: a black sheet
+of standing water from wall to distant wall, unbroken, holding the vaulted dark
+above it so perfectly that you cannot find the line where stone ends and reflection
+begins. The deeper galleries are across it. There is no bridge. There is only the
+water, and the thing the water does — which is to show you yourself, crossing,
+a half-beat before you move, and waiting for you on the far side with a patience
+you do not like.
+
+<<if $causewayFound>>
+But you have the font's secret now: the true causeway runs just under the skin of
+the water, and the way to read it is to watch not your feet but your *reflection's*,
+which step on the stones a moment before you reach them. You cross dry to the
+ankle, and the far-side you turns and walks into the dark a half-beat ahead, and is
+gone.
+
+<<link "Across the causeway, into the deeper galleries">><<goto "TheTombIsland">><</link>>
+<<else>>
+You can't find the footing by looking. The font-chamber off the side might hold
+the trick of it — or you can simply wade, straight out into the black, and trust
+that something in water this old and this still won't take the offering of a warm
+body walking willingly in.
+
+<<link "To the font-chamber, to learn the crossing">><<goto "TheStillFont">><</link>>
+<<set _tlbl to "Wade straight across the black (" + setup.tollTag("legL", "filth", 18) + ")">><<link _tlbl>>
+  <<corrupt "legL" "filth" 18>>
+  <<goto "TheTombIsland">>
+<</link>>
+<</if>>
+<<link "A current tugs from a side-channel — investigate">><<goto "TheUndertow">><</link>>
+<<link "Back to the plaza of lamps">><<goto "DeepHub">><</link>>
+
+
+/* ---------- CACHES / PUZZLE ---------- */
+
+:: TheStillFont [deep]
+A side-chamber off the reflecting hall, and at its centre a font — a wide shallow
+basin of the same black water, raised on a plinth carved with the worn figures of
+people kneeling to look into it. Whoever built this place came here to *read* the
+water. The trick declares itself as you lean in: your reflection in the font moves
+first. Lift your hand and the reflection has already lifted its own; the water runs
+a half-beat ahead of the world, and shows you what your body is about to do.
+
+<<if $causewayFound>>
+You have the way of it now — watch the reflection's feet, not your own. The font
+has nothing left to teach.
+<<else>>
+<<linkreplace "Kneel and learn to read the half-beat">>
+<<set $causewayFound to true>><<corrupt "torso" "filth" 2>>
+You kneel where a thousand drowned penitents knelt, and you learn the thing they
+learned: to trust the reflection over the body, to step where the ahead-of-you
+already stepped. It is a small skill and a terrible one, because some cold patient
+part of you understands that this is how it begins — that you learn to follow the
+thing in the water, and then one day the thing in the water leads.
+<</linkreplace>>
+<</if>>
+
+<<if $fontLooted>>
+The coin's gone from the font's lip now — you came back for it — and the figures carved
+into the plinth go on kneeling, untroubled by the lifting of what the kneeling drowned
+once left.
+<<else>>
+Coin rings the font's lip, pressed edgewise into the carving by the kneeling dead,
+offerings left above the reading-water — there for whoever comes back to gather them.
+<</if>>
+
+<<link "Back to the reflecting hall">><<goto "TheReflectingHall">><</link>>
+<<link "Along the flooded colonnade">><<goto "TheColonnade">><</link>>
+
+
+:: TheReliquary [deep]
+A drowned vestry, its cupboards burst, their contents settled across the floor
+under a hand's depth of still water: a litter of the holy and the looted, chalices
+gone green, a reliquary box sprung open on a bone too long to be a finger, votive
+coin by the fistful. The water magnifies it all and makes it waver, so that
+reaching for a coin you grasp twice before you close on it, as if the water keeps
+a copy of everything, and is reluctant to give the copy up.
+
+Wading further in, the room sorts itself out of the murk. The cupboards weren't
+burst by violence — their doors hang open the slow way, hinges given up to rot,
+nothing knocked, everything simply settled where it sank when the standing-water
+came up under it. Vestments float collar-down, their threads unravelling into the
+dark in long pale strands. A censer lies tipped on its side, still half-full of
+ash that the water hasn't been able to dissolve in all this time, and you find you
+have been moving softly, the way you move past a thing that is sleeping rather than
+a thing that is dead.
+
+It is the orderliness that gets under you, in the end. Looted vestries are
+ransacked; this one was disrobed, gently, by water with nowhere to be, item by item
+laid down where it wanted to lie. The bone in the sprung box points off into the
+deeper dark like a finger that knows the way, and you understand that nothing was
+stolen from here, only *kept* — that this is less a robbed room than a furnished
+one, set out and waiting, with a place on the floor still clear for whatever the
+flood sees fit to lay down next.
+
+<<if $reliquaryLooted>>
+You've taken what spends. The green chalices you leave; nobody up there would buy a
+cup that came from down here, and you would not want to explain how you came by it.
+<<else>>
+Votive coin lies by the fistful under a hand's depth of still water, wavering and
+doubled where the water keeps a copy of everything and is reluctant to give the copy
+up — there for whoever will put their hands back where they have been.
+<</if>>
+
+<<link "Through to the drowned archive">><<goto "TheArchive">><</link>>
+<<link "Back to the tomb-island">><<goto "TheTombIsland">><</link>>
+
+
+:: TheSiltKings [deep]
+Twelve thrones, or twelve chairs grand enough to pass for thrones, set in a ring
+half-drowned, and in each a seated shape of silt and bone wearing the rotted last
+of its finery. The silt-kings. They sat down here in their dignity at some flood or
+other and let the water make the rest of the decision, and the water, being
+patient, dressed them in itself. Grave-goods glint in their laps and at their feet:
+the coin you put on the eyes of the dead, to pay the ferryman, to pay *something*.
+
+<<if $siltKingsLooted>>
+The kings keep their thrones. You've taken the toll-coin from their laps; the eyes
+you left covered. Some debts you don't want to be the one to call in.
+<<else>>
+Grave-goods glint in the kings' laps and at their feet — the toll-coin you put on the
+eyes of the dead, to pay the ferryman, to pay //something// — there for whoever has the
+nerve to come back and lift it from the lap of a king.
+<</if>>
+
+<<if not $kingSpoke>>
+Eleven of the kings are only silt. The twelfth, when your lamp crosses it, still has something behind
+the sockets — a fading dignity that turns its head a fraction, at a cost you can see, and considers you
+the way a thing that has watched everything the deep keeps might consider a living guest.
+<<linkreplace "Address the one king that still seems to be in there">><<nobr>><<set $kingSpoke to true>>
+//Going down to the well, are you,// it says, the voice a settling of silt. //They all do.// The jaw
+works. //Mind, then. What's in the well doesn't //cut// — it //gathers.// Put an edge to it and the
+edge only parts it, and it closes again behind, patient, and comes on. You don't cut a thing like
+that. You //scatter// it. Bring something blunt and heavy — or bring nothing, and if you've nothing,
+don't go down.// The dignity settles back into the silt. //That was the last of my breath. Spend
+yours better than I spent mine.//
+<</nobr>><</linkreplace>>
+<<else>>
+The king has settled back into the silt, the brief light behind its sockets gone out; the warning was
+the last of its breath, and the ring keeps its long patience without it.
+<</if>>
+
+<<link "Toward a chamber where a bell hangs">><<goto "TheBellChamber">><</link>>
+<<link "Back to the sunken chapel">><<goto "TheSunkenChapel">><</link>>
+
+
+/* ---------- REST ---------- */
+
+:: TheTombIsland [deep]
+Across the black water there is, impossibly, dry land — a raised island of old
+tombstone and dressed slab, lifted just clear of the flood, where the dead were
+laid before the water rose to take the rest. And these dead are only dead. That is
+the whole comfort of the place, and after the drowned galleries it is an enormous
+one: properly dead, decently dead, going nowhere, wanting nothing, the first honest
+corpses you've met down here.
+
+You sit among them with your back to a slab worn nameless, and the lamp's small
+warmth and the simple finished deadness of your company let something in you
+unclench. The water laps the island's edge and does not climb it. For a little
+while, on the one dry stone in the drowned dark, you are only the living thing in a
+room of the safely dead, and that is enough.
+<<if $hp lt $maxhp>><<run setup.passTime(setup.REST_TIME)>><</if>><<set $hp to $maxhp>>
+
+<<if not $tombDeadKnown>>
+One of the dead is fresher than the rest — laid here before the water quite finished it, and still,
+just, able to talk; and when you sit it turns its head, unhurried, glad of the company, and asks
+nothing of you but to be heard.
+<<linkreplace "Ask the fresh one what kind of place this is">><<nobr>><<set $tombDeadKnown to true>>
+//A patient one,// it says. //That's all. People think the deep //kills.// It doesn't kill. Killing's
+a thing you do when you're afraid the thing'll get away — and the deep has never once been afraid of
+that.// The water laps the island and does not climb it. //It //keeps.// That's the whole of it. The
+dirt drains down to feed, and the demons get to //be,// and the rest of us get kept — in the niches,
+in the silt, on the dry stone — and being kept //is// the winning, friend. There's no second thing it
+wants. You're being kept right now. You just haven't noticed you stopped leaving.//
+<</nobr>><<corrupt "head" "filth" 6>><</linkreplace>>
+<<else>>
+The fresh one notices what the galleries have started to make of you, and is kind about it, and says
+nothing more — there is nothing to say to a thing that is, like everyone here, only being kept.
+<</if>>
+
+<<link "Toward a sunken chapel">><<goto "TheSunkenChapel">><</link>>
+<<link "A flooded vestry, off the slabs">><<goto "TheReliquary">><</link>>
+<<link "Back across the causeway to the reflecting hall">><<goto "TheReflectingHall">><</link>>
+
+
+/* ---------- SNARES (bad ends) ---------- */
+
+:: TheUndertow [deep]
+The side-channel looks like all the others — black, still, patient — until you are
+beside it and feel the pull: a current where there should be none, a slow steady
+draw toward a dark mouth where the water goes down and does not, by any sign, come
+back up. Things turn slowly on the surface above the drain of it: a shoe, a pale
+splayed hand of root, a circle of bubbles rising in no hurry from something far
+below that is still, faintly, letting out its air.
+
+The pull is gentle. That is its whole craft. It does not snatch; it *invites*, the
+way a slope invites a tired man to sit, and the water is so smooth and the going-
+down would be so easy, and the part of you that is tired — and you are so tired —
+leans toward it before the rest of you can vote.
+
+What rises off the dark mouth is not a sound so much as the *idea* of one — the
+long sucking note a drain makes far away, felt in the soles of your feet through the
+stone, steady as a thing breathing in and never quite breathing back out. You catch
+yourself counting the slow turn of the shoe on the surface, the unhurried climb of
+the bubbles, the way you'd count something to fall asleep to. The draw has already
+taught your weight to lean. All it is waiting on now is for you to agree that the
+leaning was your own idea.
+
+<<link "Lean into the pull. Let the water have the weight.">><<goto "EndingUndertow">><</link>>
+<<link "Step back from the edge. Hard.">>
+  <<soothe 5>>
+  <<goto "TheReflectingHall">>
+<</link>>
+
+
+:: TheReflection [deep]
+At the colonnade's end the water widens into a still pool, black and broad and
+perfectly without ripple, the kind of stillness you have learned down here to read
+as a held breath. The last pillars give out into it. There is no far wall you can
+find — only the pool, and the dark standing on the pool, and the cold coming off it
+in a slow sheet that touches your face like the open door of a cellar.
+
+Then the dark across the pool resolves, and on the far side of it, where there is no
+bank for anyone to stand on, *you* are standing — your reflection, but freed of any
+surface to be cast on, the half-beat-late you out for a walk of its own. It looks
+better than you feel. It is not tired. It is not afraid. It is not filthy. It
+regards you across the black water with an expression of enormous, patient sympathy,
+and it lifts one clean hand and beckons, and when it speaks the voice is yours from
+before all this.
+
+//You've carried it far enough,// it says, kindly. //Let me take a turn at being the
+one who's frightened. You can be the one in the water for a while. The water is
+restful. Look how rested I am.//
+
+<<linkreplace "Reach across to it — let it take a turn">>
+<<corrupt "head" "filth" 32>>
+You reach, and it reaches, and your fingers meet at the surface where the cold of
+the water is — and something passes the wrong way across that touch. You keep your
+body. You keep your place on the dry side. But the tiredness it offered to take, it
+took the *opposite* of — it gave you more, pressed a drowned and patient weariness
+into you through the fingertips, and stepped back onto its non-existent shore
+looking lighter, wearing a little of your warmth now, smiling with what used to be
+the muscles of your face.
+<</linkreplace>>
+
+<<link "Refuse it. Turn your back on the pool.">>
+  <<soothe 8>>
+  <<goto "TheColonnade">>
+<</link>>
+
+
+/* ---------- COMBAT ---------- */
+
+:: TheDrownedChoir [deep]
+A flooded chancel where the niches do not hold bones but *bodies* — the drowned,
+near-whole, kept by the cold black water in the soft grey way water keeps a thing
+it isn't finished with. They are arranged facing a drowned altar, kneeling, ranked
+like a choir, and as your lamp moves across them their heads turn to follow it, slow
+and sodden, water running from the hinges of their jaws.
+
+<<if $drownedChoirCleared>>
+The one that rose lies broken on the chancel step, properly drowned at last, and
+the rest of the choir kneels on, facing their altar, declining to notice you. You
+have the measure of them now: they only rise for the lamp, and only one at a time,
+as if there are rules even here.
+
+<<link "Past the choir, to the sunken stair">><<goto "TheSunkenStair">><</link>>
+<<link "Back to the ossuary">><<goto "TheCatacomb">><</link>>
+<<else>>
+One of them stands — unfolds, rather, joint by waterlogged joint — and steps down
+off its kneeler into the flood, and comes for the light with its drowned hands out
+and its drowned mouth working around water instead of air. The drowned. It does not
+hurry. Nothing down here hurries. But it is between you and the deeper dark, and it
+means to keep you here, in the cold, in the choir, kneeling.
+
+<<scentof "drowned">>
+<<link "Put the drowned thing back down">>
+  <<run setup.startFight("drowned", "TheDrownedChoirCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Back to the ossuary, away from the altar">><<goto "TheCatacomb">><</link>>
+<</if>>
+
+
+:: TheDrownedChoirCleared [deep]
+/* lands here after the drowned fight; sets the flag, then folds onward */
+<<set $drownedChoirCleared to true>>
+You put it down the only way that works on the drowned — you break what holds it up,
+and let the water have what it was always going to have. It comes apart soft and
+grey and grateful, and sinks, and the choir kneels on undisturbed, and past the
+altar a stair goes down into a dark even this place is afraid of.
+
+<<link "Down past the altar, to the sunken stair">><<goto "TheSunkenStair">><</link>>
+<<link "Back to the ossuary">><<goto "TheCatacomb">><</link>>
+
+
+/* ---------- DESCENT (foreshadow — the true hell-deep, not yet open) ---------- */
+
+:: TheSunkenStair [deep]
+Behind the drowned choir's altar the floor opens on a stair going down — and this
+is a different down. The drowned galleries are cold; this is *warm*, a wet animal
+warmth that breathes up the stairwell along with a light that is not lamp-light and
+not daylight but a low sullen red, like the inside of something. The water that
+sheets down these steps is the first warm water you have touched since the sack came
+down, and the smell that rises with it is sulphur, and under the sulphur, cooking.
+
+A few treads down, where the red light pools, the stonework changes hands. The
+galleries above were *built* — dressed, jointed, laid by people. This is not laid.
+The walls of the stairwell are smooth the way a gullet is smooth, run with the same
+warm wet that beads on them and slides, and the treads underfoot stop being treads
+and start being the suggestion of treads, ridges in something that was never quite
+cut by a tool. You have the strong, low, animal sense of having reached the place
+where the made world ends and is replaced by the grown one.
+
+This is the way into the true deep — past the mortal sewer entirely, down into the
+hell the drowned galleries only drain toward. But the stair is flooded to the arch
+a few treads down, a drowned throat of red-lit water with no air at the bottom of
+it that you could find, and you are not ready, and some animal certainty tells you
+that you will not get a second guess down there. Not yet. Not like this.
+
+<<link "Back up, away from the warm red dark">><<goto "TheDrownedChoir">><</link>>
+
+
+/* ---------- DEMON BARGAINS (Whisperer / Understudy) ---------- */
+
+:: Cistern [deep]
+<<set $metTheWhisperer to true>>
+<<nobr>>
+The cistern is black glass to the knees, a wide round room walled in slick weeping
+brick that climbs past the lamp's reach into nothing. The sound is the first wrong
+thing — every drip and every wade of your own feet comes back off the curved walls
+doubled, the echo arriving a half-beat behind, so that you seem to be sharing the
+room with someone who moves exactly as you do, just late.
+
+Wading toward the centre, you make out the high-water marks: ring on pale ring up
+the brick, a hundred floods' worth, the cistern filled and drawn down and filled
+again over years you cannot count, and on every ring the same dark tide-line of
+whatever the water left when it sank. Something is folded in the far corner — a
+smear of wet shadow, two patient lights. The Whisperer. It knows your name, the
+private one.
+<<if $corruption gte 35>>
+
+//There you are,// it says, almost fond. //I knew you'd come back to me.//
+<<else>>
+
+//I know a shortcut up,// it says. //I'll trade you. A small thing. You'll hardly miss it.//
+<</if>>
+<</nobr>>
+
+<<link "Take its bargain — let it mark you for the way out">>
+  <<set $tookTheBargain to true>>
+  <<set $foundRealExit to true>>
+  <<corrupt "head" "filth" 35>>
+  <<goto "DeepHub">>
+<</link>>
+<<link "Refuse. Wade back out.">>
+  <<set $refusedTheWhisperer to true>>
+  <<soothe 8>>
+  <<goto "DeepHub">>
+<</link>>
+
+
+:: Gallery [deep]
+<<set $metUnderstudy to true>>
+<<nobr>>
+White tile, most of it fallen. What's left is a washroom, or was — a long mirrored
+wall above a run of cracked basins, the kind of room built for people to come and
+look at themselves in. The flood took the floor and half the tiles with it; the
+rest hang on in patches, glazed grey-green, gleaming wetly where the lamp finds
+them.
+
+It's the mirror you can't leave alone. In the cracked shards still seated along the
+wall, your reflection is a half-step late — and worse, broken across the breaks, so
+that each fragment carries a different slice of you doing a slightly different thing,
+a face assembled out of mismatched moments, none of them quite now. The Understudy
+lives here — a Wearer, the class of demon that covets faces. It has been practising
+in the glass for a long time, and as your lamp comes up it is trying on yours,
+badly, and smiling with it.
+<<if $corruption gte 70>>
+
+//We're nearly the same size now,// it says. //It would barely be a lie.//
+<<else>>
+
+//You're so tired of being you,// it says. //Let me carry it a while.//
+<</if>>
+<</nobr>>
+
+<<link "Let the Understudy take your face for safe passage">>
+  <<set $gaveUpFace to true>>
+  <<set $foundRealExit to true>>
+  <<corrupt "head" "filth" 45>>
+  <<goto "DeepHub">>
+<</link>>
+<<link "Smash the mirror-shards — refuse to be worn">>
+  <<soothe 10>>
+  <<goto "DeepHub">>
+<</link>>
+
+
+/* ---------- ATMOSPHERE / FILLER ---------- */
+
+:: TheCatacomb [deep]
+<<corrupt "torso" "filth" 3>>
+The gallery is an ossuary, or it is pretending to be one. Niches line the walls
+floor to vault, each holding a bundle of pale shapes stacked the way the
+catacomb-makers stacked their dead — long bones crossed, skulls in courses like
+masonry. Except the bones are wet, and too many are shaped like nothing that
+ever walked, and here and there a niche is swept clean and obviously, horribly,
+*waiting*.
+
+You walk the rows the way you'd walk a library, and the longer you read the courses
+the less they look stacked by any hand. There is no pattern a mason would own to —
+the bones are *settled*, sorted by the slow shuffling of standing water until like
+came to lie with like, femur drifted to femur, the small bones pooled low in the
+niches like grit in a gutter. Nothing was buried here. Things were simply let go
+into the dark, over and over, and the dark filed them where they fell.
+
+You understand, standing here, what kind of place you've fallen into. Not a
+sewer. A sewer is what the surface built on top of this, the way a scab builds
+over a wound it won't look at. This is the older thing, the thing the filth
+drains down to feed. The demons don't haunt the dirt. The dirt is how the demons
+get to *be*.
+
+<<link "The tiled gallery, through a low arch">><<goto "Gallery">><</link>>
+<<link "A flooded chancel, where a choir kneels">><<goto "TheDrownedChoir">><</link>>
+<<link "Back to the plaza of lamps">><<goto "DeepHub">><</link>>
+
+
+:: TheColonnade [deep]
+A processional walk of paired pillars marching off into the flooded dark, two ranks
+of them stepping away from your lamp into a black you can't see the end of. The
+water is shin-deep and warm at the edges where it shouldn't be warm at all, and the
+pillars go down into it without a base you can find, as if they were always meant to
+stand in water and the flood only came to meet them.
+
+It's the capitals that pull your eye up. Each one is carved with a procession of its
+own — figures bearing burdens down toward water — and the same scene on every
+capital, except not the same: pillar by pillar the burden rides a little heavier and
+the bearers stoop a little lower, so that walking the colonnade you are reading a
+sentence about going down, written by people who went down, one carved word a pillar.
+You find yourself walking slower to keep your place in it, and the deeper you read
+the lower the little figures bow, until the last of them are folded nearly double
+around a weight the carving never troubles to name.
+
+<<if not $pilgrimHeard>>
+A hunched figure paces the pillars, and falls eagerly into step beside you the moment your lamp finds
+it, full of the warmth of a man who has been alone with his own story far too long.
+<<linkreplace "Hear out the eager pilgrim">><<nobr>><<set $pilgrimHeard to true>>
+//A pilgrim, same as yourself — I can tell; you've the walk of a man come down //on purpose.// I gave
+up a throne for this road. A wife. Several wives. Walked in past the easy ways, because the hard way's
+the only honest one — and these carvings, that bent one's near enough my own likeness; they must have
+known I'd come.// He leans in, confiding. //Between two of the devout: I know the dry way out. The real
+one, kept for them as walked it right. Come along a little further and I'll put you on it.// The dry
+way, you note, is more colonnade; there is always more colonnade. And the capitals over both your heads
+show only the burden getting heavier and the bearers bending lower, and not one of them is reaching for
+a way out.
+<</nobr>><</linkreplace>>
+<<else>>
+The pilgrim has found someone further down the pillars to be a pilgrim at — you can hear it carrying
+off the stone, a different kingdom given up for the road this time. He has stopped meeting your eye;
+you both know the dry way out didn't pan out, and neither of you is going to be the one to say so.
+<</if>>
+
+<<link "Toward a still pool, at the colonnade's end">><<goto "TheReflection">><</link>>
+<<link "A font-chamber, off the side">><<goto "TheStillFont">><</link>>
+<<link "Back to the plaza of lamps">><<goto "DeepHub">><</link>>
+
+
+:: TheBellChamber [deep]
+A drowned campanile, fallen on its side and laid out half-submerged across the
+chamber floor — a whole bell-tower toppled and kept, its long bricked length running
+off under the black water into the dark, and near at hand the great bell itself,
+hung sideways now, half its bronze mouth above the surface and half below.
+
+Wading along the fallen tower you can read how it went down: the bell-ropes still
+trail from the headstock, swollen and pale, drifting in the slow water like the
+roots of something; the louvre-slots that once let the sound out to a sky now let
+the flood in instead, dark to dark. When the slow currents move the black water they
+move the bell, and it tolls — but the part of its mouth above the water makes no
+sound at all, and the part below makes all of it, a deep flooded note you feel in
+the wet of your own eyes more than hear.
+
+You stand still and let the note go through you, and the strange thing is how long it
+lasts — it goes on well after the bell has settled, soaking up out of the floor and
+the walls as if the whole drowned chamber rang and is only now letting the ring back
+out. And at the far edge of it, just under the threshold of being sure, the note
+seems to be *answered* — the same flooded tone come back fainter from somewhere
+further down, from a bell you cannot see, hung in a dark you have not reached yet.
+
+<<link "On toward the silt-kings' ring">><<goto "TheSiltKings">><</link>>
+<<link "Through to the drowned archive">><<goto "TheArchive">><</link>>
+<<link "Back along the colonnade">><<goto "TheColonnade">><</link>>
+
+
+:: TheSunkenChapel [deep]
+A chapel to nothing the surface would recognise. You come in at the back, where a
+nave should be, and the lamp shows it to you in pieces out of the dark: the altar a
+slab of the same seeping flowstone as the deep drains, the pews drowned and ranked
+and still, the figure above the altar long since dissolved to a suggestion, a lean
+wet smear with too many arms folded in patience over a congregation it has clearly
+sat with for a very long time.
+
+Going up the flooded aisle, the place keeps its appointments around you. The pews
+are barnacled along their tops with a pale freshwater growth, soft and blind, that
+has taken the shape of the wood and gone on living past it. Drowned hymn-boards still
+carry their numbers, swollen illegible. The kneelers are worn through to the stone in
+two pale ovals each, the way only knees wear a thing, by people who knelt and knelt
+and meant it. You realise you have lowered your voice, the way you do in a church,
+the way you do in a place that is *being used.*
+
+And that is the unbearable part — not that the place is godless, but that it is the
+opposite: that it is some god's, and the god kept its appointments, and the drowned
+in the niches are not its victims but its *congregation,* sat patient in their rows,
+faces to the altar, waiting on a service that down here has plainly never been called
+off.
+
+<<if not $communicantHeard>>
+A wet shape kneels in the back pew, head bowed to the dissolved figure above the altar, and does not
+break off its devotions when you enter — but it speaks, when you draw near, in the easy voice of
+someone who has made his peace and would like to share it.
+<<linkreplace "A kneeler in the back pew lifts its head — speak to it">><<nobr>><<set $communicantHeard to true>>
+//They told it wrong, up top — that this place //takes// you. It doesn't take. Taking would mean it
+wanted you somewhere you weren't.// It does not turn its head. //No. You walk in on your own two feet,
+and you find it warm, and you find it kept, and you kneel — because your knees are tired and the god's
+so patient — and that's the whole of it. Nobody drowned me, friend. I sat down. The water only saw to
+the rest, the way water does: it finds the lowest part of you, and it fills it.// A pause, almost
+gentle. //Sit. You'll find you already want to.//
+<</nobr>><<corrupt "head" "filth" 4>><</linkreplace>>
+<<else>>
+The communicant has gone back to facing its god, lips moving on a service with no word in it but
+//stay;// it said the only thing it had, and it was an invitation, and you are still standing, which
+is its own kind of answer.
+<</if>>
+
+<<link "Toward an island of dry tombs">><<goto "TheTombIsland">><</link>>
+<<link "A ring of half-drowned thrones">><<goto "TheSiltKings">><</link>>
+<<link "A black well, sunk in the chapel floor">><<goto "TheDeepWell">><</link>>
+
+
+:: TheArchive [deep]
+A drowned archive — racks of it marching back into the dark, rank on rank, more than
+your lamp can hold at once. Ledgers and rolls and pigeonholed scrolls, all of it
+swollen to grey pulp, all of it shelved still in the order someone shelved it, a
+whole library standing patient under water.
+
+The water itself, you realise as you wade in, is the archive now. The ink has long
+since bled out of every page and into the flood, so that the room is faintly,
+permanently clouded — a held suspension of everything that was ever written here,
+dissolved and turning slowly in the lamp-light, drifting between the racks in pale
+threads you could almost mistake for words if you let your eyes go soft. You breathe
+it. You wade through it. Whatever was set down in this place is in the water now, and
+the water is in you.
+
+The Whisperer's trade, you think, was kept somewhere like this once: all the small
+private names, all the things people would rather not, written down by something
+patient and filed against the day it would be useful to know them — and not lost when
+the flood came, only loosed, only made into the medium itself, so that the deep need
+never look a thing up again. It simply knows. It has been drinking its own ledgers
+for years.
+
+<<if not $scrivenerTold>>
+A waterlogged shape is still seated at a rack, working through the dissolved ledgers with sodden,
+patient fingers — the filing-hand that wrote the names down before ever the Whisperer traded them. It
+does not threaten. It offers, instead, to read you the one entry still legible.
+<<linkreplace "Let it read you the one legible entry">><<nobr>><<set $scrivenerTold to true>><<if not $heardOfWord>><<set $heardOfWord to true>><</if>>
+It draws a swollen finger down a page that is mostly water, and what it reads you is not a name but a
+fact: that the deep //writes.// That all of this — the ledgers, the names cut over the gates, the close
+wet script the dark keeps — was //written,// and a thing that was written can be //read,// by anyone
+patient enough to stop being frightened of it. //The great arch you came down through,// it says, //the
+jaw of fused bone, all those names over the throat — that's no tally, child. That's a primer. Go back
+and stand under it like you mean to read it, and it will read back.//
+<</nobr>><</linkreplace>>
+<<else>>
+It has gone back to its filing; the ink it read you has already bled back into the water, and the rack
+keeps its patience, filing against a day that has, for it, already come.
+<</if>>
+
+<<link "Through to the flooded vestry">><<goto "TheReliquary">><</link>>
+<<link "Toward a weeping arch">><<goto "TheWeepingArch">><</link>>
+<<link "Back to the bell-chamber">><<goto "TheBellChamber">><</link>>
+
+
+:: TheWeepingArch [deep]
+An arch of black stone spans the passage ahead, and the wall around it is wet — not
+seeping, not damp, but *running,* a whole face of stone in motion under the lamp,
+sheeted top to bottom with a film of water that should have no business being up
+there. There is no far side that should hold water higher than this. And yet the arch
+weeps, a steady sheet running down off its keystone and pooling at your feet to join
+the flood you stand in.
+
+Step under it and look up, and the carving resolves out of the wet: the arch's face
+is a *face,* vast and worn near to smooth, brow and lidded eyes and a long patient
+mouth, the whole drowned galleries running out of its eyes a drop at a time. The
+water beads in the carved sockets and spills and tracks down the cheeks in the exact
+worn channels a thousand years of weeping have cut, so that you cannot tell whether
+the mason carved a weeping face or the weeping wore the face into the stone.
+
+You could believe, standing in the drip of it, that the entire deep is this one slow
+grief — that the water you have waded through all this long way is the same water,
+going round and round: wept out of these eyes, drained back down through the
+galleries, lifted somehow, and wept out again. The floods, the kept dead, you in the
+middle of it — all of it just the inside of a single enormous sorrow, crying quietly
+to itself in the dark since long before there were people to drown in it.
+
+<<if not $sluicemanHeard>>
+A man in a wet leather apron sits under the arch with a bucket between his boots, dipping it and tipping
+it back into the flood to no result he seems to expect or want — a works hand, by the look, on a shift
+that has plainly not ended in a very long while.
+<<linkreplace "Have a word with the man and his bucket">><<nobr>><<set $sluicemanHeard to true>>
+//Don't gawp at the face, it's only a head-tank weeping its overflow — every system's got to weep
+somewhere.// He tips the pail without looking. //Same water the whole way down, mind; I've watched it
+go round long enough to know my own bucketful by sight. I came down on a relief shift — double-time,
+they said, six weeks below the old drains and back up by the saint's day. That were the bargain.
+Nobody mentioned the //up-by// part again, and after a while you stop bringing it up yourself, on
+account of it sounds like complaining and there's no one down here to complain to that isn't also on
+shift.// He works his shoulder, the way a man does at the end of a long one. //You're not the relief,
+are you. No. They never send the relief.//
+<</nobr>><</linkreplace>>
+<<else>>
+The sluiceman has the bucket going again, fill and tip and fill, and only nods when you come back — a
+man on shift to a man passing through, with no more to say, because the saying isn't in the job and the
+job is all that's left of him.
+<</if>>
+
+<<link "Toward a black well in the chapel floor">><<goto "TheDeepWell">><</link>>
+<<link "Back to the drowned archive">><<goto "TheArchive">><</link>>
+
+
+:: TheDeepWell [deep]
+A well, sunk in the chapel floor, ringed with the same worn flowstone and brimming
+to its lip with water blacker than any you have come through yet — so black it does
+not read as water at all but as a hole cut clean through the world, a round of pure
+absence the lamp will not light and your eye keeps sliding off.
+
+You crouch at the rim and sound it the old way. You drop a coin and wait for the
+strike and never hear it — not a splash, not a click, nothing, the coin simply gone
+into the down. You drop a second and lean to listen, and that is the mistake, because
+the listening *pulls,* a slow steady draw up out of the throat of the thing, and you
+understand all at once that a well like this is only an undertow stood on its end, and
+the down of it is very patient and very deep and has, plainly, all the time there is.
+
+The drowned galleries drain to here. You can feel it now that you're over it — the
+whole flooded floor of the deep tilting some imperceptible degree toward this one
+round mouth, the colonnade and the chapel and the bell-tower all leaning their water
+slowly this way. Everything drains to here. And eventually, the certainty rises in
+you cold and sure as the cold off the water, so will you.
+
+<<if $glutFelled>>
+The well is only a well now. Whatever had gathered itself in the dark at the bottom
+of it is scattered through the water, parted and sinking and unmaking, and the black
+surface lies flat and stupid and drains, at last, like plain water drains. You can
+lean over it and hear, very far down, the small ordinary sound of a coin striking
+stone.
+<<else>>
+And something, far down, is listening back. You feel it the way you feel a held
+breath in a dark room — a vast slow attention gathering itself out of the settled
+filth of a thousand drained years, the muck of everything that ever washed down to
+here remembering, all at once, that it is more than muck. The water domes. It is
+going to come up whether you call it or not; the only choice the well leaves you is
+whether to be leaning over it when it does. Already something smaller is over the lip
+ahead of it — a lesser golem, shed off the great one's skirts as it rises, the way a
+wave throws spray before the weight of it arrives. Nothing that size comes up alone.
+
+<<scentof `["glut","shitgolem"]`>>
+<<link "Wake what's down there — meet it on your feet">>
+  <<run setup.startFight(["glut", "shitgolem"], "TheDeepWellCleared")>>
+  <<goto "Combat">>
+<</link>>
+<</if>>
+
+<<link "Step back from the well">><<goto "TheSunkenChapel">><</link>>
+<<link "Toward the weeping arch">><<goto "TheWeepingArch">><</link>>
+
+
+:: TheDeepWellCleared [deep]
+/* lands here after the Glut fight (dynamic — reached via $combatReturn, not a static goto;
+   allowed orphan, like the other *Cleared landers). Sets the flag, hands the reward: the coin
+   it swallowed out of everyone who ever drained here, and — coughed up from the middle of it —
+   the golem-breaker maul, the one tool ever made to kill its kind, lost down here and recovered
+   from inside the thing it was forged against. First and only source of that weapon. */
+<<set $glutFelled to true>>
+<<nobr>>
+You do it the only way the muck allows — not with the edge, which only ever parts it and lets it
+close again, but by //scattering// it: blow on heavy blow until the will holding it together has
+nowhere left to gather, and the Glut comes apart the way a wave comes apart on a breakwater, all
+at once and everywhere, and is only water again. The lesser thing it shed went the same way
+first — spray, before the wave.
+<</nobr>>
+
+<<set _c to random(28, 44)>>
+What it leaves behind settles out of the parting filth onto the well's lip: ''<<= _c>> coins'',
+cold and uncountable, the toll of everyone the drains ever took — and, heavier, half-swallowed and
+streaked with the thing's own slime, a long iron head you know on sight. A maul. //The// maul:
+the golem-breaker, lost down here in some earlier life by some earlier body, gone down the same
+black throat as the coin and the dead and never digested, because the one thing the filth could
+never make a part of itself was the tool built to scatter it.
+<<set _got to setup.gainCoins(_c)>>
+<<if _got lte 0>>You gather the cold coin off the lip and it curdles to rubbish in your fist, the curse on you eating every piece — but the maul, at least, is iron the curse cannot touch.<</if>>
+<<run setup.acquire("golembreaker")>>
+
+<<link "Take the maul and step back from the well">><<goto "TheSunkenChapel">><</link>>
+<<link "Toward the weeping arch">><<goto "TheWeepingArch">><</link>>
+
+
+/* ---------- CLEAN-VS-DIRTY FORK: the sluice (waders) — owner 2026-06-07 ----------
+   Two ways to the dry relief-vault: the GUARDED maintenance catwalk (fight the drowned OR pay it
+   off — clean either way) or the DISCREET wade through the flooded sluice (clean if you have waders,
+   else the black water gets into your legs). New optional pocket; loops back to the plaza. */
+
+:: TheSluiceFork [deep]
+<<nobr>>
+A relief-sluice opens off the plaza, a low brick throat where the standing water gives way at last to
+water that *moves* — a slow black current drawing off into the dark, the first thing down here that has
+anywhere it would rather be. Somewhere past it the niche-marks promise a maintenance vault the flood
+never reached, with dry stores still on its shelves.
+<</nobr>>
+
+<<nobr>>
+There are two ways to it, and the sluice lays them out for you plain. A narrow iron catwalk runs above
+the water, dry and sound and railed for working men — but a drowned man stands on it, hip-deep where it
+dips, turned to face you, and does not stand aside; he has the patience of a thing with nowhere else it
+needs to be and all the time not to be there. And below the catwalk the sluice itself runs full and
+black and unhurried, deep enough to wade, and you could simply go that way, down into the moving dark
+and past him entirely — if you fancy what wading a current this old would put into you.
+<</nobr>>
+
+<<if $sumpVaultLooted>>
+You have already been through to the vault; the way is known now, the drowned gone back to its
+waiting, the water as it was.
+<<link "Through to the relief-vault">><<goto "TheSumpVault">><</link>>
+<<else>>
+//You can read the price of each way from where you stand: the drowned wants a real fight, or ''12 coins'' to stand aside; and the sluice would put ''about 16 filth'' into your legs<<if setup.has("waders")>> — but your waders turn that aside<</if>>.//
+
+<<scentof "drowned">>
+<<link "The guarded way — put the drowned man down and take the catwalk">>
+  <<run setup.startFight("drowned", "TheSumpVault")>><<goto "Combat">>
+<</link>>
+<<if $coins gte 12>>
+<<link "The guarded way — pay the drowned its toll (12 coins), pass dry">>
+  <<set $coins to $coins - 12>><<goto "TheSumpVault">>
+<</link>>
+<<else>>(The drowned will let you by for 12 coins; you are short.)<</if>>
+<<if setup.has("waders")>>
+<<link "The discreet way — wade the sluice (your waders keep it off you)">>
+  <<goto "TheSumpVault">>
+<</link>>
+<<else>>
+<<set _tlbl to "The discreet way — wade the black sluice (" + setup.tollTag("legL", "filth", 16) + ")">><<link _tlbl>>
+  <<corrupt "legL" "filth" 16>>
+  <<goto "TheSumpVault">>
+<</link>>
+<</if>>
+<</if>>
+<<link "Back to the plaza of lamps">><<goto "DeepHub">><</link>>
+
+
+:: TheSumpVault [deep]
+<<nobr>>
+The vault is exactly the small mercy the marks promised: a dry stone cell above the waterline, its
+shelves still holding what someone stored against a flood that came anyway and never left. Cold,
+quiet, and — for the deep — almost safe.
+<</nobr>>
+
+<<nobr>>
+It takes a moment to credit the dryness. After so long with the black water in your boots the floor
+here is just stone, plain dry stone, and the sound has gone with the water — no drip, no lap, only your
+own breath off the close walls. A stub of tallow sits hardened in a dish by the door, a folded blanket
+gone stiff on a low cot, the leavings of a works-hand who meant to wait the flood out in here and, by
+the orderly look of the place, simply never had the chance to leave.
+<</nobr>>
+
+<<if not $sumpVaultLooted>>
+<<set $sumpVaultLooted to true>>
+<<set _g to setup.gainCoins(random(8, 14))>>
+You sweep <<= _g>> cold coin<<if _g neq 1>>s<</if>> from a tin, and a wad of grave-moss salve from a
+shelf, into your pack.
+<<run $inventory.push("salve")>>
+<<else>>
+The shelves are bare now; you have already had what they held.
+<</if>>
+
+<<link "Back out, to the plaza">><<goto "DeepHub">><</link>>
+
+
+/* ---------- LAYER-4 BAD END ---------- */
+
+:: EndingUndertow [ending]
+<<run setup.recordRun("died")>>
+You let the weight go, and the water takes it, and the going-down is exactly as
+restful as it promised — no snatch, no struggle, just the smooth cold sliding-under
+of a tired thing finally allowed to stop holding itself up. The last of the lamp-
+light wavers and shrinks to a coin of grey far above, the way the daylight did at
+the top of the shaft you never reached, and then the patient dark closes over it,
+and over you, without a ripple to mark that anything was ever there to drown.
+
+The drowned galleries keep what the water hands them. Somewhere far below, in no
+hurry at all, something lets out a slow breath of bubbles, and makes room.
+
+//You went under looking for an easier way down. The water was glad to help.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>

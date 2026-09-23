@@ -1,0 +1,881 @@
+/* =====================================================================
+   LAYER 8 — THE RENDERING WORKS
+   Hell's industry. Register: CRONENBERG-INDUSTRIAL body horror — where L7
+   was flesh-as-living-slum, L8 is flesh-as-FACTORY: bodies processed at
+   scale, the damned rendered into product (tallow, candles, soap, the lamp-
+   oil the not-children sang about up in the Shambles). The Gorgers (Tallow's
+   kind) work the line. The body as raw material. Holds SIGIL-FRAGMENT 2.
+
+   Hub = TheKillingFloor. Enter from L7 (TheChute → TheIntake, a one-way drop —
+   you arrive as raw material; climb out via TheManway). Descent to L9 (TheRunoff)
+   foreshadowed, not yet open. Depths in setup.depthOf (= 8).
+   ===================================================================== */
+
+
+/* ---------- ENTRY / HUB ---------- */
+
+:: TheIntake [hell]
+<<corrupt "torso" "filth" 3>>
+The chute spits you out onto a sorting-grille above a drop, and for one bowel-loosening
+moment you are exactly what the Works think you are: intake, raw material, a body
+arriving at the top of a process designed to take bodies apart. Hooks pass overhead on
+a clattering chain, most laden. A sorter the shape of a great gloved hand pauses above
+you, weighs you with a touch that is almost clinical, and — finding you still moving,
+still arguing, not yet stock — flicks you off the grille onto the floor with the mild
+irritation of a worker who'll deal with you when you've stopped being a nuisance and
+started being meat.
+
+On your hands and knees on the floor you see what the chute spat you into the top of. The
+grille runs the width of a hall too big to have an end, sorting the drop below it into
+lanes — the still-warm one way, the cooled and stiffened another, a third lane for the part
+that argues — and the whole arrangement has the unbothered tidiness of a fish-market at
+dawn, scaled to swallow a city. Nothing here is angry at you. That is the part that gets
+into the back of your throat: there is no cruelty in it anywhere, only sorting, only the
+calm of a process that has never once had to hurry.
+
+You get up fast. Everything here runs on the assumption that you are product that hasn't
+been processed yet, and the only way to argue with that is to keep moving, keep being a
+thing with somewhere to be, until you can find the way up and out.
+
+<<link "Onto the killing-floor">><<goto "TheKillingFloor">><</link>>
+
+
+:: TheKillingFloor [hell]
+<<nobr>>
+The floor of the Works is a cathedral of disassembly: a vast hot hall under a roof lost
+in steam, the air a solid wet wall of tallow-stink and scorched hair, and everywhere the
+patient machinery of reduction — chains of hooks, banks of vats, the long line where
+what comes in whole goes out as product.
+
+Walk a little way onto it and the cathedral resolves into a shop floor. The far walls
+draw back into haze rather than ending; the chains overhead sort themselves into circuits,
+this one feeding the vats, that one hauling the line, a third returning empty for the next
+load. Underfoot the stone runs to gutters, and the gutters run hot, and everything slopes,
+gently, toward the same low places, so that even the floor is part of the process — built,
+like the rest of it, to make sure nothing of value stays where it falls.
+
+The Gorgers work it, fat pale tireless things that grew on discards and now process them,
+and they do not look up as you pass, because a thing that walks with purpose reads, to them,
+as staff, and a thing that walks as if it belongs is the one thing the Works are not
+equipped to render.
+<</nobr>>
+
+<<if $corruption gte 70>>
+You walk it like staff. That is the horror you carry out of this room: that the way to
+survive the killing-floor is to move like you work here, and that you can, that some part
+of you has learned the gait, and that the Gorgers' incurious acceptance of you feels less
+like a trick you're playing and more like a homecoming.
+<</if>>
+
+<<link "Up a service climb, back toward the belly">><<goto "TheManway">><</link>>
+<<link "Along the disassembly line">><<goto "TheLine">><</link>>
+<<link "The foreman's office, up an iron stair">><<goto "TheTally">><</link>>
+<<link "A cooling-room, where the tallow sets">><<goto "TheCooling">><</link>>
+<<link "The boil-house, where the vats run">><<goto "TheBoilHouse">><</link>>
+<<link "A runoff sluice, draining lower still">><<goto "TheRunoff">><</link>>
+
+
+/* ---------- ASCENT / DESCENT ---------- */
+
+:: TheManway [hell]
+A manway climbs the wall of the Works — a service ladder of greasy rungs inside a shaft
+meant for maintenance, not escape, threading up past the levels of the process toward the
+warm wet organ-dark of the belly above. It is the way the staff come down and the way
+nothing that is being processed ever goes. Climbing it, slick-handed, you pass viewing-
+slots into the floors you're leaving, each a tableau of reduction, each a little further
+along, until the red glow goes amber and the furnace-roar gives way to a wet, working
+hush and the shaft narrows to a throat — and the throat is closed, capped from above by a
+ring of pale muscle clenched across it like a fist. The underside of a sphincter. You have
+come up beneath the belly's heart, and this is the far side of the gate that guards it.
+
+From here it does not fight you. A sphincter is a one-way muscle: it holds against
+everything trying to push //in//, and gives, helplessly, for anything leaving. You set your
+shoulders to the slack pale ring and it relaxes around you with a long wet sigh, dilating
+outward, and lets you up the way a belly lets up everything it has finished with — into
+the knotted heart at the centre of all the grown flesh, and the cold incised thing set
+into its scar.
+
+<<link "Up through the slackening ring, into the belly's heart">>
+  <<set $sphincterOpened to true>>
+  <<goto "TheNavel">>
+<</link>>
+<<link "Back down to the killing-floor">><<goto "TheKillingFloor">><</link>>
+
+
+:: TheRunoff [hell]
+A sluice carries the Works' runoff out of the floor and down — the grease and the wash
+and the unrenderable remainder, a slow hot river of tallow-scum sliding away into a dark
+that glows, below, not furnace-red but a sick canary-yellow, and that breathes up a stink
+the furnace can't account for: sulphur, brimstone, the stench of the actual bottom. The
+Sulphur Deep. The runoff goes there because everything goes there; it is the drain of
+hell, the place under the place, and the third fragment is somewhere in its yellow light.
+
+A grille bars the sluice, but it has corroded to lace in the sulphur reek, and a person
+determined and stupid enough could work through it and let the runoff carry them down the
+last drop into the brimstone — into the Sulphur Deep, the bottom of everything, where the
+third and last fragment waits. Everything an animal in you knows says do not go down there.
+But there is only down there left, and the sigil is two-thirds a key, and you did not climb
+through a rendering-works to stop one fragment short.
+
+<<link "Work through the grille; let the runoff take you to the Deep">><<goto "TheBrimstoneShore">><</link>>
+<<link "Back to the killing-floor">><<goto "TheKillingFloor">><</link>>
+<<link "Along a grease-choked trap">><<goto "TheGreaseTrap">><</link>>
+
+
+/* ---------- GATE (guards the fragment) ---------- */
+
+:: TheRenderLock [hell]
+The fragment is in the heart of the process, in the master vat, and the way to it runs
+between the plates of the great press — the render-lock, where the line's load is crushed
+and the oils driven off, two house-sized faces of grooved iron that close, and pause, and
+open, and close, on the relentless timing of the machine. To go through is to time the
+pause and cross the bed of the press while it gapes. Mistime it and you become, very
+quickly and very thoroughly, product.
+
+<<if $lineStilled>>
+But you stilled the line at the foreman's tally, and the press hangs open and dead, its
+plates gaping on a stopped machine, the bed of it a safe dark road into the master vat.
+You cross between the iron faces and they do not close.
+
+<<link "Through the dead press, into the master vat">><<goto "TheTallowHeart">><</link>>
+<<else>>
+The press runs, and runs, and the pause is just long enough for a brave fool and just
+short enough to kill a slow one. You can time it and cross the running bed — and trust
+your legs against the machine — or go up to the foreman's office and find the way to
+still the line.
+
+<<set _tlbl to "Time the press and cross the running bed (" + setup.tollTag("legL", "filth", 24) + ")">><<link _tlbl>>
+  <<corrupt "legL" "filth" 24>>
+  <<goto "TheTallowHeart">>
+<</link>>
+<<link "Up to the foreman's office, to still the line">><<goto "TheTally">><</link>>
+<</if>>
+<<link "Back to the foreman's office">><<goto "TheTally">><</link>>
+<<link "Back to the killing-floor">><<goto "TheKillingFloor">><</link>>
+
+
+/* ---------- THE SIGIL-FRAGMENT ---------- */
+
+:: TheTallowHeart [hell]
+The master vat is the size of a chapel and full to the brim with rendered fat, white and
+still and faintly luminous, the distillate of more bodies than you will let yourself
+estimate — and floating at its centre, held up by the very thing it refuses to dissolve
+in, is the second fragment. A third of a sigil, cold incised bone, riding the tallow like
+a splinter the whole vast process of reduction could not break down, because the mark is
+older than rendering, older than hell's industry, and the Works have boiled around it for
+an age and failed to take it in.
+
+<<if $sigil.includes("sigil_rendering")>>
+The vat closes white and smooth over the place you reached into it. The Works will go on
+refining, and will go on failing to refine the one thing that was ever worth refining out
+of all that reduced and rendered grief. You have it. Two.
+<<else>>
+<<link "Reach into the tallow and lift the second fragment free">>
+  <<set $sigil.push("sigil_rendering")>>
+  <<corrupt "armR" "filth" 4>>
+  <<goto "TheTallowHeart">>
+<</link>>
+<</if>>
+
+<<if $sigil.includes("sigil_rendering")>>
+<<if setup.hasSigil()>>
+And that is three. The Unbinding Sigil is whole — you can feel the pieces of it pulling
+toward each other in your kit, hateful to everything around them, eager to be a door.
+<<else>>
+One more lies at the bottom of everything, in the Sulphur Deep, in the canary-yellow light
+below the runoff. Two of three. The mark grows heavier and colder and more *certain* the
+more of it you carry.
+<</if>>
+
+<</if>>
+<<link "Back through the press">><<goto "TheRenderLock">><</link>>
+
+
+/* ---------- THE FOREMAN'S OFFICE (gate key) ---------- */
+
+:: TheTally [hell]
+The foreman's office overlooks the floor through a wall of grease-filmed glass: a high
+iron room of ledgers and levers, where a Gorger fatter and stiller than the rest keeps
+the tally — the count of what comes in and what goes out, written in a neat dead hand in
+books that go back further than the city you came from. The great lever-bank along one
+wall runs the line, the press, the whole reciprocating process, and the foreman attends
+it with the bored competence of a thing that has run this shift since before shifts.
+
+The longer you stand in it the more the office gives up. The ledgers are honest
+documents — columns ruled and balanced and carried forward, intake against output,
+every soul that came down the chute entered and totted and reconciled to the last
+unrenderable ounce. The glass films the floor below to a grey dumb-show, the screaming
+gone out of it, the abattoir reduced to figures moving between columns, and you catch
+your own eye running down the open page out of old habit, the way you would check a
+receipt. That is the horror the office keeps: somewhere in a book like this, in the
+same dead-neat hand, on a line not yet ruled, there waits a space the width of you —
+your weight in, your tallow out, the remainder filed under waste — and the foreman will
+enter it when the time comes without once looking up, because to the books you were
+never a person to be wronged, only a figure they had not yet had occasion to carry forward.
+
+<<if $lineStilled>>
+The line is stilled at your hand, the master lever thrown, the floor below gone quiet and
+the Gorgers standing about it confused, a shift interrupted for the first time in an age.
+The foreman has not moved. It is, you think, waiting to see what you imagine happens next.
+<<else>>
+<<linkreplace "Read the tally; learn the lever that stops the press">>
+<<set $lineStilled to true>><<corrupt "head" "filth" 2>>
+You read enough of the dead neat hand to find it: the master lever, the one that stills
+the line and gapes the press dead-open. You throw it. Below, the great machine sighs to a
+stop, and the silence that follows is the loudest thing in hell, and the foreman turns its
+patient head to look at you with an interest you would much rather it didn't have. You have
+your road to the vat. You have also, the foreman's look makes clear, been *noticed* by the
+management.
+<</linkreplace>>
+<</if>>
+
+<<link "To the render-lock, and the master vat">><<goto "TheRenderLock">><</link>>
+<<link "Out onto the foreman's catwalk">><<goto "TheForemansWalk">><</link>>
+<<link "Back to the killing-floor">><<goto "TheKillingFloor">><</link>>
+
+
+/* ---------- REST ---------- */
+
+:: TheCooling [hell]
+A cooling-room, off the heat of the floor: rack on rack of set tallow, the product
+resting, gone from boiling-white to a cold candle-cream, the air for once not wet and not
+reeking but merely cold and faintly waxy, almost clean. Nothing renders here. Nothing
+boils or screams or moves. The Gorgers don't come — there is no work in a room where the
+work is already done — and so it is, of all the unlikely places, safe: a cold larder at
+the heart of the abattoir, where you can put your back to a rack of the finished and be,
+for a moment, not next.
+
+You sit in the waxy cold and let the floor's heat sweat out of you and the ringing leave
+your ears. The set tallow at your back holds the cold like stone. You try not to read the
+labels on the racks, and you don't, and that small refusal is the most of yourself you
+have managed to keep in hours.
+<<if $hp lt $maxhp>><<run setup.passTime(setup.REST_TIME)>><</if>><<set $hp to $maxhp>>
+
+<<link "Through to the tallow-store">><<goto "TheTallowStore">><</link>>
+<<link "Back to the killing-floor">><<goto "TheKillingFloor">><</link>>
+
+
+/* ---------- CACHES ---------- */
+
+:: TheTallowStore [hell]
+The tallow-store is the Works' treasury, of a kind: barrel on barrel of the rendered
+product, graded and stamped and waiting for the long haul up to the Shambles markets, and
+salted through the casks — dropped by haulers, shaken loose in the grading, pocketed and
+lost across the long economy of selling people by the barrel — the cold coin the trade
+runs on.
+
+You walk the aisles between the casks the way you'd walk a bonded warehouse anywhere, and
+that is the unbearable part of it: the order. Every barrel chalked with its grade and its
+weight, the stacks squared off and chocked against rolling, a running-total slate by the
+door kept current to the cask. Somewhere a draught moves through the stacked cold and the
+whole store breathes out at you, faint and even and clean, the rendered hush of a thing
+warehoused and waiting. It does not smell of dying. It smells of inventory.
+
+<<if $tallowStoreLooted>>
+You've been back for the loose coin between the casks. The casks themselves you leave, stamped
+and waiting, and you do not read what they're stamped with, and you carry that small mercy
+out with you.
+<<else>>
+The cold coin the trade runs on is salted through the casks — dropped by haulers, shaken loose
+in the grading, pocketed and lost — waiting in the grease for a free hand and a reason to come
+back for it.
+<</if>>
+
+<<link "Through to the candle-works">><<goto "TheCandleWorks">><</link>>
+<<link "Back to the cooling-room">><<goto "TheCooling">><</link>>
+
+
+:: TheCandleWorks [hell]
+The candle-works, where the better grade of tallow becomes light: a long room of dipping-
+racks and molds, ten thousand candles hung to set, pale and patient, each one a portion of
+somebody rendered down to the part that burns. This is where the Shambles' lamps come from,
+and the not-children's jingle, and the warm domestic glow of every hearth in hell. The
+wicks, you notice and wish you hadn't, are hair. The coin is here because everything's coin
+is here: tipped into the trade, fallen in the dipping, glinting in the trays of cooling
+fat.
+
+<<if $candleWorksLooted>>
+You've gleaned the trays already. The candles you leave hanging, ten thousand patient lights
+waiting to be lit in the homes of hell, and you take nothing of them but the knowing, which is
+more than enough.
+<<else>>
+The coin is here because everything's coin is here: tipped into the trade, fallen in the
+dipping, glinting in the trays of cooling fat — for whoever's willing to put an arm into what
+they pour the candles from.
+<</if>>
+
+<<if not $dipperTalked>>
+A dipper works a rack near the molds, lowering frames of wicks into the fat and lifting them set, and
+does not look up — a tradesman at his trade, with the unbothered hands of a man who has done this a very
+long time.
+<<linkreplace "Ask the dipper about the work">><<nobr>><<set $dipperTalked to true>>
+//Mind your sleeve on the rack — they're still soft.// He lifts a fresh row, pale and dripping. //Forty
+year I dipped, up top. Good clean trade, candle-dipping; you'd not think it'd come to this. But it's the
+//same trade,// see — that's the joke of it. Same dip, same set, same count. Only the stock changed, and
+the stock was never my department.// He sets the frame to cool. //Wick's hair. Aye. You get so you don't
+see it. That's the bit that gets you in the end — not the seeing. The //not.//
+<</nobr>><<corrupt "head" "filth" 3>><</linkreplace>>
+<<else>>
+The dipper has gone back into the count and will not be drawn out of it; he said his piece between two
+rows, and the rows do not stop.
+<</if>>
+
+<<link "On, to a vat of soap">><<goto "TheSoapVat">><</link>>
+<<link "Back to the tallow-store">><<goto "TheTallowStore">><</link>>
+
+
+:: TheSoapVat [hell]
+The soap-vat, the cleanest product the Works make and the foulest joke they tell: great
+settling tanks of the stuff, marbled grey-green and faintly perfumed, pressed into bars
+and stamped with a wholesome word, soap to wash with, soap to be *clean*, made of exactly
+the people who came down here to find a way to stay themselves. The bitter coin of it is
+caught in the skimmings and the spill.
+
+<<if $soapVatLooted>>
+You've skimmed the coin already. The bars cure in their racks, wholesome and waiting, and you
+leave them to it, and you do not, ever, intend to wash with soap again.
+<<else>>
+The bitter coin is caught in the skimmings where the lye runs over — free to anyone who'll
+reach into the slick for it, and trade a little squeamishness for it, which is itself, you
+note, the trade working.
+<</if>>
+
+<<if not $soaperTalked>>
+A skimmer works the lye-line, lather to the wrists, and turns to you with the proprietary warmth of a
+man who wants you to know how important he is here.
+<<linkreplace "Hear out the lather-man">><<nobr>><<set $soaperTalked to true>>
+//You smell that?// He lifts a dripping double-handful, proud as a vintner. //That's //bergamot.// My
+signature. They brought me //down// for this — there's not three noses in all of hell could grade a batch
+like I grade it.// His hands, you notice, end at the lye-line, gone away to the wrists; the air off the
+vat is the reek the whole room warns of. //Tell you what — friend's rate — drop a coin in the skimmings
+and I'll cut you a bar of the //real// lather. Takes the works right back off a man. Clean as the day you
+signed.// He cannot, of course. There is no such bar. He believes there is, which is the worse thing.
+<</nobr>><</linkreplace>>
+<<else>>
+The lather-man is back at his grand imaginary trade, grading a batch nobody ordered, with no more
+attention for you than the foam has.
+<</if>>
+
+<<link "Toward a grease-choked trap">><<goto "TheGreaseTrap">><</link>>
+<<link "Back to the candle-works">><<goto "TheCandleWorks">><</link>>
+
+
+/* ---------- SNARES (bad ends) ---------- */
+
+:: TheVat [hell]
+A vat between fillings stands open beside the line, empty but for the hand's-depth of
+last batch cooling in its bottom, and a ladder down its inner wall for the workers who
+scrape it out, and a warmth coming off it that reaches you across the floor like a hand.
+
+You step to the lip without quite deciding to. The inside is sheer and softly white,
+scoured by ten thousand scrapings to a curve like the inside of an egg, and the warmth
+rises out of it steady and close and bodily, the only warmth down here that isn't trying
+to render you, or seeming not to. The ladder goes down into it, worn bright at every rung.
+Easy. Inviting. A short climb to the bottom of a thing.
+
+And then the smell finds you — and the smell is the trap, because the smell is not the
+reek you'd expect but something deep and rich and almost *nourishing*, the smell of broth,
+of rendering, of the warm fat heart of the process, and the tired starved animal of your
+body leans toward the open vat and the warm rich dark at the bottom of it with a hunger
+that has stopped being about food.
+
+<<link "Climb down into the warm vat. Just to be warm.">><<goto "EndingRendered">><</link>>
+<<link "Step back from the lip of the vat.">>
+  <<soothe 5>>
+  <<goto "TheBoilHouse">>
+<</link>>
+
+
+:: TheWard [hell]
+By the hooks a Gorger has set up the way Tallow did, far above in the fatberg — a renderer
+that does bespoke work, that doesn't process you against your will but *offers*, gently,
+to render a piece of you into something that will keep the rest of you alive a little
+longer down here.
+
+It has made itself a little shop out of the line's leavings. A bench of bone and a row of
+small clean tools laid out in order of use; a trough of warm rendered fat kept at the
+blood-heat; a few finished pieces hung up to cure, hides and plates and hardened things
+that were softer once, the way a cobbler hangs his samples. It is the only Gorger on the
+whole floor that has bothered to make a place of its own, and the difference is precisely
+the thing that frightens you about it: it is not processing the unwilling. It is taking
+custom.
+
+//Soft thing,// it says, not unkindly, paddling its hands in a trough. //Cold thing. Let me
+take the part of you that bruises and give you back a hide that doesn't. A small trade.
+You've so much you're not using.//
+
+<<if $hasWard>>
+You are already warded — already carrying a piece of yourself rendered to armor, from a
+bargain made higher up — and the Gorger sees it, and nods, professional to professional,
+and does not press. There is, apparently, a courtesy among the rendered.
+<<else>>
+<<linkreplace "Take the ward — let the Gorger render a piece of you hard">>
+<<set $hasWard to true>>
+<<corrupt "armR" "filth" 25>>
+You give it the part that bruises and it gives you back a hide that doesn't, working
+quickly and kindly, and you rise harder to kill and softer in some other place you can't
+name, and the Gorger wipes its hands and says //good// the way you'd praise a thing for
+holding still, and you understand you have just been, in the smallest and most consensual
+way, *processed*.
+<</linkreplace>>
+<</if>>
+
+<<link "Back to the hooks">><<goto "TheHooks">><</link>>
+
+
+/* ---------- COMBAT ---------- */
+
+:: ThePits [hell]
+Below the line the floor opens on the pits — where the intake that isn't ready for the
+line is held, a sunken holding-pen of the raw and the unwilling, and where one of the
+Gorgers has come down to cull the pen of anything that's stopped being worth the trouble of
+processing.
+
+The grating you stand on is the lid of it. Through the squares of iron the pen seethes
+faintly in the dark below, a slow pale shifting of the held and the waiting, packed the way
+livestock pack against a wall — not fighting, past fighting, only pressing instinctively away
+from the low end where the culling happens. There is a smell up through the grate of the raw
+material before the heat gets to it, which is worse, somehow, than the rendered: the smell of
+the thing still entire, still a thing, an hour or a day from the line.
+
+It is up to its elbows in the work when your weight on the grating turns its great pale head,
+and it considers you, and decides — the way they all decide — that a thing walking loose on
+the killing-floor is either staff or an error, and that it is, on balance, easier to render
+an error than to check. Below it a grafted works the pen-floor, sorting the cull into piles
+with more hands than the job needs — the pits keep an assembler the way the line keeps a
+knife — and at the gorger's grunt it stops sorting and starts climbing.
+
+<<if $pitGorgerCleared>>
+The Gorger you put down lies among the intake it was culling, indistinguishable now, raw
+material at last, its grafted sorter gone back to parts beside it. The pits are quiet. Whatever was held here that could climb has climbed;
+what's left does not look up.
+
+<<link "Back up to the line">><<goto "TheLine">><</link>>
+<<else>>
+<<scentof `["gorger","grafted"]`>>
+<<link "Put the Gorger down before it sorts you">>
+  <<run setup.startFight(["gorger", "grafted"], "ThePitsCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Back up to the line, off the grating">><<goto "TheLine">><</link>>
+<</if>>
+
+
+:: ThePitsCleared [hell]
+/* lands here after the gorger fight; sets the flag, then folds back */
+<<set $pitGorgerCleared to true>>
+The Gorger comes apart slower than a thing should, being mostly the same rendered stuff it
+processes, and goes down into the pen it was culling and is, within a breath, just more of
+it — the Works do not distinguish, in the end, between the staff and the stock. You climb
+out of the pits with the cull's blood to your elbows too, and try not to think about how
+little, now, that distinguishes you from either.
+
+<<link "Back up to the line">><<goto "TheLine">><</link>>
+
+
+/* ---------- PASSAGE / ATMOSPHERE FILLER ---------- */
+
+:: TheLine [hell]
+The disassembly line: the long spine of the Works, where what comes in whole is taken
+methodically to pieces by a sequence of stations, each Gorger at its post performing its
+one practised cut as the chain hauls the work past, the whole thing running with the awful
+unhurried competence of any line anywhere, of any honest factory turning raw stuff into
+goods.
+
+The further down it you look the less is left. You can read the whole process off it like a
+chart: entire at the head of the line, and then a station gone, and then another, each
+Gorger taking only its own portion and passing the rest on without interest, so that a body
+travels the chain shedding itself a cut at a time until what reaches the tail is barely an
+outline of what arrived. The cuts are not savage. That is the thing the eye keeps insisting
+on and the mind keeps refusing: they are *neat*, each one square and considered, a tradesman's
+work, the same cut a thousand thousand times until it is no longer a cut at all but a habit
+of the hands.
+
+The only difference, and it is no difference at all, is the raw stuff. You walk beside the
+chain the wrong way, against the direction of the process, which is the one direction the
+Works are not built to handle, and it is the only thing keeping you off the hooks.
+
+<<if not $lineWalkerHeard>>
+One of the suspended, half onto a hook already, turns toward you as you pass against the chain — slow,
+serene, in no distress, and seeming to want to tell you something while it still can.
+<<linkreplace "One of the suspended turns toward you, and seems about to speak">><<nobr>><<set $lineWalkerHeard to true>>
+//You're doing it right, you know — going the wrong way down the line. It's the only thing that keeps
+them reading you as staff.// It turns, gently, on the slow hook. //I did it the longest time. You'd be
+surprised how long. And then one shift my legs just — //agreed// with the chain. That's all it was. Not
+a choice; I'd have sworn to my last breath I'd never //choose// it. Just a morning the walking-against
+weighed more than the being-carried, and the place is so very patient, and the hook comes round on its
+own.// A small, kind smile. //You won't feel the turn. Nobody does. You'll only notice you've stopped
+walking //against,// and how much lighter that is.//
+<</nobr>><<corrupt "head" "filth" 4>><</linkreplace>>
+<<else>>
+She has turned back the way the hook is turning her, serene, finished with you; the chain hauls her on a
+little further than last time.
+<</if>>
+
+<<link "Down into the holding-pits">><<goto "ThePits">><</link>>
+<<link "A bank of hooks, off the line">><<goto "TheHooks">><</link>>
+<<link "A vat standing open, beside the line">><<goto "TheVat">><</link>>
+<<link "Back to the killing-floor">><<goto "TheKillingFloor">><</link>>
+
+
+:: TheHooks [hell]
+A holding-bank of hooks, where the work hangs waiting its turn on the line — a slow forest
+of the suspended, turning gently in the heat-draught, patient, processed-elsewhere into
+silence, waiting with the terrible passivity of meat for the chain to come and carry them
+on.
+
+The forest goes back further than the light. They hang in ranks, evenly spaced, each on its
+own hook on its own length of chain, so that the whole bank turns together when a draught
+moves through it, a slow synchronized rotation like a field of strange pale wheat. They do
+not crowd. They do not reach. Whatever was done to them upstream was done well enough that
+they have stopped wanting anything, and the stillness of that — a roomful of the patient,
+none of them trying to leave — is heavier on you than any amount of screaming would be.
+
+You move through them carefully, parting them like a bead curtain, and you do not look at
+faces, because some of the hanging work still has them, and some of those are still, very
+slowly, changing expression.
+
+<<if not $hooksSpoke>>
+One face among the hanging work is still changing expression — slowly, lucidly, in the gaps between the
+chain's hauls — and as you part the bodies it finds you with its eyes, and works its mouth, wanting the
+last of its words spent on something still walking.
+<<linkreplace "Stop at the one face still changing">><<nobr>><<set $hooksSpoke to true>>
+//Going down?// it manages. //Course you are. Listen — the rendered talk, on the hooks; nothing else to
+do but talk — and they all say the same of the //last// piece. The one the vat couldn't boil down. It
+went //further// — rode the runoff out the bottom of the Works and down into the yellow light, the
+sulphur, the floor of everything.// The chain shudders; it has a moment more. //If you're hunting the
+cold mark that walks a soul out the front — and I think you are — that's where the last of it waits. Down
+the runoff. All the way down. Past where I'm going.//
+<</nobr>><<corrupt "head" "filth" 2>><</linkreplace>>
+<<else>>
+The chain has hauled it one station on; the face is gone now, smoothed to the terrible passivity of the
+rest, and it cannot speak, and you would not want to hear what it would say if it could.
+<</if>>
+
+<<link "To a renderer that does bespoke work">><<goto "TheWard">><</link>>
+<<link "Toward a fall of molten tallow">><<goto "TheTallowFalls">><</link>>
+<<link "Back to the line">><<goto "TheLine">><</link>>
+
+
+:: TheBoilHouse [hell]
+<<roomart "boilhouse">>
+<<if $pressedReturn>>
+They haul you onto the boil-house floor and a Gorger shoves a long paddle into your hands without a
+glance — no contract, no binding, just a body they caught idle and a vat that needs stirring. One
+shift, and then off the floor with you.
+
+<<linkreplace "Take the paddle they pressed on you and stir">>
+<<set _ps to setup.doPressedShift()>>
+You stir, and the white steam renders a little more <<= _ps.cls>> into whatever part of you stands
+nearest the heat, a degree at a time, the way the works takes everything that lingers. Pressed work
+pays no coin; it only takes. When the vat is turned the Gorger jerks its head at the door.
+
+<<link "Back to it">><<set _to to $pressedReturn>><<set $pressedReturn to "">><<goto _to>><</link>>
+<</linkreplace>>
+<<else>>
+The boil-house, the furnace heart of the Works: ranks of vats over a fire that has not
+gone out since fire was invented, each one rolling at a slow heavy boil, throwing up a fat
+white steam that condenses on every surface and rains back down warm and greasy, so that
+the whole room weeps tallow and breathes tallow and is, you realize, slowly rendering
+*everything* in it, including the air, including you, a degree at a time. The Gorgers tend
+the vats with long paddles, skimming, stirring, and do not mind the heat, being already
+mostly the thing the heat is for.
+
+<<if $workOwed and $workStation == "vats">>
+You are signed to this floor. The binding walked you back here the moment the world last put
+you down — fed, housed, *kept*, exactly as the contract promised — and a Gorger presses a long
+paddle into your hands without once looking up, because you are not a visitor here, you are
+another hand on the line. The doors off the floor will not open for you; you can feel the curse
+holding them, patient as the boil, until you have taken your turn at the vat. A shift is owed,
+and the works keeps its books in a heavier ink than coin.
+
+<<linkreplace "Take up the paddle and work off the shift you owe">>
+<<set _s to setup.doShift()>>
+You stir. The boil is heavier than water and does not want the paddle back; it climbs the shaft
+toward your hands in slow fat ropes, and the white steam renders into you the whole while you
+stand over it — the works taking its wage the only way it knows, a degree at a time, settling its
+grey aggregate into whatever part of you stands nearest the heat. When you set the paddle down
+the debt, for this return, is paid: you feel the curse on the doors ease — until the next time the
+world knocks you down and the binding reels you back to the boil, a little more of you left in it.
+<<if _s and _s.leather>>
+
+The works keeps its books both ways. A Gorger jerks its head at a rack by the door, where a
+cured-leather apron and jerkin hang among the aprons — //long service//, as near as the floor comes
+to saying it — and you understand the gear is now yours to take. Real armour, hard-worn, off the
+boil. //(You've worked the vats <<= _s.shifts>> times — free leather armour issued.)//
+<</if>>
+
+<<link "Off the floor, toward a fall of molten tallow">><<goto "TheTallowFalls">><</link>>
+<<link "Off the floor, back to the killing-floor">><<goto "TheKillingFloor">><</link>>
+<<link "To a vat standing open, off the ranks">><<goto "TheVat">><</link>>
+<</linkreplace>>
+<<else>>
+No one on the floor is //paid//, exactly — but the boil renders coin out of its load the way it
+renders everything, and the dead came down with full pockets, and what the works drives up out of
+them is anybody's who'll reach into the heat for it. The Gorgers don't grudge it. The Gorgers are
+long past grudging anything. How far in you reach is the only question, and the works charges for
+the reaching by the depth.
+
+<<linkreplace "Take up a paddle and stir a while, skimming the bright things that surface">>
+<<set _seg to setup.SEGMENTS.random()>><<set _amt to random(4, 7)>><<corrupt _seg "filth" _amt>>
+<<set _pay to random(3, 6)>><<set _got to setup.gainCoins(_pay)>>
+You stir, because everyone on the floor stirs, and the warmth is the most nearly-human thing left
+in hell — and you skim as you go, lifting the bright surfaced things the boil has driven out of its
+load, <<if _got gt 0>><<= _got>> coin<<if _got neq 1>>s<</if>> of old pocket-money rendered clean off its owners<<else>>old pocket-money rendered clean off its owners — that curdles to rubbish the instant it is yours<</if>>. The
+white steam renders quietly into you the whole while, the works taking its small grey wage a degree
+at a time, the way it takes everything that lingers near it.
+<</linkreplace>>
+
+<<linkreplace "Strip down and get in — scrub a cooling vat to the bottom, where the heavy coin settles">>
+<<set _seg to setup.SEGMENTS.random()>><<set _amt to random(10, 15)>><<corrupt _seg "filth" _amt>>
+<<set _pay to random(12, 18)>><<set _got to setup.gainCoins(_pay)>>
+You climb in. That is the whole of it, really — the one thing no one else on the floor will do,
+which is exactly why it pays: down into a cooling vat to scrub it out from the inside, standing
+chest-deep in the tallow and the grey settled remainder, and you come up with the heavy coin that
+sinks past all skimming, <<if _got gt 0>><<= _got>> of it,<<else>>which rots to rubbish in your fist,<</if>> the gold the dead kept deepest and carried furthest down.
+But a vat does not need to be boiling to render you — chest-deep in what it leaves is more than
+enough — and you climb out wearing a great cooling weight of the works that does not wipe off, and
+does not, you come to understand, mean ever to.
+<</linkreplace>>
+
+<<link "A vat standing open, off the ranks">><<goto "TheVat">><</link>>
+<<link "Toward a fall of molten tallow">><<goto "TheTallowFalls">><</link>>
+<<link "Back to the killing-floor">><<goto "TheKillingFloor">><</link>>
+<</if>>
+<</if>>
+
+
+:: TheGreaseTrap [hell]
+A grease-trap, where the Works catch what even hell won't waste — a sunken stone tank
+choked with the cooled and congealed unrenderable, the scum and the float, a grey-white
+geology of the parts the process couldn't drive an oil out of.
+
+You crouch at the rim and the geology resolves. It is bones, mostly, but not only — there
+are buttons in it, and teeth, and the small hard insoluble objects a life accretes and a
+rendering cannot melt, all of it set into the congealed grease like flies in amber, sorted
+by nothing, simply settled where it stopped being worth the cost of recovering. The surface
+does not move. Nothing tends this place. It is the one corner of the Works where the patient
+machinery has admitted defeat and walked away, and the quiet of that admission sits on the
+cold trap like a lid.
+
+The trap is the Works' honest confession: that for all the talk of refining, of product,
+of nothing wasted, there is always a remainder, always a part that won't reduce, and that
+the part that won't reduce is the part that was a person, and that hell throws it in a trap
+and forgets it.
+
+<<if not $remainderKnown>>
+In the grey-white geology of the float, one shape is still a person — the part of someone the process
+could not drive an oil out of, settled here and forgotten, and still, faintly, able to speak.
+<<linkreplace "Find the shape in the float that is still a person">><<nobr>><<set $remainderKnown to true>>
+//There's always a remainder,// it says, from the cold scum. //That's the thing they don't put on the
+brochure. They'll render you down — tallow, candle, soap, the lot — and there's always a part that won't
+//go,// that won't reduce, that stays itself in the trap when all the rest's been sold. And do you know
+what that part //is?// It's the part that was a //person.// The unrenderable bit. The bit that was
+//you.//// A long, thinning pause. //That's why the mark in the master vat never boiled down either, they
+say. Same kind of thing as me. Older than rendering. Can't be taken in.// Quieter still. //Remember me.
+That's all. Just — remember there was a me.//
+<</nobr>><<corrupt "head" "filth" 3>><</linkreplace>>
+<<else>>
+The shape in the float is a little more reduced than last time, its voice thinner, and it asks nothing of
+you now but the thing it asked before: that there was, once, a me, and that you remember it.
+<</if>>
+
+<<link "Toward the runoff sluice">><<goto "TheRunoff">><</link>>
+<<link "Back to the soap-vat">><<goto "TheSoapVat">><</link>>
+
+
+:: TheForemansWalk [hell]
+A catwalk runs out from the foreman's office over the whole floor — the management's view
+of the process, from which the killing-floor resolves into what it really is: not chaos,
+not cruelty, but *order*, a clean and rational system for the conversion of the damned into
+the goods that make hell comfortable, no malice in it anywhere, only efficiency, only the
+quiet pride of a thing well-organised.
+
+From up here you can see all of it at once, and that is what does the damage. The chains
+draw themselves into a single legible circuit; the vats line up in their ranks; the line
+runs true from the head where the whole arrives to the tail where the product leaves, and
+between them every Gorger stands at the one station that is its whole existence, and the
+work flows between them without a wasted motion or a raised voice. It looks, from the rail,
+like a thing you could be proud to have built. It looks like the answer to a problem stated
+cleanly and solved well. You can feel the part of you that recognizes good work wanting,
+horribly, to admire it.
+
+It is the most frightening view in hell, because it is the least infernal. It is just a
+factory. It just makes what it makes out of what it's given, and what it's given is you.
+
+<<if not $tallykeepPaid>>
+A clerk-Gorger walks the catwalk rail, tallying the floor below into a ledger — not the foreman in its
+office, but the hand that carries the figures down to it. It will talk, it lets you understand, to a man
+who stands it the courtesy of buying into the books.
+<<if $coins gte 2>>
+<<link "Let it read you into the ledger — a couple of coin">>
+<<set $coins to $coins - 2>><<set $tallykeepPaid to true>><<corrupt "head" "filth" 3>>
+<<goto "TheForemansWalk">>
+<</link>>
+<<else>>
+It waits, pleasant and patient, until it is plain you have nothing to enter against your name — and then
+turns back to its tally. Come back with a coin or two, and it will read you in.
+<</if>>
+<<else>>
+The Tallykeep folds its delicate hands on the ledger, friendly now, and waits for the question.
+<<linkreplace "Ask where the candles go">><<nobr>>
+//Up,// it says. //The good tallow's light: candles to the Shambles, the glow of every hearth in hell,
+the tune the not-children sing. You'll have walked past your own portion, lit, and never known it.//
+<</nobr>><</linkreplace>>
+<<linkreplace "Ask about the soap">><<nobr>>
+//The cleverest line in the books,// it says, almost admiring. //We sell it //back.// To the
+freshly-taken, the ones who came down wanting to stay clean — we render them, press them, stamp a
+wholesome word on them, and sell them their own soap. Demand never drops. That's good business, that.//
+<</nobr>><</linkreplace>>
+<<linkreplace "Ask where the remainder ends up">><<nobr>>
+//The trap, then the runoff,// it says, //and the runoff drains to the bottom — the sulphur, the floor of
+everything. Nothing's truly wasted down here. It's only ever //relocated.//
+<</nobr>><</linkreplace>>
+<<set _rg to setup.regardOf(passage())>><<if _rg and _rg.line>>
+<<linkreplace "Ask what it sees when it weighs you">><<nobr>>
+It runs its eye down you, pricing. //<<= _rg.line>>//<<if not $tallykeepReturned>> And then, gently, it
+enters a figure against your name in the ledger, and does not let you read what.<<set $tallykeepReturned to true>><</if>>
+<</nobr>><</linkreplace>>
+<</if>>
+<</if>>
+
+<<link "Toward the boil-house, down the catwalk stair">><<goto "TheBoilHouse">><</link>>
+<<link "Out along the conveyor, toward a cold-store off the line">><<goto "TheConveyorFork">><</link>>
+<<link "To a duct-control station, off the catwalk">><<goto "TheVentControl">><</link>>
+<<link "Back to the foreman's office">><<goto "TheTally">><</link>>
+
+
+:: TheTallowFalls [hell]
+Where the boil-house overflows, a fall of molten tallow pours from a high lip down a stepped
+cascade of cooling stone, white at the top where it's still near-boiling, going cream and
+then candle-yellow as it cools down the steps, beautiful in the way the worst things down
+here are beautiful, a frozen-motion sculpture in rendered fat that rebuilds itself a drip at
+a time forever.
+
+Closer, the falls are not one thing but a thousand. Each step has caught its own season of
+the cooling — a lip of still-running white, a shelf gone to set cream, a low terrace where
+the candle-yellow has hardened into drapery and stalactite and the slow accreted shapes of
+a cave that grew in a single afternoon. It is the prettiest thing you have found in hell. It
+is made entirely of people. The two facts sit in you side by side and refuse to cancel, and
+that refusal is the falls' whole quiet argument: that the rendered and the beautiful were
+never opposites here, only stages of the same descent.
+
+You could warm your hands at the top of it. You could lose them. The line between the two is
+exactly the width of the line between everything down here: a step, a degree, a small wrong
+lean toward the warmth.
+
+<<link "Back to the bank of hooks">><<goto "TheHooks">><</link>>
+<<link "Back to the boil-house">><<goto "TheBoilHouse">><</link>>
+
+
+/* ---------- CLEAN-VS-DIRTY FORK: the conveyor (switch elsewhere) — owner 2026-06-07 ----------
+   Two ways to the cold-store: the GUARDED gantry (a gorger foreman holds it — fight OR pay) or the
+   DISCREET conveyor crossing — safe ONLY if you've thrown the duct-vent lever at TheVentControl off
+   the catwalk (which carries the rendering steam away); cross with the steam still live and it cooks
+   into you. The switch is in a different room — go throw it first. Loops back. */
+
+:: TheConveyorFork [hell]
+<<nobr>>
+The conveyor runs out across the floor toward a cold-store stacked with set tallow and, among it,
+unrendered oddments worth taking. Above the belt a gantry crosses dry and clear — but a gorger has
+set itself up there as a kind of foreman, and won't have you on its gantry for free. The other way
+is the belt itself, low through the rendering-steam that jets across it from the boil below: walkable,
+if the steam weren't live. There's a duct-vent control back off the catwalk that would carry the
+steam away — <<if $ductVented>>and you've thrown it; the belt runs cool and clear now.<<else>>but you
+haven't touched it, and the steam still renders everything that crosses.<</if>>
+<</nobr>>
+
+<<if $coldStoreLooted>>
+You've been through; the gorger's gone back to the line, the cold-store stands open and emptied.
+<<link "Across to the cold-store">><<goto "TheColdStore">><</link>>
+<<else>>
+//The price of each way is clear from here: the gorger-foreman wants a real fight, or ''22 coins'' for the gantry; and the belt would render ''about 18 filth'' of live steam into your torso<<if $ductVented>> — but you've vented it, and it runs cool now<<else>> — unless you throw the duct-vent lever, back off the catwalk<</if>>.//
+
+<<scentof "gorger">>
+<<link "The guarded way — pull the gorger off its gantry and cross dry">>
+  <<run setup.startFight("gorger", "TheColdStore")>><<goto "Combat">>
+<</link>>
+<<if $coins gte 22>>
+<<link "The guarded way — pay the gorger-foreman its 22 coins, cross the gantry">>
+  <<set $coins to $coins - 22>><<goto "TheColdStore">>
+<</link>>
+<<else>>(The gorger wants 22 coins for the gantry; you are short.)<</if>>
+<<if $ductVented>>
+<<link "The discreet way — walk the belt (the steam's vented, it runs cool)">>
+  <<goto "TheColdStore">>
+<</link>>
+<<else>>
+<<set _tlbl to "The discreet way — cross the belt through the live steam (" + setup.tollTag("torso", "filth", 18) + ")">><<link _tlbl>>
+  <<corrupt "torso" "filth" 18>>
+  <<goto "TheColdStore">>
+<</link>>
+<</if>>
+<</if>>
+<<link "Back along the catwalk">><<goto "TheForemansWalk">><</link>>
+
+
+:: TheVentControl [hell]
+<<nobr>>
+A control station off the catwalk: a panel of greased levers and a single great duct-vent wheel,
+labelled in the works' patient hand. Throw it and the rendering-steam that crosses the conveyor down
+the line gets carried off up the flue instead — for the floor's sake, not yours, but it works the
+same either way.
+<</nobr>>
+
+<<if $ductVented>>
+The duct-vent is already open; you can hear the steam going up the flue where it used to cross the belt.
+<<else>>
+<<link "Throw the duct-vent lever">>
+  <<set $ductVented to true>>
+  The wheel fights you, then gives, and somewhere down the line the steam stops jetting sideways and
+  goes where it's told. The conveyor crossing will be cool now.
+<</link>>
+<</if>>
+<<link "Back along the catwalk">><<goto "TheForemansWalk">><</link>>
+
+
+:: TheColdStore [hell]
+<<nobr>>
+The cold-store is a still, cool room stacked with set tallow in grey blocks, and among the blocks the
+oddments the line never got around to rendering — including a little coin, pocketed by some hand the
+works has long since used up.
+
+The cold here is the deepest you've felt in hell, and the quietest. The blocks are stacked
+to the roof in dim grey aisles, each one true-cornered and stamped, the breath of the boil
+finally gone out of the air so that for once you can hear your own movement — your feet, your
+heart, the small sounds of a thing still running. The oddments turned up between the stacks
+are the litter of a hundred such hands: a buckle, a button, a coin gone green at the edge,
+the indigestible bits the process passed over and nobody came back for, because the works
+only ever comes back for what pays.
+<</nobr>>
+
+<<if not $coldStoreLooted>>
+<<set $coldStoreLooted to true>>
+<<set _g to setup.gainCoins(random(14, 20))>>
+You work <<= _g>> cold coin<<if _g neq 1>>s<</if>> out from between the tallow blocks.
+<<else>>
+The store is stripped now; only the grey blocks remain.
+<</if>>
+
+<<link "Back along the catwalk">><<goto "TheForemansWalk">><</link>>
+
+
+/* ---------- LAYER-8 BAD END ---------- */
+
+:: EndingRendered [ending]
+<<run setup.recordRun("died")>>
+You climb down into the warm, because the warm smells like the only kind thing in hell and
+because you are so tired of being raw, of being the one unprocessed thing on a floor that
+processes everything, of the work it takes to keep arguing that you are not yet meat. You
+lower yourself into the rich dark broth at the bottom of the vat and it closes over you
+like a held breath, like a homecoming, like the inside of something that was always going
+to have you, and the last of your arguing goes out of you in a long warm sigh.
+
+The vat fills, in time, and boils, in time, and the Works do with you what the Works do,
+without malice, with great efficiency, and somewhere up in the Shambles a not-child sings a
+jingle for a brand of lamp-oil, and a demon lights a candle in a warm hell parlour, and the
+light is kind, and the light is you.
+
+//You stopped being raw. The Works waste nothing, and now they have not wasted you.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>

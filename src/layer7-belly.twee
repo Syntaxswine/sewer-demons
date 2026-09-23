@@ -1,0 +1,1123 @@
+/* =====================================================================
+   LAYER 7 — THE BELLY OF THE BEAST
+   The first true hell layer, below the Shambles. Register: CRONENBERG body
+   horror + bathroom horror. Where the Shambles was carnival commerce, the
+   belly of the beast is where the demons LIVE, BREED, and REMAKE their bodies — a slum
+   of grown flesh and bone, peristaltic, wet, all orifice and transformation.
+   The body as architecture, as commodity, as the thing that betrays you. The
+   pig-demons (the kidnapper's kind) den and breed here. Holds SIGIL-FRAGMENT 1
+   (the Unbinding Sigil; two more lie deeper, in L8 and L9).
+
+   Hub = TheCloaca. Enter from L6 (HellMarket → TheGullet). Descent to L8
+   (TheChute) is foreshadowed, not yet open. Depths in setup.depthOf (= 7).
+   ===================================================================== */
+
+
+/* ---------- HUB ---------- */
+
+:: TheCloaca [hell]
+<<corrupt "torso" "filth" 2>>
+<<nobr>>
+The wet stair empties you into the belly through a single great opening, and you
+understand the opening for what it is the way you understood the hellmouth: all at
+once and too late. A cloaca — the one shared orifice a low animal uses for
+everything, waste and birth and the rest — except the size of a railway terminus,
+ringed in a muscle that flexes slowly as the deeper dark behind it breathes. This
+is the only way in, and the only way out, and the belly uses it for everything.
+<</nobr>>
+
+Past the ring the floor falls away into a low wet plaza, and the slum opens around you.
+The light is the dull red of a hand held over a lamp, sourceless and even, and by it you
+make out the streets — soft-walled, glistening tubes running off into the dark, each one
+breathing on its own slow count — and the houses, which are organs, swollen and lit
+faintly from within, strung together by ropes of grown gristle. Somewhere a great way off
+something the size of a building shifts and settles, and the whole floor moves under you
+with it, gently, the way a deck moves, and is still again. You are standing in the gut of
+a thing that has made a town of what it eats, and the town is open for the evening.
+
+<<if $corruption gte 70>>
+The peristalsis of the place has a rhythm and you find your own breathing has
+matched it without asking you, and that the wet warmth on the walls is not
+unpleasant, is in fact the temperature of the inside of a mouth, of a body, of
+somewhere you have a very old animal memory of having once, before anything, been
+safe.
+<<else>>
+Everything here is grown, not built — the streets are gut, the houses are organs,
+the walls breathe and sweat and, here and there, blink. You have come down into a
+living thing, and it is digesting a town, and the town does not seem to mind.
+<</if>>
+
+<<link "Up the gullet, back toward the Shambles">><<goto "TheGullet">><</link>>
+<<link "Along the gutway, the belly's main drag">><<goto "TheGutway">><</link>>
+<<link "A still, cold room where nothing grows">><<goto "TheStillborn">><</link>>
+
+
+/* ---------- ASCENT / DESCENT ---------- */
+
+:: TheGullet [hell]
+The gullet is the throat of the wet stair — a ribbed, glistening climb back up
+toward the Shambles, and climbing it you go the wrong way up something built only
+to swallow, your hands finding purchase on rings of cartilage, the walls closing
+warm and close behind you and opening reluctantly ahead.
+
+Halfway up you stop fighting it and let the ribs read you. They are spaced for a
+throat's work, each ring a little tighter than the last, and you understand that
+nothing has ever climbed this — things go //down// a throat, and the cartilage is
+sized for the going-down, and to go up is to make the place do something against its
+grain, which it permits the way a sleeper permits a fly. The walls do not strain to
+keep you. They simply have not, in their long wet life, been asked to let anything by.
+
+Far up, the light changes from the belly's organ-red to the Shambles' firelit smoke,
+and the air loses its intimate, internal warmth and becomes merely infernal, which up
+here counts as fresh. Behind and below, the slow swallowing pulse goes on without you,
+patient, certain it will have you back down its length the moment you stop climbing.
+
+<<link "Up, into the Shambles market">><<goto "HellMarket">><</link>>
+<<link "Down, into the cloaca">><<goto "TheCloaca">><</link>>
+
+
+:: TheChute [hell]
+A chute drops out of the belly's floor, and a different hell breathes up it — not
+the wet warm organ-heat of the belly but a dry industrial roar, a clang and hiss
+and the reciprocating thud of enormous machinery, lit from below by a furnace-red
+that pulses on the schedule of some great bellows. The smell that rises is tallow
+and scorched hair and the specific reek of a place that processes bodies at scale.
+The Rendering Works. The belly grows the meat; down there, something refines it.
+
+You crouch at the lip and look in, and the chute is not stone and not bone but a
+gullet of a different make than the wet one behind you — gristled, ringed, the walls
+slick with a fat that runs and resets and runs again, polished mirror-smooth by the
+long traffic of everything the belly has decided it was done growing. The red light
+comes up in waves on the bellows' schedule and you watch it climb the throat toward
+you and recede, and each time it climbs you see, briefly, just how far down there is
+no purchase at all.
+
+There is no ladder, no stair, no dignified way down — the chute is throat-narrow and
+slick and drops sheer into the red, and everything about it tells you that you arrive
+in the Rendering Works the way raw material arrives, which is to say //fed in//. But the
+second sigil-fragment is down there, in the refining, and you did not come this far to
+balk at a slide into a furnace. You can let the chute take you. You will arrive where
+the raw material arrives, and you will have to work your way up and out from there.
+
+<<link "Let the chute take you down, into the Rendering Works">><<goto "TheIntake">><</link>>
+<<link "Back from the chute, to the sphincter">><<goto "TheSphincter">><</link>>
+
+
+/* ---------- GATE (guards the sigil-fragment) ---------- */
+
+:: TheSphincter [hell]
+The passage to the belly's heart is shut by a sphincter — a ring of dense pale
+muscle clenched tight as a fist across the way, weeping a clear slime, flexing
+minutely as if dreaming. Through the pinhole at its centre comes a deeper red light
+and the sense of something held in the middle of all this flesh that the flesh has
+grown around to protect. The fragment is in there. You can feel it the way you feel
+a tooth that is about to ache.
+
+<<if $sphincterOpened and not $sphincterWord>>
+The sphincter hangs slack and gaping now, worked loose from the muscle side — you came
+up through it once from below, from the red Works under the heart, and a one-way muscle
+once made to give does not easily learn to clench again. The clean wet road into the
+heart stands open, and stays open.
+
+<<link "Through, into the belly's heart">><<goto "TheNavel">><</link>>
+<<elseif $sphincterWord>>
+You have the privy-shrine's word now — the low wet syllable the belly uses to make
+a body open willingly — and you say it, and the sphincter hears it, and shudders, and
+//dilates//, slow and total and obscene, opening you a clean wet road into the heart it
+was keeping.
+
+<<link "Through, into the belly's heart">><<goto "TheNavel">><</link>>
+<<else>>
+It will not open for asking, and you do not have the word. You can force it — drive
+through the clenched muscle by main strength while it grips and works against you,
+and pay for the passage in skin and in something less replaceable — or go and learn
+the way to make it open on its own. (A sphincter only fights what comes //in//; force it
+this once and it will not close behind you.)
+
+<<set _tlbl to "Force through the clenched muscle (" + setup.tollTag("torso", "filth", 22) + ")">><<link _tlbl>>
+  <<corrupt "torso" "filth" 22>>
+  <<set $sphincterOpened to true>>
+  <<goto "TheNavel">>
+<</link>>
+<<link "Go and find the word that opens it">><<goto "ThePrivyShrine">><</link>>
+<</if>>
+<<link "Back to the privy-shrine">><<goto "ThePrivyShrine">><</link>>
+<<link "A chute drops out of the floor here, down into a red industrial roar">><<goto "TheChute">><</link>>
+
+
+/* ---------- THE SIGIL-FRAGMENT ---------- */
+
+:: TheNavel [hell]
+The heart of the belly is a navel — a deep, knotted pucker of scar at the centre
+of all the grown flesh, where the whole living slum is tied off, where it was joined
+once to whatever bore it and then cut loose to grow down here on its own. And set
+into the scar, half-swallowed by the proud flesh that has tried for an age to wall
+it off and failed, is a thing that does not belong to the body at all: a fragment of
+cold incised bone, a third of a mark, a piece of a sigil older than hell and hateful
+to it, which is exactly why the flesh has spent so long trying and failing to digest
+it.
+
+<<if $sigil.includes("sigil_warrens")>>
+The socket where it sat is closing over already, the proud flesh folding in to forget
+the wound. You have what you came for. You did not know, until you held it, that you
+had come for anything but out.
+<<else>>
+You know it on sight, the way the body around it knows it: the first piece of the
+Unbinding Sigil, the mark that does not free you from hell by climbing but by
+*un-belonging* — the thing that, whole, could let a person walk out the front not as
+a demon and not as prey but simply as a thing hell has no claim on. One third. The
+flesh has kept it like a splinter it couldn't push out. You can.
+
+<<link "Cut the first fragment free of the wall of meat">>
+  <<set $sigil.push("sigil_warrens")>>
+  <<corrupt "torso" "filth" 4>>
+  <<goto "TheNavel">>
+<</link>>
+<</if>>
+
+<<if $sigil.includes("sigil_warrens")>>
+Two more fragments lie deeper — one in the Rendering Works below, one in the Sulphur
+Deep at the bottom of everything. Three, and the sigil is whole, and the front door
+of hell is just a door.
+
+<</if>>
+<<link "Back out through the sphincter">><<goto "TheSphincter">><</link>>
+
+
+/* ---------- REST ---------- */
+
+:: TheStillborn [hell]
+Off the cloaca there is a room the belly failed to finish — a chamber of grown
+flesh that died half-made, gone cold and grey and inert, the only dead tissue in a
+place that is otherwise horribly, comprehensively alive. Nothing breeds here. Nothing
+flexes or weeps or breathes. After the peristaltic warmth of everything else it is a
+profound relief: a stillness, a coldness, a place the living slum has given up on and
+left alone, the way a body walls off a thing it cannot use.
+
+As your eyes settle you can read what it was trying to be. Everything here is a
+beginning that stopped — a ribbed start of wall that meant to go on breathing and
+didn't; the grey suggestion of a mouth or a valve that never opened and never will; a
+floor part-way to becoming the soft working floor of everywhere else and caught instead
+at the texture of cold tallow. The belly started to make this room and then, for some
+reason, lost interest, and the half-made thing has held still ever since, waiting to be
+either finished or unmade, and getting neither.
+
+You sit against a cold grey wall that was almost an organ and never quite became one,
+and the not-breathing of the room lets you remember how to breathe on your own
+rhythm again, instead of the belly's. The shaking eases. In the one dead room in the
+living dark, you are, briefly, the only thing with a pulse, and for once that is a
+comfort.
+<<if $hp lt $maxhp>><<run setup.passTime(setup.REST_TIME)>><</if>><<set $hp to $maxhp>>
+
+<<link "A loom of bone, through the cold arch">><<goto "TheBoneLoom">><</link>>
+<<link "Back to the cloaca">><<goto "TheCloaca">><</link>>
+
+
+/* ---------- CACHES ---------- */
+
+:: TheMeatRow [hell]
+A market, but where the Shambles sold you tools and gear the meat-row sells //parts//:
+stalls hung with the body's inventory, cut and graded and priced — hands by the
+bunch like bananas, a rack of ears going cheap, eyes in wet trays sorted by colour,
+and the slow patient vendors who are themselves assembled from the overstock,
+restocking their own missing pieces from the wares.
+
+You walk the row and the stock walks with you. Not the vendors — the wares. A hand on
+its hook curls a finger as your shadow crosses it. The eyes in the trays roll, slow and
+wet, to keep you in view as you pass, sorted by colour and all of them following the
+same way at once like a field turning to the sun. None of it is dead. That is the
+grade the row is sorted to: fresh, which down here means //not yet stopped//, and the
+freshest parts are the ones that still flinch from the lamp, and command the best price.
+
+They trade in coin, down here, same as up there. The other currency they prefer not to
+mention, because you are, to them, also stock — and you feel the slow patient eyes do
+to you what they do to every cut that comes down the row: weigh it, grade it, decide
+which shelf, and find no special hurry, because the row is patient and you are already
+here.
+
+<<if $meatRowLooted>>
+The gutters are picked clean now — you came back for the loose coin, once, when word of
+it found you somewhere else. The parts you leave. You have all of yours, for now, and
+intend to keep the set.
+<<else>>
+There's loose coin down in the gutters of the stalls, the kind no vendor stoops for
+mid-cut — the kind you only really go after when the thought of it catches you somewhere
+else on the floor and walks you back.
+<</if>>
+
+<<link "A vendor at the end of the row leans in, in no hurry to cut">><<goto "TheTallyBoy">><</link>>
+<<link "A trove of sorted organs, deeper in the row">><<goto "TheOrganTrove">><</link>>
+<<link "A surgery, lit and waiting, off the back">><<goto "TheSurgery">><</link>>
+<<link "A surgeon's stall at the end of the row, hung with cut-off things">><<goto "TheFleshcutter">><</link>>
+
+
+:: TheTallyBoy [hell]
+A vendor at the very end of the row leans toward you, in no hurry to cut — a slow patient thing built
+from the overstock, missing pieces it keeps replacing from its own wares, and running a sideline the
+others don't: it trades in what it overhears, across the long economy of taking people apart.
+
+Close up, you can see how it's made. It is more seam than self — a torso off one
+donor, an arm off another, a jaw it must have liked the look of and fitted on crooked,
+and ears it has too many of, ranked up the side of its head like a thing that wanted to
+hear everything that ever got said over a cutting-table. That is the sideline. It stands
+here at the quiet end of the row where the talk drifts to, and it keeps every word the
+way the other vendors keep the parts, and it will spend a little of the hoard on you if
+you let it.
+
+<<if not $meatRowTipped>>
+<<linkreplace "Stand by the vendor and let it talk">><<nobr>><<set $meatRowTipped to true>><<corrupt "head" "pig" 1>>
+//You'll be going down, sooner or later. They all do.// It weighs you with its eyes, idly, the way
+you'd weigh a cut. //Word among the stalls is there's a fire at the very bottom — a tree that burns and
+burns and is never the less for it, and the flame off it goes through //anything.// Clog, gate, the fat
+that seals the high pipes, the lot. If a body wanted //out// badly enough to go all the way //down//
+first.// It leans closer, almost fond. //I do like a face like yours. Already thinking which shelf I'd
+put each part of you on. The eyes go quick. Eyes always go quick.//
+<</nobr>><</linkreplace>>
+<<else>>
+The vendor has gone back to restocking itself from its own wares, and has nothing new for you — only
+that idle, sorting look, still deciding which shelf your eyes would go on.
+<</if>>
+
+<<link "Back along the meat-row">><<goto "TheMeatRow">><</link>>
+
+
+:: TheOrganTrove [hell]
+Where the row deepens, the trade goes wholesale: a vault of sorted organs in their
+hundreds, racked and labelled and kept fresh by the simple expedient of not being
+quite dead — livers that flinch from the light, a wall of slow-clenching hearts
+ticking out of time with each other, lungs that sigh in a tidal hush when the belly
+breathes.
+
+You walk the aisles and the racking is meticulous, which is the worst of it. Each shelf
+is labelled in a wet dark script you can almost read, the stock turned so the best face
+shows, the soft things bedded on grown shelving that weeps to keep them moist. It is kept
+the way a careful grocer keeps a cold store, by someone who takes pride, and the pride is
+the horror: that all this was somebody, parcelled out, and that the parcelling was done
+with care, and that the care never once extended to asking whether the somebody minded
+being so well kept.
+
+Grave-goods of a kind. And in among the meat, the coin that the meat was bought with,
+dropped and pocketed and dropped again across the long economy of taking people apart.
+
+<<if $organTroveLooted>>
+You've been back for what spends; the coin bedded among the organs is gone, and the wall
+of slow-clenching hearts ticks on without it. The organs you leave to their not-dying, and
+try not to count how many of each there are, and fail, and wish you hadn't.
+<<else>>
+The coin the meat was bought with is still bedded in among the racks — dropped and pocketed
+and dropped again across the long economy of taking people apart — for anyone who'll reach
+in among the slow not-dying to glean it.
+<</if>>
+
+<<if not $donorHeard>>
+A face among the wall of slow-clenching hearts is watching you — kept fresh by the simple expedient of
+not being quite dead — and it is, unmistakably, about to talk; conversational, in no distress at all.
+<<linkreplace "A face among the racked hearts is watching you, and seems to want to talk">><<nobr>><<set $donorHeard to true>>
+//I'm the face,// it says. //The liver's mine too, three racks over — the shy one, flinches at your
+lamp. Lungs by the door. We don't talk much; different shelves.// The hearts tick their out-of-time
+time. //The sow-breeder up the way — she'll tell you nothing's wasted, all of that, and true enough.
+But it's //louder// the way she tells it, from the outside. From in here it's quieter. It's just being
+set //down// — in parts, on different shelves — and not asked to be a whole thing any more. Do you know
+how long I carried being a whole thing? How heavy that is, kept up, every hour?// A pause, almost
+restful. //Reach in for the coin, if you came for it. We don't grudge it. Grudging was one more piece
+they sorted off me, and honestly it was the worst of my weight.//
+<</nobr>><<corrupt "head" "filth" 3>><</linkreplace>>
+<<else>>
+The face has gone slack among the hearts again, ticking its own slow time; it told you what being kept
+feels like from the shelf, and seems content to have you carry it now.
+<</if>>
+
+<<link "Toward a well of shed teeth">><<goto "TheToothWell">><</link>>
+<<link "Back along the meat-row">><<goto "TheMeatRow">><</link>>
+
+
+:: TheToothWell [hell]
+A well, and the belly has filled it the way a body fills a thing it has no use
+for: with teeth. Shed teeth, milk teeth, the long tusks of the pig-things and the
+flat grinders of the gorgers and human teeth in their thousands, a deep dry rattling
+shaft of every tooth this place has ever pushed out of a gum.
+
+You lean over the lip and the drift goes down past where the light gives out, and it
+//moves// — not all at once, but here and there, a settling, a trickle, a single tooth
+turning over somewhere far below as the whole mass shifts a hair's breadth deeper, the
+way grain shifts in a silo. It is dry in here, the one dry place you have found, and the
+dryness has a sound: a constant low rattle and tick, the well sorting itself, the small
+hard remainders of every mouth this place has emptied knocking together in the dark. The
+warm wet belly above seems suddenly far off, and you a long way down a thing that only
+takes.
+
+Drifted and settled and glinting, and salted all through the teeth, the way a child salts
+a piggy-bank, is the cold glint of coin.
+
+<<if $toothWellLooted>>
+The coin's sifted out of the drift now — you came back and took it, and left the teeth,
+which go on being teeth, in the dark, in their thousands, patient as a thing that knows
+it will have yours eventually.
+<<else>>
+Salted all through the teeth, the way a child salts a piggy-bank, is the cold glint of
+coin — for whoever's moved, when the thought of it finds them, to plunge an arm into the
+rattling dark and sift it out.
+<</if>>
+
+<<if not $toothCounterTalked>>
+A hunched figure crouches at the well-lip, sifting the dry rattling teeth, sorting them by the gum they
+fell from, counting — a creature whose whole remaining self is the count, and who will, if you stop,
+look up from it.
+<<linkreplace "Stop, and speak to the gleaner at the well-lip">><<nobr>><<set $toothCounterTalked to true>>
+//Teeth remember mouths,// it says, not stopping the sort. //And mouths remember //words.// You're
+trying to get past the clenched gate, down into the belly's heart — I can see it on you. You don't
+//force// it, friend. You can't. You learn to //say// it: the wet syllable that tells the muscle to
+open, the one a body kneels for. The privy-idol teaches it — the shrine that's a privy, the privy
+that's a shrine. Kneel there, when you're ready to, and it'll put the word in your mouth.// It goes
+back to the teeth. //Mind — you'll have to be ready to. The idol can tell when you're still too clean
+to mean it.//
+<</nobr>><</linkreplace>>
+<<else>>
+The gleaner has gone back into the count and will not be drawn out of it again; it told you where the
+word is kept, and the teeth rattle on through its fingers, certain of their eventual harvest.
+<</if>>
+
+<<link "On, to a weeping wall — a face the size of a house">><<goto "TheWeepingWall">><</link>>
+<<link "Back to the organ-trove">><<goto "TheOrganTrove">><</link>>
+
+
+/* ---------- SNARES (bad ends) ---------- */
+
+:: TheSurgery [hell]
+A surgery, off the back of the meat-row, and it is the cleanest room in hell: white
+grown-bone tile, a slab, a tray of instruments that are mostly fingers, and a
+practitioner folded patiently in the corner that unfolds when you enter — tall,
+many-handed, gentle, a Cutter, the kind of demon that doesn't take your face or your
+flesh by force but //improves// you, by appointment, with your consent and for your own
+good. //You've been making do with the body you were issued,// it says, kindly,
+washing its hands in something. //Such a waste. Let me make you fit for down here.//
+
+It can, too. That's the snare of it. Each thing it offers is a real thing — useful,
+even elegant — and the cost is only the small human part the new one replaces: the part
+that still flinched, that was still squeamish, that was still, technically, //you//. The
+belly takes its fee in self, not coin, and what it grows in you is the belly's now,
+and stays.
+
+<<set _grafts to setup.graftsAvailable()>>
+<<if _grafts.length is 0>>
+//There's nothing left of you worth improving,// the Cutter says, with what on a kinder
+face would be pride. //You're quite finished. Quite fit.// It folds back into its corner
+to wait for the next of you.
+<<else>>
+It lays its instruments out in a row and names, one by one, what it can give you — and
+what each will cost, because down here the cost is the only honest part of the sale:
+
+<<for _gid range _grafts>>
+<<capture _gid>>
+<<set _git to setup.items[_gid]>>
+<<set _glbl to "The " + _git.name + " (" + setup.graftBrief(_gid) + ") — " + setup.tollTag(_git.graftSeg, "pig", _git.graftAmt) + ", and there is no taking it back">>
+<<linkreplace _glbl>>
+<<set _stage to setup.installGraft(_gid)>>
+It works on you with a tenderness that is the worst part of it, narrating each cut in
+its kind low voice. When you rise from the slab the //<<= _git.name>>// is yours — <<= _git.desc>> — and it works beautifully. It does not flinch at anything. Neither, by a
+little, do you now.
+<</linkreplace>>
+<</capture>>
+<</for>>
+<</if>>
+
+<<link "Decline the appointment. Keep the body you came in.">>
+  <<soothe 8>>
+  <<goto "TheMeatRow">>
+<</link>>
+
+
+:: TheMolt [hell]
+The breeding-dens give onto a molting-pit — a warm shallow basin where the belly's
+things come to shed, ringed with the discarded husks of what they used to be:
+translucent, split up the back, the empty shapes of smaller and more honest creatures
+that climbed in here and climbed out as something fitter.
+
+You crouch at the rim and look at the husks the way you'd look at clothes left on a
+bank by a swimmer. Each one is a shape you recognize — that one had hands; that one
+walked upright; that one, smaller, you do not let yourself finish recognizing — and
+each is split clean up the spine and emptied, the seam opened from the inside, willingly,
+the way a thing opens that has stopped wanting to be the thing it was. Whatever climbed
+out of each husk did not flee. It //graduated//. The husks are not victims. They are
+the part that didn't make the cut.
+
+And the pit is //inviting//. It is the temperature of the cloaca, of the inside of a
+body, and the deep animal part of you that has been cold and afraid for so long looks at
+the warm basin and the split husks and understands, with a lurch, exactly how you would
+climb in, and exactly what you would climb out as, and exactly how much better that would
+feel.
+
+<<link "Climb into the warm pit. Shed the old self.">><<goto "EndingMolt">><</link>>
+<<link "Back away from the molt, skin intact.">>
+  <<soothe 6>>
+  <<goto "TheBirthingDens">>
+<</link>>
+
+
+/* ---------- COMBAT ---------- */
+
+:: TheSty [hell]
+The gutway widens into a sty, and you know the smell before the light finds the shape
+of it: wet pork and sewage, the exact smell that closed over your face the night the
+sack came down. This is where they breed — the pig-demons, the kidnapper's kind — a
+wallow of vast pale sows and their farrow, and the boars that work the belly's
+worst, hauling meat to the chute, snatching the solitary off the surface to start
+the cycle again. One of the boars has noticed you. It is the size of the thing that
+took you. It may //be// the thing that took you.
+
+<<if $styCleared>>
+The boar you put down lies in its own wallow, and the rest of the sty has drawn back
+from it and from you, the sows curled around their farrow, watching, declining the
+fight a single dead boar has taught them to decline. You have killed one of the kind
+that kills your kind. It is not nothing. It is not, you suspect, going to be enough.
+
+<<link "Back to the gutway">><<goto "TheGutway">><</link>>
+<<link "Back to the breeding-dens">><<goto "TheBirthingDens">><</link>>
+<<link "On, to the great latrine">><<goto "TheLatrine">><</link>>
+<<else>>
+This is a true demon, not vermin, and a wall — it will most likely kill you, and you
+should know that going in, and know too that there is a debt here older than your
+good sense. You can try it. You can also walk away, the way the surface walks away
+from what it can't afford to fight.
+
+<<if not $styRecognized>>
+<<linkreplace "Look the boar in the face. Make sure it's the one.">>
+<<set $styRecognized to true>><<corrupt "head" "pig" 2>>
+You make yourself look, past the bulk and the wet and the small clever eyes, for the
+thing you have carried since the sack: a notch bitten from the left ear, an old brand
+gone shiny on the shoulder, the particular reek of wet pork that is the last clean
+memory you have of the world above. It's all there. It //is// the one — or it is one
+of a kind so alike it makes no difference, which is its own horror: that the thing
+which ended your life upstairs was not a monster singling you out but a //breeder//
+doing rounds, that you were never prey, only stock, a delivery it has half-forgotten
+making. It looks back at you with exactly that much interest: the mild, proprietary
+once-over a farmer gives an animal that got out, and might be worth the bother of
+fetching back.
+<</linkreplace>>
+<</if>>
+
+And at its flank something you had taken for a heap of discarded parts unfolds off the
+wallow's edge and rises with it — a grafted, the boar's own muck-hand, assembled out of
+whatever the dens had spare, too many borrowed arms opening at once. The sty does not
+send its breeder out alone.
+
+<<scentof `["pigdemon","grafted"]`>>
+<<link "Take the boar — settle the debt (this will likely kill you)">>
+  <<run setup.startFight(["pigdemon", "grafted"], "TheStyCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Walk away from the sty, back to the gutway">><<goto "TheGutway">><</link>>
+<<link "Skirt the wallow, back to the breeding-dens">><<goto "TheBirthingDens">><</link>>
+/* The latrine (and the deep heart beyond it) lies past the boar. Ways by: kill it,
+   or get past it. If you're wholly pig it reads you as kin and lets you through clean.
+   Otherwise you need the sty-hand's overalls — EARNED by working the dens (TheBirthingDens
+   issues "overalls"; the pig-shift corruption is the cost). Having them, the pass is free
+   and reusable (you keep the overalls). No overalls and not pig: no sneak, only the dens
+   (to work for them) or the fight. */
+<<if setup.becameClass() is "pig">>
+<<link "Walk straight past the boar, on to the great latrine — it takes you for its own">><<goto "TheLatrine">><</link>>
+<<elseif setup.has("overalls")>>
+<<link "Pull on the sty-hand's overalls and walk past — one more hand come to muck out, on to the great latrine">>
+  <<run setup.equip("overalls")>>
+  <<goto "TheLatrine">>
+<</link>>
+<<else>>
+The way past the boar, short of killing it, is to not read as prey — and bare and human-smelling
+you are exactly prey, a thing that walked up. The hands pass it daily and it never looks twice,
+because they wear the dens' own overalls and move like they've work to do. A set hangs on a hook by
+the trough back in the breeding-dens, if you put in a shift to earn it.
+<</if>>
+<</if>>
+
+
+:: TheStyCleared [hell]
+/* lands here after the pig-demon fight; sets the flag, then folds back */
+<<set $styCleared to true>>
+The boar goes down the way a building goes down, all at once and from the legs up — its
+muck-hand already in parts around it, gone back to being the spares it was assembled
+from — and the sty screams — not in grief, you think, but in a kind of recognition, a
+passing-up of the news that the solitary thing they farm has, this once, farmed back. You are
+shaking. You are also, in a small black chamber of yourself you will not be examining
+later, satisfied.
+
+<<link "Back to the gutway">><<goto "TheGutway">><</link>>
+<<link "Back to the breeding-dens">><<goto "TheBirthingDens">><</link>>
+<<link "On, to the great latrine">><<goto "TheLatrine">><</link>>
+
+
+:: TheBoneLoom [hell]
+A chamber strung floor to vault with a loom of living bone — long spars of it warping
+the grown flesh of the belly into new rooms, new walls, new houses, the architecture
+of the place weaving itself slowly out of skeleton and meat.
+
+Step in and the loom is working. Not fast — on the scale a glacier moves — but you can
+hear it: a slow creak of spar against socket, a wet draw as a fresh length of bone
+threads itself through the meat and pulls the weave tighter, the whole frame inching
+toward becoming a wall you could not tell from any other wall in the belly. This is how
+the place builds. It does not lay one stone on another. It grows the skeleton first and
+weaves the rest on after, and somewhere up in the dark of the vault, spars you cannot
+see are doing to the ceiling what these are doing to the walls.
+
+And caught in the loom, half-woven into the wall and then somehow //kept//, is a thing
+that should have been structure and became a creature instead: the grafted, an assembly
+of every spare part the loom had to hand, too many joints and not enough plan, pulling
+itself free of the weave it was meant to be and turning the wrongness of its many
+borrowed eyes on you.
+
+<<if $boneLoomCleared>>
+The grafted lies unstrung, its borrowed parts going slack and separate again, the loom
+already beginning to take them back, to try once more to weave a wall and not a thing.
+The way deeper hangs open past the loom.
+
+<<link "On, to a weeping wall">><<goto "TheWeepingWall">><</link>>
+<<link "Back to the gutway">><<goto "TheGutway">><</link>>
+<<else>>
+<<scentof "grafted">>
+<<link "Cut the grafted out of the loom">>
+  <<run setup.startFight("grafted", "TheBoneLoomCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Back to the gutway, away from the loom">><<goto "TheGutway">><</link>>
+<</if>>
+
+
+:: TheBoneLoomCleared [hell]
+/* lands here after the grafted fight; sets the flag, then folds onward */
+<<set $boneLoomCleared to true>>
+You cut it out of the weave, and it comes apart into its borrowed pieces gratefully,
+almost with relief, a hand here and a length of jaw there, each part going still as if
+glad to stop being made to be a whole. The loom creaks and resumes, patient, reaching
+for the pieces, ready to try again. It is always ready to try again.
+
+<<link "On, to a weeping wall">><<goto "TheWeepingWall">><</link>>
+<<link "Back to the gutway">><<goto "TheGutway">><</link>>
+
+
+/* ---------- PASSAGE / ATMOSPHERE FILLER ---------- */
+
+:: TheGutway [hell]
+The gutway is the belly's main drag, and it is exactly what it sounds like: a great
+ribbed intestinal tube of a street, peristaltic, the walls slick and rhythmically
+working, moving you gently along whether you walk or not the way a gut moves what's in
+it.
+
+There is a traffic, and you join it without deciding to. Other things move the
+gutway — hunched shapes, hauling shapes, a sow-thing going broad and slow down the
+middle — and none of them walk, exactly; they let the wall's slow squeeze pass them
+along and only steer, and you find your own feet have learned the trick already, planting
+to ride the contraction and not fight it. It is restful. That is the horror of it: how
+quickly the body agrees to be moved. The heads in the lining watch you learn it with the
+mild incuriosity of the long-digested, fixtures who rode this same current down once and
+stopped where they were set.
+
+The floor is soft. You try not to think about where a gut's traffic is, in the end,
+always going.
+
+<<if not $lampTalked>>
+One of the heads grown into the lining — a streetlamp-head, watching the traffic — tracks you as you
+pass, works its jaw, and turns out to have something to say to a thing still walking.
+<<linkreplace "One of the streetlamp-heads in the lining tracks you — let it speak">><<nobr>><<set $lampTalked to true>>
+//Don't gawp, you'll hold up the line.// It works its jaw, unbothered. //I'm a fixture. Streetlamp. I
+watch the traffic past and I don't ask where it's headed — I already know, and so do you, and there's
+no overtime in saying it aloud. You'll stop smelling it first; that's how it starts. One shift the
+reek's the whole world, the next it's just the air — and that's not the air changed, son. That's you
+grown //in.// I never felt the wall come up round me. I was busy. There's always something wants
+minding, down a gut.//
+<</nobr>><<corrupt "head" "filth" 2>><</linkreplace>>
+<<else>>
+The head has gone back to watching the traffic and will not be drawn; it said its piece about the
+shift, and a fixture does not repeat itself.
+<</if>>
+
+<<link "A sty, where the pig-things breed">><<goto "TheSty">><</link>>
+<<link "A loom of living bone">><<goto "TheBoneLoom">><</link>>
+<<link "A passage lined with waving villi">><<goto "TheVilli">><</link>>
+<<link "A swollen, throbbing chamber — an abscess">><<goto "TheAbscess">><</link>>
+<<link "Back to the cloaca">><<goto "TheCloaca">><</link>>
+
+
+:: TheVilli [hell]
+A passage where the walls are villi — millions of soft pale fingers the length of
+your arm, waving in a current you can't feel, lining the tube floor to roof, parting
+as you pass and closing behind, stroking you along with a gentleness that is its own
+horror because it is so clearly //fond//.
+
+The deeper in you go the more they want of you. They are not random in their waving; up
+close each one is questing, the tip of it dimpled and damp, and they reach past where
+you'd brush them to find the warm parts — the wrist, the throat, the soft inside of the
+elbow — and settle there a moment, tasting, before the press of the passage carries you
+on and the next million take their turn. None of it hurts. It is closer to being
+groomed, or grazed, by something with all the time in the world and a great and patient
+appetite, and you walk faster, and faster, and the walls only stroke you the more
+warmly for hurrying.
+
+They are absorbing something out of the air, or out of you; you come through the far end
+lighter, hungrier, and a little less sure how long the passage was or what it took as
+toll for the carrying.
+
+<<link "On, to the breeding-dens">><<goto "TheBirthingDens">><</link>>
+<<link "Back to the gutway">><<goto "TheGutway">><</link>>
+<<link "A torn gap in the gut-wall, off the passage">><<goto "TheGapCrossing">><</link>>
+
+
+:: TheBirthingDens [hell]
+The dens, where the belly makes more of itself: a honeycomb of warm wet cells,
+each holding a labour in progress, the walls translucent and lit from within by the
+slow luminous business of things being grown that should not be growing. You do not
+look closely. You have learned, down here, the great survival skill of not looking
+closely, and you deploy it now with everything you have, and still you come away
+knowing more than you wanted about how the meat-row is restocked, and where the
+solitary go who are taken off the surface and not seen again.
+
+<<if setup.has("overalls")>>
+You have a sty-hand's overalls now — heavy filth-stiff canvas off a dens hook. Worn, with the right
+walk, they read to a boar as one more hand come to muck out, not as a thing to fetch.
+<<else>>
+The farrow go unfed when the sows are deep in labour, and a slop-trough stands at the end of the
+row, and the work wants doing whether or not you are the one to do it. The hands who do it wear
+heavy canvas overalls against the muck, hung on a hook by the trough — and put in a shift and a set
+is as good as yours, which is worth more than it looks: a boar can't tell a thing that wears them
+and works from one of its own.
+
+<<linkreplace "Pull a hand's overalls off the hook and work the dens — slop the trough, muck the cells">>
+<<set _seg to setup.SEGMENTS.random()>><<set _amt to random(6, 10)>><<corrupt _seg "pig" _amt>>
+<<run setup.acquire("overalls")>>
+You go down the row with the trough and the muck-rake and do the work — feed the blind grub-pale
+farrow that surge and suckle at the slop and at your hands and would take the hands too if the slop
+ran out, fork out the spent cells, haul off what the sows are done with. It is a long shift and it
+goes into you the way the work always does, the sty settling a degree deeper under the skin. But the
+overalls are yours off the hook now, and you have learned the thing they teach: a boar does not
+watch a body that's working. It watches a body that's lost. Wear these and move like you've a trough
+to get to, and it lets you by.
+<</linkreplace>>
+<</if>>
+
+<<link "The breeder, vast among the cells, turns her head toward you">><<goto "TheBreeder">><</link>>
+<<link "A molting-pit, warm and inviting">><<goto "TheMolt">><</link>>
+<<link "A sty, where the pig-things breed and wallow">><<goto "TheSty">><</link>>
+<<link "Deeper in, to the holding pens, where the kept are fattened">><<goto "TheHolding">><</link>>
+<<link "Back along the villi">><<goto "TheVilli">><</link>>
+
+
+:: TheBreeder [hell]
+<<nobr>>
+The breeder is the largest living thing in the belly that isn't the belly itself — a
+vast pale sow-demon half-grown into the wall of cells she tends, so wide and so settled
+that you take her at first for another organ of the place, until the great head comes
+round and the small clever eyes find you. She is ringed with farrow and with the
+half-finished: things in the translucent cells at every stage of being made, and she
+tends them all with the slow, absent tenderness of someone who has done this work
+forever and is good at it. She is not angry that you're here. Nothing about you rates
+anger. You are simply not yet finished, and she has a great deal of finishing to do.
+<</nobr>>
+
+<<if $bredKnown>>
+//Back again, half-thing,// she says, not unkindly. //Still loose. Still mostly your own.
+You'll keep, a while. They mostly keep, a while.//
+<<else>>
+//Fresh,// she says, the way you'd say it of fruit, and breathes you in, and seems
+satisfied. //Off the surface, and not long off it. Don't fret — everyone comes down a
+stranger and goes up nobody. I'll not rush you. Rushing spoils the meat.//
+<</if>>
+
+<<if not $bredKnown>>
+<<linkreplace "Ask what becomes of the ones taken off the surface and never seen again.">>
+<<set $bredKnown to true>><<corrupt "head" "pig" 3>>
+
+//Becomes?// She seems pleased you asked, the way the proud are pleased. //They come here.
+All of them, in the end, come here. We take them apart kindly and we put them back
+together useful — a boar to fetch the next ones, a sow to grow them, a hundredweight of
+good cut for the row, a wall where a wall was wanted. Nothing's wasted. Nothing's even
+''lost''; it's only ''rearranged''.// She says it the way the surface says a person has
+gone to a better place, and means it just as much.
+
+You understand, with a cold that goes all the way down, that this was meant to be yours:
+the sack, the sty, the slow patient table here in the warm — that you were not snatched
+by a monster but //harvested// by a process, and that the only thing that has happened,
+the only thing, is that you got off the line early.
+<</linkreplace>>
+<<else>>
+You already know what she does here, and wish, in the front of your skull where her
+words have settled and will not leave, that you did not.
+<</if>>
+
+<<linkreplace "Ask if she knows the one that took you.">>
+She knows them the way a farmer knows which dog works which field. //The boars den down
+the gutway, in the sty,// she says, nodding her great head toward it. //If one of mine
+fetched you, it'll be there, and it won't recall you any better than the spade recalls
+the dirt. Don't take it personal. They don't take ''anything'' personal. That's what
+makes them so good at the fetching.//
+<</linkreplace>>
+
+<<link "Back away, slow, the way you back from a sow with farrow">><<goto "TheBirthingDens">><</link>>
+
+
+/* ---------- THE HOLDING PENS (pig-slop, the pig FOOD + the fattening CAPTURE — owner 2026-07-20) ----------
+   Where the taken are kept and fattened (the Breeder's "you'll keep, a while"). The trough is the pig
+   vice: setup.eatSlop (heal bait / pig cost / feeds the slop addiction). Below the compulsion you eat by
+   CHOICE; at pigLimbs>=3 (slopCompelled) the trough draws you and the pen-boars pen you — TheHoldingKept
+   (setup.pennedFatten). Leans on the dens' farrow/trough + the Breeder's harvest. */
+
+:: TheHolding [hell]
+Past the dens the cells give way to something worse for being so ordinary: a long low run of pens, pen
+after pen of the //kept//. These are the taken who did not get off the line — penned close and fed fat,
+patient and pink and going quietly to meat, some still with enough face left to look at you as you pass
+and some well past that. A trough runs the length of it, and the grey-pink mash in it is the same the
+farrow suckle at, and the smell of it reaches right into the back of your throat and //pulls//, because a
+part of you — you feel exactly where it sits, and how much of you it is now — has stopped asking what a
+thing is before it wants to eat it. This is what the breeder meant. //You'll keep, a while.// This is the
+keeping, and here is the larder they keep you on.
+
+<<if setup.slopCompelled()>>
+The trough pulls at you the way it pulls at them, and you are already leaning toward it before you have
+decided to, and the pen-boars down the run have lifted their heads — not with alarm, there is never any
+alarm here, but with the mild proprietary interest of a thing that has just watched a stray wander in
+among the stock and begin, visibly, to want its dinner. Cross to it and you will not be a hand who came
+to work. You will be a thing that came to feed, and they know precisely what is done with those.
+<<link "Drift to the trough — you were never going to do otherwise">><<goto "TheHoldingKept">><</link>>
+<<link "Tear yourself away, while a piece of you still wants to">><<goto "TheBirthingDens">><</link>>
+<<else>>
+There is nothing here to stop you eating. That is the whole horror of the place — not a threat but an
+//invitation//: the trough left open, the mash free, the pens patient. You are hungry. You are always
+hungry down here, and the surface is a long way up, and it is //right there//, warm and rich and asking
+nothing, and no one would blame you, and that is exactly the point of it.
+
+<<linkreplace "Eat from the trough — it is free, and God, you are hungry">><<nobr>>
+<<set _r to setup.eatSlop()>>
+You get down and you eat, and it is warm and it is rich and it is the best thing you have had since the
+sack came down, and it is //good//, and the good has teeth: you feel it settle and take, feel a little
+more of you go over to the soft pink patience of the pens even as the ache in your belly lets go.
+//(+<<= _r.heal>> vigor, <<= _r.bite>> pig worked into you<<if _r.compelled>>; you are mostly theirs now — the trough will not trouble to ask next time<</if>>)//
+<</nobr>><</linkreplace>>
+
+<<link "Back out of the pens, to the birthing dens">><<goto "TheBirthingDens">><</link>>
+<</if>>
+
+
+:: TheHoldingKept [hell]
+<<set _r to setup.pennedFatten()>>
+You cross to the trough and you get down among them and you eat, and this time you do not stop, because
+the part of you that would have stopped has gone soft along with the rest, and the pen-boars close the run
+behind you without hurry and without malice, the way you would shut a gate on a beast that has finally,
+sensibly, decided to come in out of the cold. And then it is warm, and it is dark, and there is always
+more in the trough, and time goes the way it goes for the kept — thick and pink and undemanding — and you
+are fed, and fed, and //fed//.
+
+You do not know how long. You come back to yourself the way you surface from a fever: heavier, slower,
+carrying a new weight that is not fat and is not muscle and is, unmistakably, //more of them//. Something
+in the run shifts — a lapse in how the boars hold themselves, that mild attention wandering off down the
+pens — and in the gap of it you get your legs under you and you //go//, before the keeping closes back
+over you for good.
+<<nobr>>
+//(the pens fatten you: <<= _r.marks.length>> part<<if _r.marks.length neq 1>>s<</if>> of you worked heavy with pig; you come to at half vigor, and get out while you can)//
+<</nobr>>
+
+<<link "Claw the rest of the way out, back to the birthing dens">><<goto "TheBirthingDens">><</link>>
+
+
+:: ThePrivyShrine [hell]
+A shrine, and it is a privy — or a privy, and it is a shrine; down here the
+distinction the surface insists on has rotted away, and what's left is the truth the
+old religions knew and were too polite to keep: that the place where the body voids
+itself is a holy place, a threshold, where a person is most alone and most undefended
+and most easily met by the things that wait at thresholds.
+
+A pig-snouted idol squats over a hole that goes down forever, slick and venerated, and
+the faithful have worn the floor smooth coming here to be unguarded on purpose, in
+worship. You come close and the idol is worse than crude — it is //attentive//. The snout
+is canted down toward the hole and the worn place before it, where a kneeler would kneel,
+and the eyes have been polished to a shine by the press of foreheads, by everyone who has
+ever bowed here and put their brow to the cold pig-face to ask it the favour. It does not
+look like a thing that is prayed to. It looks like a thing that is //confided in//, that
+leans in over the hole the way a confessor leans, to be near the part of you that is too
+ashamed to speak above a whisper.
+
+The smell is the privy's own and the floor is the shrine's own, and kneeling here, you
+understand, is the price of the question — that the idol teaches nothing to a person
+standing up with their guard intact, only to one who has come down to the worn place and
+agreed, first, to be seen.
+
+<<if $sphincterWord>>
+You have what the shrine teaches. The low wet syllable sits in your mouth like a bad
+tooth, and you would spit it out if it weren't the only key you have to the belly's
+heart.
+<<elseif not setup.inuredEnough()>>
+You kneel where the unguarded knelt — and you cannot do the rest of it. What the idol
+asks is a loosening, a permission, a deliberate unguarding of the most defended part of
+you, and the fresh animal you still mostly are refuses it outright: it clenches, it
+recoils, it keeps its one last human dignity by main force. Not yet. The threshold will
+still be here when a little more of you has stopped minding.
+<<else>>
+<<linkreplace "Kneel at the idol. Learn what the threshold teaches.">>
+<<set $sphincterWord to true>><<corrupt "head" "filth" 3>>
+You kneel where the unguarded knelt, in the smell of the holy privy, and the idol
+teaches you the way it teaches everyone: not in words but in a loosening, a permission,
+the low wet syllable the body says when it agrees to open. You will be able to make the
+sphincter dilate now. You will also, you understand, never quite be able to un-know the
+sound your own body makes when it agrees to open, which is the idol's real and patient
+point.
+<</linkreplace>>
+<</if>>
+
+<<link "Toward the sphincter, and the belly's heart">><<goto "TheSphincter">><</link>>
+<<link "Toward the great latrine">><<goto "TheLatrine">><</link>>
+
+
+:: TheLatrine [hell]
+The great latrine of hell, and it is the bottom of the bathroom horror the whole
+descent has been climbing down into: a vast vaulted reeking hall of stalls without
+number, every one a threshold, every one occupied or worse waiting to be, where the
+damned and the demons both come to be alone with the oldest and most undefended of the
+body's businesses, and where the thing that has waited at the privy since before there
+were privies — since the first person squatted alone in the dark and felt watched — is
+not one lurker in one stall but the whole room, patient, ankle-deep, attending.
+
+You step in and the scale of it undoes you a little. The stalls go back past the lamp's
+reach in row on row on row, partitions of grown bone slick to the touch, each doorway a
+black mouth and some of them not empty — a shape hunched and busy here, a stillness there
+that is worse than busy — and the floor between them is awash, ankle-deep and warm, and
+moving, very slightly, against the direction you walk, as if the whole reeking flood were
+one slow body turning to keep its face to you. There is no clean tile to stand on. There
+is no spot the room is not. To be in here at all is to be in it.
+
+The Šulak's cathedral. You keep your guard up and your business brief and you do not,
+under any circumstances, choose a stall.
+
+<<if not $sulakHeard>>
+And the whole room speaks. Not one voice from one stall: the room itself, ankle-deep and patient, the
+thing that has attended every undefended moment since the first one, addressing you out of all the
+stalls at once.
+<<linkreplace "Stand still, and let the room speak to you">><<nobr>><<set $sulakHeard to true>>
+//I am not in a stall,// it says, from everywhere. //That is the mistake they all make, looking for me
+in one. I am the //attending.// I have stood at the threshold of every person who ever crouched alone in
+the dark and felt the back of their own neck prickle — that prickle is me; it always was.// The reek
+thickens, almost gentle. //You hold your guard so //tight,// fresh thing. It must be exhausting, being
+watched and minding it. The ones who last down here are the ones who stop minding — who let themselves
+be seen at their most undefended and feel nothing, because there is nothing left in them to defend.
+You'll get there. Everyone gets there. I am very patient, and you will be alone in the dark a great many
+times before the end.//
+<</nobr>><<corrupt "head" "filth" 3>><</linkreplace>>
+<<else>>
+The room attends you still, ankle-deep and patient, and says no more — it said the one thing it had to
+say, which was that it has all the time there is, and you do not.
+<</if>>
+
+<<link "Toward a sty, where the pig-things wallow">><<goto "TheSty">><</link>>
+<<link "Back to the privy-shrine">><<goto "ThePrivyShrine">><</link>>
+
+
+:: TheAbscess [hell]
+A chamber the belly has swollen up around some hurt it couldn't resolve — an abscess,
+domed and tight and throbbing, the walls stretched thin and shiny and hot to the back
+of your hand, the whole room under a pressure you can feel in your fillings, full of a
+held and stinking matter the place has walled off rather than dealt with.
+
+The deeper into the dome you go the tighter the air gets, until breathing it is like
+breathing through a held breath. The walls here are not the working wet of the gutway;
+they are drumhead-taut, stretched to a translucence that lets a sick yellow light through
+from whatever is pent behind them, and where you set a hand the membrane is hot and gives,
+a half-inch, and pushes back. You can feel the held thing through it — a slow, full,
+straining mass with only the wall between you and it, a wall that has been holding, by the
+look of the old healed-over splits webbing it, for a very long time and at very great cost.
+
+It is, you realize, the closest thing the belly has to a memory: the one place that hurts,
+that the body keeps separate, that it has decided is easier to contain than to heal. You
+tread very softly. You would not like to be here when it finally goes.
+
+<<if not $splinterHeard>>
+Something in the held matter has noticed you, and is pleased about it — a voice from inside the dome,
+delighted to be heard, that you would much rather had stayed walled off.
+<<linkreplace "Something in the held matter has noticed you, and is pleased — let it talk">><<nobr>><<set $splinterHeard to true>>
+//Welcome to the one room with a //memory,//// it says, from inside the stinking pressure. //Everywhere
+else, the filth pools and //agrees// — votes itself into something bigger and meaner; you've felt it
+walk you. Not here. //I would not agree.// I stuck in its throat, and it //couldn't// fold me into the
+choir, so it built a wall and called it quarantine.// A wet, pleased shifting. //That's a kingdom, that.
+My own dome, my own stink, no shift, no sow, no rendering. Beat the whole belly, didn't I.// Then, too
+quick, too generous: //Tell you the knack of it, if you like — stay sharp enough and it can't dissolve
+//you// either. Lean in, I'll whisper how—// and the dome ticks, under a pressure you feel in your
+fillings, and the offer goes nowhere, because a cyst has nothing to teach but how to be forgotten.
+<</nobr>><</linkreplace>>
+<<else>>
+The thing in the dome has talked itself back into its sulk; it offered to teach you nothing, twice
+over, and seems to think it won the exchange. The pressure in your fillings does not let up.
+<</if>>
+
+<<link "Through to a weeping wall">><<goto "TheWeepingWall">><</link>>
+<<link "Back to the gutway">><<goto "TheGutway">><</link>>
+
+
+:: TheWeepingWall [hell]
+A wall that weeps — not water, the way the drains wept, but the body's whole sorry
+catalogue of fluids, sweating and seeping and slowly running from a face the size of a
+house grown into the belly's flesh, eyes shut, mouth working soundlessly around the
+endless wet labour of producing the wet.
+
+You come close, into the run of it, and the face resolves out of the wall it is — a brow
+a man could lie down on, a closed eye the size of a door, cheeks runnelled and channelled
+by an age of their own weeping, the salt of it crusted white along the gutters it has worn
+into the meat below. Underfoot the floor goes from damp to wet to wading as you near it,
+the whole catalogue draining down off the great face and pooling and running on to feed
+the gutway, the dens, the latrine — every wet room in the belly fed from this one shut-eyed
+weeping. It is, you think, where the moisture of the whole belly comes from — one vast grown
+gland, crying the slum into being, the way the drowned galleries far above wept themselves
+out of one stone face.
+
+The same grief, you think. The same water. Wept and drained and digested and wept again,
+all the way down.
+
+<<if not $wallHeard>>
+The mouth in the great face is working — not soundlessly now, you realize, leaning close, but around
+words, almost: a confession ground out under the endless wet labour, as if the face would tell you the
+thing it weeps, if only you put your ear to it.
+<<linkreplace "Lean close to the working mouth and listen">><<nobr>><<set $wallHeard to true>>
+//Mine,// it weeps. //All of it, mine. The galleries up above — the stone face that wept them — that
+was me too, further up, younger. They //made// me to do it: to cry the slum into being, the sweat and
+the seep and the wet a place like this runs on. And I cannot stop. I have tried to stop. There is no
+stopping a thing you were //grown// to do.// The wet runs faster down its carved cheek. //The same
+water, friend. Up there I weep it out, and it drains down, and they drink it back, and it comes to me to
+be wept again — all the way down, and round, forever. You're wading in my grief. And soon enough you'll
+be a part of how it goes round.//
+<</nobr>><<corrupt "head" "filth" 2>><</linkreplace>>
+<<else>>
+You already heard what it had to say, and wish the sound would leave your ear; the mouth works on,
+soundless again, weeping the one grief it was grown to weep.
+<</if>>
+
+<<link "Back to the loom of bone">><<goto "TheBoneLoom">><</link>>
+<<link "Back to the abscess">><<goto "TheAbscess">><</link>>
+<<link "A well of shed teeth, through a gap in the meat">><<goto "TheToothWell">><</link>>
+
+
+/* ---------- THE GAP-CROSSING: a tear in the gut-wall, a spur off the villi passage (owner
+   2026-06-08; 2026-06-16 redesign — was a two-way span between the gutway and the dens, now reached
+   only from TheVilli). Two ways across the tear, BOTH told on entry: the HIGH bone-bridge (fight the
+   wardens once and the span is clear and free forever after, or pay their toll each time until you
+   do) and the LOW crevice (filthy, corrupts you each crossing — unless you've a rope to swing the
+   clean gap instead). Every way out returns you to the villi ($gapDest/_origin = TheVilli). A
+   one-time coin stash sits in a gland at the torn lip. $gapCleared = the wardens are dead for the run. */
+
+:: TheGapCrossing [hell]
+<<set $gapDest to "TheVilli">>
+<<set _origin to "TheVilli">>
+<<nobr>>
+The gut-wall has torn clean through here, a ragged gap dropping away into red dark, and the only ways
+across are two. High up, a bridge of fused bone arches the span — and from the far end of it comes a
+wet, many-jointed shifting, the warden-things the belly keeps to mind its crossings, and they have
+heard you come. Low down, where the gap all but pinches shut, a crevice runs wall-to-wall through the
+belly's slow seepage, and the reek that breathes up out of it is everything the gut could never
+finish: thick and old and patient, and it would be into every seam of you before you were halfway.
+<</nobr>>
+
+<<if not $hollowLooted>>
+<<linkreplace "(Pick the soft coin from a gland at the torn lip)">>
+<<set $hollowLooted to true>><<set _g to setup.gainCoins(random(12, 18))>>
+You glean <<= _g>> soft-edged coin<<if _g neq 1>>s<</if>> from the lip — stores the gut swallowed whole and never rendered down.
+<</linkreplace>>
+<</if>>
+
+''The high way — the bone-bridge.'' You can hear the creatures up ahead.
+<<if $gapCleared>>
+The wardens you broke lie scattered the length of the span; the bridge is yours now, and quiet.
+<<link "Cross the bone-bridge and back along the villi">><<goto $gapDest>><</link>>
+<<else>>
+//They'll have a fight, or a toll — ''18 coins'' to be let over.//
+<<scentof "grafted">>
+<<link "Break the wardens and take the bridge">>
+  <<run setup.startFight("grafted", "TheGapCleared")>><<goto "Combat">>
+<</link>>
+<<if $coins gte 18>>
+<<link "Toss them ''18 coins'' and cross unbothered">>
+  <<set $coins to $coins - 18>><<goto $gapDest>>
+<</link>>
+<<else>>(They rattle a cup: 18 coins to cross. You are short.)<</if>>
+<</if>>
+
+''The low way — the crevice.'' Filthy, choked with seepage; it would corrupt you to take it.
+<<if setup.has("rope")>>
+<<link "Swing the clean gap on your rope (the filth stays below you)">><<goto $gapDest>><</link>>
+<<else>>
+<<set _tlbl to "Squeeze the filth-choked crevice (" + setup.tollTag("torso", "filth", 16) + ")">><<link _tlbl>>
+  <<corrupt "torso" "filth" 16>><<goto $gapDest>>
+<</link>>
+<</if>>
+
+<<link "Step back from the gap">><<goto _origin>><</link>>
+
+
+:: TheGapCleared [hell]
+/* lands here after the bridge-warden fight; sets the clear flag, then crosses to $gapDest */
+<<set $gapCleared to true>>
+The last of the wardens comes apart into the parts it was assembled from, and they go over the edge
+into the red one by one, and the bone-bridge is, all at once, only a bridge. The crossing is yours,
+this way and back, for as long as you have need of it.
+
+<<link "Back along the villi">><<goto $gapDest>><</link>>
+
+
+/* ---------- THE FLESHCUTTER: curse-removal NPC (owner 2026-06-07) ----------
+   The one person who can take a cursed item off you. The PRICE is the cut itself: a permanent,
+   cross-life SCAR (always a stat-loss, sometimes a worse curse too — setup.cutCurse) plus a modest
+   coin fee. You can never leave him clean — only trade a curse you know for one you didn't choose.
+   This is the deliberate brake on the "wear cursed power-gear, purify at the end" line. */
+
+:: TheFleshcutter [hell]
+<<nobr>>
+The stall is hung with the things the surgeon has cut off other people — gauntlets with the hands
+still in them, rings on swollen fingers, a coat that twitches when you look away — each one a curse
+somebody paid him to be rid of, and each one a reminder that he keeps his work, and that taking a
+thing off you is not the same as leaving you whole. Look longer and the wares stop being a trophy
+wall and start being a record: here is a man unmade a piece at a time, a relief carved out of other
+people's worst bargains, and every freed customer left this stall lighter and walked off short of
+something they never got to choose. The surgeon stands at the heart of it, more whole than anything
+he sells, and the difference between him and his stock is the toll, taken in scars, that made the
+stock. He looks up from his strop with the patience of someone who is never short of customers. //You've something on you that won't come off,// he says,
+not a question. //I can help with that. I always leave a little of myself in the work, mind — the
+deep likes a cut of every cut. You'll walk out lighter. You won't walk out clean.//
+<</nobr>>
+
+<<set _cursed to setup.cursedEquipped()>>
+<<if _cursed.length is 0>>
+//Nothing on you my knives would know what to do with,// he says, almost disappointed. //Come back
+when something's got its hooks in you proper.//
+<<else>>
+<<for _cid range _cursed>>
+<<capture _cid>>
+<<set _clbl to "Let him cut off the " + setup.items[_cid].name + " (" + setup.UNCURSE_COST + " coins, and a scar)">>
+<<if $coins gte setup.UNCURSE_COST>>
+<<linkreplace _clbl>>
+<<set $coins to $coins - setup.UNCURSE_COST>>
+<<set _scars to setup.cutCurse(_cid)>>
+He works fast, and it goes on hurting after he's done. The <<= setup.items[_cid].name>> comes away in
+his hand — and what it leaves behind is its own kind of curse, the deep's cut of the cut: //<<= _scars.map(function (s) { return setup.scarLabel(s); }).join("; ")>>//.
+<</linkreplace>>
+<<else>>
+(He'll take the <<= setup.items[_cid].name>> off you for <<= setup.UNCURSE_COST>> coins and a scar; you are short of coin.)
+<</if>>
+<</capture>>
+<</for>>
+<</if>>
+
+<<link "Back to the meat-row">><<goto "TheMeatRow">><</link>>
+
+
+/* ---------- LAYER-7 BAD END ---------- */
+
+:: EndingMolt [ending]
+<<run setup.recordRun("damned")>>
+You climb into the warm, and the warm closes over you like the inside of something
+that loves you, and you do the thing the husks around the pit all did: you let go of
+the seams of the old self, the cold squeamish frightened human shape you have been
+hauling through hell like a wet coat, and you let it split up the back, and you climb
+out of it.
+
+What climbs out is fitter. It is not cold. It is not afraid. It does not flinch at the
+sty or the surgery or the latrine, because those are simply home now, the warm wet
+rooms of the body it belongs to. Somewhere behind it in the pit a translucent husk
+settles among the other husks, split up the back, the empty shape of a smaller and more
+honest creature that came down here looking for a way out, and found, instead, a way to
+fit.
+
+//You shed what didn't fit, and what climbed out of the pit belonged. The belly makes
+more of itself. Now it has made one more.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>

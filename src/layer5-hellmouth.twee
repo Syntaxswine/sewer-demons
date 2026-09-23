@@ -1,0 +1,336 @@
+/* =====================================================================
+   LAYER 5 — THE HELLMOUTH
+   The threshold. The "in-between" band's hinge and the player's SPAWN (after
+   the kidnap: WriggleFree → Hellmouth). The literal hellmouth of the old
+   woodcuts: a jaw of fused bone, dripstone teeth, a throat that breathes.
+
+   Collapsed (2026-06-05) from a 20-room anatomy tour to THREE locations, per
+   owner direction: the sewer is OUTSIDE the mouth, flowing INTO it; the stairs
+   down to the Shambles are at the BACK OF THE THROAT; keep the arrivals
+   waiting-room. The two ways of the whole game split here — UP/OUT the way you
+   came into the mortal sewer (escape), DOWN the throat-stairs into the Shambles
+   (hell). Register: LIMINAL — anatomical threshold horror and the dread of arrival.
+
+   Three rooms, depth 5:
+   - Hellmouth   — the threshold hub / spawn. Carries the ascent [→ L2 Confluence],
+                   the way deeper [→ TheThroat], the arrivals [→ TheArrivals], and
+                   the Sigil/Sovereign meta-exits.
+   - TheThroat   — back of the mouth; the stairs DOWN to the Shambles [→ L6 TheMidway]
+                   and the swallow-snare (→ EndingSwallowed).
+   - TheArrivals — the waiting-room: reckoning + holding-pen + sack-heap + rest, folded
+                   into one page. Seat of the §C arrivals-intro / work-curse (next phase).
+   ===================================================================== */
+
+
+/* ---------- HUB / THRESHOLD (the spawn; the sewer pours in here) ---------- */
+
+:: Hellmouth [threshold]
+<<roomart "hellmouth">>
+<<nobr>>
+The sewer does not end. It arrives. The brick throat you came down by widens, and
+loses its brick, and opens — all at once you understand it — into a mouth: a vault of
+fused bone for a jaw, dripstone for teeth, and pouring out of it the warm wet wind that
+is breath. This is the hellmouth the old woodcuts drew and everyone agreed was a
+metaphor. It is not a metaphor. The sewer you rode down empties into it the way a gutter
+empties into a drain — and you came down the gutter, and here, at last, is the drain.
+<</nobr>>
+
+Behind and above you the mortal dark of the sewer climbs back the way you came, toward a
+surface you are no longer sure you can reach with nothing but your two hands. Ahead, the
+mouth narrows to a throat, and at the back of the throat a flight of stairs winds down —
+past the teeth, down the soft pink throat-stone — into a lit sprawl of stalls and smoke,
+barkers and rigged games, the din of commerce and appetite. The Shambles.
+
+Someone has carved the old woodcut on the inside of the arch, facing inward, where only
+the already-swallowed can read it — the great toothed jaw, the little naked sinners
+tumbling down into it — and the joke of it lands like a dropped stone: the warning was
+real, was literal, was a *map*, and you are standing in the part of the picture the
+sinners were falling toward, looking back up the throat at the daylight they fell out of.
+Along the brow of the arch runs a script that is no language and is plainly a *list* —
+names, incised one after another into the dark, the register of everyone the mouth has
+ever taken, kept the way a slaughterhouse keeps its intake. Your own is on it somewhere.
+You do not look for it. But a list is a thing that was *written*, and a thing that was
+written can be *read* — and the longer the script holds your eye, the surer you are of two
+things at once: that to read it would be to learn something the daylight could never teach
+you, and that you cannot, not yet. You mark where it runs, the way you mark a locked door
+you mean to come back to.
+
+You will need things from down there to get back up here. That is the joke of the place,
+and it is laughing.
+
+<<if setup.hasMark("damned")>>
+But the mouth knows you. The small things in the firelight — the ones that fetch and beg
+and gnaw at the edges of the market — go still as you near the teeth, and lower their eyes,
+because in another life you ended as something they answer to. The mark of it is on you
+still, and down here a mark like that is a kind of key. You do not, it occurs to you,
+necessarily need a rope at all.
+<</if>>
+
+<<if setup.hasSigil()>>
+The three fragments pull together in your kit, hateful to all of this, and where they
+touch they make one cold mark the whole hot dark flinches from. The Unbinding Sigil is
+whole. You do not need the rope, or the long climb, or the mouth's permission: you need
+only hold the mark up to the teeth, and walk.
+<</if>>
+
+The incised script along the brow of the arch is close enough to reach, if you stand on the
+fused teeth at the mouth's lip. It is the same not-language as everything the deep writes down.
+
+<<if $magicKnown>>
+You know the Word already. The script reads, now, like your own handwriting — and you do not
+much like what that says about you.
+<<elseif setup.canReadInscription()>>
+Standing under it with the warm breath pouring over you, you find — uneasily — that you can
+almost //read// it: not the names, but the shapes between the names, the grammar the register is
+built out of. <<if $heardOfWord and (setup.passivePerception() lt setup.PERCEIVE_INSCRIPTION_DC)>>You would not have looked twice if the babbler in the holding-pen hadn't told you the gate could be read — but now that you know to look, the sense of it surfaces.<<else>>You don't know what made your eye catch the pattern; only that, once caught, it will not let go.<</if>>
+The deep's own tongue, cut into the deep's own gate, where the swallowed can study it at leisure.
+You could trace it with a finger and let it teach you its hand.
+
+<<linkreplace "Trace the script with your finger — let the gate teach you its tongue">><<nobr>>
+<<run setup.learnMagic("wall")>>
+You set your finger to the first incised character and follow it, and the following is a kind of
+speaking, and the speaking opens a door in the back of your throat that does not close again. The
+arch was never only a warning and never only a ledger; it is a //primer//, set here at the
+threshold so that everything the mouth takes can learn, at its leisure, the one skill the deep
+most wants its catch to have — the trick of reaching down into the dark in yourself and pulling up
+the dark's own power, and spending a little more of yourself each time you do. The well opens,
+cold and full, behind your eyes. You can speak to the deep now. It has, you understand, been
+hoping you would ask.
+//(you have learned the Word — Mana now shows in your kit; in a fight, the Cast action calls it)//
+<</nobr>><</linkreplace>>
+<<else>>
+You stare up at it until the breath dries your eyes, and it stays exactly what it looks like:
+gibberish, the idle scratching of something with too much dark and too much time. There is a
+sense in it — you can feel the sense the way you feel a word on the tip of your tongue — but it
+will not come to you here, not as sharp as you are now. Someone who had read it could show you
+where a line begins. Or you could come back when the deep has worn you keener.
+<<if setup.isDim()>>
+Though the longer you look, the less even gibberish it seems. Not writing at all, you decide —
+and the deciding costs you nothing, comes easy and certain the way fewer and fewer things do —
+just scratches, the kind a clawed thing leaves sharpening itself on stone. You stop looking.
+There was nothing there to read. You are quite sure of it; you are surer, lately, of less and
+less, and you hold each surety the harder for it.
+<</if>>
+<</if>>
+
+<<if not $beadleHeard>>
+A small cringing thing detaches itself from the firelight at the teeth and bobs at your elbow, servile
+and eager — one of the beggars the mouth keeps — and explaining the place, you sense, is the only coin
+it has left to spend.
+<<linkreplace "Let the cringing little thing at the teeth tell you how it works">><<nobr>><<set $beadleHeard to true>>
+<<if setup.isSimple()>>
+//You're a //simple// one,// it breathes — and something kindles in it that has never once had cause to
+kindle down here, because the beadle is the lowest thing the mouth keeps and has never in its life had a
+thing to feel bigger than, and now, at last, it does, and the thing is you. It crouches to your eye and
+gentles its voice the way you would gentle it for a dog you were fond of. //Then I'll say it //small,//
+fresh one. Listen. //Down.//// It points down, and waits to be certain you watched the finger go. //You
+go //down.// There's a //shiny thing// at the bottom of it all. You //get// the shiny thing. Then
+//up.//// It points up. //You carry it //up,// all the way, and they open the front for you, because
+you've the shiny they can't say no to. Down. Shiny. Up. Out.// It beams, beside itself. //Can you hold
+all four? ...Three? ...That's all right, that's all right. Just the first, then. //Down.// Even you can
+manage //down.// Everyone manages down.//
+<<else>>
+//You'll want to know the way of it, fresh one — I can tell you, I can!// it says, delighted to be
+asked anything at all. //The mouth lets you //out// the front, oh yes. But only carrying a thing it
+can't say no to, and there's nothing like that up //here.// You go //down// for it. Down through the
+stalls, down past the works, all the way down — and earn the means, and carry it back //up.// So the
+swallowed do the mouth's walking for it, down and up and down, wearing a groove.// It hugs itself,
+thrilled. //That's the cleverness of the place, see? It never has to chase a soul that's busy fetching
+its own way out.//
+<</if>>
+<</nobr>><<corrupt "head" "filth" 5>><</linkreplace>>
+<<else>>
+The little beadle bobs and beams when it sees you — //almost a regular!// — and has nothing new to add,
+the whole of its small knowledge already spent on you, which was the most anyone ever wanted of it.
+<</if>>
+
+<<link "Deeper, to the back of the throat">><<goto "TheThroat">><</link>>
+<<link "Back up the way you came, into the mortal sewer">><<goto "Confluence">><</link>>
+<<link "Aside, to where the newly-taken are held">><<goto "TheArrivals">><</link>>
+<<if setup.hasSigil()>>
+<<link "Hold up the whole Sigil and walk out the front — unbound">><<goto "EndingUnbound">><</link>>
+<</if>>
+<<if setup.hasMark("damned")>>
+<<link "Walk out as what you became — the mouth opens for its own">><<goto "EndingSovereign">><</link>>
+<</if>>
+
+
+/* ---------- THE THROAT — the descent + the swallow-snare ---------- */
+
+:: TheThroat [threshold]
+The mouth narrows, at its back, into throat. The floor tilts; the bone underfoot goes
+soft and wet and unmistakably red, faintly moving, warm through your boots in a way the
+cold front of the mouth is not — the most alive surface you have walked on down here,
+because it is not a street pretending to be a body but a body not bothering to pretend.
+Partway across it you feel the floor *taste* you, a slow gathering of attention through
+the soles of your feet, an appraisal, a savouring.
+
+Here, at the back, two ways offer themselves. A flight of stairs has been cut into the
+throat-stone, switchbacking down past the last of the teeth into firelight and smoke and
+the carnival roar — the way down into the Shambles, the way everything taken eventually
+goes. And straight back, where the throat tips into a peristaltic dark that is neither the
+sewer above nor the stairs below, hangs the uvula: a soft red pendulum the size of a
+church bell, swaying gently in the breath. To touch it, some old animal reflex tells you,
+is to trigger the swallow — the third way, the mouth's own way, down its gullet into the
+gut of the thing the whole of hell is the inside of.
+
+<<if not $throatVoiceHeard>>
+There is a voice in the red dark behind the uvula — thick, half-drowned, a person caught mid-swallow
+and lodged there, neither freed nor gone down, speaking out of the soft wet throat of the thing.
+<<linkreplace "Lean toward the red dark and listen to the one the mouth half-took">><<nobr>><<set $throatVoiceHeard to true>><<if not $heardOfWord>><<set $heardOfWord to true>><</if>>
+//Don't touch the pendulum,// it says, with great effort. //That's the swallow. That's what took me —
+I brushed it, just brushed it, wanting to know what it was, and it //took.// Don't.// A long wet pause.
+//And the arch — out front — over the throat. All those names. I never went back to read it, more fool
+me; everyone takes it for a tally and it's a //primer.// It can be //read,// and the reading is the one
+trick worth having down here. Go back to the front and stand under it like you mean it — before the
+dark draws you down here to me.//
+<</nobr>><</linkreplace>>
+<<else>>
+The dark behind the uvula has drawn the half-swallowed one a little further down; it no longer answers,
+and the wet red throat keeps swaying, patient, in the breath.
+<</if>>
+
+<<link "Down the stairs at the back of the throat, into the Shambles">><<goto "TheMidway">><</link>>
+<<link "Touch the uvula. See what the mouth does.">><<goto "EndingSwallowed">><</link>>
+<<link "Back to the front of the mouth">><<goto "Hellmouth">><</link>>
+
+
+/* ---------- THE ARRIVALS — waiting-room: reckoning + pen + sacks + rest ----------
+   Folded from TheReckoning / TheNewlyTaken / TheSackHeap / TheVestibule. This is the
+   seat of the §C arrivals-intro & work-curse (next phase): the intro will spawn the
+   player HERE among the newly-taken, with the sneak-out / take-the-curse fork. For now
+   it is reached aside from the hub, offers the rest, and keeps the strongest beats. */
+
+:: TheArrivals [threshold]
+To one side of the throat the mouth does its bookkeeping, and holds what it has not yet
+sorted. It is a waiting-room — and that is the horror of it: after the belly and the
+works and the drowned dark, a cold bone lobby with worn benches and bad light, a clerkish
+thing with too many eyes turning the pages of a ledger, and a holding-pen of the
+newly-taken. People. Just people, recently of the surface, sacked and dropped and not yet
+sorted, sitting where you sat in the first hour, wearing the look you must have worn — the
+not-yet-comprehending look, the still-arguing look, the look of someone certain there has
+been a mistake and that it will shortly be corrected.
+
+One of them has your build, and a wedding ring, and your exact expression of an hour ago,
+and he says //they'll sort it out, they have to, this is a mistake//, and there is no
+answer you can give him that is not a worse thing to do than silence. Against the far wall
+a heap of the burlap sacks is mounded — the kind that came down over your own head,
+discarded once their contents are reckoned and sorted — and one of them is yours. You know
+the stain on it. You do not go through it; you cannot bear to learn what of yours the
+reckoning kept.
+
+Another of the held ones is further along than the wedding-ring man — quieter, calmer, gone
+a kind of grey at the edges — and they are not arguing with anyone. They are looking up at the
+arch over the throat, at the incised names, and //reading them//, softly, a few at a time, in a
+language that hurts your back teeth to hear. When they notice you listening they smile, almost
+kindly, and tell you: it can be learned. The gate is a primer; the deep set it there so its catch
+could teach themselves to speak, in the long wait to be sorted. //You only have to let your eye
+stop sliding off it,// they say, //and the rest comes. It came to me.// And they go back to
+reading, and you understand, watching the grey creep at their edges, exactly what it cost them.
+<<set $heardOfWord to true>>
+
+For the length of a few breaths, though, you are simply in a waiting-room, the way you
+waited in a hundred of them in the clean cold world — for a number to be called, for a
+door to open, for the next ordinary dreadful thing — and the plain ordinariness of it,
+hard benches and bad light, is almost unbearably restful. You sit, and breathe, and let
+the threshold hold you a while without, for once, sorting you.
+<<if $hp lt $maxhp>><<run setup.passTime(setup.REST_TIME)>><</if>><<set $hp to $maxhp>>
+
+<<if $arrivalsLooted>>
+You've already swept the spilled coin from the station gutters — the loose change that
+falls out of pockets when a body is upended and emptied. The clerk-thing did not look up.
+The phones in the sack-heap you leave; they are dead, all of them, no signal at the bottom
+of a mouth, and the keys are to doors a hundred people are still, perhaps, expected to walk
+through.
+<<else>>
+<<linkreplace "Sweep the spilled coin from the reckoning floor">>
+<<set _c to random(6, 10)>><<set _got to setup.gainCoins(_c)>><<set $arrivalsLooted to true>>
+<<if _got gt 0>><<= _got>> coins — the loose change<<else>>The loose change<</if>> of other people's arrivals, swept from the gutters of the
+station and the straw of the pen and the burlap drift.<<if _got lte 0>> It curdles to rubbish in your fist as you gather it — worth nothing to a hand cursed as yours.<</if>> There must have been a moment, you
+realize, <<if _got gt 0>>pocketing it<<else>>sweeping it up<</if>> — upside down in the sack, emptied onto this floor — when your own
+pockets gave up their change to this same gutter; and somewhere a later traveller will
+pocket that, and this is simply how the threshold keeps its accounts.
+<</linkreplace>>
+<</if>>
+
+<<if not $workCursed and not $sneakedOut>>
+There are two ways out of the waiting-room, and the clerk-thing's too-many eyes are on you
+to see which you'll take. The pen's far gate stands open onto the throat of the mouth and
+the wide wrong world beyond — unsorted, unassigned, *yours*, if you can walk through it
+before anyone decides you're theirs. And there is the other way: the line the rest of them
+will be marched along when their numbers are called, the sorting, the *processing* — and a
+post at the end of it, somewhere down in the works of the place, with a roof and a routine
+and the deep's own promise that nothing down here ever truly dies on the job. You could
+volunteer. People do. It is so much easier than running.
+
+<<link "Slip out the open gate, into the mouth — stay nobody's property">>
+  <<set $sneakedOut to true>><<goto "Hellmouth">>
+<</link>>
+<<link "Step into the line — let them process you, give yourself a post">><<goto "TheIndenture">><</link>>
+<<else>>
+<<link "Back to the front of the mouth">><<goto "Hellmouth">><</link>>
+<</if>>
+
+
+/* ---------- THE INDENTURE — willing acceptance of the work-curse (§C) ----------
+   Reached only from TheArrivals' fork. WILLING → you PICK your post (owner). Signing
+   sets the curse + a first shift owed and transfers you to the station's floor (cage=L6,
+   vats=L8). No commitment until you sign — backing out returns to the fork intact. */
+
+:: TheIndenture [threshold]
+You step into the line, and the clerk-thing's too-many eyes settle on you with something
+almost like relief — the recently-taken so seldom volunteer. It wets the nib of a claw,
+turns the ledger to a clean page, and asks, in a voice like a drawer of old paper, the only
+question the threshold ever truly asks: //what are you good for?//
+
+The answer, it explains without explaining, is a *posting*. You'll be bound to a station and
+returned to it whenever the world is done knocking you down — fed, housed, ''kept'', in
+exchange for the work, and for what the work makes of you, a little more each shift, until
+the books balance. It is the deep's great mercy and its great trap in one clause: bound to a
+post, you cannot really *die* down here. You can only become what the post is for. A second
+clerk is already folding away the clothes you came down in and setting out, in their place, a
+bundle of rough grey rags — //your work clothes now//, it conveys, without words, without asking.
+The clerk slides two contracts across the bone counter. They are the same contract. Only the floor,
+and what it turns you into, differ.
+
+The pen-light is bad and the page is darker than it should be, and when you bend to read the terms
+you find there are no terms — only the long incised list again, the register from the arch out front,
+run down the contract in the same not-language, with a blank cut at the foot of it the exact size of a
+name. The signing, you understand, is not agreement. It is *enrolment*: you are not promising to work,
+you are asking to be entered, and the difference is the whole of what the threshold is for. From the
+holding-pen behind you the wedding-ring man is still saying it is a mistake, and will be sorted, and
+here you are at the front of the line asking to be sorted first. The clerk turns the page a fraction
+toward you, patient as the throat, and waits — for the threshold never reaches, never takes; it only
+ever holds the page out, and lets you be the one who picks up the nib.
+
+<<link "Sign for the carnival cage — up among the lights, to play the oddity">>
+  <<run setup.takeWorkCurse("cage")>><<set $workOwed to true>>
+  <<goto "TheCageAct">>
+<</link>>
+<<link "Sign for the rendering vats — down in the works, to stir the boil">>
+  <<run setup.takeWorkCurse("vats")>><<set $workOwed to true>>
+  <<goto "TheBoilHouse">>
+<</link>>
+<<link "Take your hand back from the pen — step out of the line">><<goto "TheArrivals">><</link>>
+
+
+/* ---------- LAYER-5 BAD END (the swallow) ---------- */
+
+:: EndingSwallowed [ending]
+<<run setup.recordRun("died")>>
+You touch the uvula, because some old animal reflex has wanted to since you first saw it
+hang there, and the mouth does what a mouth does when its uvula is touched: it swallows.
+
+There is no malice in it. That is the thing you have time to understand, in the long warm
+peristaltic dark of the throat closing around you and drawing you down — not down to the
+sewer, not down to the Shambles, but down the *third* way, the mouth's own way, into the
+gut of the thing the whole of hell is the inside of. It is not punishment. It is not even
+attention. It is just digestion, the slow patient processing the entire underworld exists
+to perform, and you have, by touching the wrong soft thing, simply volunteered to skip the
+queue.
+
+//You went down the mouth's own throat, the third way, the short way — not into hell but
+into the thing hell is the inside of. There is no woodcut for where you went. No one carves
+the part that comes after swallowing.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>

@@ -1,0 +1,878 @@
+/* =====================================================================
+   LAYER 2 — THE TRUNK MAINS
+   Sewer band. Register: bathroom-horror + implied mutagenic industrial
+   waste. Hub = Confluence (in sewer-demons.twee). This file holds the
+   layer's spokes: Ascent, Descent, Gate, Rest, 3 Caches, 2 Snares, and
+   organic Passage filler. Depths registered in setup.depthOf (= 2).
+   ===================================================================== */
+
+
+/* ---------- ASCENT / DESCENT ---------- */
+
+:: TheRisers [upper]
+The risers are a stack of vertical pipe-galleries climbing up out of the trunk
+mains, iron ladders bolted between them, the air getting cleaner and colder with
+every level until it tastes of rain instead of rot. This is the spine of the
+ascent — the way up out of the mains and into the storm drains, the last layer
+of sewer before the sky.
+
+Your lungs ease a little, here. Whatever the drums below are leaking, it pools; it
+doesn't climb. The galleries stack away above you, each landing a little paler than
+the last, the iron of the ladders going from rust-scaled to merely cold to — higher
+still, where your light won't quite reach — a dull honest grey that has not had hell
+worked into it yet. The brick changes with the air: down here it sweats; up there it
+is only old.
+
+Grey thin daylight leaks down the rising main from somewhere above — the
+most beautiful thing you have seen since the sack came down — but it only //leaks//,
+because the top of the climb is plugged: packed wall to wall, you'll find, with a
+fatberg the size of a bus, close enough to ache for and impossible to pass without
+getting through the berg first.
+
+<<link "Up the rising main, to the fatberg that chokes it">><<goto "TheFatberg">><</link>>
+<<link "Aside, off the gallery, where something clear is glinting">><<goto "TheCleanPool">><</link>>
+<<link "Back down to the black valve">><<goto "TheBlackValve">><</link>>
+
+
+:: TheSiphon [upper]
+A worn stone stair drops away from the trunk mains into a dark that smells
+older — less ammonia, less chemistry, more the cold mineral breath of something
+sealed a very long time. The poisons of the upper drains don't seem to reach down
+there. Whatever runs below runs by different rules, and they are not kinder ones.
+
+A few steps down and the brickwork of the mains gives out behind you, and the wall
+becomes dressed stone — block laid on block by hands that knew their trade, the
+mortar between them worn to a hollow you could lay a finger in, the treads dished by
+a traffic that stopped before the city above had a name. Someone went up and down
+this stair, many times, for years, and then nobody did. The cold rises to meet you
+the way water meets a sinking weight.
+
+This is the way deeper — first into the old drains the city built its trunk mains
+on top of, and then, somewhere past those, the drowned places and the mouth's own
+gut. You don't have to take it. Almost nobody who takes it says they meant to.
+
+<<link "Down the stair, into the old drains">><<goto "TheGreatSink">><</link>>
+<<link "Back to the confluence">><<goto "Confluence">><</link>>
+
+
+/* ---------- GATE ---------- */
+
+:: TheBlackValve [upper]
+The way up to the risers runs through a low gallery flooded to the chest with
+something that is not water: black, oily, dead still, a skin on it that holds the
+shape of your lamplight a beat too long after you move. A single drip of it on
+your boot has already eaten a pale crater into the leather. To reach the risers,
+you have to get through it.
+
+<<if $valveClosed>>
+But the gallery is draining — you shut the valve upstream, and the black tide is
+sinking past your knees, your ankles, gone, leaving only a greasy tideline on the
+brick and a smell that will follow you for days. You cross on almost-dry ground.
+
+<<link "Through to the risers">><<goto "TheRisers">><</link>>
+<<link "Back to the weir">><<goto "TheWeir">><</link>>
+<<else>>
+The valve-house upstream might drain it, if you can work the seized wheel. Or you
+can simply wade — and let whatever lives in the black water take its bite of you.
+
+<<link "Wade through the black water (it costs you)">>
+  <<corrupt "legL" "filth" 15>>
+  <<goto "TheRisers">>
+<</link>>
+<<link "Go back and try the valve-house first">><<goto "TheValvePuzzle">><</link>>
+<<link "Back to the weir">><<goto "TheWeir">><</link>>
+<</if>>
+
+
+/* ---------- REST ---------- */
+
+:: ThePumpRoom [upper]
+Off the sump there is a dry room — actually dry, the first dry floor since the
+sack — where the old lift-pumps sit cold and enormous under a film of honest dust
+instead of slime. The air is merely stale, not poisonous. The door still shuts.
+
+Deeper in, the room is a quiet cathedral of dead machinery: the pumps rise on their
+plinths in a row, painted a green that has only faded and not rotted, their great
+casings stencilled with serial numbers and a maker's name and the date of a last
+inspection that someone, once, was paid to come down and sign. A chair is tipped over
+by the control board. A jacket hangs on a hook. Whoever kept this room walked out of
+it one ordinary shift and was simply never replaced, and the dust has been settling,
+politely, undisturbed, ever since.
+
+You put your back to a machine that has not turned in fifty years and, for a
+little while, you are nobody's prey. The shaking in your hands settles. The
+shallow burns and the chemical stings stop mattering quite so much. You breathe.
+<<if $hp lt $maxhp>><<run setup.passTime(setup.REST_TIME)>><</if>><<set $hp to $maxhp>>
+
+<<link "A clean-looking basin, through the far door">><<goto "TheBackflow">><</link>>
+<<link "Back to the confluence">><<goto "Confluence">><</link>>
+
+
+/* ---------- CACHES / PUZZLE ---------- */
+
+:: TheGritTrap [upper]
+The grit trap is a sunken bay where the flow slows and drops its heavy load — sand,
+stone, and a century of whatever the city poured down a drain and wished away, all of
+it settled into a grey bank that slopes down into water you can't see the bottom of.
+The smell here is mineral, gritty, almost clean compared to the mains — the smell of
+the river the sewer used to be.
+
+Step to the edge of the bank and the load resolves into its century of contents: not
+just sand but the silt of a thousand spilled pockets, a sediment of small lost things
+pressed flat by the weight of all the grit above them. Half-glimpsed in it: rings,
+coins, a wristwatch stopped at a time that mattered to someone. You can dig, if you
+don't mind what your hands come up wearing.
+
+<<if $gritLooted>>
+You've already picked the trap over. The rest is just grit and old sorrow.
+<<else>>
+Half-glimpsed in the heavy load the flow drops here: rings, coin, a wristwatch stopped
+at a time that mattered to someone — diggable, if you come back this way and don't mind
+what your hands come up wearing.
+<</if>>
+
+<<if not $sifterTalked>>
+A man sits in the heavy load, arms grey to the shoulder in it, sorting it handful by patient handful,
+and does not startle when your light finds him.
+<<linkreplace "Ask him what he's looking for">><<nobr>><<set $sifterTalked to true>>
+//Found a watch yet?// he says, not looking up. //Stopped at a time that mattered to someone. They
+all are.// His hands do not pause. //You'll dig past a hundred and not feel the one where you stopped
+mattering too — that's the trick of it, friend. There's no clean line, no step where the man ends and
+the sorting starts. You just look up one day and your hands are still going, and you can't think why
+you'd want them to quit.//
+<</nobr>><</linkreplace>>
+<<else>>
+The sifter sorts on, past speech now, his hands going of their own accord; he has nothing left to say
+that his hands aren't already saying.
+<</if>>
+
+<<link "Back to the screening hall">><<goto "TheScreeningHall">><</link>>
+
+
+:: TheLostConduit [upper]
+A conduit the flow abandoned — silted and dry-ish, the current long since rerouted
+somewhere upstream so that this run is left as a dead backwater, a pocket where things
+wash in on the rare high water and never wash back out. The air is still and dusty and
+oddly peaceful, the loudest thing in it the small grit-fall of silt settling that your
+footsteps disturb.
+
+The longer you stand the more the silt gives up its catch: shapes humped under the grey
+that the dim light slowly sorts into objects, the slow tide-line of everything the mains
+ever lost reaching this far and stopping. Half-buried in it — a maintenance kit, a coil
+of something, and the patient bones of a previous optimist, arranged just so where they
+came to rest. Worth a look, if your nerve holds.
+
+<<if $conduitLooted>>
+You've stripped it of anything that spends. The bones you leave where they lie.
+<<else>>
+Half-buried in the grey silt is coin, among a maintenance kit and a coil of something
+and the patient bones of a previous optimist — worth a search, if your nerve holds the
+trip back for it.
+<</if>>
+
+<<if not $optimistTalked>>
+One set of the bones is fresher than the rest — propped against the conduit wall as if it sat down to
+wait — and it is, you realize, still talking, cheerful, as your light finds it.
+<<linkreplace "Hear out the cheerful one">><<nobr>><<set $optimistTalked to true>>
+//Don't mind the bones,// it says, grinning, silt in the grin. //Previous fella. No head for the work,
+not like us. Me, I'm just topping off — found a dry run that cuts the whole berg out, straight up, no
+grease, no toll. Show you, even, soon as I've grabbed that last coil. Been meaning to. It's right
+there.// It does not move toward it. It has not, you suspect, moved toward anything in a very long
+time. //In and out, that's me. Always just leaving.//
+<</nobr>><</linkreplace>>
+<<else>>
+It's still going to grab that last coil any minute, the same grin, the same silt in it. The shortcut's
+still right there. It still doesn't move.
+<</if>>
+
+<<link "Back to the rat-run">><<goto "TheRatRun">><</link>>
+<<link "Toward the grit chamber">><<goto "GritChamber">><</link>>
+
+
+:: TheValvePuzzle [upper]
+The valve-house is a closet of seized iron, no wider than a coffin stood on end: a
+great wheel-valve furred orange with rust dominates the cramped dark, and around it
+the walls bristle with pipework, every run of it sweating, every joint of it weeping
+a slow rust-tea down into a drain you cannot see but can hear.
+
+When your light steadies you find the wheel is ringed by a maze of smaller cocks and
+bleeds, a dozen of them, each labelled on a little brass plate in a copperplate hand
+the damp has half-erased — OPEN FIRST, and an arrow; CAUTION; a sequence of numbers
+gone to green verdigris. Someone laid this out to be read by a calm man with time and
+a manual, and you are neither, and the man who was is long gone wherever the works men
+go.
+
+Turning the wheel cold would shear the spindle, you can see that much — it
+has to be done in order: bleed the pressure here, crack that cock, let the line sigh
+itself empty, then the wheel will turn. The house waits for you to get it right or to
+get it wrong, with the patience of iron, which has nothing else to do.
+
+<<if $valveClosed>>
+The wheel is shut. Somewhere downstream, you can hear the black gallery draining
+away into wherever such things go to wait.
+<<else>>
+<<linkreplace "Work the bleeds in order, then turn the wheel">>
+<<set $valveClosed to true>>
+The line sighs, shudders, and goes slack. Downstream, with a sound like a long
+slow swallow, the black gallery begins to drain. You have made the way up passable
+without paying for it in skin.
+<</linkreplace>>
+<</if>>
+
+<<link "Back to the weir">><<goto "TheWeir">><</link>>
+
+
+/* ---------- SNARES (bad ends) ---------- */
+
+:: TheStallRow [upper]
+The north pipe opens onto something that does not belong in a sewer: a row of
+lavatory stalls, white once, doors hanging, the porcelain inside crazed and brown.
+A maintenance crew must have used them, a lifetime ago. Most doors stand open on
+empty filth.
+
+Two are not like the rest. One, at the very end, is shut, and a slow tongue of black
+water spreads from under it. And one, partway along the row, has an eerie pink glow
+coming from inside it — steady, sourceless, the exact wrong colour for anywhere down here.
+
+The pink light pulls at you the way a lit window pulls at someone out in the cold. You could
+go down the row and look inside.
+<<linkreplace "Go to the pink-lit stall and look inside">>
+<<set _freeStall to (random(1, 100) lte 20)>>
+<<if not _freeStall>>
+Up close, the stall's door is pushed-to, not hanging open like the others, and the glow leaks
+around its edges in a thin warm seam — and there are feet under it, and the small private unhurried
+sounds of something using a latrine for its purpose. It's occupied. You are not the kind of fool who
+hauls open a glowing door in hell; the deep, it seems, queues for the privy like anything else. You
+could come back when it's free.
+<<elseif $magicKnown>>
+Up close, the stall stands open and empty, and the glow is rising straight up out of the toilet hole,
+warm and pink and steady, lighting a roll of paper on the bent wire arm. You carry the Word already;
+you know what that light is now. You tear off a few sheets for their honest first purpose, and the
+printed script lies dead under your hand, just paper, a joke the deep has stopped telling you.
+<<elseif setup.canReadGrimoire()>>
+Up close, the stall stands open and empty, and the glow is rising straight up out of the toilet hole —
+and lit by it, on the bent wire arm, a roll of toilet paper, and the paper is //printed//. Not a
+pattern. Writing — the same close wet not-language the deep cuts into its gates, and the pink light
+comes up //through// the script from the hole below, lighting it like something is reading along under
+the floor. A foot of scripture a sheet, hung in a privy at the end of the world, set exactly where a
+frightened animal would sit alone with nothing to do but read. You know this light, now; you know what
+it lights.
+
+<<linkreplace "Sit, and read the roll — one sheet, then the next">><<nobr>>
+<<run setup.learnMagic("grimoire")>>
+You sit, because that is what the stall is for and what the roll is for, and you read — a
+sheet, and the next, and the next — and reading it is mouthing it, and mouthing it is
+//speaking// it, and somewhere between one square of scripture and the next the words stop
+being on the paper and start being in you. The deep printed its book on the thing it knew a
+captive would pick up in an idle, undefended moment, and you have picked it up, and now the
+well is open behind your eyes, cold and full. You can speak the deep's tongue. You will pay
+for every sentence of it — but you can speak it. You pocket the rest of the roll. You may, you
+think, want to read ahead.
+//(you have learned the Word — Mana now shows in your kit; in a fight, the Cast action calls it)//
+<</nobr>><</linkreplace>>
+<<else>>
+Up close, the stall stands open and empty, and the glow is rising straight up out of the toilet hole,
+lighting a roll of paper on the bent wire arm. The light unsettles you — a toilet should not shine,
+least of all that colour — and the paper looks printed with something, a fault in the manufacture
+you'd guess, ink bled through the pulp. But a glowing hole in a hell-privy is exactly the kind of
+thing a person learns, very fast, not to investigate; you take what you need from the lit roll,
+keeping your eyes up, and back out. //(There is more to that pink light than you'll see on your own —
+a sharper eye, or a word from someone who knows what the glow means, might change that.)//
+<</if>>
+<</linkreplace>>
+
+The shut stall at the end you keep well clear of. Every privy is a place where a person is alone and
+undefended, and the old demons knew it best — the lurker of the latrine, the thing that takes you with
+your guard and your trousers both down. Whatever waits behind that shut door has waited longer than
+the sewer is old, for exactly one curious, solitary fool; to open it would, near as you can tell, be
+the last thing you ever did.
+<<link "Open the shut stall anyway — and meet what's been waiting">><<goto "EndingTakenStall">><</link>>
+
+<<link "Leave the stalls. Quickly.">><<goto "GritChamberCleared">><</link>>
+
+
+:: TheBackflow [upper]
+Through the far door of the pump-room is a thing you have stopped daring to hope
+for: clean water. A basin of it — clear, still, faintly steaming, fed from some
+pipe that must run up to the world, to before. After everything the drains have
+worked into your skin, the urge to strip and scrub yourself raw in it is almost
+more than you can stand.
+
+Something about it is too clean. Too warm. Too exactly the thing you wanted most.
+But God, you want it.
+
+<<linkreplace "Wash. Scrub the filth off — all of it.">>
+<<corrupt "torso" "filth" 30>>
+You wash, and it is bliss — and under the grime your skin comes away too, the top
+layer of you rinsing into the basin with the dirt, and what's left feels cleaner
+and thinner and not entirely your own. The water, you notice as you rise, is no
+dirtier than when you began. It did not take the filth. It took the other thing.
+<</linkreplace>>
+
+<<link "Back away from the basin">>
+  <<soothe 2>>
+  <<goto "ThePumpRoom">>
+<</link>>
+
+
+/* ---------- PASSAGE / ATMOSPHERE FILLER ---------- */
+
+:: TheScreeningHall [upper]
+A long hall of bar-screens, most collapsed, where the flow was once combed of its
+solids. Now the screens comb it of nothing, and the solids walk. The floor is a
+grating over a void that breathes cold up at you, and along one wall a bank of
+warning-lights — all dead but one, which pulses a slow contaminated amber over
+everything, patient as a heartbeat.
+
+<<if not setup.has("pipe")>>
+One of the collapsed screens has shed a length of its steel — a rod of it, man-high, heavy and
+cold and blunt, the kind of thing that would stave a skull, or scatter something that hasn't got
+a skull to stave.
+<<linkreplace "Pry the screen-bar loose — a length of pipe">>
+<<acquire "pipe">>
+You work it free. It is a good honest weight in your hands, and the having of it changes how the
+dark feels, a little, in your favour.
+<</linkreplace>>
+<</if>>
+
+<<if $screeningGolemCleared>>
+The thing that stood up out of the screened sludge lies scattered back across the grating — so much
+spread filth again, already, slowly, patiently beginning to gather itself back toward the shape it
+briefly wore. You do not wait to watch it finish.
+<<else>>
+And then the solids walk. The sludge banked against the dead screens shifts, and gathers, and
+//stands// — a shit-golem, a sewage demon, the filth of the whole hall swirled up into one slow
+enormous will, far more than the sum of the muck that makes it. It hauls itself off the screens and
+comes for you, and you understand at a glance that a blade would only part it and let it close again.
+
+<<scentof "shitgolem">>
+<<link "Put the sewage demon down">>
+  <<run setup.startFight("shitgolem", "TheScreeningHallCleared")>>
+  <<goto "Combat">>
+<</link>>
+<</if>>
+
+<<link "The grit chamber, off the end">><<goto "GritChamber">><</link>>
+<<link "The grit trap, below the screens">><<goto "TheGritTrap">><</link>>
+<<link "A manhole, set in the far wall">><<goto "TheManholeBase">><</link>>
+<<link "Back to the confluence">><<goto "Confluence">><</link>>
+
+
+:: TheScreeningHallCleared [upper]
+<<set $screeningGolemCleared to true>>
+The sewage demon comes apart the way they do when you scatter them right — not killed, because there
+was never quite anything there to kill, only //dispersed//, flung back across the grating as the
+loose filth it was always going to settle into again. It will reconvene, given a patient while. You
+intend to be a long way up by then.
+
+<<link "Back to the screening hall">><<goto "TheScreeningHall">><</link>>
+
+
+/* ---------- THE CLEAN POOL — the game's only CLEANSE, and you have to win it (owner) ----------
+   A single-use clear pool off the risers (reachable before the fatberg is burned open). You
+   discover it at the same instant shit-golems do, and it is a RACE: fight them off and the pool
+   stays clean (wash → soothe, single use); let them reach it and the filth fouls it (drinking
+   raises corruption instead). State machine in $cleanPool ("new"/"won"/"fouled"); the "fight"
+   choice pre-sets "fouled" so a flee/loss leaves it fouled without touching generic CombatLost —
+   only the victory lander (TheCleanPoolWon) flips it to "won". */
+
+:: TheCleanPool [upper]
+<<if $cleanPool == "new">>
+Off the rising-main gallery, where a cracked storm-inlet lets a thread of upper water down before
+the mains can get to it, a pool has gathered in a basin of clean concrete — and it is //clear//.
+Actually clear. The first clear water you have seen since the rain-shaft, holding the grey daylight
+from above like something remembered, smelling of nothing, of rain, of the world. After everything
+you have waded and breathed and been made to drink, the sight of it goes through you like grief.
+
+You are not the only one who has found it. Across the basin the sludge of the mains is moving —
+gathering, banking, hauling itself up off the floor in the slow swirl you have learned to dread:
+shit-golems, two of them, sensing the clean the way rot senses a wound, sludging toward the basin to
+//reclaim// it, to fold it back into the foul. It is a race, and you both arrived at once. If you
+can put them down before they reach the water, the pool stays clean, and yours. If they get to it
+first, it will be just one more thing the deep has spoiled.
+
+<<scentof `["shitgolem","shitgolem"]`>>
+<<link "Get between the golems and the water — fight for the pool">>
+  <<set $cleanPool to "fouled">>
+  <<run setup.startFight(["shitgolem", "shitgolem"], "TheCleanPoolWon")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Hang back — you are in no shape to take two of them">>
+  <<set $cleanPool to "fouled">>
+  <<goto "TheCleanPool">>
+<</link>>
+<<link "Back to the risers">><<goto "TheRisers">><</link>>
+
+<<elseif $cleanPool == "won">>
+The basin is yours. The two golems lie scattered back across the gallery floor as the loose filth
+they were, already beginning their patient gather, but they will not reconvene before you are done
+here — and the pool, between them and you, stayed //clean//. It holds the daylight, clear to the
+concrete at its bottom, and it is the one uncorrupted thing in all the miles you have come.
+
+<<if not $cleanPoolUsed>>
+<<linkreplace "Kneel, and wash the deep off you in the clear water">>
+<<run setup.soothe(30)>><<set $cleanPoolUsed to true>>
+You kneel, and cup it, and pour it over your head and your arms and the back of your neck, and it is
+cold and clean and it //takes//. The grime lifts; the grey sloughs; the crawling under your skin
+quiets and recedes, washed thin and carried off down the cracked drain — not all of it, the deepest
+of it has set too far to rinse, but more than you dared hope, more than anything down here was ever
+supposed to give back. You come up dripping and lighter and very nearly yourself, and for one whole
+breath you are clean.
+<</linkreplace>>
+<<else>>
+You have washed here already; the basin is drawn down to a clean, ordinary nothing now, and what it
+took off you, it took for good. There is no second washing. You did not expect there to be.
+<</if>>
+<<link "Back to the risers">><<goto "TheRisers">><</link>>
+
+<<else>>
+The golems reached it first. By the time you got between them they were already in the basin, slumped
+and dissolving into it on purpose, giving the clean water back the filth it had briefly escaped — and
+now the pool is the colour of the mains again, a grey swirling broth with the daylight curdled out of
+it, and the rot-smell rising off it where, a moment ago, there was rain. It is fouled. Of course it is.
+The deep does not let a clean thing stay.
+
+<<linkreplace "Drink anyway — you are so thirsty, and it was almost clean">>
+<<set _seg to setup.SEGMENTS.random()>><<set _amt to random(12, 18)>><<corrupt _seg "filth" _amt>>
+You drink, because the memory of how clear it was is stronger than the sight of what it is now, and it
+is the deep itself going down — thick and grey and patient — and it does not slake anything. It only
+adds to you, settles its swirl into one more part of you, the fouled pool finding, like everything
+down here, one more thing to be the inside of.
+<</linkreplace>>
+<<link "Leave the fouled water">><<goto "TheRisers">><</link>>
+<</if>>
+
+
+:: TheCleanPoolWon [upper]
+<<set $cleanPool to "won">>
+You get between them and the water — and a length of blunt steel, or your own two fists, does to a
+shit-golem the one thing that works: it //scatters// them, flings them back across the gallery as the
+loose muck they are, before either can reach the basin and slump itself in. They will gather again,
+patiently, the way they do. But not in time. The pool, behind you, stayed clear the whole while.
+
+<<link "To the pool you kept clean">><<goto "TheCleanPool">><</link>>
+
+
+:: TheFatberg [upper]
+<<roomart "fatberg">>
+The rising main — the last climb before the storm drains and the grey daylight above
+them — is throttled all the way shut by a fatberg the size of a bus: a grey-white reef
+of congealed grease and wet-wipes and the slow geology of everything the city flushed
+and forgot, packed wall to wall, sealing the way up. It sweats a clear oil that pools
+and catches your lamp. Set into it like a fly in old amber is the wet bulk of the thing
+that has made it home.
+
+<<if $fatbergBurned>>
+Where the fatberg was there is now a charred and dripping hole, burned clean through, the
+grease gone to greasy smoke and the way up open at last. Cold rain-smell pours down through it.
+
+<<link "Up through the burned-out main, into the storm drains">><<goto "TheCatchbasin">><</link>>
+<<elseif setup.has("brand")>>
+The whole reef is grease, and grease burns — and the branch in your fist is a fire that lasts.
+You could set it to the berg, and not stop to wonder what burning a bus-sized plug of flammable
+filth in a closed pipe does to the air in a closed pipe.
+
+<<linkreplace "Set the branch that never stops burning to the fatberg">>
+<<set $fatbergBurned to true>>
+You touch the cold blue branch to the sweating grease and the grease takes it the way grease
+takes a flame — all at once, with a soft enormous //whump// that pulls the air from your lungs
+and a heat that drives you back down the gallery — and the fatberg burns. It burns a long, filthy,
+roaring while, eating the bus-sized plug down to a charred and dripping hole, and when it finally
+dies back there is a way up where there was none, and rain-smell coming down it, and the branch
+in your fist burning on exactly as before, undiminished, already cool again in your hand.
+
+<<link "Up through the burned-out main, into the storm drains">><<goto "TheCatchbasin">><</link>>
+<</linkreplace>>
+<<else>>
+You set your shoulder to it and it gives nothing; you claw at it and come away foul to the elbow.
+It is packed wall to wall and it is not moving. The grease would //burn// — you can smell exactly
+how it would burn — if you had a fire that would last long enough to catch it. You don't. Not yet.
+Nothing you've found down here holds a flame for more than a breath.
+<</if>>
+
+<<link "The narrow gut, into the fatberg">><<goto "Gut">><</link>>
+<<link "A drum-store, off the side passage">><<goto "TheDrumStore">><</link>>
+<<link "Back down to the risers">><<goto "TheRisers">><</link>>
+<<link "Back to the confluence">><<goto "Confluence">><</link>>
+
+
+:: TheDrumStore [upper]
+<<corrupt "torso" "filth" 2>>
+A side chamber stacked with steel drums, most split and slumped, their contents
+long since wept across the floor in stains that have eaten the concrete down to
+bare rebar. The air in here is different the instant you cross the threshold —
+heavier, sweetish, with a chemical edge that sits on the tongue like the smell of a
+hospital gone wrong. Your eyes water. At the back of your sinuses, something faintly
+begins to itch, and to change.
+
+The drums go back further than your light: rank on rank of them into the dark, some
+upright and bulging, some folded flat where their seams let go, all of them bleeding
+into a single shared slick that has found the low corner of the floor and made a
+black pond there. The stencils have rotted to a few legible letters — a partial word,
+a hazard diamond bleached to a ghost, a lot-number — enough to know none of this was
+ever meant to be down here, that someone tipped it down a manhole one quiet night
+rather than pay to have it taken away honest, and that to breathe it is a slow
+mistake.
+
+You should not stay. You know you should not stay; the room itself is telling you, in
+the only language it has, that everything it touches it keeps. But the slick on the
+floor catches your lamp in oily rainbows, almost pretty, and the longer you stand the
+less your eyes water, which is not the room growing kinder. It is you growing used to
+it.
+
+<<if not $tarmanDealt>>
+Among the split drums something shifts that you took for another stain: a man who came down for the
+drums and stayed too long breathing them, gone slick and black-streaked, more of the leaked chemistry
+now than of himself. He has been stripping the dead who fell here, and he has their coin, and he will
+deal.
+<<linkreplace "Take the dead men's coin off the Tarman — your skin for their purse">><<nobr>><<set $tarmanDealt to true>><<set _c to random(14, 22)>><<run setup.gainCoins(_c)>>
+He pours it into your hands, warm from him, more than you have held down here — and as you lean in to
+take it the fumes come with it, into your eyes and your sinuses and the soft wet back of your throat,
+and something there that was holding out stops holding out. //Spends the same up there as down,// he
+says, sinking back among his drums, //if you get up there. I had a purse like that once.//
+//(+<<= _c>> coins)//
+<</nobr>><<corrupt "head" "filth" 22>><</linkreplace>>
+<<else>>
+The Tarman has gone back to being mostly tar, settled among the drums he is becoming a part of; he
+gave you the coin, and what's left of him has nothing else you would carry out.
+<</if>>
+
+<<link "Out, before you breathe more">><<goto "TheFatberg">><</link>>
+
+
+:: TheWeir [upper]
+The main drops over a low concrete weir into a stilling basin, and the sound reaches
+you before the room does — a flat, ceaseless, throat-clearing roar, the noise of a
+great deal of bad water falling a short way forever. The water that goes over it is
+the colour of a bad bruise, foaming yellow-white where it breaks, and the foam does
+not pop the way honest foam pops; it heaps, and slides, and sails the basin in slow
+yellow rafts that go round and round and never reach a shore.
+
+Closer, the weir is a tidy thing in all this rot — poured straight, its crest still
+true, a painted scale-board bolted to the wall beside it where someone once read the
+flow off in honest feet and inches. The paint is gone to a few flaked numerals now,
+but the board is still there, still doing its mute job, gauging a grade nobody up top
+will ever come down to act on. The spray off the falling water hangs in your light as
+a fine sour mist, and settles on your skin, and does not wash off so much as soak in.
+
+Beyond the basin the pipe climbs — you can feel the air pulling that way, up toward a
+cold that isn't hell's cold, a draught with the faintest thread of the real world in
+it. The risers are up there. So is whatever the black valve is holding back, and the
+nearer you stand to the climb, the more clearly you understand that the one bars the
+other.
+
+<<if not $gaugerTalked>>
+A man in the rotted remains of a works jacket leans on the weir-rail, watching the foam break with
+the unbothered air of someone exactly where his job is.
+<<linkreplace "Ask him how long he's worked the weir">><<nobr>><<set $gaugerTalked to true>>
+//Foam's gone yellow again — that's the line off, up past the third manhole, and nobody coming to
+bleed it but me.// He says it the way a man says it's going to rain. //I mind the weir, the grade,
+the seized valve yonder they sent me down for. Honest works job. You get used to the smell faster than
+you'd credit — a week, maybe. After that it's just the air.// He nods at nothing in particular. //And
+that's when you've gone, friend. Not the day you came down. The day the stink quit reaching you. I'd
+say clock off, were I you. Only I never worked out how, and I held the keys.//
+<</nobr>><</linkreplace>>
+<<else>>
+He's watching the foam again, reading the grade, on a shift he can't get off; he nods, once, the way
+you nod at a man on the same job, and says no more.
+<</if>>
+
+<<link "Toward the risers — but the black valve bars the way">><<goto "TheBlackValve">><</link>>
+<<link "A valve-house, off the basin">><<goto "TheValvePuzzle">><</link>>
+<<link "A side sluice, half-choked">><<goto "TheSluice">><</link>>
+<<link "Back to the confluence">><<goto "Confluence">><</link>>
+
+
+:: TheManholeBase [upper]
+A manhole shaft climbs the far wall — a narrow brick chimney barely wider than your
+shoulders, rungs intact, and at the top of it, small and round and impossibly far,
+daylight. Real daylight, the grey of an overcast afternoon, so close your chest aches
+with it. You can smell it: cut grass, wet tarmac, rain on warm pavement, the whole
+ordinary world breathing down the shaft at you through a coin of sky.
+
+You climb. The rungs are sound, rust-furred but sound, and the daylight grows as you
+go — not much, the disc never gets large, but it gets near, near enough at the top
+that you could fit your eye to the gap at the cover's rim and watch a cloud go by. You
+get a hand to the cover and push, and push, and it does not move: tarred shut from
+above, or parked under three tons of something, or simply never meant to open for the
+likes of what comes up out of here.
+
+You climb back down, slower than you went up, the daylight shrinking to a coin again
+above you, and at the bottom you stand a moment in the dark with your face still
+turned up at it. The light watches you do it, and says nothing. It has watched a great
+many people do exactly this, you suspect, and it has never once let any of them
+through.
+
+<<if not $voiceHeard>>
+You are about to give it up when a sound stops you: a voice, on the world-side of the cover,
+close as a confessional — someone who works the surface, who heard you push.
+<<linkreplace "Put your mouth to the seam and call up through the cover">><<nobr>><<set $voiceHeard to true>>
+//Don't,// the voice says, before you can ask. //Don't push it. We tar them shut from up here on
+purpose — every cover on the network, since we worked out what comes up if we don't.// A pause; the
+scrape of someone not quite leaving. //We know what's down there. We've always known. We just decided
+it was cheaper to seal it in than to go down after it. You understand? Nobody's coming. There was
+never going to be anyone coming. That's the budget.// And the feet move off, unhurried, a person
+walking away from a drain.
+<</nobr>><<corrupt "head" "filth" 4>><</linkreplace>>
+<<else>>
+You put your ear to the seam again, but there is no one now — only the wind across the cover, or a
+voice so like the wind you can no longer be sure you aren't asking it to be there.
+<</if>>
+
+<<link "Back to the screening hall">><<goto "TheScreeningHall">><</link>>
+
+
+:: TheRatRun [upper]
+A low crawl-tunnel off the east wall, barely shoulder-width, so that you go in bent
+double and then on your hands. The brick is warm under your palms — warmer than brick
+has any business being down here — and it twitches, faintly, continuously, with the
+traffic of vermin moving through the walls and over the ceiling and, you realize, very
+close behind you.
+
+The deeper you crawl the more the tunnel is *theirs*. The mortar is packed with shed
+fur and gnawed bone and the small grease of many bodies passing the same way for many
+years; nests bulge from every crack, and droppings carpet the floor you are putting
+your hands in. They are watching from the dark ahead, dozens of them, low to the
+ground, their eyes giving back your light in wet pairs — and they do not scatter the
+way honest rats do. The mutated rats den in here, fat and wrong and many, and they
+hold their ground, and something about the way they hold it tells you they have eaten
+crawlers like you before, and found nothing in it to fear.
+
+Past the massed eyes the tunnel goes on into the warm dark, and there is the mouth of a
+silted conduit, and the dull glint of things worth having in the silt. The deeper run
+keeps going past it, too, into a heat and a hush you have no wish to crawl toward —
+something down there owns this place, and the rats are only its household.
+
+<<scentof "rat">>
+<<link "Push through the rats toward the conduit">>
+  <<run setup.startFight("rat", "TheLostConduit")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Deeper in, to where the run opens out and the big ones den">><<goto "TheRatKing">><</link>>
+<<link "Back out to the confluence">><<goto "Confluence">><</link>>
+
+
+:: TheRatKing [upper]
+The rat-run opens, without warning, into a chamber it had no business hiding: a den, high and dry
+and warm, lit by nothing you can find and yet somehow not quite dark, its walls a woven thatch of
+gnawed cable and bone and stolen cloth, layered and patched and *built*, the work of patient hands
+over patient years.
+
+And it is not rats that keep it. It is rat-//men//, the mutation finished, upright and handed and
+unhurried, a dozen of them at least sitting the den's edges like a council — and as your light moves
+over them you see how settled they are, how at home, grooming, murmuring, one of them working a
+strip of cloth between clever black fingers, a household going about its evening with you standing in
+the door of it. At the heart of it, on a heaped throne of matted nest, a vast pale bloated thing they
+tend and feed: the rat-king, the den's swollen mother-father, gone too heavy to move, ringed by its
+grown children.
+
+Then, as one, every wet clever face turns to you, and the murmuring stops, and the only sound is the
+small wet working of the king's breath on its throne. You are the thing that came up out of the run.
+You are not, the silence makes plain, the first to come up out of the run, only the latest, and the
+den knows exactly what to do with the latest. One of them stands. Two of the den's dog-sized
+rats come off the walls with it, unhurried, flanking wide — a household attending its champion,
+because a den that has done this before does not send anything alone.
+
+<<if $ratKingCleared>>
+The one that stood lies where you put it, and the council has drawn back to the den's dark edges,
+watching, unwilling to be the next to try you, and the rat-king on its nest regards you out of its
+fat patience with something almost like respect. You are not welcome here. But you are, for now, not
+food.
+
+<<link "Back out to the rat-run">><<goto "TheRatRun">><</link>>
+<<else>>
+<<scentof `["ratman","rat","rat"]`>>
+<<link "Put the rising rat-man down before the rest decide">>
+  <<run setup.startFight(["ratman", "rat", "rat"], "TheRatKingCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Back out, slowly, before the council decides for you">><<goto "TheRatRun">><</link>>
+<</if>>
+
+
+:: TheRatKingCleared [upper]
+<<set $ratKingCleared to true>>
+You put the rat-man down in the middle of its own council — it and the flanking pair both — and
+the den goes very still — a dozen clever faces running a dozen small sums at once — and then, as one, the rest draw back to the edges
+and let you be, because the den's arithmetic has changed and you are, for the moment, on the wrong
+side of it to eat. The rat-king watches you from its nest-throne and does not blink, and you back
+out the way you came with the skin crawling all down your spine.
+
+<<link "Back to the den">><<goto "TheRatKing">><</link>>
+
+
+:: TheSluice [upper]
+A side sluice, low and narrow and half-choked with a grey felt of fungus that has
+found something in the runoff it likes. It grows on everything — the walls, the dead
+penstock, the very air seems thick with the spore of it — a soft pale pelt that
+deadens your footsteps and your voice and the drip of water until the silence in here
+has a texture, woolen, close, like a room hung floor to ceiling in old felt.
+
+When your light travels the walls you see the felt is not one thing but a slow
+colony — paler and older toward the dead end, where it has had longest to work, ridged
+and lobed and faintly breathing as the draught moves through it, hung here and there
+with little beads of clear liquor it has wept out of itself. The sluice dead-ends at a
+penstock rusted immovably shut, and the felt has grown clean over the seized wheel of
+it, swallowing the iron the way it has swallowed everything else that stopped moving.
+
+There is nothing here but the fungus, and the strong, specific sense that the fungus
+is aware of you — not as a thing watches a thing, but as still water is aware of a
+finger laid on its surface: a pressure, a noting, an unhurried registering of the new
+arrival. It has all the time there is. It is in no particular hurry about you at all.
+
+<<if not $feltNoticed>>
+You feel its attention the way you feel a held gaze across a room, and when you hold still the grey
+felt seems, very slowly, to lean.
+<<linkreplace "Hold still, and let the felt finish noticing you">><<nobr>><<set $feltNoticed to true>>
+It has tasted everything the runoff ever carried down — years of it, the whole drowned census of the
+mains, soaked up and kept and slowly understood. And it tastes you now: the change in you, the thing
+the water has started, the way you'd notice a season turning, with no alarm at all. It is in no hurry.
+It has met what you are becoming a thousand times, and already knows how the tasting ends. It needs to
+do nothing but wait, and be tasted back, and agree.
+<</nobr>><</linkreplace>>
+<<else>>
+The felt has gone back to its slow attention, which was only ever attention; there is nothing in it
+for you now but the certainty that it has your measure, and all the time there is to take it.
+<</if>>
+
+<<link "Back to the weir">><<goto "TheWeir">><</link>>
+
+
+/* ---------- LAYER-2 BAD END ---------- */
+
+:: EndingTakenStall [ending]
+<<run setup.recordRun("taken")>>
+You open the door, because some part of you always opens the door. What is folded
+into the stall is mostly mouth, and it has waited in the dark of a forgotten
+latrine for exactly one curious, solitary fool — for longer than the sewer above
+it has existed, for longer than the city, for as long as people have gone alone
+and undefended into the dark to do what bodies do.
+
+It does not hurry. There is no one to hear you, and nowhere to go but down — into
+the black water, into the patient wet dark where the privy-things keep what the
+careless hand them.
+
+//You answered the door. Something had been waiting behind it a very long time.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>
+
+
+/* ---------- DEMON BARGAIN (Tallow the Gorger; reached from TheFatberg) ---------- */
+
+:: Gut [upper]
+<<set $metTallow to true>>
+<<nobr>>
+The passage narrows to a wet throat of brick, low enough that you go in stooped, the
+walls pressing close and warm and faintly sticky, until you are less walking a tunnel
+than swallowed into one. Half-blocking the throat ahead is a fatberg — a vast pale
+boulder of congealed grease and the city's flushed sins, sweating, faintly sweet,
+glistening where your lamp finds it.
+
+Up close the berg is not a single mass but a slow accretion, layer on greasy layer,
+and things are set into it like fruit in a terrible suet: a comb, a doll's arm, a
+phone, a wedding ring, a hand — and one of the pale lumps, you understand with a lurch,
+is breathing. It is wedged into the grease and indistinguishable from it at first,
+and then it opens an eye in the suet and the suet is its face. Tallow: a Gorger, one of
+the things that grow on what the world discards.
+
+It does not stir to threaten you; it has no need. It fills the throat ahead the way the
+berg fills the pipe, settled and enormous and patient, and the warmth you took for the
+tunnel's is coming off it, the slow body-heat of a thing that does nothing but
+digest. It does not want your secrets. It wants meat, and it has so much to give in
+trade.
+<</nobr>>
+
+//Hungry?// it asks, kindly. //Cold? I can make you hard to kill. Costs only a
+little of what you're made of.//
+
+<<link "Take the ward — let Tallow render a piece of you into armor">>
+  <<set $hasWard to true>>
+  <<corrupt "armR" "filth" 25>>
+  <<goto "TheFatberg">>
+<</link>>
+<<link "Refuse Tallow outright">>
+  <<soothe 6>>
+  <<goto "TheFatberg">>
+<</link>>
+
+
+/* ---------- HUB + the grit-chamber fight (moved here from core) ---------- */
+
+:: Confluence [upper]
+<<nobr>>
+The throat of the hellmouth lets you out into something that almost passes for
+ordinary: the trunk mains, brick-arched and mortared, the great pipes the city
+laid when it still believed in carrying its waste politely away. But the water
+here runs a colour no honest water runs — a thin chemical green that foams where
+it falls — and the rust has eaten through the iron to something underneath that
+weeps. A rat watches you from a ledge. It has too many eyes, and it is not
+troubled that you noticed.
+<</nobr>>
+
+<<if $corruption gte 70>>
+You have stopped minding the smell, and the part of you that has started to find
+it almost comfortable is the only thing down here that still frightens you.
+<<elseif $corruption gte 35>>
+There's a taste of metal and ammonia at the back of your throat that wasn't there
+when you came down, and a rash on your forearm you don't remember earning.
+<<else>>
+This is the way up — it must be. The air moves, and moving air means a surface
+somewhere above. You try not to touch the walls.
+<</if>>
+
+The mains branch off in every direction, with the logic of a thing that grew
+rather than a thing that was planned.
+
+<<if $deepTurns gte setup.SEAL_WARN and not $sealed>>
+And you have been turning in them longer than getting out should take. The
+branches are starting to repeat — or you are — and that is worse than any smell.
+You should pick a way up and *commit* to it, while the choosing is still yours.
+<</if>>
+
+<<link "The screening hall, where the rakes are">><<goto "TheScreeningHall">><</link>>
+<<link "Up the south main, to the fatberg that chokes the way out">><<goto "TheFatberg">><</link>>
+<<link "A low rat-run off the east wall">><<goto "TheRatRun">><</link>>
+<<link "Toward the weir and the risers — the way up">><<goto "TheWeir">><</link>>
+<<link "A dry pump-room, off the sump">><<goto "ThePumpRoom">><</link>>
+<<link "Down the worn stair, into the lower dark">><<goto "TheSiphon">><</link>>
+<<link "Back down the throat, toward the hellmouth">><<goto "Hellmouth">><</link>>
+
+
+:: GritChamber [upper]
+The chamber opens around a dead machine — the screen-rake that once dragged the
+solids from the flow, its long corroded screw seized in a trough of grey sludge
+that steams faintly and should not, at this temperature, be steaming at all. The
+rake's teeth are hung with a beard of rag and root and something that has begun,
+very slowly, to grow back toward the light of your lamp.
+
+<<if not $gritRatCleared>>
+Something the size of a dog has made a nest in the gearbox, and as your light
+finds it, it comes out — a demon rat, hairless and wet and swollen wrong, with
+too many eyes and far too much interest in you.
+
+<<scentof "rat">>
+<<link "Fight the rat in the gearbox">>
+  <<run setup.startFight("rat", "GritChamberCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Back to the screening hall">><<goto "TheScreeningHall">><</link>>
+<<else>>
+The gearbox nest is quiet now, its tenant dealt with. Pipes run off the chamber
+in every direction, stencilled with hazard-labels too furred with grime to read.
+
+<<link "A row of maintenance stalls, off the north pipe">><<goto "TheStallRow">><</link>>
+<<link "A flooded conduit, off the south pipe">><<goto "TheLostConduit">><</link>>
+<<link "Back to the screening hall">><<goto "TheScreeningHall">><</link>>
+<</if>>
+
+
+:: GritChamberCleared [upper]
+/* lands here after winning the gearbox fight; sets the flag, then folds back */
+<<set $gritRatCleared to true>>
+You drag the thing out of the gearbox by its tail — it comes apart a little in
+your hand, more rot than rat — and leave it for whatever eats such things down
+here. The nest is yours, for what that's worth.
+
+<<link "A row of maintenance stalls, off the north pipe">><<goto "TheStallRow">><</link>>
+<<link "A flooded conduit, off the south pipe">><<goto "TheLostConduit">><</link>>
+<<link "Back to the screening hall">><<goto "TheScreeningHall">><</link>>

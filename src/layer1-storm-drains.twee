@@ -1,0 +1,921 @@
+/* =====================================================================
+   LAYER 1 — THE STORM DRAINS
+   The top of the sewer band, just under the street: the CLIMAX layer, where
+   the escape happens. Register: rain, grates, daylight, the smell of the
+   surface — and the betrayal of all of it. The filth here is at its most
+   ordinary (chemical street-runoff, foam, dead rats), which is exactly what
+   makes it land: you can see the clean world through the grates and you can't
+   reach it, and the runoff tells you the deep is already leaking UP into the
+   city you're trying to get back to.
+
+   Hub = TheCatchbasin (enter from L2 via TheRisers). The escape spine:
+   Outfall (find the honest route → $foundRealExit) → Maintenance (the GATE:
+   needs the rope) → ExitShaft (the climb → the corruption-keyed endings).
+   Depths registered in setup.depthOf (= 1). Built as a full ~20-room layer.
+   ===================================================================== */
+
+
+/* ---------- HUB (enter from L2 TheRisers) ---------- */
+
+:: TheCatchbasin [upper]
+<<nobr>>
+The risers let you out into the storm drains, and the storm drains are a different
+country from the trunk mains below: built for rain, not waste, generous and grey
+and almost clean, and laced all over their ceiling with grates and gulley-mouths
+that leak the one thing you have not seen in what feels like a year. Daylight. Thin
+and grey and falling in dusty bars through a dozen openings onto the catch-basin's
+standing water, and with it the smell of rain, and far off the drowned grumble of
+traffic. The surface. Right there. A body's length of brick and iron away.
+<</nobr>>
+
+<<if $corruption gte 70>>
+And the light is *wrong* on you now — too thin, too cold, too honest, picking out
+the black in the seams of your hands and asking questions you have stopped being
+able to answer. You notice you have moved out of the bars of daylight without
+deciding to, into the good clean shadow, and that the noticing comes a half-beat
+too late to do anything about.
+<<elseif $corruption gte 35>>
+The daylight ought to feel like hope and mostly it does, but there's a new thing
+under the hope now, a small resentment of the brightness, a sense that the clean
+grey world up there has no idea what it costs to climb back into it and would not
+thank you for the telling.
+<<else>>
+You could weep. You don't, because weeping is a thing you have been saving, but you
+stand in the falling light with your face turned up to it like a plant, and breathe
+rain, and let yourself believe for one whole minute that this ends with you up there.
+<</if>>
+
+The drains run off every way, all of them tending, you can feel it, toward the
+light.
+
+<<link "A chamber with a real draft — the way out, maybe">><<goto "Outfall">><</link>>
+<<link "A maintenance shaft, with a chain of daylight at the top">><<goto "Maintenance">><</link>>
+<<link "A dry gauge-house, off the basin">><<goto "TheGaugeHouse">><</link>>
+<<link "A street-catch, choked with what the gutters swallowed">><<goto "TheStreetCatch">><</link>>
+<<link "A great overflow chamber, to the west">><<goto "TheStormFront">><</link>>
+<<link "A long gallery under a street, grates all along its roof">><<goto "TheGalleryOfGrates">><</link>>
+<<link "Back down the risers, toward the trunk mains">><<goto "TheRisers">><</link>>
+
+
+/* ---------- THE ESCAPE SPINE (moved from core; re-linked into L1) ---------- */
+
+:: Outfall [upper]
+A real draft pours from a collapsed culvert here, cold and mineral and almost
+clean, and following your nose toward it is the first thing that has felt like
+hope since the sack came down. The passage narrows to a throat of cracked
+concrete, then opens onto a chamber where grey light leaks down through a storm
+grating far overhead. You can see *sky* through it, a coin of dirty daylight.
+
+This is the honest way out. There is a maintenance shaft off this chamber with
+iron rungs set into the wall — except a whole stretch of them, above head
+height, has rusted clean away, leaving a smooth gap of wet brick between you and
+the light. You'd need something to bridge it. A rope. A chain. Something.
+
+You fix the route in your mind: left at the sump, past the grit chamber, here.
+
+<<set $foundRealExit to true>>
+
+<<link "To the maintenance shaft">><<goto "Maintenance">><</link>>
+<<link "Back to the catch-basin">><<goto "TheCatchbasin">><</link>>
+
+
+:: Maintenance [upper]
+The maintenance shaft is the most ordinary thing in this whole place and you
+could weep at the sight of it: a brick chimney, a chain of grey daylight at the
+top, the smell of rain thinning the reek. This is the seam between down-here and
+up-there.
+
+Step in under it and the shaft resolves out of the dimness — narrower than the
+light let you hope, a man's-width flue of old engineering brick gone slick and
+green. A council number is stencilled at chest height, half eaten by rust-bloom,
+the last honest mark anyone made down here before the dark had the place to
+itself.
+
+The rain comes down the flue in a fine constant drizzle, ringing faint on the
+brick, beading on your upturned face, and for all its ordinariness the shaft has
+the held quiet of a thing that has watched a great many people stand exactly
+here and look exactly up.
+
+<<if $sealed>>
+You set your hand to the cold brick to start the climb, and there is no climb.
+The shaft is gone — weeping wall where the daylight was — and rising in you is the
+unhurried, final certainty that there was never a way up from here, that you have
+always been down here, that the grey coin of sky you remember was a thing you
+dreamed to keep your legs moving.
+<<elseif not $foundRealExit>>
+But you haven't yet found the honest route to it through the maze — you're not
+even sure this is the right shaft. There must be a way to be certain.
+<<elseif not setup.has("rope")>>
+But the rungs above head height are gone — a smooth gap of rusted brick between
+you and the rest of the climb. You can't free-climb wet brick. You need a rope
+or a chain to bridge it, and the only place that sells such things is back down
+through the teeth, in the market.
+<<else>>
+You uncoil the rope, swing the weighted end up over the lowest sound rung above
+the gap, and it catches on the second throw. The bridge is made. All that's left
+is to climb it — and to decide what you're climbing out *as*.
+<</if>>
+
+<<if $sealed>>
+<<link "Stop. Stop hoping.">><<goto "EndingTrapped">><</link>>
+<<else>>
+<<if $foundRealExit and setup.has("rope")>>
+<<link "Climb out">><<goto "ExitShaft">><</link>>
+<</if>>
+<<link "Back to the chamber with the draft">><<goto "Outfall">><</link>>
+<<link "Back to the catch-basin">><<goto "TheCatchbasin">><</link>>
+<</if>>
+
+
+:: ExitShaft [upper]
+You set your hands on the rope. The iron above the gap is cold — actually cold,
+the cold of the upper world — and the rain coming down the shaft tastes of a city
+that has no idea what lives under it. Above you, the coin of grey light. Behind
+you, the dark leans in close, curious whether you'll really go.
+
+The rope creaks as you test your weight on it, the weighted end snug over the
+sound rung, the bridge holding. Above the gap the rungs resume, true and climbable
+all the way to the slot of day, each one nearer the noise of the surface — gulls,
+a far horn, the long hiss of tyres on wet road, the whole indifferent racket of
+being alive up there, getting louder the higher you let your eye go.
+
+And you feel it now, the thing the climb is really asking, settling into your
+arms before they've taken the first pull: that going up is the easy part, that the
+gap was never only in the wall, and that whatever sets its hands on this rope will
+arrive at the top, and the only open question down here in the cold is what.
+
+<<link "Climb out">>
+  <<if $sealed>>
+    <<goto "EndingTrapped">>
+  <<elseif $corruption gte 70>>
+    <<goto "EndingPyrrhic">>
+  <<else>>
+    <<goto "EndingTrueEscape">>
+  <</if>>
+<</link>>
+<<link "Not yet — back to the catch-basin">><<goto "TheCatchbasin">><</link>>
+
+
+/* ---------- REST ---------- */
+
+:: TheGaugeHouse [upper]
+Off the catch-basin there is a gauge-house — a dry brick cell where the city once
+kept its instruments to measure the storm-water, to know its own floods. The gear
+is long dead, the dial-glasses crazed, the paper charts furred to felt, but the
+roof holds and the floor is dry and a high slot of a window lets in a clean blade
+of daylight that falls across a bench worn smooth by the backs of men who sat here
+out of the rain, a hundred years ago, doing an honest and forgotten job.
+
+Closer to, the cell gives up its small archaeology. A tin mug, gone to a single
+rust-coloured stain on the bench. A coat-hook with a green shred of someone's coat
+still on it. A tide of pencilled tallies up one doorpost — rainfalls counted, shifts
+served, the patient bookkeeping of men who measured the water and went home to dry
+beds. Nobody died in here. That, more than the dry floor, is what makes it feel safe:
+this was a room where the worst that happened was weather.
+
+You sit where they sat. The light is real and the quiet is real and for the length
+of a held breath you are just a person out of the weather, waiting for a shift to
+end. The shaking settles. The small surface part of you, the part that still
+remembers being expected somewhere, sits up a little.
+<<if $hp lt $maxhp>><<run setup.passTime(setup.REST_TIME)>><</if>><<set $hp to $maxhp>>
+
+<<link "A utility vault, through the back hatch">><<goto "TheJunctionVault">><</link>>
+<<link "Back to the catch-basin">><<goto "TheCatchbasin">><</link>>
+
+
+/* ---------- CACHES / PUZZLE ---------- */
+
+:: TheStreetCatch [upper]
+A street-catch — the sump under a kerbside gulley, where everything the gutters
+swallow comes to rest before the storm-water carries it on: a sediment of the
+ordinary world, grey and sodden and heartbreaking. Bottle-caps. A child's barrette.
+Keys. The swollen ghost of a paperback. And coins, of course, the city's small
+change, washed down out of the bright economy overhead into this dark one.
+
+Overhead the gulley-mouth makes a small skylight of the kerb, and through the bars
+of it the surface comes down in pieces — a wash of grit, a sweet-wrapper turning
+slowly on the standing water, the smell of wet pavement and somebody's dropped
+chips going to rot. You stand in the soft column of it. The catch is no bigger than
+a coffin and shaped a little like one, and you have the strange sense of looking up
+out of a grave that the city is, with no malice, busily filling.
+
+The sediment goes down further than your hand will reach, layer on patient layer,
+the whole strata of small lost things compacting toward the bottom — and that, you
+understand, is the deal the surface offers everything that slips its grip: not the
+river, not the sea, just this, a slow grey settling in the dark under the kerb,
+worth less every year, never quite gone.
+
+<<if $streetCatchLooted>>
+You've been back to pick the spendable from the sad, and left the rest — the keys to
+doors you will never stand at, the barrette, the book — to go on being the surface's
+quiet sediment in the dark.
+<<else>>
+There's coin among the sediment, the city's small change washed down out of the bright
+economy overhead into this dark one — the kind of find that only really pulls you back
+when the thought of it catches you somewhere else along the drains.
+<</if>>
+
+<<link "Along a silt-gulley">><<goto "TheGulley">><</link>>
+<<link "Back to the catch-basin">><<goto "TheCatchbasin">><</link>>
+
+
+:: TheGulley [upper]
+A long silt-gulley runs off the catch, shin-deep in the soft grey paste the storm-
+water drops when it slows: a slick of the city's sheddings, cigarette-ends and
+grit and the mica-glitter of a million ground-down things, and here and there the
+duller glint of something that was worth more before the gutter had it.
+
+Each step in is a small theft of effort — the paste closes over your foot with a
+slow suck and gives it back grudging, and the wading sets the surface of the silt
+to shifting, a sluggish grey weather that releases as it stirs the flat sweet
+chemical smell of everything dissolved and resettled, road-tar and detergent and
+the ghost of a thousand drains. The walls run close and low. The light from the
+catch behind you thins to nothing a dozen paces in.
+
+It is very quiet down the gulley, the quiet of a place where the water has stopped
+hurrying and the city has stopped reaching, and the silt lies in long undisturbed
+drifts that show, when you read them, the slow set of the slowing flow — and the
+soft suggestion, the longer you stand still in it, that you are reading your own
+forecast, that this is simply where things go when at last they no longer have the
+current to keep moving.
+
+<<if $gulleyLooted>>
+You've combed it. What's left is only silt, and the patient suggestion that you,
+too, are something the slowing water could set down and leave.
+<<else>>
+Here and there in the soft grey paste is the duller glint of something that was worth
+more before the gutter had it — worth going back for, if you find yourself thinking of
+it from somewhere up the line.
+<</if>>
+
+<<link "Toward a culvert running under a street">><<goto "TheCulvertRun">><</link>>
+<<link "Back to the street-catch">><<goto "TheStreetCatch">><</link>>
+
+
+:: TheStrainer [upper]
+A trash-screen bars the channel here — a rake of iron bars set across the flow to
+comb out the big debris before it reaches the river, and a century of combings have
+built against it a sodden wall of branch and bottle and bin-bag and worse, dammed
+so tight the storm-water has worried a new way around through a side-cut. Wedged in
+the trash, just out of reach, are things the current was carrying that someone
+might once have wanted back.
+
+Up close the wall is a cross-section, a core sample driven through the city's whole
+recent history: down at the waterline it is black and slick and anaerobic, gone to a
+peat that is barely things any more, and it lightens as it climbs, through compacted
+strata of carrier-bag and cigarette-packet and the bleached labels of brands that
+no longer exist, to a fresh untidy crust of this season's litter at the top, still
+bright, still recognisable, not yet taught what the rest below it has learned.
+
+The flow finds its way around through the side-cut with a thin continuous trickle,
+the only moving thing in the chamber, and the screen stands against the dammed
+weight of decades without complaint — a thing built to stop the world's refuse going
+out to the river, doing its one job so faithfully it has become the very wall it was
+set to drain.
+
+<<if $strainerLooted>>
+You've taken what was worth the reaching. The screen holds its grey wall of refuse,
+patient, adding to itself a little with every rain, the way everything down here
+adds to itself a little with every rain.
+<<else>>
+Wedged in the trash, just out of reach, are things the current was carrying that
+someone might once have wanted back — there for whoever's willing to come back and
+work an arm into the screen's wall to the shoulder for them.
+<</if>>
+
+<<link "A barred outfall, toward the river">><<goto "TheRiverMouth">><</link>>
+<<link "Back to the overflow chamber">><<goto "TheStormFront">><</link>>
+
+
+/* ---------- SNARES (bad ends) ---------- */
+
+:: TheAreaGrate [upper]
+At the gallery's end the roof drops to a wide pavement-grate, close enough to
+touch, and through it — the *street*. Real pavement, real rain falling past real
+streetlight, the underside of the ordinary world an arm's length up. And feet:
+people, passing, their footsteps ringing on the iron, going about the bright cheap
+business of being alive and above. You could call out. You are already calling out.
+
+You press up to the grate and the world pours through it onto your upturned face —
+cold rain, the white flutter of a passing umbrella, exhaust and wet stone and the
+sugared warmth of a coffee somebody is carrying somewhere with somewhere to be. The
+bars are slick under your fingers and close-spaced, a hand's width each, the gap
+between you and the street the width of a wrist and the whole patient weight of the
+city. You can see legs. You can see the hems of coats. You shout, and the sound goes
+up into the rain and the traffic and the great indifference and is not, by anyone,
+heard.
+
+A pair of feet stops. Slowly, with a care that should reassure you and does the
+opposite, someone crouches down to the grate, and a face comes into the light to
+look at you — a kind face, a helping face, a face that says //there you are, hold
+on, I've got you// in a warm and ordinary voice. And you have spent so long down
+here learning what wears a face like that, and how a half-beat late the eyes come
+to the smile, and you understand, one breath too slow, that the deep does not only
+keep what falls into it. Some of it climbs out. Some of it got out *before* you, and
+is up there now, wearing the city, and it has been waiting by the grates for one of
+its own to come calling.
+
+<<link "Reach up. Take the helping hand.">><<goto "EndingHelper">><</link>>
+<<link "Don't. Get back from the grate, into the dark.">>
+  <<soothe 4>>
+  <<goto "TheGalleryOfGrates">>
+<</link>>
+
+
+:: TheFoamfall [upper]
+Where a side-channel drops into the overflow, the falling water beats itself into
+foam — a great slow heap of it, blue-white and faintly luminous, piling and
+trembling and breaking apart, exactly the clean bright foam of a weir in a park, of
+soap, of a bath. It smells of nothing, which after everything is its own kind of
+miracle, and the urge to push your face into it, to let it scour the deep off your
+skin, to be for one moment a clean thing in clean foam, is very strong.
+
+Come nearer and the heap is bigger than it looked from the doorway — chest-high
+against the channel wall, a whole drift of it, lit faintly from within where the
+thin dark water shows through the lather, and it moves the way a living thing
+breathes, swelling and subsiding, sloughing off islands that sail a slow yard and
+dissolve. The roar of the fall behind it is huge and close and white. Spray comes
+off it onto your face, cool and weightless, and where it lands it does not feel like
+filth. It feels like the cleanest thing for a mile down.
+
+That is the trick of it, and some old animal under your hunger to be clean knows it
+before your mind will: nothing this far down is clean, and the brighter and softer
+and more like a bath a thing looks here, the harder you should ask what it is made
+of and what the city beat it up out of to make it look like that. The foam goes on
+breathing, patient, faintly glowing, asking nothing, offering everything.
+
+<<linkreplace "Wash your face in the clean white foam">>
+<<corrupt "head" "filth" 26>>
+You plunge your face into it and it is cold and soft and it does not smell of soap
+at all once you are inside it — it smells of nothing because it has nothing left to
+smell *with*, it is the froth the chemistry beats up out of the runoff, the surface-
+tension skin of everything the city dissolved and flushed, and it goes into your
+eyes and your open mouth and the soft tissues of you with a chemical eagerness, and
+where it touches it takes — not the filth, the filth it leaves, but the thin live
+membrane under the filth, the part of you that was still, technically, clean.
+<</linkreplace>>
+
+<<link "Pull back from the foam, eyes streaming">>
+  <<soothe 2>>
+  <<goto "TheStormFront">>
+<</link>>
+
+
+/* ---------- COMBAT ---------- */
+
+:: TheRatDrift [upper]
+The culvert widens into a slack-water bay where the storm-drift fetches up, and the
+drift here is rats — a sodden grey raft of them, drowned in the last storm and
+washed to this dead corner to rot, hundreds of them matted into one slow-turning
+mass against the brick. The smell is enormous and almost ordinary, almost honest,
+the clean rot of real dead animals, and it is nearly a comfort until the raft
+*moves*.
+
+<<if $ratDriftCleared>>
+The drift lies still now, its one living tenant dealt with, the drowned and the
+dead-again turning slowly together in the slack water, going wherever the next storm
+decides to take them.
+
+<<link "On, toward the rain-shaft">><<goto "TheRainShaft">><</link>>
+<<link "Back along the culvert">><<goto "TheCulvertRun">><</link>>
+<<else>>
+One rat in the raft is not drowned. It has been *living* on the drowned, fattening
+in the dark on a hundred of its dead kin, and it comes off the raft swollen and
+wrong and far too large, hauling itself toward the only warm thing in the bay, which
+is you.
+
+<<scentof "rat">>
+<<link "Put the bloated thing down">>
+  <<run setup.startFight("rat", "TheRatDriftCleared")>>
+  <<goto "Combat">>
+<</link>>
+<<link "Back along the culvert, away from the drift">><<goto "TheCulvertRun">><</link>>
+<</if>>
+
+
+:: TheRatDriftCleared [upper]
+/* lands here after the rat-drift fight; sets the flag, then folds onward */
+<<set $ratDriftCleared to true>>
+You put it down, and it falls back among its dead, and the whole raft settles with a
+soft wet sigh, as if grateful to be only dead again. You wipe your hands on the
+brick. There is a rain-shaft beyond the bay, the clean fall of weather coming down
+out of the world.
+
+<<link "On, toward the rain-shaft">><<goto "TheRainShaft">><</link>>
+<<link "Back along the culvert">><<goto "TheCulvertRun">><</link>>
+
+
+/* ---------- PASSAGE / ATMOSPHERE FILLER ---------- */
+
+:: TheStormFront [upper]
+The great overflow chamber, built to swallow the storm-surge so the streets above
+stay dry: a vault the size of a church, dry now and echoing, its floor stepped down
+in wide terraces to a central channel, every surface stained to a high-water mark
+far over your head that tells you what this room is for and what it becomes when the
+sky opens.
+
+Your footsteps go out across the dry floor and come back changed, doubled and
+hollowed by the size of the place, and as your eyes climb the chamber it keeps
+getting bigger — the terraces stepping down and away, the ceiling lost in dimness,
+the channel at the bottom a black slot running out under the far wall to wherever
+the water goes. The high-water mark rings the whole vault at a height that makes no
+sense until you make yourself believe it: this entire cathedral of a room fills,
+and has filled, and the stain is just where it last stopped.
+
+There is weather coming. You can smell it — a pressure, a green edge on the air, the
+charged stillness that comes before the sky lets go — and some animal part of you
+reads the high-water mark and wants very much to not be standing in this room when
+the city decides to flush. The dry quiet has a held-breath quality to it. The vault
+is waiting for rain, the way it has waited a hundred years, and you are standing
+where the rain will be.
+
+<<link "A trash-screen, barring the channel">><<goto "TheStrainer">><</link>>
+<<link "A fall of clean white foam, off the side">><<goto "TheFoamfall">><</link>>
+<<link "Toward a clanking tide-gate">><<goto "TheTideFlap">><</link>>
+<<link "Back to the catch-basin">><<goto "TheCatchbasin">><</link>>
+
+
+:: TheRiverMouth [upper]
+The drain ends, or means to: a great round outfall opening onto the river, the city's
+old apology to the water, the place all of this was always headed. And it is *open* —
+no brick here, no seal, just a screen of heavy bars set across the mouth to keep the
+big debris in, and beyond them the river, grey and wide and moving, and beyond the
+river the far bank with its lights, the whole indifferent breathing city laid out
+in the rain. You get your hands on the bars. They do not give. They were set to hold
+back a flood of refuse; a single person is, to them, just more refuse, held.
+
+The bars are wrist-thick and set close, furred with the river's green where the
+tide reaches and bright-worn where it doesn't, and the gaps between them are not even
+the width of a hopeful thought. Real wind comes through — proper river wind, salt
+and diesel and cold open distance — and it moves your hair and dries your eyes and
+carries the slap of wake against the outfall stones, the whole living sound of the
+estuary going about its enormous business a forearm's length beyond the iron.
+
+You stand with your face to the bars and the cold river air on you and the city
+right there across the water, and learn the particular cruelty of the storm drains:
+that the way out is everywhere, and barred everywhere, and that the surface keeps
+you out with exactly the same care it once took to keep its waste in.
+
+<<if not $barHolderHeard>>
+There is someone else at the bars. A woman — or the long-held idea of one — both hands locked on
+the iron exactly where yours are, worn so far into the screen that the river has made her half its
+own. She is not looking at the river. She has finished looking at the river.
+<<linkreplace "Speak to the shape with both hands on the bars">><<nobr>><<set $barHolderHeard to true>>
+//I had both hands on it, love — just here, where you've got yours,// she says, not turning. //I
+thought I'd hold till someone up top looked down and saw a person and not a sack the river fetched
+up. I lost the count of winters in it.// Her knuckles do not loosen; they have forgotten how. //You
+stop being someone who's holding on. You become a thing the screen holds. And there's a mercy in it,
+when you let it come — you were never going to be let out, so you can put down the dreadful work of
+deserving to be.// A long quiet, the river going by. //Loosen one finger. Go on. See how it rests
+you.//
+<</nobr>><<corrupt "head" "filth" 3>><</linkreplace>>
+<<else>>
+She has gone back to her holding-on, or to her having-let-go; at this distance you can no longer
+tell which, and neither, you suspect, can she.
+<</if>>
+
+<<link "Back to the trash-screen">><<goto "TheStrainer">><</link>>
+<<link "Toward a clanking tide-gate">><<goto "TheTideFlap">><</link>>
+
+
+:: TheSubwayBreach [upper]
+The drain's wall has failed here against something older and squarer — a tunnel of
+dressed concrete and dead cable, a transit tunnel, the underground proper, breached
+where the storm-water ate through and the two undergrounds met. It is flooded
+black and silent, the rails gone to rust under the water, but every so often a
+pressure rolls down it and a far light swells and fades and the whole flooded tube
+*breathes*, and you understand a train is still running somewhere on the live part
+of the line, full of people in the dry lit world, a wall's thickness and an entire
+universe away.
+
+Through the ragged mouth of the breach the tunnel opens up wrong and grand — a
+proper bore, tiled once, a strip of dead cable looping along the wall like a
+dropped necklace, a platform edge sliding away into the flood-black with the white
+stripe still painted along its lip. MIND THE GAP, the worn floor still tells the
+drowned. A signboard hangs from one chain over the still water, its lettering gone,
+pointing the way to a WAY OUT that the water closed a long time ago.
+
+The flooded part holds the cold like a held breath, and the still black surface
+gives back the breach behind you, and you, leaning into it. When the pressure rolls
+down and the far light swells, the whole drowned mirror of it lifts toward gold and
+then lets go, and for the second the light lasts you can see clean down the tunnel
+to where the dry world keeps running — close enough to time, far enough that timing
+it is the cruelest game the drains have taught you yet.
+
+<<if not $breachKnown>>
+Something stands at the breach, pressed to the gap where the storm-drain spills into the flooded
+tube — shaped like a person waiting on a platform and turned the wrong way by the runoff that made
+it. It is watching the dark water for the trains. It has the timetable nearly learned.
+<<linkreplace "Ask it what it's waiting for">><<nobr>><<set $breachKnown to true>>
+//Up,// it says, without turning, in a voice like a far train. //Everything down here is going up,
+given long enough — the water taught me that. You think the breach is where the clean tunnel got
+//in.// It's where //we// get out. Up the breaches and the gulleys and the grates, into the lit dry
+world, to wear it.// A pressure rolls down the tube; the far light swells and dies. //I'll have the
+gap between two trains timed to the second, soon. Then I ride one up in someone's coat, and no one
+aboard reads me right until it's far too late to matter — the same way,// it says, almost kindly,
+//no one read you.//
+<</nobr>><<corrupt "head" "filth" 9>><</linkreplace>>
+<<else>>
+It has stopped noticing you; it is counting the dark between trains, and the count is all there is
+of it now. A pressure builds in the tube, and the far light begins, again, to swell.
+<</if>>
+
+<<link "Toward a rain-shaft">><<goto "TheRainShaft">><</link>>
+<<link "Back to the utility vault">><<goto "TheJunctionVault">><</link>>
+
+
+:: TheCulvertRun [upper]
+A long low culvert carries you under what must be a street — you can hear it
+overhead, the grind and hiss of traffic, the rhythm of a city that has somewhere to
+be — and the run is straight and grey and almost clean, walked once a year by a man
+with a torch and a clipboard who is not due for eleven months. Painted on the wall
+at intervals, fading, the cheerful institutional code of the surface: a number, an
+arrow, a date long past, the breadcrumbs of people who came down here on purpose and
+went home after.
+
+You have to stoop, and the stooping makes the run feel longer than it is, the grey
+walls sliding past close on both sides, the floor's worn channel guiding your feet.
+Every so often a gulley-mouth in the ceiling lets down a shaft of weak day and a
+patter of street-grit, and you pass through the falling light and out the other side,
+back into the dim, and the traffic-grind overhead rises and ebbs as the road above
+crosses and recrosses your unseen path. It is the most ordinary stretch of the whole
+descent. That is almost what makes it frightening — how easily a thing could walk
+here once a year and never know what shares it.
+
+Off a side-bay, under the smell of wet brick and old water, there is another smell —
+warm, animal, fermented, a reek with a *hunger* in it that your stomach answers before
+your nose has finished deciding whether it's foul.
+
+<<link "Toward a slack-water bay, full of drift">><<goto "TheRatDrift">><</link>>
+<<link "Toward the warm, hungry reek in the side-bay">><<goto "TheLarder">><</link>>
+<<link "Along a silt-gulley">><<goto "TheGulley">><</link>>
+<<link "On toward a rain-shaft">><<goto "TheRainShaft">><</link>>
+
+
+:: TheLarder [upper]
+The side-bay is half-blocked by it: a delivery pallet, shrink-wrap burst, tumbled
+down some loading-dock drain in a storm and fetched up here in the dark — and stacked
+on it, sweating in the damp, a whole consignment of cheese. Good cheese, once. Stinky
+cheese, the expensive kind, the washed-rind and the blue-veined and the soft ripe
+rounds gone well past ripe into something that is no longer quite food and not yet
+quite rot, the two states holding hands. Who knows why a pallet of stinky cheeses
+ended up down in the sewer. Your belly rumbles as you look at it, loud and frank and
+not remotely on your side.
+
+And the rats are here. Of course the rats are here — fat and unbothered and many,
+nesting in the burst rounds, grooming each other on the warm reeking wax, looking at
+you not with the usual scurrying fear but with a kind of patient collegial interest,
+as if you have arrived, at last, for a job they have been keeping open.
+
+<<if setup.cheeseCompelled()>>
+You are not going to manage not to. You know it stepping into the bay — your hands
+know it, your jaw knows it, the rat that most of you now is knows it — and the small
+human remainder of you watches from somewhere behind your own eyes as your body
+crosses to the pallet and breaks off a fistful of the reeking soft and eats, fast,
+crouched, among the rats, who shift to make room the way you make room for family.
+<<set _r to setup.eatCheese()>>
+<<nobr>>
+//(the body feeds itself: +<<= _r.heal>> vigor, and the rat works <<= _r.bite>> deeper into you<<if _r.mana gt 0>>; the Word wells up +<<= _r.mana>> mana<</if>>)//
+<</nobr>>
+<<elseif not setup.inuredEnough()>>
+Your belly howls at the sight of it, loud and frank and not on your side — but you cannot. You
+stand over the pallet and your body will not do the thing the hunger is screaming for: it will not
+put //that// in your mouth, the reeking soft, the rot holding hands with itself; it will not lie
+down in //that// to be groomed into something new. The fresh animal you still are keeps its one
+last refusal. The rats watch you fail to, unbothered, patient, with the look of things that have
+seen this exact hesitation a hundred times and know exactly how it ends.
+<<else>>
+<<if $cheeseTasted>>
+You told yourself, last time, that it was the once. Your mouth is already wet.
+<</if>>
+
+<<linkreplace "Eat — your belly has already decided">><<nobr>>
+<<set _r to setup.eatCheese()>>
+You break off a piece of the soft reeking ripe and eat it, and it is — god help you —
+//good//, rich and animal and exactly what some new part of you has been wanting, and
+it sits warm in you and the warmth has teeth. The rats watch you eat with what is
+unmistakably approval.
+//(+<<= _r.heal>> vigor, <<= _r.bite>> rat worked into you<<if _r.mana gt 0>>; +<<= _r.mana>> mana<</if>>)//
+<</nobr>><</linkreplace>>
+<</if>>
+
+<<if setup.inuredEnough()>>
+<<linkreplace "Bed down in the nest among the pallet — just to rest">><<nobr>>
+<<set _r to setup.ratNestRest()>>
+You make a hollow for yourself in the warm reeking heap and the rats do not object;
+they close in around you instead, a living blanket, breathing and twitching and
+warm, and you sleep the best sleep you have had down here — and wake rested to the
+back teeth and groomed, washed all over by a hundred small tongues, smelling of the
+nest, of them, of what you are evidently becoming while you sleep.
+//(rested to full — and <<= _r.bite>> rat groomed into you<<if _r.mana gt 0>>; the Word in you full again<</if>>)//
+<</nobr>><</linkreplace>>
+<</if>>
+
+
+
+Deeper in the nest, where the heaped wax is oldest and the dark is warmest, something sits
+that was a man further along than you are: a rat-thing gone almost all the way over, hunched
+and grey and patient, whiskered, its hands folded the way a person folds their hands. It is
+not eating. It is //singing// — a low continuous chitter under the scrabble of the others,
+and the longer you listen the less it sounds like vermin-noise and the more it sounds like
+//language//, close and wet and old, a thing with grammar in it. The Cantor, some part of you
+names it, with no idea where the word came from. It watches you listen, and tips its head, and
+you understand it is deciding whether you are far enough gone to be taught.
+
+<<if $magicKnown>>
+You carry the Word already; the Cantor hears it in you when you draw near, and goes back to its
+singing, having no more to give you that you do not now own.
+<<else>>
+<<linkreplace "Sit among them and learn the song — let the Cantor teach you the Word">><<nobr>>
+<<run setup.learnMagic("cantor")>>
+You sit. You let the human part of you that recoils go quiet, and you listen, and you let your
+own throat try the shapes — and they //fit//, the way the cheese fit, the way a key you didn't
+know you'd been carrying fits a lock you didn't know was yours. The Cantor sings the close wet
+syllable and you sing it back, wrong, and again, less wrong, and then right — and something far
+down under the floor of the world turns over and //answers//, and the answering pours into you
+and waits there now, behind your eyes, a well with a voice. You can speak to the deep. Worse:
+it will speak back through whatever you point the Word at — and a little, each time, through you.
+//(you have learned the Word — Mana now shows in your kit; in a fight, the Cast action calls it)//
+<</nobr>><</linkreplace>>
+<</if>>
+
+<<link "Deeper into the nest, where the wheels are cured">><<goto "TheCurdworks">><</link>>
+<<link "Back along the culvert, away from the pallet">><<goto "TheCulvertRun">><</link>>
+
+
+/* ---------- THE CURDWORKS (the rat JOB — cheese-curing; owner 2026-07-20) ----------
+   The rat column's JOB, twin of the still and the LAST cell of the food×class matrix. The rats cure the
+   fallen pallet (and build more): setup.cheeseShift(mode) — light/hard pay meager coin for rat; the
+   standing offer is payment-in-kind — take your wage in the WHEEL (setup.eatCheese, which feeds the
+   cheese vice). Spur off TheLarder (the rat FOOD faucet). */
+
+:: TheCurdworks [upper]
+Deeper than the pallet, where the heaped wax is oldest and the warm dark is warmest, the bay opens into a
+curing-cave the rats have made their whole life's work: rack on rack of wheels going quietly to their
+reward, rounds and truckles and great sweating drums of the stuff, some scavenged whole off the pallet and
+some — you slowly understand — //built//, pressed up out of God knows what the drains bring down and left
+to ripen in the reek. The rat-things tend it with an unhurried craft that is horrible precisely because it
+//is// craft: turning the wheels, washing the rinds in a grey trickle you do not look at too closely,
+easing back the wax to check the crawling life inside — because the good ones //crawl//, that is the whole
+art of it, and the curers are proud of the crawl. Your belly, traitor to the last, waters.
+
+<<if not $curdmasterHeard>>
+An old curer straightens off a rack — grey almost all the way over, deft-fingered, patient — and looks you
+over the way it looks over a wheel not yet ready.
+<<linkreplace "Hear the old curer out">><<nobr>><<set $curdmasterHeard to true>>
+//Steady work, this,// it says, the words furred and close. //Turning, washing, tending. Wants doing
+right, takes a lifetime to learn doing right, and the pay//— a dry whiskered laugh —//the pay's nothing.
+Coin's for topside, for them as still spend it. Down here there's no coin. There's only the //wheel//.// It
+taps a ripening round, fond. //So that's how a body's paid here: in what we make. Take your keep in the
+cheese and you'll never want, and you'll never leave, and you'll never once mind — I didn't. Started
+turning wheels for a night's keep. Look at me now. I //am// the keep. Good, aren't I. Ready right through.//
+<</nobr>><</linkreplace>>
+<<else>>
+The old curer gives you the nod of a thing you tend the racks beside now, and goes back to the turning; the
+work does not say it twice.
+<</if>>
+
+There is work here for anyone who can stand the reek and hasn't the coin to be proud. What you take for it
+is your own affair.
+
+<<linkreplace "Turn the wheels — light work, hands up out of the wash">><<nobr>>
+<<set _s to setup.cheeseShift("light")>>
+You go down the racks giving the ripening rounds their quarter-turn each, the way you are shown, and it is
+honest and it is nothing, and you come away <<if _s.coin gt 0>><<= _s.coin>> coin<<if _s.coin neq 1>>s<</if>> the better<<else>>with a coin that curdles to rubbish before you can pocket it<</if>> and only a little of the cave soaked into you where you weren't watching.
+//(<<= _s.rat>> rat worked into you; <<if _s.coin gt 0>>+<<= _s.coin>> coin<<else>>no coin kept<</if>>)//
+<</nobr>><</linkreplace>>
+
+<<linkreplace "Wash the rinds — hands deep in the wash, down among the crawling">><<nobr>>
+<<set _s to setup.cheeseShift("hard")>>
+You work the bad end of it — hands in the grey wash to the wrist, easing wax back off the crawling rounds,
+breathing what lifts off them for hours — and it gets into you the way the work always does, under the
+nails and into the skin and somewhere behind that, and you come up <<if _s.coin gt 0>><<= _s.coin>> coin<<if _s.coin neq 1>>s<</if>> the better<<else>>with a fist of coin that rots to rubbish before you can spend it<</if>> and wearing more of the cave than you walked in with.
+//(<<= _s.rat>> rat worked deep into you; <<if _s.coin gt 0>>+<<= _s.coin>> coin<<else>>no coin kept<</if>>)//
+<</nobr>><</linkreplace>>
+
+<<linkreplace "Take your wage in the wheel — coin's for topside">><<nobr>>
+<<set _s to setup.cheeseShift("inkind")>>
+You work the shift and take your keep the way the curers do — a cured round broken off warm and eaten down
+crouched among them, crawling and all, and it is rich and it is animal and it is the //best// part of the
+day, and you understand, chewing, exactly why not one of them ever climbed back up the culvert. You pocket
+<<if _s.coin gt 0>>a single coin besides<<else>>no coin — there wasn't any, there never is<</if>>, and carry the rest of your wage out inside you.
+//(the work: <<= _s.rat>> rat into you. the wage: a whole wheel — +<<= _s.ration.heal>> vigor<<if _s.ration.mana gt 0>>, +<<= _s.ration.mana>> mana<</if>>; <<= _s.ration.bite>> rat worked deeper, and the cheese's hold set <<if setup.dominantAddiction() is "cheese">>hard — it is the loudest thing in you now<<else>>deeper<</if>>)//
+<</nobr>><</linkreplace>>
+
+<<link "Back to the pallet">><<goto "TheLarder">><</link>>
+
+
+:: TheTideFlap [upper]
+A tide-gate hangs in the river-wall — a great iron flap, hinged at the top, built to
+let the drains empty at low water and clap shut against the river coming back. It is
+clapping now, slow and arrhythmic, *boom* and silence and *boom*, as the river
+outside breathes against it, and each time it gapes there is a half-second of wider
+grey light and colder air and the whole indifferent river-smell before it slams again.
+
+Drawn closer by the light, you see the gate properly: a single slab of riveted iron
+the size of a barn door, the hinge at the top weeping orange down a beard of old rust,
+the bottom edge worn bright where a hundred years of tide have ground it against the
+sill. The river works it from the far side, shouldering it open a hand's breadth and
+letting it fall, shouldering and letting fall, never a true rhythm, the muscle of a
+whole estuary leaning idly on a door. Cold comes off it in pulses. Each gape throws a
+wedge of grey daylight onto the wet floor and snatches it back.
+
+You time it. You cannot help timing it. The gap is a hand's breadth and the iron is
+a ton and the river beyond it is January-cold and a mile wide, and it is, you make
+yourself admit, not a way out. It is just the closest the drains will let you put
+your eye to the open world.
+
+<<if not $timerHeard>>
+Crouched by the hinge, timing the boom with a showman's confidence, is a grinning thing that was
+once a clever man and is now mostly grin. It has, it wants you to know, the whole business figured.
+<<linkreplace "Listen to the grinning thing crouched by the hinge">><<nobr>><<set $timerHeard to true>>
+//Don't tell the others,// it says, all teeth, //but I've got this one timed. Boom — and a
+three-count — and boom, regular as a clock once you've the ear for it. And on the long gap, the
+special one, one rain in twelve, she gapes wide enough for a slim man to be through and into the
+river before she claps. I'm a slim man.// It does not move toward the gap. //Stick by me and I'll
+wave you through on the same one. Cost you nothing. We'll go together — next big rain. You'll see.//
+<</nobr>><</linkreplace>>
+<<else>>
+It is still timing the flap. Boom, and the three-count, and boom. It tips you a wink that the wide
+gap, any rain now, is going to be the one — and lets it clap shut, again, on nothing.
+<</if>>
+
+<<link "Back to the overflow chamber">><<goto "TheStormFront">><</link>>
+<<link "Toward the barred river-mouth">><<goto "TheRiverMouth">><</link>>
+
+
+:: TheRainShaft [upper]
+It is raining up there, and the rain comes down the shaft — a vertical run to a
+roadside gulley far above, and the weather falling through it in a cold clean column,
+ringing on the brick, pooling sweet and almost drinkable at your feet.
+
+You crane up into the fall of it. The shaft goes straight and true to a small grey
+square of day, and the rain comes down its whole length as a single unbroken
+thread, catching what light there is, so that the column seems lit from within — a
+rope of falling water you could almost climb with your eyes. It rings on the brick
+and beads on your face and runs down your neck, and it is cold the proper way, the
+clean way, the cold of weather and not of the deep, and the pool it makes at your
+feet is so nearly clear that you could believe, for a breath, the whole place might
+one day be rinsed back to honest water.
+
+You stand in the fall of it with your face up and your mouth open and let the
+surface rain wash into you, the actual rain, water that was a cloud this morning,
+that has touched nothing of the deep, and for as long as you can hold your face to it
+you are clean, you are clean, you are being rained on like anyone, like a person
+standing at a bus stop in the world.
+
+<<link "Toward a breached subway tunnel">><<goto "TheSubwayBreach">><</link>>
+<<link "Back along the culvert">><<goto "TheCulvertRun">><</link>>
+<<link "Toward a stair, going up">><<goto "TheStreetStair">><</link>>
+
+
+:: TheGalleryOfGrates [upper]
+A long straight gallery runs under a street, and its whole low roof is grates —
+gulley after gulley after pavement-grating, a ladder of grey daylight laid down the
+ceiling, and the city walking over all of it. You pass beneath shoes and prams and
+a dog that stops and looks down and is hauled on by its lead; beneath conversation,
+half-heard, about rent and weather and someone called Denise; beneath the entire
+ordinary surface of life, close enough to touch and as reachable as the moon.
+
+The gallery runs on further than you can see, each grate laying its own barred
+rectangle of day across the wet floor so the whole length is striped light and dark,
+light and dark, like the inside of a thing's ribs. You walk it through alternating
+bands — into the day-stripe and the rain spits down on you and the talk overhead
+goes suddenly clear, out into the dark between and it all gives way to the drip and
+echo of the drain. The surface comes and goes over your head like a signal that
+won't quite hold.
+
+And it is never silent here, that is the worst of it: there is always a voice
+somewhere down the line, always a footstep on some grate ahead or behind, the city
+narrating itself to a listener it does not know it has — a whole warm bright human
+murmur, ceaseless, meant for no one, and you walking under all of it in the dark, the
+one in the audience.
+
+<<if $corruption gte 70>>
+You find you have stopped looking up. The talk of rent and Denise comes down through
+the grates like birdsong from a country you've been deported from, and the part of
+you that listens does so the way a thing in a hide listens to the field — patiently,
+hungrily, with an interest that is no longer homesick and has become something with
+more teeth in it.
+<<else>>
+You walk it slowly, beneath all that careless life, and it is the loneliest stretch
+of the whole descent — not the dark places, not the drowned ones, but this: the
+world going on a yard above your head, in the light, without you, not even knowing
+to miss you.
+<</if>>
+
+<<link "Toward a low pavement-grate, and a voice">><<goto "TheAreaGrate">><</link>>
+<<link "Toward a stair, going up to a hatch">><<goto "TheStreetStair">><</link>>
+<<link "Back to the catch-basin">><<goto "TheCatchbasin">><</link>>
+
+
+:: TheJunctionVault [upper]
+A utility vault where the undergrounds of the city all shake hands: storm-drain and
+sewer and the dead bundled cables of telephone and power and the gas main's single
+fat artery, all crammed through one brick chamber with the casual danger of work
+done by men who are all now dead.
+
+The chamber is low and close and crowded with infrastructure — cable-trays bolted
+in tiers up the walls, conduit elbowing past conduit, the gas main running through
+the middle of it all at head height so you duck under the city's own breath. Stencils
+and tags hang off everything, the freemasonry of trades that never met: a power
+crew's hazard diamond, a phone exchange's coded loop, a chalked figure some plumber
+left forty years ago and never came back to rub out. It is warm in here, faintly,
+and the warmth comes off the live cable somewhere in the bundle — the one dead-looking
+thing in the room that is, you realise, still carrying the surface's current right
+past you in the dark.
+
+A junction box on the wall still has a faded notice — IN CASE OF FLOODING — and a
+number to call, the ink run but legible, a direct line to a surface office that
+would, you are fairly sure, still answer, and would not, you are entirely sure,
+believe you.
+
+<<if not $inspectorTalked>>
+Slumped against the junction box, under its own run-but-legible notice, is the man who came
+down to read it: a council inspector dried to leather and half gone to mineral, so much a part
+of the brickwork now that you take him for a sandbag until the head turns. The eyes still work.
+He knew this whole system once, before it kept him.
+<<linkreplace "Ask the dead man what he knows of the way up">><<nobr>><<set $inspectorTalked to true>>
+//The rungs,// he says, the voice like a page turning. //You'll have found the shaft off the
+outfall. The rungs run out — above head-height they've rusted clean to nothing, and there's no
+free-climbing wet brick, not unless you've made your peace with the falling. You want a line. A
+rope.// A pause, the patience of a thing with nothing but time. //And there's none up here. Only
+place that still deals in rope is back down — through the teeth, in the market. You go down to
+come up. That's the joke they built into the plumbing, and nobody left to laugh at it.//
+<</nobr>><</linkreplace>>
+<<else>>
+The inspector has gone back to watching his own notice — IN CASE OF FLOODING, and a number
+nobody will answer. He told you the way of it; the brick has the rest of him.
+<</if>>
+
+<<link "Through to a breached subway tunnel">><<goto "TheSubwayBreach">><</link>>
+<<link "Back to the gauge-house">><<goto "TheGaugeHouse">><</link>>
+
+
+:: TheStreetStair [upper]
+A stair — an actual stair, concrete, with a handrail, going *up* — and at the top of
+it a steel hatch with a wheel, the kind of municipal access a worker in a hi-vis
+vest comes down through on a Tuesday. You climb it two at a time.
+
+The stair is so ordinary it hurts: poured concrete treads worn to a shine down the
+middle, a steel handrail your hand closes round out of plain habit, a painted depth
+mark on the wall and a light fitting at the top with the bulb long dead in its cage.
+This is a stair built to be walked up and down by people with lanyards and lunchboxes,
+a stair that means nothing worse than the end of a shift, and your body climbs it the
+way it once climbed a hundred such stairs without a thought, toward the door at the
+top and the day on the other side.
+
+You spin the wheel, or you try, and it has not turned in thirty years and does not
+turn now, rusted to one solid forged thing, and on the far side of it — you can hear —
+is the underside of a manhole cover, and on the far side of *that* is the street, and
+the gap between your hands and the open air is four inches of rust and the whole
+weight of the world not letting you through.
+
+<<if not setup.has("graft_hand")>>
+At the foot of the dead stair, where four inches of rust taunt you with the street, something
+crouches that has been working the seam far longer than you. One of its hands has gone over — a
+single overgrown claw, levered into the gap, patient and wrong — and it watches you fail at the
+wheel with a fellow-feeling worse than mockery. It could give you a hand like its own, it says. A
+hand that could force four inches of rust and never feel the splinters. The hatch would stay shut
+either way; the deal was never about the door.
+<<set _plbl to "Let it do to your hand what the filth did to its (" + setup.tollTag(setup.items.graft_hand.graftSeg, "rat", setup.items.graft_hand.graftAmt) + ", and there is no taking it back)">><<link _plbl>>
+<<run setup.installGraft("graft_hand", "rat")>>
+<<goto "TheGalleryOfGrates">>
+<</link>>
+<<link "Refuse — keep the hand you were born with">>
+<<soothe 4>>
+<<goto "TheGalleryOfGrates">>
+<</link>>
+<<else>>
+The crouched thing has gone back to working its own claw into the seam and does not look up. It
+gave you the hand; it has nothing else you would take, and the hatch above is as shut as ever.
+<</if>>
+
+<<link "Back down the stair">><<goto "TheGalleryOfGrates">><</link>>
+<<link "Toward the rain-shaft">><<goto "TheRainShaft">><</link>>
+
+
+/* ---------- LAYER-1 BAD END ---------- */
+
+:: EndingHelper [ending]
+<<run setup.recordRun("taken")>>
+You reach up, because after everything you have refused down here, you cannot refuse
+a kind face and a helping hand and the word //home//. The hand closes on your wrist —
+warm, strong, ordinary, the most ordinary thing in the world — and it does not pull
+you up. It holds you there, at the grate, in the bars of streetlight, while the face
+above you keeps its kind shape and lets the eyes finish arriving, a half-beat late,
+the way they always finish arriving down here.
+
+//Not yet,// it says, gently, in the warm voice of the world. //You're so nearly
+done. Stay where I can find you. We're going to need more of us up here, and you've
+come such a long way to be exactly the right kind of thing.//
+
+It lets go. Its feet stand, and ring away across the iron, back into the bright
+business of the city it is wearing, and leave you in the falling light four inches
+from a surface that is no longer a refuge, because something got there first, and is
+keeping your place.
+
+//You reached for the surface, and the surface that reached back had already been
+down here.//
+
+<<link "Again">><<run setup.restartCarry()>><</link>>
