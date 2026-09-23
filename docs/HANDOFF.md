@@ -4,7 +4,7 @@
 >
 > Sewer Demons is being **rebuilt on the Animal Factory Tactics engine** in the private repo
 > `Syntaxswine/sewer-demons-tactics`. The Twine game is now the **source of record** — the
-> story, the bestiary, the gear, and above all the 72-cell corruption matrix — and not a
+> story, the bestiary, the gear, and above all the corruption matrix — and not a
 > build. Do not add features here; read from here.
 >
 > Why, and what carries over: `docs/DIRECTION-REBUILD-ON-TACTICS.md`.

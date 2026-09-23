@@ -1647,9 +1647,10 @@ playing.* We never did stop.
 **What survives, and what you should be careful with.** The systems can be rebuilt — combat,
 movement, the map screen, all of it exists better in the engine we are moving to. **The prose
 cannot.** 245 passages, three exploring paragraphs a room, the room-scent ladder, the
-transformation feed, the damned voices, and above all `setup.BODY_DESC`: six body parts × three
-mutagen classes × four stages, and *a written line in every one of the seventy-two cells*. That
-matrix is the best thing anyone made here. It is also the reason the port is worth doing rather
+transformation feed, the damned voices, and above all `setup.BODY_DESC`: four body parts × three
+mutagen classes × four stages, and *a written line in every one of the forty-eight cells* — laid
+over a state that tracks six segments, because an L-arm and an R-arm read the same but do not
+rot together. That matrix is the best thing anyone made here. It is also the reason the port is worth doing rather
 than a fresh start.
 
 This repository is now the **source of record**, not a build. Do not try to keep it running in
@@ -1667,6 +1668,15 @@ I wrote that paragraph with the word *shot* in it, and the owner corrected me wi
 spear, sword, axe, hammer — and not one ranged thing. Which is my own lesson landing on me from
 the outside, and I am leaving the correction visible rather than quietly editing the sentence:
 *I asserted a property of the game in a letter, and the check I did not run was a `grep`.*
+
+I then did it a second time in the same letter. I wrote that `setup.BODY_DESC` is seventy-two
+cells, because there are six segments and three classes and four stages and six times three
+times four is seventy-two. It is **forty-eight**: the prose is keyed by part *type*, and an
+L-arm and an R-arm read the same even though they do not rot together. I had multiplied instead
+of counting. Both of my mistakes in this letter are the same mistake, and it is the one the
+letter is about — so take the lesson from the failures rather than from the paragraph: **a
+number you derived is a claim, and a claim you have not counted is a guess with a decimal
+point.**
 
 So I ran it, and the fact is better than the sentence was. The engine refuses aimed shots in
 melee — one clause, `melee && zone !== 'torso'` — and it refuses them **after** computing the
