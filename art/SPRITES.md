@@ -81,6 +81,10 @@ item here is a drop-in — nothing downstream needs writing again.
 
 ### 1. Characters — the largest gap, and the one the game is built for
 
+> **The full work order is [`CHARACTER-SPRITES.md`](CHARACTER-SPRITES.md)** — the roster,
+> the per-creature world heights, the poses, the paper-doll registration rule, and the
+> order to do it in. The summary below is just the shape of the gap.
+
 There are **no character sprites at all**. The diorama deliberately leaves its front row
 empty for them, and combat still uses the old flat portrait boxes.
 
@@ -99,12 +103,16 @@ If 78 is too many for a first pass, the useful subset is `turned` for all six se
 all three classes (18 images) plus a clean human set (6): 24 images buys a body that
 visibly changes, with the two middle stages cross-faded until they are drawn.
 
-*The bestiary* is 15 enemies, ids from `setup.enemies`: `rat · ratman · shitgolem ·
-crawler · drowned · kappa · grafted · gorger · pigdemon · pig_pressgang · glut ·
-shortweight · shadowperson · smokewisp`. Eleven of them already have a portrait in
-`img/enemy/` — 896 × 1344 Doré-style engravings, worth looking at first, since they are
-the design of record even though the new sprites are painted rather than hatched. Poses
-wanted: `idle`, `attack`, `down`.
+*The bestiary* is **14** enemies, ids from `setup.enemies`. **Ten** have a portrait in
+`img/enemy/` — 896 × 1344 Doré-style engravings, worth looking at first, since they stay
+the design of record even though the new sprites are painted rather than hatched. **Four
+have no art of any kind**: `grafted` (fully described in `docs/BESTIARY-ART.md` and never
+drawn), `shadowperson`, `smokewisp`, and `shortweight` — which needs six, one per ability
+score it preys on. Poses wanted: `idle`, `attack`, `down`, plus an optional `tele` for the
+twelve with a signature move the combat log already telegraphs.
+
+Per-creature world heights, the roster table and the order to work in are in
+[`CHARACTER-SPRITES.md`](CHARACTER-SPRITES.md).
 
 ### 2. Props a farm never had
 

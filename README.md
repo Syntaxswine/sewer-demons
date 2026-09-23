@@ -11,8 +11,8 @@ Rooms are drawn as small **isometric sprite dioramas** above their prose -- the 
 the walls and what is lying about, in the materials of the layer you are on and washed
 to its band. 197 of the 213 mapped rooms get one without a line of per-room authoring;
 the 16 with a hand-drawn illustration keep it. See [`art/SPRITES.md`](art/SPRITES.md)
-for the art contract, the provenance, and what still needs drawing -- there are no
-character sprites yet, and the game is built to want them.
+for the art contract and the provenance, and [`art/CHARACTER-SPRITES.md`](art/CHARACTER-SPRITES.md)
+for the open art job -- there are no character sprites yet, and the game is built to want them.
 
 **Agents / new contributors: start with [`docs/HANDOFF.md`](docs/HANDOFF.md)** —
 it has the toolchain, the SugarCube gotchas, every system, and the backlog.
